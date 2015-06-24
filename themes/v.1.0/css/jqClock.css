@@ -1,0 +1,4 @@
+/* SAMPLE CSS STYLES FOR JQUERY CLOCK PLUGIN */
+  .jqclock { font-family: "Courier";  }
+.clockdate { color: DarkRed; margin-right: 10px; font-size: 18px;}
+.clocktime { font-size: 14px; }

@@ -1,0 +1,19 @@
+table{
+    border-collapse:collapse;
+}
+.border {
+    border: 1px solid #080808;
+}
+.tbody-a5 {
+    height:55mm;
+}
+.noborders td {
+    border:0;
+}
+.nobordersbottomtop td {
+    border-bottom:0;
+    border-top:0;
+}
+.nobordersbottom td {
+    border-bottom:0;
+}
