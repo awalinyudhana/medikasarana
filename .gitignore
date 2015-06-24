@@ -2,3 +2,4 @@
 upload/*
 application/cache/*
 templates_c/*
+session/*
