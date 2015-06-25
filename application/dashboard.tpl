@@ -57,8 +57,8 @@
     {js('application.js')}
     {js('plugins/charts/flot.js')}
     {js('plugins/charts/flot.time.js')}
-    {js('charts/widgets/filled_blue.js')}
-    {js('charts/widgets/filled_green.js')}
+    {js('plugins/charts/flot.categories.js')}
+    {js('charts/widgets/grafik_dashboard.js')}
     {block name=head}{/block}
 </head>
 
