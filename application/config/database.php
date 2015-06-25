@@ -64,10 +64,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '1234',
-	'database' => 'sms-pos',
+	'hostname' => '127.12.26.130',
+	'username' => 'adminPhuUkZE',
+	'password' => 'HIT9P7cHlPZ5',
+	'database' => 'medikasarana',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
