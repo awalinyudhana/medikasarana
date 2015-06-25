@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BankInfo extends MX_Controller
+class Bank extends MX_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->acl->auth('bank_info');
+        $this->acl->auth('bank');
         $this->load->library('grocery_CRUD');
     }
 

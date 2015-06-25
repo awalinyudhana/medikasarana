@@ -142,9 +142,9 @@ class Product extends MX_Controller
         return "<input type='text' disabled name='disabled_prefix_code' value='$value' /><input type='hidden' name='prefix_code' value='$value' />";
     }
 
-    public function setTextarea()
+    public function setTextarea($value, $row)
     {
-        return "<textarea name='note' rows='2' cols='40'></textarea>";
+        return "<textarea name='note' rows='2' cols='40'>$value</textarea>";
     }
 
     public function checkPrefixCode($post_array, $table_name)

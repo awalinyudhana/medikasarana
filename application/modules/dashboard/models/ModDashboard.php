@@ -61,4 +61,27 @@ class ModDashboard extends CI_Model
         }
         return $debitSum;
     }
+
+    public function getRetailData($type = null)
+    {
+        switch ($type) {
+            case 'month':
+                $curYear = date('Y');
+                $where = "(DATE_FORMAT(date, '%Y-%m-%d') >= '$curYear-01-01') AND (DATE_FORMAT(date, '%Y-%m-%d') <= '$curYear-12-31')";
+                break;
+            default:
+                $monThisWeek = date('Y-m-d', strtotime("monday this week"));
+                $friThisWeek = date('Y-m-d', strtotime("friday this week"));
+                $where = "(DATE_FORMAT(date, '%Y-%m-%d') >= '$monThisWeek') AND (DATE_FORMAT(date, '%Y-%m-%d') <= '$friThisWeek')";
+                break;
+        }
+
+        $this->db->where($where);
+        $this->db->from('retail');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+           return $query->result_array();
+        }
+    }
 }

@@ -192,14 +192,6 @@ $route['sales-order/returns/save'] = "sales_order_return/SalesOrderReturn/save";
 $route['sales-order/returns/checkout/(:num)'] = "sales_order_return/SalesOrderReturn/checkout/$1";
 $route['sales-order/returns/invoice'] = "sales_order_return/SalesOrderReturn/invoice";
 
-$route['warehouse/product-placing'] = "warehouse/productPlacing";
-$route['warehouse/product-placing/add'] = "warehouse/productPlacing/add";
-$route['warehouse/product-placing/edit/(:num)'] = "warehouse/productPlacing/edit/$1";
-$route['warehouse/product-placing/read/(:num)'] = "warehouse/productPlacing/read/$1";
-$route['warehouse/product-placing/delete/(:num)'] = "warehouse/productPlacing/delete/$1";
-$route['warehouse/product-placing/success/(:num)'] = "warehouse/productPlacing/success/$1";
-
-$route['bank-info'] = "bank_info/BankInfo";
 $route['users/update-group-role/(:num)'] = "users/updateRole/$1";
 $route['users/update-group/(:num)'] = "users/updateGroup/$1";
 $route['users/delete-group/(:num)'] = "users/deleteGroup/$1";

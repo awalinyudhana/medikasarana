@@ -1,5 +1,5 @@
 {* Extend our master template *}
-{extends file="../../../master.tpl"}
+{extends file="../../../dashboard.tpl"}
 
 {block name=content}
     <div class="page-header">
@@ -15,7 +15,7 @@
                     <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan</h6>
                 </div>
                 <div class="panel-body">
-                    <div class="graph-standard" id="filled_blue"></div>
+                    <div class="graph-standard" id="grafik_penjualan"></div>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Pembelian</h6>
                 </div>
                 <div class="panel-body">
-                    <div class="graph-standard" id="filled_green"></div>
+                    <div class="graph-standard" id="grafik_pembelian"></div>
                 </div>
             </div>
         </div>
@@ -66,4 +66,9 @@
             </a>
         </li>
     </ul>
+
+    <script>
+        var dataPenjualan = {$dataPenjualan};
+        var dataPembelian = [ ["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9] ];
+    </script>
 {/block}
