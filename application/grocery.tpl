@@ -86,7 +86,7 @@
             <ul class="dropdown-menu dropdown-menu-right icons-right">
                 <li><a href="#"><i class="icon-user"></i> Profile</a></li>
                 <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
-                <li><a href="login/logout"><i class="icon-exit"></i> Logout</a></li>
+                <li><a href="{base_url('login/logout')}"><i class="icon-exit"></i> Logout</a></li>
             </ul>
         </li>
     </ul>

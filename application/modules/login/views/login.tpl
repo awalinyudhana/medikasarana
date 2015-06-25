@@ -51,6 +51,10 @@
                         {*Remember me*}
                         {*</label>*}
                         {*</div>*}
+
+                        <label>
+                            <a href="{base_url('forgot-password')}">Lupa Password</a>
+                        </label>
                     </div>
 
                     <div class="col-xs-6">

@@ -34,7 +34,7 @@ class Users extends MX_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_table('staff')
-            ->columns('id_group', 'nip', 'name', 'username', 'email', 'register_date')
+            ->columns('id_group', 'nip', 'name', 'email' , 'username', 'register_date')
             ->display_as('id_group', 'Group Name')
             ->display_as('nip', 'NIP')
             ->display_as('register_date', 'Register Date')
@@ -98,9 +98,9 @@ class Users extends MX_Controller
         $this->renderGroup($output);
     }
 
-    public function setTextarea()
+    public function setTextarea($value, $row)
     {
-        return "<textarea name='note' rows='2' cols='40'></textarea>";
+        return "<textarea name='note' rows='2' cols='40'>$value</textarea>";
     }
 
     function countJmlUser($value, $row)

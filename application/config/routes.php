@@ -53,6 +53,7 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 //$route['translate_uri_dashes'] = FALSE;
 
+$route['forgot-password'] = "users/Repair";
 $route['purchase-order'] = "purchase_order/PurchaseOrder";
 $route['purchase-order/detail'] = "purchase_order/PurchaseOrder/insertPOD";
 $route['purchase-order/delete'] = "purchase_order/PurchaseOrder/resetPO";
