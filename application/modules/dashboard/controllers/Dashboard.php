@@ -6,7 +6,7 @@ class Dashboard extends MX_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->acl->auth('product');
+        $this->acl->auth('dashboard');
         $this->load->library('grocery_CRUD');
         $this->load->model('ModDashboard');
         $this->curDate = date('Y-m-d');
@@ -19,12 +19,22 @@ class Dashboard extends MX_Controller
 
     public function index()
     {
+        if ($this->input->post('penjualan_period')) {
+            $retailData = $this->ModDashboard->getRetailData($this->input->post('penjualan_period'));
+        } else {
+            $retailData = $this->ModDashboard->getRetailData();
+        }
+
         $data['minimumStock'] = $this->ModDashboard->getMinimumStock();
         $data['expiredProducts'] = $this->ModDashboard->getExpiredProducts();
         $dataCredit = $this->ModDashboard->getCreditData();
         $data['creditCount'] = $dataCredit['count'];
         $data['creditSum'] = $dataCredit['sum'];
         $data['debitSum'] = $this->ModDashboard->getDebitSum();
+        $pemb[0] = array("January", 100);
+        $pemb[1] = array("February", 300);
+        $pemb[2] = array("March", 200);
+        $data['dataPenjualan'] = json_encode($pemb);
         $this->parser->parse('dashboard.tpl', $data);
     }
 
@@ -141,5 +151,17 @@ class Dashboard extends MX_Controller
         $grand_total = (float) str_replace(',', '', substr($row->grand_total, 3, strlen($row->grand_total)));
         $paid = (float) str_replace(',', '', substr($row->paid, 3, strlen($row->paid)));
         return "Rp " . number_format($grand_total - $paid);
+    }
+
+    public function test()
+    {
+        $this->load->library('email');
+        $this->email->from('otoy.destroyed@gmail.com', 'Your Name');
+        $this->email->to('mafaikmon@gmail.com'); 
+
+        $this->email->subject('Email Test');
+        $this->email->message('Testing the email class.');  
+
+        $this->email->send();
     }
 } 

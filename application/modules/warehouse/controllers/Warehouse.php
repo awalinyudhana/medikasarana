@@ -54,7 +54,7 @@ class Warehouse extends MX_Controller
         return $post_array;
     }
 
-    public function productPlacing()
+    public function placing()
     {
         $crud = new grocery_CRUD();
         $crud->set_table('warehouse_rack_detail')
@@ -71,9 +71,9 @@ class Warehouse extends MX_Controller
         $this->render($output);
     }
 
-    public function setTextarea()
+    public function setTextarea($value, $row)
     {
-        return "<textarea name='note' rows='2' cols='40'></textarea>";
+        return "<textarea name='note' rows='2' cols='40'>$value</textarea>";
     }
 
     public function addProductStockColumn($value, $row)

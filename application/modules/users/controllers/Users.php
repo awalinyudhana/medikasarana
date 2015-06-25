@@ -34,16 +34,19 @@ class Users extends MX_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_table('staff')
-            ->columns('id_group', 'nip', 'name', 'email' , 'username', 'register_date')
+            ->columns('id_group', 'nip', 'name', 'email', 'username', 'telp1', 'telp2', 'register_date')
+            ->fields('id_group', 'nip', 'name', 'email', 'telp1', 'telp2', 'username', 'password')
             ->display_as('id_group', 'Group Name')
             ->display_as('nip', 'NIP')
             ->display_as('register_date', 'Register Date')
+            ->display_as('telp1', 'Telp 1')
+            ->display_as('telp2', 'Telp 2')
             ->set_relation('id_group', 'staff_group', 'name_group')
             ->field_type('password', 'password')
             ->callback_field('password', array($this, 'setPasswordInputToEmpty'))
             ->callback_before_insert(array($this, 'checkPassword'))
             ->callback_before_update(array($this, 'encryptPasswordCallback'))
-            ->required_fields('id_group', 'nip', 'name', 'username', 'email')
+            ->required_fields('id_group', 'nip', 'name', 'username', 'email', 'telp1')
             ->set_rules('email', 'Email', 'valid_email')
             ->set_rules('nip', 'NIP', 'integer|required')
             ->unset_fields('register_date')
@@ -84,13 +87,14 @@ class Users extends MX_Controller
     {
         $crud = new grocery_CRUD();
 
+        // roles column is just for dummy column, because GC cannot search a custom column
         $crud->set_table('staff_group')
-            ->columns('name_group', 'note', 'jml_user')
+            ->columns('name_group', 'note', 'roles')
             ->fields('name_group', 'note')
             ->display_as('name_group', 'Group Name')
-            ->display_as('jml_user', 'Jumlah User')
+            ->display_as('roles', 'Jumlah User')
             ->required_fields('name_group')
-            ->callback_column('jml_user', array($this, 'countJmlUser'))
+            ->callback_column('roles', array($this, 'countJmlUser'))
             ->callback_field('note', array($this, 'setTextarea'))
             ->add_action('Update Role', '', '', 'read-icon', array($this, 'addUpdateRoleAction'))
             ->unset_read();
@@ -134,5 +138,10 @@ class Users extends MX_Controller
         $data['modulesList'] = $modulesList;
         $data['name_group'] = strtoupper($userGroupRoles['name_group']);
         $this->parser->parse('update-role.tpl', $data);
+    }
+
+    public function test()
+    {
+        echo date('Y-m-d H:i:s');
     }
 }

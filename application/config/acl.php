@@ -103,8 +103,8 @@ $config['module_router'] =
                             'module' => 'principal'
                         ], [
                             'title' => 'Bank Info',
-                            'url' => 'bank-info',
-                            'module' => 'bank_info'
+                            'url' => 'bank',
+                            'module' => 'bank'
                         ],
                     ]
                 ], [
@@ -160,7 +160,7 @@ $config['module_router'] =
                     'module' => 'product_conversion'
                 ], [
                     'title' => 'Product Placing',
-                    'url' => 'warehouse/productPlacing',
+                    'url' => 'warehouse/placing',
                     'module' => 'warehouse'
                 ]
             ]
