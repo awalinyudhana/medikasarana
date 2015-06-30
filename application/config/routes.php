@@ -98,7 +98,7 @@ $route['retail/update/(:num)/(:num)'] = "retail/updateItem/$1/$2";
 $route['retail/delete/(:num)'] = "retail/deleteItem/$1";
 $route['retail/save'] = "retail/save";
 $route['retail/invoice'] = "retail/invoice";
-$route['retail/checkout/(:num)'] = "Retail/checkout/$1";
+$route['retail/checkout/(:num)'] = "retail/checkout/$1";
 
 
 $route['retail/returns'] = "retail_return/RetailReturn";
