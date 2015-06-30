@@ -205,21 +205,36 @@ class Acl
     {
         foreach ($router as $value) {
             if (isset($value['child']) && !is_null($value['child']) && is_array($value['child'])) {
-                $title = isset($value['title']) ? $value['title'] : "";
-                $icon = isset($value['icon']) ? $value['icon'] : "";
-                $this->menu .= "<li>";
-                $this->menu .= "<a href=\"#\"><span>$title</span><i class=\"$icon\"></i></a>";
-                $this->menu .= "<ul>";
-                $this->filter($value['child']);
-                $this->menu .= "</ul></li>";
-            } else if (in_array($value['module'], $this->roles)) {
+                if ($this->getCountActiveChild($value['child']) > 0) {
+                    $title = isset($value['title']) ? $value['title'] : "";
+                    $icon = isset($value['icon']) ? $value['icon'] : "";
+                    $this->menu .= "<li>";
+                    $this->menu .= "<a href=\"#\"><span>$title</span><i class=\"$icon\"></i></a>";
+                    $this->menu .= "<ul>";
+                    $this->filter($value['child']);
+                    $this->menu .= "</ul></li>";
+                }
+            } elseif (in_array($value['module'], $this->roles)) {
                 $title = isset($value['title']) ? $value['title'] : "";
                 $url = isset($value['title']) ? $value['url'] : "";
                 $this->menu .= "<li>";
-                $this->menu .= "<a href=\"".base_url($url)."\">$title</a>";
+                $this->menu .= "<a href=\"" . base_url($url) . "\">$title</a>";
                 $this->menu .= "</li>";
             }
         }
+    }
+
+    private function getCountActiveChild($router)
+    {
+        $count_child = 0;
+        foreach ($router as $value) {
+            if (isset($value['child']) && !is_null($value['child']) && is_array($value['child'])) {
+                $count_child++;
+            } elseif (in_array($value['module'], $this->roles)) {
+                $count_child++;
+            }
+        }
+        return $count_child;
     }
 
     public function getModulesList()
