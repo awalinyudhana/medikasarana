@@ -1,7 +1,6 @@
 {* Extend our master template *}
 {extends file="../../../master.tpl"}
 {block name=print}
-
     <div id="print">
         <font size="1.1em">
             <table border="0" width="100%">
@@ -12,7 +11,7 @@
                         </br>
                         {$master->city} - {$master->state}
                         </br>
-                        {$master->telp}
+                        {$master->telp1} - {$master->telp2}
                         </br>
                         {$master->owner}
                     </span>
@@ -118,7 +117,7 @@
                         </br>
                         {$master->city} - {$master->state}
                         </br>
-                        {$master->telp}
+                        {$master->telp1} - {$master->telp2}
                         </br>
                         {$master->owner}
                     </span>
