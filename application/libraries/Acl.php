@@ -229,7 +229,9 @@ class Acl
         $count_child = 0;
         foreach ($router as $value) {
             if (isset($value['child']) && !is_null($value['child']) && is_array($value['child'])) {
-                $count_child++;
+                if($this->getCountActiveChild($value['child']) > 0){
+                    $count_child++;
+                }
             } elseif (in_array($value['module'], $this->roles)) {
                 $count_child++;
             }
