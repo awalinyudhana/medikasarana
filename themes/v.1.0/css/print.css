@@ -4,13 +4,13 @@
         background-color: white;
         height: 100%;
         width: 100%;
-        position: fixed;
+        /*position: fixed;*/
         top: 0;
         left: 0;
         margin: 0;
-        padding: 5px 2px 5px 2px;
-        font-size: 14px;
-        line-height: 18px;
+        padding: 2px 1px;
+        font-size: 9px;
+        line-height: 13px;
     }
     table{
         border-collapse:collapse;

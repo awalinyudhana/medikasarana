@@ -28,8 +28,6 @@
                         {$principal->email}
                     </span>
                 </div>
-
-
                 <div class="col-sm-4">
                     <ul class="invoice-details">
                         <li>NPWP <strong>{$principal->npwp}</strong></li>
@@ -48,7 +46,7 @@
                     </ul>
                 </div>
             </div>
-
+            <br>
 
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="table-print">
