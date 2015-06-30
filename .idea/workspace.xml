@@ -48,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkout.tpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="checkout.tpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/retail/views/checkout.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-56.23077" vertical-offset="0" max-vertical-offset="3876">
-              <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.7892857" vertical-offset="0" max-vertical-offset="3944">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
@@ -72,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="print.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="print.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/v.1.0/css/print.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.609215" vertical-offset="0" max-vertical-offset="901">
-              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -163,8 +163,8 @@
         <option value="$PROJECT_DIR$/application/master.tpl" />
         <option value="$PROJECT_DIR$/themes/v.1.0/js/form/custom.js" />
         <option value="$PROJECT_DIR$/application/modules/purchase_order/views/invoice.tpl" />
-        <option value="$PROJECT_DIR$/application/modules/retail/views/checkout.tpl" />
         <option value="$PROJECT_DIR$/themes/v.1.0/css/print.css" />
+        <option value="$PROJECT_DIR$/application/modules/retail/views/checkout.tpl" />
       </list>
     </option>
   </component>
@@ -905,23 +905,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/themes/v.1.0/css/print.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/retail/views/checkout.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-56.23077" vertical-offset="0" max-vertical-offset="3876">
-          <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.7892857" vertical-offset="0" max-vertical-offset="3944">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/v.1.0/css/print.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.609215" vertical-offset="0" max-vertical-offset="901">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>

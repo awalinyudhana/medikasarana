@@ -2,10 +2,11 @@
 {extends file="../../../master.tpl"}
 {block name=print}
     <div id="print">
-        <table border="0" width="100%" id="print-header">
-            <tr>
-                <td width="60%" align="left" valign="top">
-                    <h3>{$master->store_name}</h3>
+        <font size="1.3em">
+            <table border="0" width="100%" >
+                <tr>
+                    <td width="60%" align="left" valign="top">
+                        <h3>{$master->store_name}</h3>
                     <span>{$master->address} - {$master->zipcode}
                         </br>
                         {$master->city} - {$master->state}
@@ -14,77 +15,80 @@
                         </br>
                         {$master->owner}
                     </span>
-                </td>
-                <td align="right" valign="center">
-                    No Faktur # <strong class="text-danger pull-right">{$master->id_retail}</strong></br>
-                    Staff <strong class="pull-right">{$master->staff_name} </strong></br>
-                    Date : <strong class="pull-right">{$master->date}</strong></br>
-                </td>
-            </tr>
-        </table>
-        <table border="1" width="100%" id="print-body">
-            <thead>
-            <tr>
-                <th>No</th>
-                <th min-width="40%">Nama Produk</th>
-                <th>Merek</th>
-                <th>Satuan</th>
-                <th>Qty</th>
-                <th>Harga</th>
-                <th>Subtotal</th>
-            </tr>
-            </thead>
-            <tbody class="tbody-a5">
-            {assign var=total value=0}
-            {assign var=val value=1}
-            {foreach $items as $key }
-                <tr class="nobordersbottomtop">
-                    <td valign="top" align="left">{$val}</td>
-                    <td valign="top" align="left">{$key['name']}</td>
-                    <td valign="top" align="left">{$key['brand']}</td>
-                    <td valign="top">{$key['unit']} ( {$key['value']} )</td>
-                    <td valign="top" align="left">{$key['qty']}</td>
-                    <td valign="top" align="right">
-                        Rp {$key['price']|number_format:0}</td>
-                    <td valign="top" align="right">
-                        Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}
+                    </td>
+                    <td align="right" valign="center">
+                        No Faktur # <strong class="text-danger pull-right">{$master->id_retail}</strong></br>
+                        Staff <strong class="pull-right">{$master->staff_name} </strong></br>
+                        Date : <strong class="pull-right">{$master->date}</strong></br>
                     </td>
                 </tr>
-                {assign var=val value=$val+1}
-                {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
+            </table>
+        </font>
+        <font size="1.0em">
+            <table border="1" width="100%">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th min-width="40%">Nama Produk</th>
+                    <th>Merek</th>
+                    <th>Satuan</th>
+                    <th>Qty</th>
+                    <th>Harga</th>
+                    <th>Subtotal</th>
+                </tr>
+                </thead>
+                <tbody class="tbody-a5">
+                {assign var=total value=0}
+                {assign var=val value=1}
+                {foreach $items as $key }
+                    <tr class="nobordersbottomtop">
+                        <td valign="top" align="left">{$val}</td>
+                        <td valign="top" align="left">{$key['name']}</td>
+                        <td valign="top" align="left">{$key['brand']}</td>
+                        <td valign="top">{$key['unit']} ( {$key['value']} )</td>
+                        <td valign="top" align="left">{$key['qty']}</td>
+                        <td valign="top" align="right">
+                            Rp {$key['price']|number_format:0}</td>
+                        <td valign="top" align="right">
+                            Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}
+                        </td>
+                    </tr>
+                    {assign var=val value=$val+1}
+                    {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
 
-            {/foreach}
-            </tbody>
-            <tr class="nobordersbottom">
-                <td colspan="6" align="right" valign="top">Total</td>
-                <td align="right" valign="top">Rp {$master->total|number_format:0}</td>
-            </tr>
-            <tr class="nobordersbottomtop">
-                <td colspan="6" align="right" valign="top">Diskon</td>
-                <td align="right" valign="top">Rp {$master->discount_price|number_format:0}</td>
-            </tr>
-            <tr class="nobordersbottomtop">
-                <td colspan="6" align="right" valign="top">DPP</td>
-                <td align="right" valign="top">Rp {($master->total-$master->discount_price)|number_format:0}</td>
-            </tr>
-            <tr class="nobordersbottomtop">
-                <td colspan="6" align="right" valign="top">PPN</td>
-                <td align="right" valign="top">
-                    Rp  {$master->ppn|number_format:0}</td>
-            </tr>
-            <tr class="nobordersbottomtop">
-                <td colspan="6" align="right" valign="top">Grand Total</td>
-                <td align="right" valign="top">Rp {$master->grand_total|number_format:0}</td>
-            </tr>
-            <tr class="nobordersbottomtop">
-                <td colspan="6" align="right" valign="top">Jumlah Bayar</td>
-                <td align="right" valign="top">Rp {$master->paid|number_format:0}</td>
-            </tr>
-            <tr class="nobordersbottomtop">
-                <td colspan="6" align="right" valign="top">Kembali</td>
-                <td align="right" valign="top">Rp {($master->paid-$master->grand_total)|number_format:0}</td>
-            </tr>
-        </table>
+                {/foreach}
+                </tbody>
+                <tr class="nobordersbottom">
+                    <td colspan="6" align="right" valign="top">Total</td>
+                    <td align="right" valign="top">Rp {$master->total|number_format:0}</td>
+                </tr>
+                <tr class="nobordersbottomtop">
+                    <td colspan="6" align="right" valign="top">Diskon</td>
+                    <td align="right" valign="top">Rp {$master->discount_price|number_format:0}</td>
+                </tr>
+                <tr class="nobordersbottomtop">
+                    <td colspan="6" align="right" valign="top">DPP</td>
+                    <td align="right" valign="top">Rp {($master->total-$master->discount_price)|number_format:0}</td>
+                </tr>
+                <tr class="nobordersbottomtop">
+                    <td colspan="6" align="right" valign="top">PPN</td>
+                    <td align="right" valign="top">
+                        Rp  {$master->ppn|number_format:0}</td>
+                </tr>
+                <tr class="nobordersbottomtop">
+                    <td colspan="6" align="right" valign="top">Grand Total</td>
+                    <td align="right" valign="top">Rp {$master->grand_total|number_format:0}</td>
+                </tr>
+                <tr class="nobordersbottomtop">
+                    <td colspan="6" align="right" valign="top">Jumlah Bayar</td>
+                    <td align="right" valign="top">Rp {$master->paid|number_format:0}</td>
+                </tr>
+                <tr class="nobordersbottomtop">
+                    <td colspan="6" align="right" valign="top">Kembali</td>
+                    <td align="right" valign="top">Rp {($master->paid-$master->grand_total)|number_format:0}</td>
+                </tr>
+            </table>
+        </font>
     </div>
 {/block}
 {block name=content}

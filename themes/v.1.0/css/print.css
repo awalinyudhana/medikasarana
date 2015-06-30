@@ -14,13 +14,6 @@
 
 }
 
-#print-header {
-    font-size: 1.3em !important;
-}
-#print-body {
-    font-size: 1.0em !important;
-}
-
 table {
     border-collapse: collapse;
 }
