@@ -3,10 +3,6 @@
     margin: 0mm;  /* this affects the margin in the printer settings */
 }
 
-#Header, #Footer {
-    display: none !important;
-}
-
 #print {
     background-color: white;
     height: 100%;
@@ -14,6 +10,15 @@
     /*position: fixed;*/
     top: 0;
     left: 0;
+    padding: 2px 1px;
+
+}
+
+#print-header {
+    font-size: 1.3em !important;
+}
+#print-body {
+    font-size: 1.0em !important;
 }
 
 table {
