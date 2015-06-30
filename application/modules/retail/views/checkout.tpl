@@ -49,9 +49,6 @@
                         <td valign="top" align="left">{$key['qty']}</td>
                         <td valign="top" align="right">
                             Rp {$key['price']|number_format:0}</td>
-                        {*<td style="width:130px;" class="text-right">*}
-                        {*Rp {($key['qty'] * $key['price'])|number_format:0}</td>*}
-                        {*<td style="width:130px;" class="text-right">Rp {$key['discount']|number_format:0}</td>*}
                         <td valign="top" align="right">
                             Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}
                         </td>

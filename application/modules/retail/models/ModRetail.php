@@ -57,7 +57,7 @@ class ModRetail extends CI_Model
 
     public function getDataRetail($id_retail){
         return $this->db
-            ->select('*, staff.name as staff_name, staff.name as store_name')
+            ->select('*, staff.name as staff_name, store.name as store_name')
             ->from('retail')
             ->join('staff', 'staff.id_staff = retail.id_staff')
             ->join('store', 'store.id_store = retail.id_store')

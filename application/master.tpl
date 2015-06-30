@@ -129,29 +129,28 @@
     </div>
     <!-- /page content -->
     <div style="display: none;">
-
         {block name=print}{/block}
     </div>
     {js('form/custom.js')}
-    <script type="text/javascript">
-        $(".insertCategoryPrefixCode").keyup(function() {
-            var source = $('.insertCategoryPrefixCode').val();
-            if (source.length <= 2) {
-                var value = $( this ).val();
-                $( 'input[name="prefix_code"]' ).val( value );
-                $( 'input[name="disabled_prefix_code"]' ).val( value );
-            }
-        });
+    {*<script type="text/javascript">*}
+        {*$(".insertCategoryPrefixCode").keyup(function() {*}
+            {*var source = $('.insertCategoryPrefixCode').val();*}
+            {*if (source.length <= 2) {*}
+                {*var value = $( this ).val();*}
+                {*$( 'input[name="prefix_code"]' ).val( value );*}
+                {*$( 'input[name="disabled_prefix_code"]' ).val( value );*}
+            {*}*}
+        {*});*}
 
-        $(".insertUnitPrefixCode").keyup(function() {
-            var source = $('.insertUnitPrefixCode').val();
-            if (source.length <= 3) {
-                var value = $( this ).val();
-                $( 'input[name="prefix_code"]' ).val( value );
-                $( 'input[name="disabled_prefix_code"]' ).val( value );
-            }
-        });
-    </script>
+        {*$(".insertUnitPrefixCode").keyup(function() {*}
+            {*var source = $('.insertUnitPrefixCode').val();*}
+            {*if (source.length <= 3) {*}
+                {*var value = $( this ).val();*}
+                {*$( 'input[name="prefix_code"]' ).val( value );*}
+                {*$( 'input[name="disabled_prefix_code"]' ).val( value );*}
+            {*}*}
+        {*});*}
+    {*</script>*}
 </div>
 <!-- /content -->
 
