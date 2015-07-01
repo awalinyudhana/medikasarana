@@ -80,4 +80,23 @@ class ModProduct extends CI_Model
         }
     }
 
+    public function getUnitOnly(){
+        $result = $this->db->get('product_unit');
+        $rows = $result->result_array();
+        return $rows;
+    }
+
+    public function getUnitValue($id_product_unit)
+    {
+        $this->db->where('id_product_unit', $id_product_unit);
+        $result = $this->db->get('product_unit');
+        if ($result->num_rows() > 0)
+        {
+           $row = $result->row(); 
+
+           return $row->value;
+        }
+        return '';
+    }
+
 }
