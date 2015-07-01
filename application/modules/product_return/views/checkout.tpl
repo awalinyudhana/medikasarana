@@ -31,7 +31,7 @@
                         </br>
                         {$master->city} - {$master->state}
                         </br>
-                        {$master->telp}
+                        {$distribution->telp1} - {$distribution->telp2}
                         </br>
                         {$master->owner}
                     </span>

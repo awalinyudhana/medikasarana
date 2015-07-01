@@ -88,7 +88,7 @@
 
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
-                                        <input type="text" value="{set_value('sell_price')}"
+                                        <input type="text" value="{set_value('sell_price',$product->sell_price)}"
                                                class="form-control currency-format"
                                                autofocus="autofocus" name="sell_price" id="sell-price"
                                                placeholder="0">
