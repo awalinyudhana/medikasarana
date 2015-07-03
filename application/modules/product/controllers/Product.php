@@ -20,14 +20,19 @@ class Product extends MX_Controller
     {
         $crud = new grocery_CRUD();
         if (!empty($id_product) && is_numeric($id_product)) {
-            $crud->where('product.parent', $id_product);
-            $crud->unset_operations();
+            $crud->where('product.parent', $id_product)
+                 ->unset_read()
+                 ->unset_add()
+                 ->unset_edit()
+                 ->unset_delete();
         } else {
             $crud->add_action('Lihat Sub Produk', '', '', 'read-icon', array($this, 'addSubProductAction'));
         }
 
+        $productParentField = $this->ModProduct->getProductOnlyForDropdown();
+
         $crud->set_table('product')
-            ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'value', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
+            ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
             ->display_as('id_product_category', 'Product Category')
             ->display_as('id_product_unit', 'Product Satuan')
             ->display_as('date_expired', 'Date Expired')
@@ -35,15 +40,13 @@ class Product extends MX_Controller
             ->display_as('minimum_stock', 'Minimum Stock')
             ->display_as('value', 'Nilai Satuan')
             ->callback_column('sell_price', array($this, 'currencyFormat'))
-            ->callback_column('value', array($this, 'setUnitValue'))
             ->set_relation('id_product_category', 'product_category', 'category')
-            ->set_relation('id_product_unit', 'product_unit', 'unit')
+            ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
             ->required_fields('barcode', 'id_product_category', 'name', 'brand', 'id_product_unit', 'date_expired', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
             ->unique_fields('barcode')
-            ->callback_field('parent', array($this, 'productParentField'))
-            ->callback_field('id_product_unit', array($this, 'setUnitField'))
+            ->field_type('parent','dropdown', $productParentField)
             ->unset_read();
 
         $output = $crud->render();
@@ -54,42 +57,6 @@ class Product extends MX_Controller
     public function currencyFormat($value, $row)
     {
         return "Rp " . number_format($value);
-    }
-
-    public function setUnitValue($value, $row)
-    {
-        $value = $this->ModProduct->getUnitValue($row->id_product_unit);
-        return $value;
-    }
-
-    public function productParentField($value = '', $primary_key = null)
-    {
-        $products = $this->ModProduct->getProductOnly();
-        $text = '<select id="field-parent" name="parent" class="chosen-select chzn-done" data-placeholder="Select Parent" style="width: 300px;"><option value="">Select Parent</option>';
-        foreach ($products as $row) {
-            if ($value == $row['id_product']) {
-                $text .= '<option value="' . $row['id_product'] . '" selected>' . $row['name'] . '</option>';
-            } else {
-                $text .= '<option value="' . $row['id_product'] . '">' . $row['name'] . '</option>';
-            }
-        }
-        $text .= '</select>';
-        return $text;
-    }
-
-    public function setUnitField($value = '', $primary_key = null)
-    {
-        $units = $this->ModProduct->getUnitOnly();
-        $text = '<select id="field-unit" name="id_product_unit" class="chosen-select chzn-done" data-placeholder="Select Parent" style="width: 300px;"><option value="">Select Parent</option>';
-        foreach ($units as $row) {
-            if ($value == $row['id_product_unit']) {
-                $text .= '<option value="' . $row['id_product_unit'] . '" selected>' . $row['unit'] . ' / ' . $row['value'] . '</option>';
-            } else {
-                $text .= '<option value="' . $row['id_product_unit'] . '">' . $row['unit'] . ' / ' . $row['value'] . '</option>';
-            }
-        }
-        $text .= '</select>';
-        return $text;
     }
 
     function addSubProductAction($value, $row)
@@ -228,5 +195,25 @@ class Product extends MX_Controller
         $randomString = substr(str_shuffle($rest_character), 0, ($length - 1));
 
         return $first_character . $randomString;
+    }
+
+    public function completeReport()
+    {
+        $crud = new grocery_CRUD();
+        $crud->set_table('product')
+            ->columns('name')
+            ->columns('category_parent', 'id_product_category', 'name')
+            ->display_as('id_product_category', 'Kategori Produk')
+            ->display_as('id_product', 'Nama Produk')
+            ->set_relation('id_product_category', 'product_category', 'category')
+            ->callback_column('category_parent', array($this, 'getCategoryParentName'))
+            ->unset_operations();
+        $output = $crud->render();
+        $this->render($output);
+    }
+
+    function getCategoryParentName($value, $row)
+    {
+        return $this->ModProduct->getCategoryParentName($row->id_product_category);
     }
 } 
