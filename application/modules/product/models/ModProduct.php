@@ -30,6 +30,19 @@ class ModProduct extends CI_Model
         return $rows;
     }
 
+    public function getProductOnlyForDropdown()
+    {
+        $result = $this->db->get('product');
+        $data = array();
+        if ($result->num_rows() > 0) {
+            foreach ($result->result_array() as $row) {
+                $data[$row['id_product']] = $row['name'];
+            }
+        }
+
+        return $data;
+    }
+
     public function getCategoryOnly(){
         $result = $this->db->get('product_category');
         $rows = $result->result_array();
@@ -45,6 +58,19 @@ class ModProduct extends CI_Model
            $row = $result->row(); 
 
            return $row->category;
+        }
+        return '';
+    }
+
+    public function getCategoryParentName($id_product_category)
+    {
+        $this->db->where('id_product_category', $id_product_category);
+        $result = $this->db->get('product_category');
+        if ($result->num_rows() > 0)
+        {
+           $row = $result->row(); 
+
+           return $this->getCategoryName($row->parent);
         }
         return '';
     }

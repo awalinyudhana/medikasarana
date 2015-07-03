@@ -1,6 +1,6 @@
 <?php 
 
-	$column_width = (int)(90/count($columns));
+	$column_width = (int)(100/count($columns));
 	
 	if(!empty($list)){
 ?><div class="bDiv" >
@@ -16,7 +16,7 @@
 				</th>
 				<?php }?>
 				<?php if(!$unset_delete || !$unset_edit || !$unset_read || !empty($actions)){?>
-				<th align="left" abbr="tools" axis="col1" class="" width='10%'>
+				<th align="left" abbr="tools" axis="col1" class="" style="min-width:80px;">
 					<div class="text-right">
 						<?php echo $this->l('list_actions'); ?>
 					</div>
@@ -33,7 +33,7 @@
 			</td>
 			<?php }?>
 			<?php if(!$unset_delete || !$unset_edit || !$unset_read || !empty($actions)){?>
-			<td align="left" width='10%'>
+			<td align="left" style="min-width:80px;">
 				<div class='tools'>				
 					<?php if(!$unset_delete){?>
                     	<a href='<?php echo $row->delete_url?>' title='<?php echo $this->l('list_delete')?> <?php echo $subject?>' class="delete-row" >
