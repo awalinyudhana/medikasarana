@@ -43,7 +43,7 @@ class Product extends MX_Controller
             ->set_relation('id_product_category', 'product_category', 'category')
             ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
-            ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'date_expired', 'minimum_stock')
+            ->required_fields('barcode', 'id_product_category', 'name', 'brand', 'id_product_unit', 'date_expired', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
             ->unique_fields('barcode')
             ->field_type('parent','dropdown', $productParentField)
@@ -68,9 +68,11 @@ class Product extends MX_Controller
     {
         $this->session->set_userdata('selected_table', 'product_category');
         $crud = new grocery_CRUD();
-        if (!empty($id_product_category) && is_numeric($id_product_category)) {
+        if (!empty($id_product_category) && is_numeric($id_product_category) && $action == 'parent') {
             $crud->where('parent', $id_product_category)
-                ->unset_operations();
+                ->unset_add()
+                ->unset_edit()
+                ->unset_delete();
         } else {
             $crud->add_action('Lihat Sub Produk Kategori', '', '', 'read-icon', array($this, 'addSubCategoryAction'));
         }
@@ -203,8 +205,9 @@ class Product extends MX_Controller
         $crud->set_table('product')
             ->columns('name')
             ->columns('category_parent', 'id_product_category', 'name')
+            ->display_as('category_parent', 'Parent Kategori')
             ->display_as('id_product_category', 'Kategori Produk')
-            ->display_as('id_product', 'Nama Produk')
+            ->display_as('name', 'Nama Produk')
             ->set_relation('id_product_category', 'product_category', 'category')
             ->callback_column('category_parent', array($this, 'getCategoryParentName'))
             ->unset_operations();
