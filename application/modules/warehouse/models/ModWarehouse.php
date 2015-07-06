@@ -24,9 +24,7 @@ class ModWarehouse extends CI_Model
     public function getProductOnlyForDropdown()
     {
         $this->db
-            ->from('product p')
-            ->join('warehouse_rack_detail r', 'r.id_product = p.id_product', 'left')
-            ->where('r.id_product is null');
+            ->from('product p');
         $result = $this->db->get();
         $data = array();
         if ($result->num_rows() > 0) {
