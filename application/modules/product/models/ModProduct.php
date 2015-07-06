@@ -15,39 +15,48 @@ class ModProduct extends CI_Model
         parent::__construct();
     }
 
-    public function get(){
+    public function get()
+    {
         $this->db->from('product');
-        $this->db->join('product_unit','product_unit.id_product_unit = product.id_product_unit');
-        $this->db->join('product_category','product_category.id_product_category = product.id_product_category');
+        $this->db->join('product_unit', 'product_unit.id_product_unit = product.id_product_unit');
+        $this->db->join('product_category', 'product_category.id_product_category = product.id_product_category');
         $result = $this->db->get();
         $rows = $result->result_array();
         return $rows;
     }
 
-    public function getProductOnly(){
+    public function getProductOnly()
+    {
         $result = $this->db->get('product');
         $rows = $result->result_array();
         return $rows;
     }
 
-    public function getProductOnlyForDropdown()
+    public function getProductOnlyForDropdown($id = null)
     {
-        $this->db->from('product')
-            ->join('product_unit','product_unit.id_product_unit = product.id_product_unit');
+        $this->db
+            ->select('p.*, pu.*')
+            ->from('product p')
+            ->join('product pr', 'pr.parent = p.id_product', 'left')
+            ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit');
+        if(!is_null($id)){
+            $this->db->where('p.id_product !=',$id);
+        }
         $result = $this->db->get();
         $data = array();
         if ($result->num_rows() > 0) {
             foreach ($result->result_array() as $row) {
-                $data[$row['id_product']] = $row['name'].'( '.$row['unit'].' / '.$row['value']." )";
+                $data[$row['id_product']] = $row['name'] . '( ' . $row['unit'] . ' / ' . $row['value'] . " )";
             }
-        }else{
-            $data = array(''=>'');
+        } else {
+            $data = array('' => '');
         }
 
         return $data;
     }
 
-    public function getCategoryOnly(){
+    public function getCategoryOnly()
+    {
         $result = $this->db->get('product_category');
         $rows = $result->result_array();
         return $rows;
@@ -57,11 +66,10 @@ class ModProduct extends CI_Model
     {
         $this->db->where('id_product_category', $id_product_category);
         $result = $this->db->get('product_category');
-        if ($result->num_rows() > 0)
-        {
-           $row = $result->row(); 
+        if ($result->num_rows() > 0) {
+            $row = $result->row();
 
-           return $row->category;
+            return $row->category;
         }
         return '';
     }
@@ -70,21 +78,21 @@ class ModProduct extends CI_Model
     {
         $this->db->where('id_product_category', $id_product_category);
         $result = $this->db->get('product_category');
-        if ($result->num_rows() > 0)
-        {
-           $row = $result->row(); 
+        if ($result->num_rows() > 0) {
+            $row = $result->row();
 
-           return $this->getCategoryName($row->parent);
+            return $this->getCategoryName($row->parent);
         }
         return '';
     }
 
-    public function getProduct($id_product){
+    public function getProduct($id_product)
+    {
         $this->db->select('*');
         $this->db->from('product');
-        $this->db->join('product_unit','product_unit.id_product_unit = product.id_product_unit');
-        $this->db->join('product_category','product_category.id_product_category = product.id_product_category');
-        $this->db->where('product.id_product',$id_product);
+        $this->db->join('product_unit', 'product_unit.id_product_unit = product.id_product_unit');
+        $this->db->join('product_category', 'product_category.id_product_category = product.id_product_category');
+        $this->db->where('product.id_product', $id_product);
         $this->db->order_by('product.name ASC');
         $result = $this->db->get();
         return $result->row();
@@ -110,7 +118,8 @@ class ModProduct extends CI_Model
         }
     }
 
-    public function getUnitOnly(){
+    public function getUnitOnly()
+    {
         $result = $this->db->get('product_unit');
         $rows = $result->result_array();
         return $rows;
@@ -120,11 +129,10 @@ class ModProduct extends CI_Model
     {
         $this->db->where('id_product_unit', $id_product_unit);
         $result = $this->db->get('product_unit');
-        if ($result->num_rows() > 0)
-        {
-           $row = $result->row(); 
+        if ($result->num_rows() > 0) {
+            $row = $result->row();
 
-           return $row->value;
+            return $row->value;
         }
         return '';
     }
