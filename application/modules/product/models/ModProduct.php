@@ -32,11 +32,13 @@ class ModProduct extends CI_Model
 
     public function getProductOnlyForDropdown()
     {
-        $result = $this->db->get('product');
+        $this->db->from('product')
+            ->join('product_unit','product_unit.id_product_unit = product.id_product_unit');
+        $result = $this->db->get();
         $data = array();
         if ($result->num_rows() > 0) {
             foreach ($result->result_array() as $row) {
-                $data[$row['id_product']] = $row['name'];
+                $data[$row['id_product']] = $row['name'].'-'.$row['unit'].'/'.$row['value'];
             }
         }else{
             $data = array(''=>'');
