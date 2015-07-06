@@ -43,7 +43,7 @@ class Product extends MX_Controller
             ->set_relation('id_product_category', 'product_category', 'category')
             ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
-            ->required_fields('barcode', 'id_product_category', 'name', 'brand', 'id_product_unit', 'date_expired', 'minimum_stock')
+            ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'date_expired', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
             ->unique_fields('barcode')
             ->field_type('parent','dropdown', $productParentField)

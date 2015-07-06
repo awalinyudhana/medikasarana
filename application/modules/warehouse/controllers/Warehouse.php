@@ -45,7 +45,8 @@ class Warehouse extends MX_Controller
                 ->callback_before_insert(array($this, 'addWarehouseID'))
                 ->unset_read();
     	$output = $crud->render();
-        $this->render($output);
+//        $this->render($output);
+        $this->parser->parse('rack.tpl',$output);
     }
 
     function addWarehouseID($post_array)
@@ -68,7 +69,8 @@ class Warehouse extends MX_Controller
                 ->required_fields('id_rack', 'id_product')
                 ->unset_read();
         $output = $crud->render();
-        $this->render($output);
+//        $this->render($output);
+        $this->parser->parse('placing.tpl',$output);
     }
 
     public function setTextarea($value, $row)
