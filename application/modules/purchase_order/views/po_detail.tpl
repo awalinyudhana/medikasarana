@@ -217,7 +217,7 @@
                                     Rp {($key['qty'] * $key['price'])|number_format:0}
                                 </td>
                                 <td style="width:130px;" class="text-right">
-                                    Rp {$key['discount_total']|number_format:0}
+                                    Rp {($key['qty'] * $key['discount_total'])|number_format:0}
                                 </td>
                                 {*<td style="width:130px;" class="text-right">*}
                                     {*Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}*}
@@ -237,7 +237,8 @@
                                 </td>
                             </tr>
                             {assign var=val value=$val+1}
-                            {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
+                            {*{assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}*}
+                            {assign var=total value=$total+($key['qty'] * $key['price'])}
                             {assign var=total_discount value=$total_discount+($key['qty'] * $key['discount_total'])}
 
                         {/foreach}
@@ -322,7 +323,7 @@
                                 </tr>
                                 <tr>
                                     {assign var=grand_total value=0}
-                                    {assign var=grand_total value=$dpp * $ppn}
+                                    {assign var=grand_total value=$dpp + $ppn}
                                     <th>Grand Total:</th>
 
                                     <td class="text-right">
