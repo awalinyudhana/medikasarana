@@ -59,10 +59,8 @@ class Warehouse extends MX_Controller
     {
         $crud = new grocery_CRUD();
 
-
         $state = $crud->getState();
-//        $state_info = $crud->getStateInfo();
-        if ($state == 'add' || $state == 'edit') {
+        if ($state == 'add') {
             $this->load->model('ModWarehouse');
             $productField = $this->ModWarehouse->getProductOnlyForDropdown();
             $crud->field_type('id_product', 'dropdown', $productField);
@@ -75,7 +73,6 @@ class Warehouse extends MX_Controller
             ->display_as('id_product', 'Product Name')
             ->columns('id_rack', 'id_product', 'stock')
             ->set_relation('id_rack', 'warehouse_rack', 'name')
-            ->field_type('id_product', 'dropdown', $productField)
             ->unset_fields('total')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
             ->required_fields('id_rack', 'id_product')
