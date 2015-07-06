@@ -74,8 +74,6 @@ class Warehouse extends MX_Controller
             ->display_as('id_product_unit', 'Product Satuan')
             ->display_as('id_product', 'Product Name')
             ->columns('id_rack', 'id_product', 'stock')
-            ->set_relation('id_rack', 'warehouse_rack', 'name')
-            ->field_type('id_product', 'dropdown', $productField)
             ->unset_fields('total')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
             ->callback_column('id_product', array($this, 'productName'))

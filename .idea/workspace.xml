@@ -40,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Warehouse.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Warehouse.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/warehouse/controllers/Warehouse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.269231" vertical-offset="1191" max-vertical-offset="1904">
-              <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.4232143" vertical-offset="1038" max-vertical-offset="1870">
+              <caret line="75" column="55" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -130,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModWarehouse.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModWarehouse.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/warehouse/models/ModWarehouse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81785715" vertical-offset="375" max-vertical-offset="986">
-              <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+            <state vertical-scroll-proportion="-17.615385" vertical-offset="375" max-vertical-offset="986">
+              <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -186,8 +186,8 @@
         <option value="$PROJECT_DIR$/application/modules/warehouse/views/rack.tpl" />
         <option value="$PROJECT_DIR$/application/modules/product/controllers/Product.php" />
         <option value="$PROJECT_DIR$/application/modules/product/models/ModProduct.php" />
-        <option value="$PROJECT_DIR$/application/modules/warehouse/controllers/Warehouse.php" />
         <option value="$PROJECT_DIR$/application/modules/warehouse/models/ModWarehouse.php" />
+        <option value="$PROJECT_DIR$/application/modules/warehouse/controllers/Warehouse.php" />
       </list>
     </option>
   </component>
@@ -1178,18 +1178,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/warehouse/controllers/Warehouse.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/warehouse/models/ModWarehouse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.269231" vertical-offset="1191" max-vertical-offset="1904">
-          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+        <state vertical-scroll-proportion="-17.615385" vertical-offset="375" max-vertical-offset="986">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/warehouse/models/ModWarehouse.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/warehouse/controllers/Warehouse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81785715" vertical-offset="375" max-vertical-offset="986">
-          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.4232143" vertical-offset="1038" max-vertical-offset="1870">
+          <caret line="75" column="55" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
           <folding />
         </state>
       </provider>

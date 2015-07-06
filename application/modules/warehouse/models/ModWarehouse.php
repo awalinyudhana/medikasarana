@@ -33,7 +33,7 @@ class ModWarehouse extends CI_Model
         $data = array();
         if ($result->num_rows() > 0) {
             foreach ($result->result_array() as $row) {
-                $data[$row['id_product']] = $row['name'] . '( ' . $row['unit'] . ' / ' . $row['value'] . " )";
+                $data[$row['id_product']] = $row['name'] . ' ( ' . $row['unit'] . ' / ' . $row['value'] . " )";
             }
         } else {
             $data = array('' => '');
