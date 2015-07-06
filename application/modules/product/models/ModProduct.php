@@ -38,6 +38,8 @@ class ModProduct extends CI_Model
             foreach ($result->result_array() as $row) {
                 $data[$row['id_product']] = $row['name'];
             }
+        }else{
+            $data = array(''=>'');
         }
 
         return $data;
