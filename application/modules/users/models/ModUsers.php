@@ -75,4 +75,17 @@ class ModUsers extends CI_Model
         }
         return false;
     }
+
+    public function getPlainPassword($id_staff)
+    {
+        $this->db->where('id_staff', $id_staff);
+        $result = $this->db->get('staff');
+        if ($result->num_rows() > 0)
+        {
+           $row = $result->row(); 
+
+           return $row->plain_password;
+        }
+        return '';
+    }
 }

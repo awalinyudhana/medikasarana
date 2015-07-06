@@ -43,7 +43,7 @@ class Users extends MX_Controller
             ->display_as('telp2', 'Telp 2')
             ->set_relation('id_group', 'staff_group', 'name_group')
             ->field_type('password', 'password')
-            ->callback_field('password', array($this, 'setPasswordInputToEmpty'))
+            ->callback_edit_field('password', array($this, 'setPlainPassword'))
             ->callback_before_insert(array($this, 'checkPassword'))
             ->callback_before_update(array($this, 'encryptPasswordCallback'))
             ->required_fields('id_group', 'nip', 'name', 'username', 'email', 'telp1')
@@ -69,7 +69,13 @@ class Users extends MX_Controller
 
     function setPasswordInputToEmpty()
     {
-        return "<input type='password' name='password' value='' />";
+        
+    }
+
+    function setPlainPassword($value, $primary_key)
+    {
+        $plain_password = $this->ModUsers->getPlainPassword($primary_key);
+        return "<input type='password' name='password' value='$plain_password' />";
     }
 
     function encryptPasswordCallback($post_array, $primary_key)
