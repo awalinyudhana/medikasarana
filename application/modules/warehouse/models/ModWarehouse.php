@@ -24,6 +24,7 @@ class ModWarehouse extends CI_Model
     public function getProductOnlyForDropdown()
     {
         $this->db
+            ->select('p.*, pu.*')
             ->from('product p')
             ->join('warehouse_rack_detail r', 'r.id_product = p.id_product', 'left')
             ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
@@ -37,7 +38,6 @@ class ModWarehouse extends CI_Model
         } else {
             $data = array('' => '');
         }
-        echo $this->db->last_query();
 
         return $data;
     }
