@@ -41,5 +41,13 @@ class ModWarehouse extends CI_Model
 
         return $data;
     }
+    public function getProductDetailName($id){
+        $this->db
+            ->from('product p')
+            ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
+            ->where('p.id_product',$id);
+        $result = $this->db->get()->row_array();
+        return $result['name'].' '.$result['unit'].'-'.$result['value'];
+    }
 
 }

@@ -61,25 +61,24 @@ class Warehouse extends MX_Controller
 
 
         $state = $crud->getState();
-//        $state_info = $crud->getStateInfo();
         if ($state == 'add' || $state == 'edit') {
             $this->load->model('ModWarehouse');
             $productField = $this->ModWarehouse->getProductOnlyForDropdown();
             $crud->field_type('id_product', 'dropdown', $productField);
         } else {
             $crud->set_relation('id_product', 'product', 'name');
-            $crud->set_relation('id_product_unit', 'product_unit', '{unit} / {value}');
         }
 
         $crud->set_table('warehouse_rack_detail')
             ->display_as('id_rack', 'Rack Name')
             ->display_as('id_product_unit', 'Product Satuan')
             ->display_as('id_product', 'Product Name')
-            ->columns('id_rack', 'id_product','id_product_unit', 'stock')
+            ->columns('id_rack', 'id_product', 'stock')
             ->set_relation('id_rack', 'warehouse_rack', 'name')
             ->field_type('id_product', 'dropdown', $productField)
             ->unset_fields('total')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
+            ->callback_column('id_product', array($this, 'productName'))
             ->required_fields('id_rack', 'id_product')
             ->unset_read();
         $output = $crud->render();
@@ -90,6 +89,13 @@ class Warehouse extends MX_Controller
     public function setTextarea($value, $row)
     {
         return "<textarea name='note' rows='2' cols='40'>$value</textarea>";
+    }
+
+    public function productName($value, $row)
+    {
+        $this->load->model('ModWarehouse');
+        $productName = $this->ModWarehouse->getProductDetailName($value);
+        return $productName;
     }
 
     public function addProductStockColumn($value, $row)
