@@ -78,7 +78,7 @@ class PurchaseOrder extends MX_Controller
                         'qty' => $this->input->post('qty'),
                         'price' => $this->input->post('price'),
                         'discount_total' => $this->input->post('discount_total') == "" ?
-                            "0" : $this->input->post('discount'),
+                            "0" : $this->input->post('discount_total'),
                         'status' => 0
                     );
                     $this->cart->add_item($this->input->post('id_product'), $data_value);

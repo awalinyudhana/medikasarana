@@ -61,7 +61,7 @@
                         <th>Harga</th>
                         <th>Total</th>
                         <th>Diskon</th>
-                        <th>Subtotal</th>
+                        {*<th>Subtotal</th>*}
                     </tr>
                     </thead>
                     <tbody>
@@ -79,9 +79,9 @@
                             <td style="width:130px;" class="text-right">
                                 Rp {($key['qty'] * $key['price'])|number_format:0}</td>
                             <td style="width:130px;" class="text-right">Rp {$key['discount_total']|number_format:0}</td>
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}
-                            </td>
+                            {*<td style="width:130px;" class="text-right">*}
+                                {*Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}*}
+                            {*</td>*}
                         </tr>
                         {assign var=val value=$val+1}
                         {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}

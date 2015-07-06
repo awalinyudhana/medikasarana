@@ -133,13 +133,13 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <a role="button" href="{base_url('product/index/add')}"
-                               class="button btn btn-warning center-block">Tambah Produk
-                            </a>
-                        </div>
-                    </div>
+                    {*<div class="row">*}
+                        {*<div class="col-sm-12">*}
+                            {*<a role="button" href="{base_url('product/index/add')}"*}
+                               {*class="button btn btn-warning center-block">Tambah Produk*}
+                            {*</a>*}
+                        {*</div>*}
+                    {*</div>*}
                 </div>
                 <div class="col-md-6">
                     <div class="row">
@@ -189,12 +189,13 @@
                             <th>Harga</th>
                             <th>Total</th>
                             <th>Diskon</th>
-                            <th>Subtotal</th>
+                            {*<th>Subtotal</th>*}
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         {assign var=total value=0}
+                        {assign var=total_discount value=0}
                         {assign var=val value=1}
                         {foreach $items as $key }
                             <tr>
@@ -218,9 +219,9 @@
                                 <td style="width:130px;" class="text-right">
                                     Rp {$key['discount_total']|number_format:0}
                                 </td>
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}
-                                </td>
+                                {*<td style="width:130px;" class="text-right">*}
+                                    {*Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}*}
+                                {*</td>*}
                                 <td style="width:90px;">
 
                                     <div class="table-controls">
@@ -237,6 +238,7 @@
                             </tr>
                             {assign var=val value=$val+1}
                             {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
+                            {assign var=total_discount value=$total_discount+($key['qty'] * $key['discount_total'])}
 
                         {/foreach}
                         </tbody>
@@ -259,57 +261,85 @@
                                 </tr>
                                 <tr>
                                     <th>Diskon:</th>
-                                    <td class="text-right {if form_error('discount_price')}has-warning{/if}"
-                                        style="max-width: 135px;">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Rp</span>
 
-                                            <input type="text" name="discount_price"
-                                                   value="{set_value('discount_price')}"
-                                                   class="form-control currency-format" placeholder="0"
-                                                   id="input-discount_price ">
-
-                                        </div>
+                                    <td class="text-right">
+                                        <span id="sum-discount_price-text">
+                                            <strong>Rp {$total_discount|number_format:0}</strong> </span>
                                     </td>
+                                    <input type="hidden" name="discount_price" value="{$total_discount}">
+                                    {*<td class="text-right {if form_error('discount_price')}has-warning{/if}"*}
+                                        {*style="max-width: 135px;">*}
+                                        {*<div class="input-group">*}
+                                            {*<span class="input-group-addon">Rp</span>*}
+
+                                            {*<input type="text" name="discount_price"*}
+                                                   {*value="{set_value('discount_price')}"*}
+                                                   {*class="form-control currency-format" placeholder="0"*}
+                                                   {*id="input-discount_price ">*}
+
+                                        {*</div>*}
+                                    {*</td>*}
                                 </tr>
                                 <tr>
+                                    {assign var=dpp value=0}
+                                    {assign var=dpp value=$total - $total_discount}
                                     <th>DPP:</th>
-                                    <td class="text-right {if form_error('dpp')}has-warning{/if}"
-                                        style="max-width: 135px;">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Rp</span>
-                                            <input type="text" name="dpp" value="{set_value('dpp')}"
-                                                   class="form-control currency-format" placeholder="0"
-                                                   id="input-dpp">
-
-                                        </div>
+                                    <td class="text-right">
+                                        <span id="sum-discount_price-text">
+                                            <strong>Rp {$dpp|number_format:0}</strong> </span>
                                     </td>
+                                    <input type="hidden" name="dpp" value="{$dpp}">
+                                    {*<td class="text-right {if form_error('dpp')}has-warning{/if}"*}
+                                        {*style="max-width: 135px;">*}
+                                        {*<div class="input-group">*}
+                                            {*<span class="input-group-addon">Rp</span>*}
+                                            {*<input type="text" name="dpp" value="{set_value('dpp')}"*}
+                                                   {*class="form-control currency-format" placeholder="0"*}
+                                                   {*id="input-dpp">*}
+
+                                        {*</div>*}
+                                    {*</td>*}
                                 </tr>
                                 <tr>
+                                    {assign var=ppn value=0}
+                                    {assign var=ppn value=$dpp * 0.1}
                                     <th>PPN:</th>
-                                    <td class="text-right {if form_error('ppn')}has-warning{/if}"
-                                        style="max-width: 135px;">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Rp</span>
-                                            <input type="text" name="ppn" value="{set_value('ppn')}"
-                                                   class="form-control currency-format" placeholder="0"
-                                                   id="input-ppn">
-
-                                        </div>
+                                    <td class="text-right">
+                                        <span id="sum-discount_price-text">
+                                            <strong>Rp {$ppn|number_format:0}</strong> </span>
                                     </td>
+                                    <input type="hidden" name="ppn" value="{$ppn}">
+                                    {*<td class="text-right {if form_error('ppn')}has-warning{/if}"*}
+                                        {*style="max-width: 135px;">*}
+                                        {*<div class="input-group">*}
+                                            {*<span class="input-group-addon">Rp</span>*}
+                                            {*<input type="text" name="ppn" value="{set_value('ppn')}"*}
+                                                   {*class="form-control currency-format" placeholder="0"*}
+                                                   {*id="input-ppn">*}
+
+                                        {*</div>*}
+                                    {*</td>*}
                                 </tr>
                                 <tr>
+                                    {assign var=grand_total value=0}
+                                    {assign var=grand_total value=$dpp * $ppn}
                                     <th>Grand Total:</th>
-                                    <td class="text-right {if form_error('grand_total')}has-warning{/if}"
-                                        style="max-width: 135px;">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Rp</span>
-                                            <input type="text" name="grand_total" value="{set_value('grand_total')}"
-                                                   class="form-control currency-format" placeholder="0"
-                                                   id="input-grand_total">
 
-                                        </div>
+                                    <td class="text-right">
+                                        <span id="sum-discount_price-text">
+                                            <strong>Rp {$grand_total|number_format:0}</strong> </span>
                                     </td>
+                                    <input type="hidden" name="grand_total" value="{$grand_total}">
+                                    {*<td class="text-right {if form_error('grand_total')}has-warning{/if}"*}
+                                        {*style="max-width: 135px;">*}
+                                        {*<div class="input-group">*}
+                                            {*<span class="input-group-addon">Rp</span>*}
+                                            {*<input type="text" name="grand_total" value="{set_value('grand_total')}"*}
+                                                   {*class="form-control currency-format" placeholder="0"*}
+                                                   {*id="input-grand_total">*}
+
+                                        {*</div>*}
+                                    {*</td>*}
                                 </tr>
                                 <tr>
                                     <th>Bukti Pembelian:</th>
