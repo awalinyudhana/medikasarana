@@ -19,4 +19,26 @@ class ModWarehouse extends CI_Model
             return '0';
         }
     }
+
+
+    public function getProductOnlyForDropdown()
+    {
+        $this->db
+            ->from('product p')
+            ->join('warehouse_rack_detail r', 'r.id_product = p.id_product', 'left')
+            ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
+            ->where('r.id_product is null');
+        $result = $this->db->get();
+        $data = array();
+        if ($result->num_rows() > 0) {
+            foreach ($result->result_array() as $row) {
+                $data[$row['id_product']] = $row['name'] . '( ' . $row['unit'] . ' / ' . $row['value'] . " )";
+            }
+        } else {
+            $data = array('' => '');
+        }
+
+        return $data;
+    }
+
 }
