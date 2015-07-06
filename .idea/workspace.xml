@@ -132,8 +132,8 @@
       <file leaf-file-name="ModWarehouse.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/warehouse/models/ModWarehouse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7892857" vertical-offset="0" max-vertical-offset="782">
-              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.60714287" vertical-offset="102" max-vertical-offset="816">
+              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="28" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -1187,8 +1187,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/warehouse/models/ModWarehouse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7892857" vertical-offset="0" max-vertical-offset="782">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.60714287" vertical-offset="102" max-vertical-offset="816">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="28" selection-end-column="44" />
           <folding />
         </state>
       </provider>
