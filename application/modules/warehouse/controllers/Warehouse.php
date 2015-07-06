@@ -57,6 +57,8 @@ class Warehouse extends MX_Controller
 
     public function placing()
     {
+        $productField = $this->ModWarehouse->getProductOnlyForDropdown();
+        return false;
         $crud = new grocery_CRUD();
         $this->load->model('ModWarehouse');
 
