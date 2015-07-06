@@ -2359,7 +2359,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		$select_title = str_replace('{field_display_as}',$field_info->display_as,$this->l('set_relation_title'));
 
 		$input = "<select id='field-{$field_info->name}' name='{$field_info->name}' class='chosen-select' data-placeholder='".$select_title."'>";
-		$options = array('' => '') + $field_info->extras;
+		$options = array_merge(array('' => ''),$field_info->extras);
 		foreach($options as $option_value => $option_label)
 		{
 			$selected = !empty($value) && $value == $option_value ? "selected='selected'" : '';

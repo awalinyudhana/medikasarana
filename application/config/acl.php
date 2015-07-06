@@ -123,7 +123,7 @@ $config['module_router'] =
                             'url' => 'product/category',
                             'module' => 'product'
                         ], [
-                            'title' => "Produk Unit",
+                            'title' => "Produk Satuan",
                             'url' => 'product/unit',
                             'module' => 'product'
                         ]
