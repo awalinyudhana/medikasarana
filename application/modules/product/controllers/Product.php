@@ -29,7 +29,7 @@ class Product extends MX_Controller
             $crud->add_action('Lihat Sub Produk', '', '', 'read-icon', array($this, 'addSubProductAction'));
         }
 
-        $productParentField = $this->ModProduct->getProductOnlyForDropdown();
+//        $productParentField = $this->ModProduct->getProductOnlyForDropdown();
 
         $crud->set_table('product')
             ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
@@ -46,7 +46,7 @@ class Product extends MX_Controller
             ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'date_expired', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
             ->unique_fields('barcode')
-            ->field_type('parent','dropdown', $productParentField)
+//            ->field_type('parent','dropdown', $productParentField)
             ->unset_read();
 
         $output = $crud->render();
