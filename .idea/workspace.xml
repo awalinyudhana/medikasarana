@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Repository\medika\medikasarana\application\grocery.tpl" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/libraries/Grocery_CRUD.php" afterPath="$PROJECT_DIR$/application/libraries/Grocery_CRUD.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/product/controllers/Product.php" afterPath="$PROJECT_DIR$/application/modules/product/controllers/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/acl.php" afterPath="$PROJECT_DIR$/application/config/acl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/product/views/index.tpl" afterPath="$PROJECT_DIR$/application/modules/product/views/index.tpl" />
     </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,16 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/database.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="817" max-vertical-offset="1530">
-              <caret line="67" column="31" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Distribution.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/product_distribution/controllers/Distribution.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,10 +79,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Grocery_CRUD.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Grocery_CRUD.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/libraries/Grocery_CRUD.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69464284" vertical-offset="40088" max-vertical-offset="95982">
+            <state vertical-scroll-proportion="10.538462" vertical-offset="40088" max-vertical-offset="95982">
               <caret line="2361" column="47" selection-start-line="2361" selection-start-column="47" selection-end-line="2361" selection-end-column="47" />
               <folding>
                 <marker date="1436171611471" expanded="true" signature="49547:50024" placeholder="..." />
@@ -109,6 +95,16 @@
                 <marker date="1436171611471" expanded="true" signature="85598:85610" placeholder="..." />
                 <marker date="1436171611471" expanded="true" signature="85720:85732" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/modules/product/views/index.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.030357143" vertical-offset="0" max-vertical-offset="612">
+              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -180,6 +176,7 @@
         <option value="$PROJECT_DIR$/application/modules/product/controllers/Product.php" />
         <option value="$PROJECT_DIR$/application/config/acl.php" />
         <option value="$PROJECT_DIR$/application/libraries/Grocery_CRUD.php" />
+        <option value="$PROJECT_DIR$/application/modules/product/views/index.tpl" />
       </list>
     </option>
   </component>
@@ -440,6 +437,10 @@
               <option name="myItemId" value="product" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -660,13 +661,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="4488">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
@@ -1032,7 +1026,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/libraries/Grocery_CRUD.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69464284" vertical-offset="40088" max-vertical-offset="95982">
+        <state vertical-scroll-proportion="10.538462" vertical-offset="40088" max-vertical-offset="95982">
           <caret line="2361" column="47" selection-start-line="2361" selection-start-column="47" selection-end-line="2361" selection-end-column="47" />
           <folding>
             <marker date="1436171611471" expanded="true" signature="49547:50024" placeholder="..." />
@@ -1045,6 +1039,14 @@
             <marker date="1436171611471" expanded="true" signature="85598:85610" placeholder="..." />
             <marker date="1436171611471" expanded="true" signature="85720:85732" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/product/views/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.030357143" vertical-offset="0" max-vertical-offset="612">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
