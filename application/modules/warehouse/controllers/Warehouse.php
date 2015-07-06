@@ -65,15 +65,13 @@ class Warehouse extends MX_Controller
             $this->load->model('ModWarehouse');
             $productField = $this->ModWarehouse->getProductOnlyForDropdown();
             $crud->field_type('id_product', 'dropdown', $productField);
-        } else {
-            $crud->set_relation('id_product', 'product', 'name');
         }
-
         $crud->set_table('warehouse_rack_detail')
             ->display_as('id_rack', 'Rack Name')
             ->display_as('id_product_unit', 'Product Satuan')
             ->display_as('id_product', 'Product Name')
             ->columns('id_rack', 'id_product', 'stock')
+            ->set_relation('id_rack', 'warehouse_rack', 'name')
             ->unset_fields('total')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
             ->callback_column('id_product', array($this, 'productName'))
