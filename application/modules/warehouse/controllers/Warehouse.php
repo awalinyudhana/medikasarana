@@ -58,15 +58,25 @@ class Warehouse extends MX_Controller
     public function placing()
     {
         $crud = new grocery_CRUD();
-        $this->load->model('ModWarehouse');
 
-        $productField = $this->ModWarehouse->getProductOnlyForDropdown();
+
+        $state = $crud->getState();
+//        $state_info = $crud->getStateInfo();
+        if ($state == 'add' || $state == 'edit') {
+            $this->load->model('ModWarehouse');
+            $productField = $this->ModWarehouse->getProductOnlyForDropdown();
+            $crud->field_type('id_product', 'dropdown', $productField);
+        } else {
+            $crud->set_relation('id_product', 'product', 'name');
+            $crud->set_relation('id_product_unit', 'product_unit', '{unit} / {value}');
+        }
+
         $crud->set_table('warehouse_rack_detail')
             ->display_as('id_rack', 'Rack Name')
+            ->display_as('id_product_unit', 'Product Satuan')
             ->display_as('id_product', 'Product Name')
-            ->columns('id_rack', 'id_product', 'stock')
+            ->columns('id_rack', 'id_product','id_product_unit', 'stock')
             ->set_relation('id_rack', 'warehouse_rack', 'name')
-//            ->set_relation('id_product', 'product', 'name')
             ->field_type('id_product', 'dropdown', $productField)
             ->unset_fields('total')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
