@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/product/models/ModProduct.php" afterPath="$PROJECT_DIR$/application/modules/product/models/ModProduct.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/product/controllers/Product.php" afterPath="$PROJECT_DIR$/application/modules/product/controllers/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -134,8 +132,8 @@
       <file leaf-file-name="ModProduct.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/product/models/ModProduct.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3625" vertical-offset="511" max-vertical-offset="2465">
-              <caret line="42" column="52" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.3017857" vertical-offset="511" max-vertical-offset="2482">
+              <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -1183,8 +1181,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/product/models/ModProduct.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3625" vertical-offset="511" max-vertical-offset="2465">
-          <caret line="42" column="52" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.3017857" vertical-offset="511" max-vertical-offset="2482">
+          <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
           <folding />
         </state>
       </provider>
