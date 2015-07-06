@@ -61,14 +61,14 @@ class Warehouse extends MX_Controller
         $this->load->model('ModWarehouse');
 
 
-        $state = $crud->getState();
-        $state_info = $crud->getStateInfo();
+//        $state = $crud->getState();
+//        $state_info = $crud->getStateInfo();
         $productField = $this->ModWarehouse->getProductOnlyForDropdown();
-        if ($state == 'edit') {
-            $crud->field_type('id_product', 'readonly');
-        } else {
-            $crud->field_type('id_product', 'dropdown', $productField);
-        }
+//        if ($state == 'edit') {
+//            $crud->field_type('id_product', 'readonly');
+//        } else {
+//            $crud->field_type('id_product', 'dropdown', $productField);
+//        }
 
         $crud->set_table('warehouse_rack_detail')
             ->display_as('id_rack', 'Rack Name')
@@ -76,6 +76,7 @@ class Warehouse extends MX_Controller
             ->columns('id_rack', 'id_product', 'stock')
             ->set_relation('id_rack', 'warehouse_rack', 'name')
 //            ->set_relation('id_product', 'product', 'name')
+            ->field_type('id_product', 'dropdown', $productField)
             ->unset_fields('total')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
             ->required_fields('id_rack', 'id_product')
