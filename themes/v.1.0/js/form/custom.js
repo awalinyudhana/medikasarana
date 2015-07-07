@@ -31,8 +31,8 @@ function appendItem(data){
         if(id_text.length){
             id_text.html( data[x] );
         }
-        htmlConvertCurrency()
     }
+    htmlConvertCurrency()
 }
 
 function htmlConvertCurrency(){

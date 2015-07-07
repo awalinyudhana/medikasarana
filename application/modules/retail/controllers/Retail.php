@@ -142,6 +142,6 @@ class Retail extends MX_Controller
     public function reset()
     {
         if(!$this->cart->delete_record())
-            redirect('purchase-order');
+            redirect('retail');
     }
 }
