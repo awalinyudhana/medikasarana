@@ -39,7 +39,7 @@ class ModProduct extends CI_Model
             ->from('product p')
             ->join('product pr', 'pr.parent = p.id_product', 'left')
             ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
-            ->where('p.parent is null');
+            ->where('pr.parent is null');
         if(!is_null($id)){
             $this->db->where('p.id_product !=',$id);
         }
