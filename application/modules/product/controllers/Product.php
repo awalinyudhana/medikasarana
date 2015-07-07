@@ -31,10 +31,9 @@ class Product extends MX_Controller
 
         $state = $crud->getState();
         $state_info = $crud->getStateInfo();
-        if ($state == 'edit') {
-            $productParentField = $this->ModProduct->getProductOnlyForDropdown($state_info->primary_key);
-        } else {
+        if ($state == 'add') {
             $productParentField = $this->ModProduct->getProductOnlyForDropdown();
+            $crud->field_type('parent', 'dropdown', $productParentField);
         }
 
         $crud->set_table('product')
@@ -51,8 +50,8 @@ class Product extends MX_Controller
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
             ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
+            ->callback_edit_field('parent', array($this, 'setProductParentField'))
 //            ->unique_fields('barcode')
-            ->field_type('parent', 'dropdown', $productParentField)
             ->unset_read();
 
         $output = $crud->render();
@@ -68,6 +67,29 @@ class Product extends MX_Controller
     function addSubProductAction($value, $row)
     {
         return site_url('product/index') . '/' . $row->id_product;
+    }
+
+    function setProductParentField($value, $primary_key)
+    {
+        $productField = $this->ModProduct->getProductOnlyForDropdown();
+
+        $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
+
+        $html.= "<div><select name='id_product' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
+        $html.= '<option value=""></option>';
+
+        foreach ($productField as $key => $forvalue) {
+            if ($key == $value) {
+                $html.= "<option value='$key' selected>$forvalue</option>";
+            } else {
+                $html.= "<option value='$key'>$forvalue</option>";
+            }
+        }
+        $html.= '</select></div>';
+        return $html;
+        // return form_dropdown('id_product', $productField, $value);
     }
 
     public function category($action = null, $id_product_category = null)
@@ -111,6 +133,25 @@ class Product extends MX_Controller
     {
 
         $categories = $this->ModProduct->getCategoryOnly();
+
+        $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
+
+        $html.= "<div><select name='id_product' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
+        $html.= '<option value=""></option>';
+
+        foreach ($categories as $row) {
+            if (!empty($value) && $value == $row['id_product_category']) {
+                $html.= "<option value='".$row['id_product_category']."' selected>".$row['category']."</option>";
+            } else {
+                $html.= "<option value='".$row['id_product_category']."'>".$row['category']."</option>";
+            }
+        }
+        $html.= '</select></div>';
+        return $html;
+
+        /*
         $text = '<select id="field-parent" name="parent" class="chosen-select chzn-done" data-placeholder="Select Parent" style="width: 300px;"><option value="">Select Parent</option>';
         foreach ($categories as $row) {
             if (!empty($value) && $value == $row['id_product_category']) {
@@ -121,7 +162,7 @@ class Product extends MX_Controller
             // $text .= '<option value="' . $row['id_product_category'] . '">' . $row['category'] . '-' . $value . '-' . $row['parent'] .'</option>';
         }
         $text .= '</select>';
-        return $text;
+        return $text;*/
     }
 
     function addSubCategoryAction($value, $row)

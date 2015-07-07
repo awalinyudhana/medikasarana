@@ -8,6 +8,7 @@ class Warehouse extends MX_Controller
         parent::__construct();
         $this->acl->auth('warehouse');
         $this->load->library('grocery_CRUD');
+        $this->load->model('ModWarehouse');
     }
 
     public function render($output)
@@ -58,10 +59,9 @@ class Warehouse extends MX_Controller
     public function placing()
     {
         $crud = new grocery_CRUD();
-
+        
         $state = $crud->getState();
         if ($state == 'add') {
-            $this->load->model('ModWarehouse');
             $productField = $this->ModWarehouse->getProductOnlyForDropdown();
             $crud->field_type('id_product', 'dropdown', $productField);
         } else {
@@ -69,13 +69,17 @@ class Warehouse extends MX_Controller
         }
 
         $crud->set_table('warehouse_rack_detail')
-            ->display_as('id_rack', 'Rack Name')
-            ->display_as('id_product', 'Product Name')
-            ->columns('id_rack', 'id_product', 'stock')
+            ->display_as('id_rack', 'Nama Rak')
+            ->display_as('id_product', 'Nama Produk')
+            ->display_as('stock', 'Stok')
+            ->display_as('satuan', 'Produk Satuan')
+            ->columns('id_rack', 'id_product', 'satuan', 'stock')
             ->set_relation('id_rack', 'warehouse_rack', 'name')
             ->unset_fields('total')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
+            ->callback_column('satuan', array($this, 'setProdukSatuan'))
             ->required_fields('id_rack', 'id_product')
+            ->callback_edit_field('id_product', array($this, 'setProductField'))
             ->unset_read();
         $output = $crud->render();
 //        $this->render($output);
@@ -89,8 +93,40 @@ class Warehouse extends MX_Controller
 
     public function addProductStockColumn($value, $row)
     {
-        $this->load->model('ModWarehouse');
         $product_stock = $this->ModWarehouse->getProductStock($row->id_product);
         return $product_stock;
+    }
+
+    public function setProdukSatuan($value, $row)
+    {
+        $productUnitData = $this->ModWarehouse->getProductUnitData($row->id_product);
+        if ($productUnitData) {
+            return $productUnitData->unit . ' / ' . $productUnitData->value;
+        } else {
+            return 'N/A';
+        }
+    }
+
+    public function setProductField($value, $primary_key)
+    {
+        $productField = $this->ModWarehouse->getProductOnlyForDropdown($value);
+
+        $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
+
+        $html.= "<div><select name='id_product' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
+        $html.= '<option value=""></option>';
+
+        foreach ($productField as $key => $forvalue) {
+            if ($key == $value) {
+                $html.= "<option value='$key' selected>$forvalue</option>";
+            } else {
+                $html.= "<option value='$key'>$forvalue</option>";
+            }
+        }
+        $html.= '</select></div>';
+        return $html;
+        // return form_dropdown('id_product', $productField, $value);
     }
 } 
