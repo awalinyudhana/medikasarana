@@ -31,8 +31,15 @@ function appendItem(data){
         if(id_text.length){
             id_text.html( data[x] );
         }
-
+        htmlConvertCurrency()
     }
+}
+
+function htmlConvertCurrency(){
+    $( ".convert-currency" ).each(function() {
+        tag_value = $( this ).text();
+        $( this ).html("Rp "+ numberFormat(tag_value));
+    });
 }
 
 function updateItem(param){
@@ -87,13 +94,16 @@ function qtyKeyPress(a, url, event){
         event.preventDefault();
     }
 }
-
-function setDpp(param){
-
+function setGrandTotal(param){
     var total = parseInt(convertCurrency($('#sum-total-text').text()));
     var dpp = total - convertCurrency(param);
     $('#sum-dpp-text').html(numberFormat(dpp));
-    ppnCheck();
+}
+function setDpp(param){
+    var total = parseInt(convertCurrency($('#sum-total-text').text()));
+    var grand_total = total - convertCurrency(param);
+    $('#sum-grand_total-text').html(numberFormat(grand_total));
+    setBayar($('#input-bayar').val());
 }
 function convertCurrency(currency){
     return Number(currency.replace(/[^0-9\.]+/g,""));

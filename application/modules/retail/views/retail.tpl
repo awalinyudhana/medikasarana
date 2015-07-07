@@ -54,7 +54,7 @@
                         {*</div>*}
 
                         <div class="col-sm-12">
-                        <input type="submit" class="btn btn-block btn-success" value="Submit">
+                            <input type="submit" class="btn btn-block btn-success" value="Submit">
                         </div>
                     </form>
                 </div>
@@ -97,7 +97,10 @@
                 <div class="col-md-2">
                     <h3 class="text-danger text-semibold">Harga</h3>
 
-                    <h3 class="text-success text-semibold" id="text-sell_price"></h3>
+                    <h3 class="text-success text-semibold convert-currency" id="text-sell_price"></h3>
+                    <br><br>
+                    <a href="{base_url('retail/delete-record')}" class=" button btn btn-danger">
+                        <i class="icon-eject"></i>Delete</a>
                 </div>
 
             </div>
@@ -170,12 +173,30 @@
                       onsubmit="return confirm('Process Data');">
 
                     <input type="hidden" name="total" value="{$total}">
+
                     <div class="row invoice-payment">
 
                         <div class="col-sm-4 pull-right">
                             <h6>Total:</h6>
                             <table class="table">
                                 <tbody>
+
+                                {assign var=ppn value=0}
+                                {assign var=ppn value=$total * 0.1}
+                                {assign var=dpp value=0}
+                                {assign var=dpp value=$total - $ppn}
+                                <tr>
+                                    <th>DPP:</th>
+                                    <td class="text-right"> Rp
+                                        <span > {$dpp|number_format:0} </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>PPN:</th>
+                                    <td class="text-right"> Rp
+                                        <span > {$ppn|number_format:0} </span>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th>Total:</th>
                                     <td class="text-right">Rp
@@ -188,31 +209,17 @@
                                         <div class="input-group">
                                             <span class="input-group-addon">Rp</span>
 
-                                            <input type="text" name="discount_price" value="{set_value('discount_price')}"
+                                            <input type="text" name="discount_price"
+                                                   value="{set_value('discount_price')}"
                                                    class="form-control currency-format" placeholder="0"
                                                    id="input-discount_price" onblur="setDpp(this.value)">
 
                                         </div>
                                     </td>
                                 </tr>
+
                                 <tr>
-                                    <th>DPP:</th>
-                                    <td class="text-right"> Rp
-                                        <span id="sum-dpp-text"> {$total|number_format:0} </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label class="radio">
-                                            <input type="checkbox" name="status_ppn" class="styled"
-                                                   onclick="ppnCheck()">
-                                            PPN 10 %
-                                        </label>
-                                    </th>
-                                    <td class="text-right">Rp <span id="sum-ppn-text"></span></td>
-                                </tr>
-                                <tr>
-                                    <th>Total:</th>
+                                    <th>Grand Total:</th>
                                     <td class="text-right text-success">
                                         <h6>Rp <span id="sum-grand_total-text">{$total|number_format:0} </span></h6>
                                     </td>
@@ -232,12 +239,30 @@
                                         </div>
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th>Kembali:</th>
                                     <td class="text-right text-danger">
                                         <h6>Rp <span id="sum-returns-text"> </span></h6>
                                     </td>
                                 </tr>
+
+                                {*<tr>*}
+                                    {*<th>DPP:</th>*}
+                                    {*<td class="text-right"> Rp*}
+                                        {*<span id="sum-dpp-text"> {$total|number_format:0} </span>*}
+                                    {*</td>*}
+                                {*</tr>*}
+                                {*<tr>*}
+                                    {*<th>*}
+                                        {*<label class="radio">*}
+                                            {*<input type="checkbox" name="status_ppn" class="styled"*}
+                                                   {*onclick="ppnCheck()">*}
+                                            {*PPN 10 %*}
+                                        {*</label>*}
+                                    {*</th>*}
+                                    {*<td class="text-right">Rp <span id="sum-ppn-text"></span></td>*}
+                                {*</tr>*}
                                 </tbody>
                             </table>
                             <div class="btn-group pull-right">

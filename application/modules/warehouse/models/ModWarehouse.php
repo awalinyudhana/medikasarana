@@ -27,11 +27,12 @@ class ModWarehouse extends CI_Model
             ->select('p.*, pu.*')
             ->from('product p')
             ->join('warehouse_rack_detail r', 'r.id_product = p.id_product', 'left')
-            ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
-            ->where('r.id_product is null');
+            ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit');
+//            ->where('r.id_product is null');
 
         if (!empty($id_product))
-            $this->db->or_where('p.id_product', $id_product);
+            $this->db->where('p.id_product', $id_product);
+//        $this->db->or_where('p.id_product', $id_product);
 
         $result = $this->db->get();
         $data = array();

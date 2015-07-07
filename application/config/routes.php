@@ -94,6 +94,7 @@ $route['pricing'] = "pricing";
 $route['pricing/setting/(:num)'] = "pricing/setPrice/$1";
 
 $route['retail'] = "retail";
+$route['retail/delete-record'] = "retail/reset";
 $route['retail/update/(:num)/(:num)'] = "retail/updateItem/$1/$2";
 $route['retail/delete/(:num)'] = "retail/deleteItem/$1";
 $route['retail/save'] = "retail/save";

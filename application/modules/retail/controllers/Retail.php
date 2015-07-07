@@ -80,15 +80,30 @@ class Retail extends MX_Controller
     {
         if ($this->input->post()) {
             if ($this->form_validation->run('retail/save') == TRUE) {
-                $status_ppn = $this->input->post('status_ppn') == "on" ? 1 : 0;
-                $dpp = $this->input->post('total') - $this->input->post('discount_price');
-                $ppn = $status_ppn == 1 ? $dpp * 0.1 : 0;
+//                $status_ppn = $this->input->post('status_ppn') == "on" ? 1 : 0;
+//                $dpp = $this->input->post('total') - $this->input->post('discount_price');
+//                $ppn = $status_ppn == 1 ? $dpp * 0.1 : 0;
+//                $id_retail = $this->cart->primary_data(array(
+//                    'total' => $this->input->post('total'),
+//                    'discount_price' => $this->input->post('discount_price'),
+//                    'dpp' => $dpp,
+//                    'ppn' => $ppn,
+//                    'grand_total' => $dpp + $ppn,
+//                    'paid' => $this->input->post('bayar'),
+//                    'id_staff' => $this->id_staff,
+//                    'id_store' => $this->id_store
+//                ))->save();
+//                $status_ppn = $this->input->post('status_ppn') == "on" ? 1 : 0;
+//                $dpp = $this->input->post('total') - $this->input->post('discount_price');
+//                $ppn = $status_ppn == 1 ? $dpp * 0.1 : 0;
+                $ppn = $this->input->post('total')*0.1;
+                $dpp = $this->input->post('total') - $ppn;
                 $id_retail = $this->cart->primary_data(array(
                     'total' => $this->input->post('total'),
                     'discount_price' => $this->input->post('discount_price'),
                     'dpp' => $dpp,
                     'ppn' => $ppn,
-                    'grand_total' => $dpp + $ppn,
+                    'grand_total' => $this->input->post('total') - $this->input->post('discount_price'),
                     'paid' => $this->input->post('bayar'),
                     'id_staff' => $this->id_staff,
                     'id_store' => $this->id_store
@@ -122,5 +137,11 @@ class Retail extends MX_Controller
             $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'data tidak di temukan'));
         }
         $this->parser->parse("invoice-form.tpl");
+    }
+
+    public function reset()
+    {
+        if(!$this->cart->delete_record())
+            redirect('purchase-order');
     }
 }

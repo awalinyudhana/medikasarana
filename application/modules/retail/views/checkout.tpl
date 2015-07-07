@@ -3,7 +3,7 @@
 {block name=print}
     <div id="print">
         <font size="1.3em">
-            <table border="0" width="100%" >
+            <table border="0" width="100%">
                 <tr>
                     <td width="60%" align="left" valign="top">
                         <h3>{$master->store_name}</h3>
@@ -59,6 +59,15 @@
                 {/foreach}
                 </tbody>
                 <tr class="nobordersbottom">
+                    <td colspan="6" align="right" valign="top">DPP</td>
+                    <td align="right" valign="top">Rp {($master->dpp)|number_format:0}</td>
+                </tr>
+                <tr class="nobordersbottomtop">
+                    <td colspan="6" align="right" valign="top">PPN</td>
+                    <td align="right" valign="top">
+                        Rp  {$master->ppn|number_format:0}</td>
+                </tr>
+                <tr class="nobordersbottomtop">
                     <td colspan="6" align="right" valign="top">Total</td>
                     <td align="right" valign="top">Rp {$master->total|number_format:0}</td>
                 </tr>
@@ -66,15 +75,7 @@
                     <td colspan="6" align="right" valign="top">Diskon</td>
                     <td align="right" valign="top">Rp {$master->discount_price|number_format:0}</td>
                 </tr>
-                <tr class="nobordersbottomtop">
-                    <td colspan="6" align="right" valign="top">DPP</td>
-                    <td align="right" valign="top">Rp {($master->total-$master->discount_price)|number_format:0}</td>
-                </tr>
-                <tr class="nobordersbottomtop">
-                    <td colspan="6" align="right" valign="top">PPN</td>
-                    <td align="right" valign="top">
-                        Rp  {$master->ppn|number_format:0}</td>
-                </tr>
+
                 <tr class="nobordersbottomtop">
                     <td colspan="6" align="right" valign="top">Grand Total</td>
                     <td align="right" valign="top">Rp {$master->grand_total|number_format:0}</td>
@@ -181,22 +182,31 @@
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>Total:</th>
-                            <td class="text-right">Rp {$master->total|number_format:0}</td>
-                        </tr>
-                        <tr>
-                            <th>Diskon Total:</th>
-                            <td class="text-right">Rp {$master->discount_price|number_format:0}</td>
-                        </tr>
-                        <tr>
                             <th>DPP:</th>
-                            <td class="text-right">Rp {($master->total-$master->discount_price)|number_format:0}</td>
+                            <td class="text-right">Rp {($master->dpp)|number_format:0}</td>
                         </tr>
                         <tr>
                             <th>PPN:</th>
                             <td class="text-right">
                                 Rp  {$master->ppn|number_format:0}</td>
                         </tr>
+                        <tr>
+                            <th>Total:</th>
+                            <td class="text-right">Rp {$master->total|number_format:0}</td>
+                        </tr>
+                        <tr>
+                            <th>Diskon:</th>
+                            <td class="text-right">Rp {$master->discount_price|number_format:0}</td>
+                        </tr>
+                        {*<tr>*}
+                        {*<th>DPP:</th>*}
+                        {*<td class="text-right">Rp {($master->total-$master->discount_price)|number_format:0}</td>*}
+                        {*</tr>*}
+                        {*<tr>*}
+                            {*<th>PPN:</th>*}
+                            {*<td class="text-right">*}
+                                {*Rp  {$master->ppn|number_format:0}</td>*}
+                        {*</tr>*}
                         <tr>
                             <th>Grand Total:</th>
                             <td class="text-right">Rp {$master->grand_total|number_format:0}</td>
