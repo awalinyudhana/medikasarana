@@ -66,7 +66,7 @@ class ModWarehouse extends CI_Model
             ->from('warehouse_rack w')
             ->join('warehouse_rack r', 'r.id_rack = w.parent','left')
             ->where('w.id_rack', $id);
-        $result = $this->db->get()->row();
+        $result = $this->db->get();
         if ($result->num_rows() > 0) {
             $row = $result->row();
             return $row->name;
