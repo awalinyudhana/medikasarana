@@ -111,11 +111,7 @@ class Warehouse extends MX_Controller
     }
 
     public function setParentRack($value, $row){
-        if ($value == null) {
-            return 'N/A';
-        } else {
-            return $this->ModWarehouse->getNameRack($value);
-        }
+            return $this->ModWarehouse->getNameRackParent($row->id_product);
     }
 
     public function setProductField($value, $primary_key)
