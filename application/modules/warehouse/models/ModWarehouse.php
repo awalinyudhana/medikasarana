@@ -62,12 +62,12 @@ class ModWarehouse extends CI_Model
     }
     public function getNameRackParent($id){
         $this->db
-            ->select('r.*')
+//            ->select('r.*')
             ->from('warehouse_rack w')
-            ->join('warehouse_rack r', 'r.id_rack = w.parent','left')
+//            ->join('warehouse_rack r', 'r.id_rack = w.parent','left')
             ->where('w.id_rack', $id);
         $result = $this->db->get()->row();
-        return $result->name;
+        return $result->parent;
     }
 
 }
