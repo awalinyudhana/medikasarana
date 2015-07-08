@@ -60,5 +60,9 @@ class ModWarehouse extends CI_Model
             return false;
         } 
     }
+    public function getNameRack($id){
+        $result = $this->db->get_where('warehouse_rack',['id_rack'=>$id])->row();
+        return $result->name;
+    }
 
 }

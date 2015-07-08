@@ -59,7 +59,7 @@ class Warehouse extends MX_Controller
     public function placing()
     {
         $crud = new grocery_CRUD();
-        
+
         $state = $crud->getState();
         if ($state == 'add') {
             $productField = $this->ModWarehouse->getProductOnlyForDropdown();
@@ -73,11 +73,14 @@ class Warehouse extends MX_Controller
             ->display_as('id_product', 'Nama Produk')
             ->display_as('stock', 'Stok')
             ->display_as('satuan', 'Produk Satuan')
-            ->columns('id_rack', 'id_product', 'satuan', 'stock')
+            ->columns('id_rack', 'parent', 'id_product', 'satuan', 'stock')
             ->set_relation('id_rack', 'warehouse_rack', 'name')
             ->unset_fields('total')
+            ->unset_add_fields('parent')
+            ->unset_edit_fields('parent')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
             ->callback_column('satuan', array($this, 'setProdukSatuan'))
+            ->callback_column('parent', array($this, 'setParentRack'))
             ->required_fields('id_rack', 'id_product')
             ->callback_edit_field('id_product', array($this, 'setProductField'))
             ->unset_read();
@@ -107,25 +110,33 @@ class Warehouse extends MX_Controller
         }
     }
 
+    public function setParentRack($value, $row){
+        if ($value == null) {
+            return 'N/A';
+        } else {
+            return $this->ModWarehouse->getNameRack($value);
+        }
+    }
+
     public function setProductField($value, $primary_key)
     {
         $productField = $this->ModWarehouse->getProductOnlyForDropdown($value);
 
-        $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
-        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
-        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
+        $html = '<link type="text/css" rel="stylesheet" href="' . base_url() . '/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
+        $html .= '<script src="' . base_url() . '/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
+        $html .= '<script src="' . base_url() . '/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
 
-        $html.= "<div><select name='id_product' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
-        $html.= '<option value=""></option>';
+        $html .= "<div><select name='id_product' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
+        $html .= '<option value=""></option>';
 
         foreach ($productField as $key => $forvalue) {
             if ($key == $value) {
-                $html.= "<option value='$key' selected>$forvalue</option>";
+                $html .= "<option value='$key' selected>$forvalue</option>";
             } else {
-                $html.= "<option value='$key'>$forvalue</option>";
+                $html .= "<option value='$key'>$forvalue</option>";
             }
         }
-        $html.= '</select></div>';
+        $html .= '</select></div>';
         return $html;
         // return form_dropdown('id_product', $productField, $value);
     }
