@@ -111,7 +111,7 @@ class Warehouse extends MX_Controller
     }
 
     public function setParentRack($value, $row){
-            return $this->ModWarehouse->getNameRackParent($row->id_product);
+            return $this->ModWarehouse->getNameRackParent($row->id_rack);
     }
 
     public function setProductField($value, $primary_key)
