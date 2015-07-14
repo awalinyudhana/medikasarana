@@ -75,9 +75,8 @@ class Warehouse extends MX_Controller
             ->display_as('satuan', 'Produk Satuan')
             ->columns('id_rack', 'parent', 'id_product', 'satuan', 'stock')
             ->set_relation('id_rack', 'warehouse_rack', 'name')
-            ->unset_fields('total')
-            ->unset_add_fields('parent')
-            ->unset_edit_fields('parent')
+            ->unset_add_fields('parent','total')
+            ->unset_edit_fields('parent','total')
             ->callback_column('stock', array($this, 'addProductStockColumn'))
             ->callback_column('satuan', array($this, 'setProdukSatuan'))
             ->callback_column('parent', array($this, 'setParentRack'))
@@ -116,7 +115,7 @@ class Warehouse extends MX_Controller
 
     public function setProductField($value, $primary_key)
     {
-        $productField = $this->ModWarehouse->getProductOnlyForDropdown($value);
+        $productField = $this->ModWarehouse->getProductOnlyForDropdown();
 
         $html = '<link type="text/css" rel="stylesheet" href="' . base_url() . '/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
         $html .= '<script src="' . base_url() . '/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
