@@ -63,7 +63,7 @@ class ModProduct extends CI_Model
         $rows = $result->result_array();
         return $rows;
     }
-    
+
     public function getCategoryProductOnly()
     {
         $this->db->where('parent is NOT NULL');

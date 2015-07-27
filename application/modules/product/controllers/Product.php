@@ -132,8 +132,8 @@ class Product extends MX_Controller
 
     public function categoryParentField($value = '', $primary_key = null)
     {
+        $categories = $this->ModProduct->getCategoryOnly();
 
-        $categories = $this->ModProduct->getCategoryProductOnly();
 
         $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
@@ -169,8 +169,9 @@ class Product extends MX_Controller
     public function productCategoryField($value = '', $primary_key = null)
     {
 
-        $categories = $this->ModProduct->getCategoryOnly();
 
+        $categories = $this->ModProduct->getCategoryProductOnly();
+        
         $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
