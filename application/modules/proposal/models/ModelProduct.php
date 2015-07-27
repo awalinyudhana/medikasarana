@@ -57,7 +57,7 @@ LEFT JOIN `product_category` pc USING (`id_product_category`)")
 
     private function getPriceProduct(){
         return $this->db
-            ->select('(sell_price / 1.1)  as sell_price, *')
+            ->select('round(sell_price / 1.1,2)  as sell_price, product.*, product_unit.*, product_category.*')
             ->from('product')
             ->join('product_unit','product_unit.id_product_unit = product.id_product_unit', 'left')
             ->join('product_category','product_category.id_product_category = product.id_product_category', 'left')
@@ -66,7 +66,7 @@ LEFT JOIN `product_category` pc USING (`id_product_category`)")
     }
 
     public function getProduct($id_product){
-        $this->db->select('(sell_price / 1.1) as sell_price, *');
+        $this->db->select('round(sell_price / 1.1,2)  as sell_price, product.*, product_unit.*, product_category.*');
         $this->db->from('product');
         $this->db->join('product_unit','product_unit.id_product_unit = product.id_product_unit', 'left');
         $this->db->join('product_category','product_category.id_product_category = product.id_product_category', 'left');
