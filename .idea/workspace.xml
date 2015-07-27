@@ -85,9 +85,9 @@
         <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.26418787" vertical-offset="868" max-vertical-offset="1428">
-              <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+              <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
               <folding>
-                <marker date="1437986296507" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
+                <marker date="1437986445700" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
               </folding>
             </state>
           </provider>
@@ -1471,9 +1471,9 @@
     <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26418787" vertical-offset="868" max-vertical-offset="1428">
-          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
           <folding>
-            <marker date="1437986296507" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
+            <marker date="1437986445700" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
           </folding>
         </state>
       </provider>
