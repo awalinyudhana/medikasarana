@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/product/controllers/Product.php" afterPath="$PROJECT_DIR$/application/modules/product/controllers/Product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php" afterPath="$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php" />
     </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,15 +47,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Product.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Product.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/product/controllers/Product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.2289157" vertical-offset="1831" max-vertical-offset="5321">
-              <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
+            <state vertical-scroll-proportion="-14.8" vertical-offset="1831" max-vertical-offset="5321">
+              <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
               <folding>
-                <marker date="1437985000678" expanded="true" signature="3482:3494" placeholder="..." />
-                <marker date="1437985000678" expanded="true" signature="6262:6274" placeholder="..." />
-                <marker date="1437985000678" expanded="true" signature="8223:8235" placeholder="..." />
+                <marker date="1437985631522" expanded="true" signature="3482:3494" placeholder="..." />
+                <marker date="1437985631522" expanded="true" signature="6262:6274" placeholder="..." />
+                <marker date="1437985631522" expanded="true" signature="8215:8227" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -81,13 +81,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModelProduct.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ModelProduct.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.84" vertical-offset="868" max-vertical-offset="1428">
-              <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.26418787" vertical-offset="868" max-vertical-offset="1428">
+              <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
               <folding>
-                <marker date="1437983748458" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
+                <marker date="1437985631534" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
               </folding>
             </state>
           </provider>
@@ -189,9 +189,9 @@
         <option value="$PROJECT_DIR$/application/modules/extract/views/extract_checkout.tpl" />
         <option value="$PROJECT_DIR$/application/modules/delivery_order/views/delivery_order.tpl" />
         <option value="$PROJECT_DIR$/application/modules/delivery_order/controllers/DeliveryOrder.php" />
-        <option value="$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php" />
         <option value="$PROJECT_DIR$/application/modules/product/models/ModProduct.php" />
         <option value="$PROJECT_DIR$/application/modules/product/controllers/Product.php" />
+        <option value="$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php" />
       </list>
     </option>
   </component>
@@ -1440,16 +1440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.84" vertical-offset="868" max-vertical-offset="1428">
-          <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
-          <folding>
-            <marker date="1437983748458" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/delivery_order/views/delivery_order.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.038462" vertical-offset="102" max-vertical-offset="2533">
@@ -1468,12 +1458,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/product/controllers/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2289157" vertical-offset="1831" max-vertical-offset="5321">
-          <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
+        <state vertical-scroll-proportion="-14.8" vertical-offset="1831" max-vertical-offset="5321">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
           <folding>
-            <marker date="1437985000678" expanded="true" signature="3482:3494" placeholder="..." />
-            <marker date="1437985000678" expanded="true" signature="6262:6274" placeholder="..." />
-            <marker date="1437985000678" expanded="true" signature="8223:8235" placeholder="..." />
+            <marker date="1437985631522" expanded="true" signature="3482:3494" placeholder="..." />
+            <marker date="1437985631522" expanded="true" signature="6262:6274" placeholder="..." />
+            <marker date="1437985631522" expanded="true" signature="8215:8227" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26418787" vertical-offset="868" max-vertical-offset="1428">
+          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+          <folding>
+            <marker date="1437985631534" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
           </folding>
         </state>
       </provider>
