@@ -25,7 +25,7 @@
                 <div class="col-sm-4">
                     <ul class="invoice-details">
                         <li>No Faktur <strong class="text-info">#{$master->id_sales_order}</strong></li>
-                        {*<li>Jenis Proposal <strong class="text-info">{$proposal_type}</strong></li>*}
+                        <li>Jatuh Tempo<strong class="text-info">{$master->due_date}</strong></li>
                         {*<li>PPn status # <strong class="text-info">{$status_ppn}</strong></li>*}
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('delivery-order/delete')}" class=" button btn btn-danger">

@@ -58,6 +58,15 @@ class ModProduct extends CI_Model
 
     public function getCategoryOnly()
     {
+        $this->db->where('parent is NULL');
+        $result = $this->db->get('product_category');
+        $rows = $result->result_array();
+        return $rows;
+    }
+    
+    public function getCategoryProductOnly()
+    {
+        $this->db->where('parent is NOT NULL');
         $result = $this->db->get('product_category');
         $rows = $result->result_array();
         return $rows;

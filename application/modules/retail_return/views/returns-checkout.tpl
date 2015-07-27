@@ -12,8 +12,6 @@
                         {$master->city} - {$master->state}
                         </br>
                         {$master->telp1} - {$master->telp2}
-                        </br>
-                        {$master->owner}
                     </span>
                 </td>
                 <td align="right" valign="center">
@@ -88,9 +86,7 @@
                         </br>
                         {$master->city} - {$master->state}
                         </br>
-                        {$master->telp}
-                        </br>
-                        {$master->owner}
+                        {$master->telp1} - {$master->telp2}
                     </span>
                 </div>
 

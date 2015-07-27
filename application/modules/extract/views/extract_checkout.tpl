@@ -59,7 +59,6 @@
                             <th>Ppn</th>
                         {/if}
                         <th>Total</th>
-                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -96,15 +95,15 @@
                                 Rp {($key['qty'] * ($key['price'] - $key['discount'])
                                 +$ppn_first)|number_format:0}
                             </td>
-                            <td style="width:90px;">
+                            {*<td style="width:90px;">*}
 
-                                <div class="table-controls">
-                                    <a href="{base_url('extract/move')}/{$key['reference']}"
-                                       class="button btn btn-success ">
-                                        Pindah
-                                    </a>
-                                </div>
-                            </td>
+                                {*<div class="table-controls">*}
+                                    {*<a href="{base_url('extract/move')}/{$key['reference']}"*}
+                                       {*class="button btn btn-success ">*}
+                                        {*Pindah*}
+                                    {*</a>*}
+                                {*</div>*}
+                            {*</td>*}
                         </tr>
                         {assign var=val_first value=$val_first+1}
                         {assign var=total_first value=$total_first+($key['qty'] * ($key['price'] - $key['discount']))}
@@ -189,7 +188,7 @@
                             <th>Ppn</th>
                         {/if}
                         <th>Total</th>
-                        <th>Action</th>
+                        {*<th>Action</th>*}
                     </tr>
                     </thead>
                     <tbody>
@@ -226,15 +225,15 @@
                                 Rp {($key['qty'] * ($key['price'] - $key['discount'])
                                 +$ppn_second)|number_format:0}
                             </td>
-                            <td style="width:90px;">
+                            {*<td style="width:90px;">*}
 
-                                <div class="table-controls">
-                                    <a href="{base_url('extract/undo')}/{$key['reference']}"
-                                       class="button btn btn-success ">
-                                        Pindah
-                                    </a>
-                                </div>
-                            </td>
+                                {*<div class="table-controls">*}
+                                    {*<a href="{base_url('extract/undo')}/{$key['reference']}"*}
+                                       {*class="button btn btn-success ">*}
+                                        {*Pindah*}
+                                    {*</a>*}
+                                {*</div>*}
+                            {*</td>*}
                         </tr>
                         {assign var=val_second value=$val_second+1}
                         {assign var=total_second value=$total_second+($key['qty'] * ($key['price'] - $key['discount']))}

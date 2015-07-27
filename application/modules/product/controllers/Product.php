@@ -45,7 +45,8 @@ class Product extends MX_Controller
             ->display_as('minimum_stock', 'Minimum Stock')
             ->display_as('value', 'Nilai Satuan')
             ->callback_column('sell_price', array($this, 'currencyFormat'))
-            ->set_relation('id_product_category', 'product_category', 'category')
+            ->callback_field('id_product_category', array($this, 'productCategoryField'))
+//            ->set_relation('id_product_category', 'product_category', 'category')
             ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
             ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'minimum_stock')
@@ -132,6 +133,42 @@ class Product extends MX_Controller
     public function categoryParentField($value = '', $primary_key = null)
     {
 
+        $categories = $this->ModProduct->getCategoryProductOnly();
+
+        $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
+
+        $html.= "<div><select name='id_product' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
+        $html.= '<option value=""></option>';
+
+        foreach ($categories as $row) {
+            if (!empty($value) && $value == $row['id_product_category']) {
+                $html.= "<option value='".$row['id_product_category']."' selected>".$row['category']."</option>";
+            } else {
+                $html.= "<option value='".$row['id_product_category']."'>".$row['category']."</option>";
+            }
+        }
+        $html.= '</select></div>';
+        return $html;
+
+        /*
+        $text = '<select id="field-parent" name="parent" class="chosen-select chzn-done" data-placeholder="Select Parent" style="width: 300px;"><option value="">Select Parent</option>';
+        foreach ($categories as $row) {
+            if (!empty($value) && $value == $row['id_product_category']) {
+                $text .= '<option value="' . $row['id_product_category'] . '" selected>' . $row['category'] . '</option>';
+            } else {
+                $text .= '<option value="' . $row['id_product_category'] . '">' . $row['category'] . '</option>';
+            }
+            // $text .= '<option value="' . $row['id_product_category'] . '">' . $row['category'] . '-' . $value . '-' . $row['parent'] .'</option>';
+        }
+        $text .= '</select>';
+        return $text;*/
+    }
+
+    public function productCategoryField($value = '', $primary_key = null)
+    {
+
         $categories = $this->ModProduct->getCategoryOnly();
 
         $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
@@ -178,13 +215,14 @@ class Product extends MX_Controller
             ->display_as('unit', 'Satuan')
             ->columns('unit', 'value', 'note')
             ->fields('unit', 'value', 'note')
-            ->required_fields('unit', 'value', 'prefix_code')
+            ->unset_delete()
+            ->required_fields('unit', 'value')
             // ->display_as('prefix_code', 'Prefix Code')
 //                ->callback_add_field('unit', array($this, 'setPrefixCode'))
             ->callback_field('note', array($this, 'setTextarea'))
 //                ->callback_add_field('prefix_code', array($this, 'disablePrefixCode'))
 //                ->callback_edit_field('prefix_code', array($this, 'disablePrefixCode'))
-            ->callback_before_insert(array($this, 'checkPrefixCode'))
+//            ->callback_before_insert(array($this, 'checkPrefixCode'))
             ->unset_read();
         $output = $crud->render();
         $this->render($output);
