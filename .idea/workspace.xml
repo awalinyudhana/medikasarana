@@ -84,10 +84,10 @@
       <file leaf-file-name="ModelProduct.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26418787" vertical-offset="868" max-vertical-offset="1428">
-              <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.57831323" vertical-offset="868" max-vertical-offset="1428">
+              <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
               <folding>
-                <marker date="1437986445700" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
+                <marker date="1437986565691" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
               </folding>
             </state>
           </provider>
@@ -1470,10 +1470,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26418787" vertical-offset="868" max-vertical-offset="1428">
-          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.57831323" vertical-offset="868" max-vertical-offset="1428">
+          <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
           <folding>
-            <marker date="1437986445700" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
+            <marker date="1437986565691" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
           </folding>
         </state>
       </provider>
