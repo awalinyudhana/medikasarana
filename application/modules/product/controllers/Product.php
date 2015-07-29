@@ -118,7 +118,8 @@ class Product extends MX_Controller
             // ->callback_before_insert(array($this, 'checkPrefixCode'))
             ->callback_field('parent', array($this, 'categoryParentField'))
             ->callback_column('parent', array($this, 'categoryParentName'))
-            ->unset_read();
+            ->unset_read()
+            ->unset_delete();
 
         $output = $crud->render();
         $this->render($output);
@@ -132,7 +133,7 @@ class Product extends MX_Controller
 
     public function categoryParentField($value = '', $primary_key = null)
     {
-        $categories = $this->ModProduct->getCategoryOnly();
+        $categories = $this->ModProduct->getAvailableCategoryParent($primary_key);
 
 
         $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
