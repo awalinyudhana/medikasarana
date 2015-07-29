@@ -177,7 +177,7 @@ class Product extends MX_Controller
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
 
-        $html.= "<div><select name='parent' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
+        $html.= "<div><select name='id_product_category' class='chosen-select' data-placeholder='Pilih Categori' style='width:500px;'>";
         $html.= '<option value=""></option>';
 
         foreach ($categories as $row) {
