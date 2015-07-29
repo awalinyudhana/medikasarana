@@ -143,12 +143,10 @@ class Product extends MX_Controller
         $html.= '<option value=""></option>';
 
         foreach ($categories as $row) {
-            if($row['id_product_category'] != $primary_key->id_product_category){
-                if (!empty($value) && $value == $row['id_product_category']) {
-                    $html.= "<option value='".$row['id_product_category']."' selected>".$row['category']."</option>";
-                } else {
-                    $html.= "<option value='".$row['id_product_category']."'>".$row['category']."</option>";
-                }
+            if (!empty($value) && $value == $row['id_product_category']) {
+                $html.= "<option value='".$row['id_product_category']."' selected>".$row['category']."</option>";
+            } else {
+                $html.= "<option value='".$row['id_product_category']."'>".$row['category']."</option>";
             }
         }
         $html.= '</select></div>';

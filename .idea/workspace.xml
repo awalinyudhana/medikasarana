@@ -50,12 +50,12 @@
       <file leaf-file-name="Product.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/product/controllers/Product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3510055" vertical-offset="2239" max-vertical-offset="5355">
-              <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4131627" vertical-offset="2239" max-vertical-offset="5321">
+              <caret line="145" column="12" selection-start-line="145" selection-start-column="12" selection-end-line="149" selection-end-column="13" />
               <folding>
-                <marker date="1438185863585" expanded="true" signature="3482:3494" placeholder="..." />
-                <marker date="1438185863585" expanded="true" signature="6260:6272" placeholder="..." />
-                <marker date="1438185863585" expanded="true" signature="8325:8337" placeholder="..." />
+                <marker date="1438187145104" expanded="true" signature="3482:3494" placeholder="..." />
+                <marker date="1438187145104" expanded="true" signature="6260:6272" placeholder="..." />
+                <marker date="1438187145104" expanded="true" signature="8209:8221" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1446,12 +1446,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/product/controllers/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3510055" vertical-offset="2239" max-vertical-offset="5355">
-          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4131627" vertical-offset="2239" max-vertical-offset="5321">
+          <caret line="145" column="12" selection-start-line="145" selection-start-column="12" selection-end-line="149" selection-end-column="13" />
           <folding>
-            <marker date="1438185863585" expanded="true" signature="3482:3494" placeholder="..." />
-            <marker date="1438185863585" expanded="true" signature="6260:6272" placeholder="..." />
-            <marker date="1438185863585" expanded="true" signature="8325:8337" placeholder="..." />
+            <marker date="1438187145104" expanded="true" signature="3482:3494" placeholder="..." />
+            <marker date="1438187145104" expanded="true" signature="6260:6272" placeholder="..." />
+            <marker date="1438187145104" expanded="true" signature="8209:8221" placeholder="..." />
           </folding>
         </state>
       </provider>
