@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/product/controllers/Product.php" afterPath="$PROJECT_DIR$/application/modules/product/controllers/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,12 +50,12 @@
       <file leaf-file-name="Product.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/product/controllers/Product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.904936" vertical-offset="1984" max-vertical-offset="5321">
-              <caret line="178" column="42" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.50639856" vertical-offset="2188" max-vertical-offset="5355">
+              <caret line="145" column="60" selection-start-line="145" selection-start-column="60" selection-end-line="145" selection-end-column="60" />
               <folding>
-                <marker date="1438185421458" expanded="true" signature="3482:3494" placeholder="..." />
-                <marker date="1438185421458" expanded="true" signature="6258:6270" placeholder="..." />
-                <marker date="1438185421458" expanded="true" signature="8207:8219" placeholder="..." />
+                <marker date="1438185553234" expanded="true" signature="3482:3494" placeholder="..." />
+                <marker date="1438185553234" expanded="true" signature="6258:6270" placeholder="..." />
+                <marker date="1438185553234" expanded="true" signature="8302:8314" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1447,12 +1446,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/product/controllers/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.904936" vertical-offset="1984" max-vertical-offset="5321">
-          <caret line="178" column="42" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.50639856" vertical-offset="2188" max-vertical-offset="5355">
+          <caret line="145" column="60" selection-start-line="145" selection-start-column="60" selection-end-line="145" selection-end-column="60" />
           <folding>
-            <marker date="1438185421458" expanded="true" signature="3482:3494" placeholder="..." />
-            <marker date="1438185421458" expanded="true" signature="6258:6270" placeholder="..." />
-            <marker date="1438185421458" expanded="true" signature="8207:8219" placeholder="..." />
+            <marker date="1438185553234" expanded="true" signature="3482:3494" placeholder="..." />
+            <marker date="1438185553234" expanded="true" signature="6258:6270" placeholder="..." />
+            <marker date="1438185553234" expanded="true" signature="8302:8314" placeholder="..." />
           </folding>
         </state>
       </provider>
