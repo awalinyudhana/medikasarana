@@ -181,10 +181,10 @@
                             <table class="table">
                                 <tbody>
 
-                                {assign var=ppn value=0}
-                                {assign var=ppn value=$total * 0.1}
                                 {assign var=dpp value=0}
-                                {assign var=dpp value=$total - $ppn}
+                                {assign var=dpp value=$total / 1.1}
+                                {assign var=ppn value=0}
+                                {assign var=ppn value=$total * $dpp}
                                 <tr>
                                     <th>DPP:</th>
                                     <td class="text-right"> Rp
