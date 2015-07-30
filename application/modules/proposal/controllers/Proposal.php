@@ -259,7 +259,7 @@ class Proposal extends MX_Controller
                 'price' => $row['price'],
                 'discount' => $row['discount']
             );
-            $this->cart->add_item($this->input->post('id_product'), $data_value);
+            $this->cart->add_item($row['id_product'], $data_value);
         }
         redirect('proposal/detail');
     }

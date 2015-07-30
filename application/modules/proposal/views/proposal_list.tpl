@@ -61,7 +61,7 @@
                                         {if $key->type == 0}
                                             <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
                                                class="button btn btn-default ">
-                                                Detail
+                                                Edit
                                             </a>
                                         {/if}
                                     {/if}
