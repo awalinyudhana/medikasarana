@@ -96,8 +96,8 @@ class Retail extends MX_Controller
 //                $status_ppn = $this->input->post('status_ppn') == "on" ? 1 : 0;
 //                $dpp = $this->input->post('total') - $this->input->post('discount_price');
 //                $ppn = $status_ppn == 1 ? $dpp * 0.1 : 0;
-                $ppn = $this->input->post('total')*0.1;
-                $dpp = $this->input->post('total') - $ppn;
+                $dpp = $this->input->post('total') / 1.1 ;
+                $ppn = $this->input->post('total') - $dpp;
                 $id_retail = $this->cart->primary_data(array(
                     'total' => $this->input->post('total'),
                     'discount_price' => $this->input->post('discount_price'),

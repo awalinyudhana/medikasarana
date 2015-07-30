@@ -12,8 +12,6 @@
                         {$master->city} - {$master->state}
                         </br>
                         {$master->telp1} - {$master->telp2}
-                        </br>
-                        {$master->owner}
                     </span>
                     </td>
                     <td align="right" valign="center">
@@ -90,6 +88,16 @@
                 </tr>
             </table>
         </font>
+        <font size="0.9em">
+            <table border="0" width="100%">
+                <tr>
+                    <td width="60%" align="left" valign="top">
+                    <span><i>Terima Kasih dan Selamat Berbelanja Kembali</i>
+                    </span>
+                    </td>
+                </tr>
+            </table>
+        </font>
     </div>
 {/block}
 {block name=content}
@@ -129,7 +137,6 @@
                     </ul>
                 </div>
             </div>
-
 
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
@@ -198,15 +205,6 @@
                             <th>Diskon:</th>
                             <td class="text-right">Rp {$master->discount_price|number_format:0}</td>
                         </tr>
-                        {*<tr>*}
-                        {*<th>DPP:</th>*}
-                        {*<td class="text-right">Rp {($master->total-$master->discount_price)|number_format:0}</td>*}
-                        {*</tr>*}
-                        {*<tr>*}
-                            {*<th>PPN:</th>*}
-                            {*<td class="text-right">*}
-                                {*Rp  {$master->ppn|number_format:0}</td>*}
-                        {*</tr>*}
                         <tr>
                             <th>Grand Total:</th>
                             <td class="text-right">Rp {$master->grand_total|number_format:0}</td>
