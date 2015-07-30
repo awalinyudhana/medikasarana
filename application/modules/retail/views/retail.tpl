@@ -184,7 +184,7 @@
                                 {assign var=dpp value=0}
                                 {assign var=dpp value=$total / 1.1}
                                 {assign var=ppn value=0}
-                                {assign var=ppn value=$total * $dpp}
+                                {assign var=ppn value=$total - $dpp}
                                 <tr>
                                     <th>DPP:</th>
                                     <td class="text-right"> Rp
