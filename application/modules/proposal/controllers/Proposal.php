@@ -166,6 +166,7 @@ class Proposal extends MX_Controller
 
         if(!empty($this->cache['value']['id_proposal'])){
             $this->updateProposal($this->cache['value']['id_proposal']);
+            $this->cart->delete_record();
             redirect('proposal/checkout/' . $this->cache['value']['id_proposal']);
         }
         if ($this->input->post()) {

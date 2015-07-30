@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php" afterPath="$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl" afterPath="$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl" />
     </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +50,8 @@
       <file leaf-file-name="Proposal.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9089286" vertical-offset="3928" max-vertical-offset="4794">
-              <caret line="261" column="52" selection-start-line="261" selection-start-column="52" selection-end-line="261" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.27142859" vertical-offset="2704" max-vertical-offset="4811">
+              <caret line="168" column="41" selection-start-line="168" selection-start-column="41" selection-end-line="168" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -1535,8 +1534,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9089286" vertical-offset="3928" max-vertical-offset="4794">
-          <caret line="261" column="52" selection-start-line="261" selection-start-column="52" selection-end-line="261" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.27142859" vertical-offset="2704" max-vertical-offset="4811">
+          <caret line="168" column="41" selection-start-line="168" selection-start-column="41" selection-end-line="168" selection-end-column="41" />
           <folding />
         </state>
       </provider>
