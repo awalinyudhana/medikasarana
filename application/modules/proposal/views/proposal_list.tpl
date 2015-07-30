@@ -60,6 +60,12 @@
                                         </a>
                                     {/if}
 
+                                    {if $key->type == 0}
+                                        <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
+                                           class="button btn btn-default ">
+                                            Detail
+                                        </a>
+                                    {/if}
                                     <a href="{base_url('proposal/checkout')}/{$key->id_proposal}"
                                        class="button btn btn-warning ">
                                         Detail

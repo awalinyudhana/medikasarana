@@ -77,12 +77,14 @@ class Proposal extends MX_Controller
                 if (!$this->cache['detail']['value'][$this->input->post('id_product')]) {
                     $data_value = array(
                         'id_product' => $this->input->post('id_product'),
-
                         'qty' => $this->input->post('qty') != null ?
                             $this->input->post('qty') : 1,
                         'price' => $this->input->post('price'),
-                        'discount' => $this->input->post('discount') == "" ?  "0" : $this->input->post('discount')
+                        'discount' => $this->input->post('discount') == "" ? "0" : $this->input->post('discount')
                     );
+                    if(!empty($this->cache['value']['id_proposal'])){
+                        $data_value['id_proposal'] = $this->cache['value']['id_proposal'];
+                    }
 
                     $this->cart->add_item($this->input->post('id_product'), $data_value);
                     redirect('proposal/detail');
@@ -136,7 +138,7 @@ class Proposal extends MX_Controller
                         'qty' => $this->input->post('qty') != null ?
                             $this->input->post('qty') : 1,
                         'price' => $this->input->post('price'),
-                        'discount' => $this->input->post('discount') == "" ?  "0" : $this->input->post('discount')
+                        'discount' => $this->input->post('discount') == "" ? "0" : $this->input->post('discount')
                     ]
                 )
                 )
@@ -162,6 +164,10 @@ class Proposal extends MX_Controller
             return false;
         }
 
+        if(!empty($this->cache['value']['id_proposal'])){
+            $this->updateProposal($this->cache['value']['id_proposal']);
+            redirect('proposal/checkout/' . $this->cache['value']['id_proposal']);
+        }
         if ($this->input->post()) {
             if ($id_proposal = $this->cart->save()) {
                 redirect('proposal/checkout/' . $id_proposal);
@@ -185,7 +191,7 @@ class Proposal extends MX_Controller
         $crud->set_model('CheckoutModel');
         $crud->set_table('proposal_detail'); //Change to your table name
         $crud->columns('name', 'brand', 'unit', 'size', 'qty', 'price', 'discount', 'discount_price', 'sub_total'
-            ,'ppn', 'final_sub_total');
+            , 'ppn', 'final_sub_total');
         $crud->basic_model->getDataProposalDetail($id);
 
         $crud->callback_column('unit', array($this, '_callback_unit'));
@@ -196,7 +202,7 @@ class Proposal extends MX_Controller
         $crud->callback_column('ppn', array($this, '_callback_currency'));
         $crud->callback_column('final_sub_total', array($this, '_callback_currency'));
 
-        $crud->display_as('final_sub_total','total');
+        $crud->display_as('final_sub_total', 'total');
 //
         $crud->unset_add()
             ->unset_edit()
@@ -226,6 +232,46 @@ class Proposal extends MX_Controller
     {
         return "Rp " . number_format($value);
 
+    }
+
+    public function editProposal($id_proposal)
+    {
+        $this->cart->delete_record();
+        $proposal = $this->model_proposal->getDataProposal($id_proposal);
+        $this->cart->primary_data(
+            [
+                'id_customer' => $proposal->id_customer,
+                'id_staff' => $proposal->id_staff,
+                'type' => $proposal->type,
+                'status_ppn' => $proposal->status_ppn,
+                'status' => $proposal->status,
+                'id_proposal' => $id_proposal
+            ]
+        );
+        $detail = $this->model_proposal->getDataProposalDetail($id_proposal);
+
+        foreach ($detail as $row) {
+            $data_value = array(
+//                'id_detail' => $row['id_detail'],
+                'id_proposal' => $row['id_proposal'],
+                'id_product' => $row['id_product'],
+                'qty' => $row['qty'],
+                'price' => $row['price'],
+                'discount' => $row['discount']
+            );
+            $this->cart->add_item($this->input->post('id_product'), $data_value);
+        }
+        redirect('proposal/detail');
+    }
+
+    public function updateProposal($id_proposal){
+        $this->model_proposal->deleteDetailProposal($id_proposal);
+        $data =  $this->cache['detail']['value'];
+//        foreach($data as $row){
+//            $value[] = $row;
+//        }
+
+        $this->model_proposal->insertDetailProposal(array_values($data));
     }
 
 }

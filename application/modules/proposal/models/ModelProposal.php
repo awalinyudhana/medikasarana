@@ -61,4 +61,13 @@ class ModelProposal extends CI_Model
             ->get()->result_array();
     }
 
+    public function deleteDetailProposal($id){
+        $this->db->where('id_proposal', $id);
+        $this->db->delete('proposal_detail');
+    }
+
+    public function insertDetailProposal($data){
+        $this->db->insert_batch('proposal_detail', $data);
+    }
+
 }

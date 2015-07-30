@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/retail/controllers/Retail.php" afterPath="$PROJECT_DIR$/application/modules/retail/controllers/Retail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/retail/views/checkout.tpl" afterPath="$PROJECT_DIR$/application/modules/retail/views/checkout.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/proposal/views/list_detail.tpl" afterPath="$PROJECT_DIR$/application/modules/proposal/views/list_detail.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/proposal/models/ModelProposal.php" afterPath="$PROJECT_DIR$/application/modules/proposal/models/ModelProposal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php" afterPath="$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl" afterPath="$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
     </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,61 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Store.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/product/controllers/Store.php">
+      <file leaf-file-name="ModelProposal.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProposal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.615385" vertical-offset="286" max-vertical-offset="1003">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9466667" vertical-offset="884" max-vertical-offset="3502">
-              <caret line="65" column="13" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Retail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/retail/controllers/Retail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-63.423077" vertical-offset="0" max-vertical-offset="2499">
-              <caret line="102" column="77" selection-start-line="102" selection-start-column="77" selection-end-line="102" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="retail.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/retail/views/retail.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-63.53846" vertical-offset="1476" max-vertical-offset="5916">
-              <caret line="184" column="15" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkout.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/retail/views/checkout.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.923077" vertical-offset="1072" max-vertical-offset="4080">
-              <caret line="92" column="20" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="proposal_checkout.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/proposal_checkout.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2839">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-18.26923" vertical-offset="681" max-vertical-offset="1326">
+              <caret line="68" column="40" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -92,38 +43,90 @@
       <file leaf-file-name="proposal_detail.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/proposal_detail.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="7106">
+            <state vertical-scroll-proportion="5.8846154" vertical-offset="2805" max-vertical-offset="7106">
+              <caret line="156" column="18" selection-start-line="156" selection-start-column="13" selection-end-line="156" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Proposal.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.81785715" vertical-offset="4234" max-vertical-offset="4794">
+              <caret line="276" column="1" selection-start-line="276" selection-start-column="1" selection-end-line="276" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cart.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/libraries/Cart.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.1333333" vertical-offset="2856" max-vertical-offset="7378">
+              <caret line="173" column="25" selection-start-line="173" selection-start-column="25" selection-end-line="173" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelProduct.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.5769231" vertical-offset="842" max-vertical-offset="1428">
+              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+              <folding>
+                <marker date="1437986565691" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckoutModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/CheckoutModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="5.8846154" vertical-offset="153" max-vertical-offset="731">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Proposal.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php">
+      <file leaf-file-name="Listing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/proposal/controllers/Listing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.88" vertical-offset="3501" max-vertical-offset="4012">
-              <caret line="180" column="34" selection-start-line="180" selection-start-column="28" selection-end-line="180" selection-end-column="34" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="952">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list_detail.tpl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list_detail.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/list_detail.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.030357143" vertical-offset="0" max-vertical-offset="1105">
+            <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1105">
               <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModStore.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/product/models/ModStore.php">
+      <file leaf-file-name="proposal_list.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8461537" vertical-offset="222" max-vertical-offset="884">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="34" />
+            <state vertical-scroll-proportion="-12.423077" vertical-offset="748" max-vertical-offset="1717">
+              <caret line="63" column="68" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.72" vertical-offset="2023" max-vertical-offset="3519">
+              <caret line="131" column="48" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -137,9 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/modules/users/views/repair.tpl" />
-        <option value="$PROJECT_DIR$/application/modules/users/views/update-role.tpl" />
-        <option value="$PROJECT_DIR$/application/modules/users/controllers/Users.php" />
         <option value="$PROJECT_DIR$/a.txt" />
         <option value="$PROJECT_DIR$/b.txt" />
         <option value="$PROJECT_DIR$/application/modules/login/views/login.tpl" />
@@ -180,7 +180,6 @@
         <option value="$PROJECT_DIR$/application/modules/product/models/ModProduct.php" />
         <option value="$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php" />
         <option value="$PROJECT_DIR$/application/modules/product/controllers/Product.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/config/acl.php" />
         <option value="$PROJECT_DIR$/application/modules/product/controllers/Store.php" />
         <option value="$PROJECT_DIR$/application/modules/product/models/ModStore.php" />
@@ -188,6 +187,10 @@
         <option value="$PROJECT_DIR$/application/modules/retail/controllers/Retail.php" />
         <option value="$PROJECT_DIR$/application/modules/retail/views/checkout.tpl" />
         <option value="$PROJECT_DIR$/application/modules/proposal/views/list_detail.tpl" />
+        <option value="$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/application/modules/proposal/models/ModelProposal.php" />
+        <option value="$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php" />
       </list>
     </option>
   </component>
@@ -634,6 +637,10 @@
               <option name="myItemId" value="proposal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1019,6 +1026,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medikasarana" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medikasarana" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1127,20 +1152,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/modules/warehouse/views/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.269231" vertical-offset="154" max-vertical-offset="714">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/warehouse/views/placing.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617" vertical-offset="102" max-vertical-offset="714">
-          <caret line="16" column="74" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/warehouse/views/rack.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.5" vertical-offset="153" max-vertical-offset="714">
@@ -1274,20 +1285,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/CheckoutModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/proposal_main.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1394">
@@ -1356,29 +1353,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProposal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/delivery_order/views/delivery_order.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2533">
           <caret line="29" column="76" selection-start-line="29" selection-start-column="76" selection-end-line="29" selection-end-column="76" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5769231" vertical-offset="868" max-vertical-offset="1428">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <marker date="1437986565691" expanded="true" signature="-1:-1" placeholder="SELECT p.id_..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1434,14 +1413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9466667" vertical-offset="884" max-vertical-offset="3502">
-          <caret line="65" column="13" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/product/controllers/Store.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.615385" vertical-offset="286" max-vertical-offset="1003">
@@ -1490,26 +1461,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/list_detail.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1105">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.72" vertical-offset="2023" max-vertical-offset="3519">
+          <caret line="131" column="48" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/proposal/controllers/Listing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077" vertical-offset="748" max-vertical-offset="1717">
+          <caret line="63" column="68" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5769231" vertical-offset="842" max-vertical-offset="1428">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding>
+            <marker date="1437986565691" expanded="true" signature="1001:1391" placeholder="SELECT p.id_..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/CheckoutModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.8846154" vertical-offset="153" max-vertical-offset="731">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/proposal_detail.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="7106">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="5.8846154" vertical-offset="2805" max-vertical-offset="7106">
+          <caret line="156" column="18" selection-start-line="156" selection-start-column="13" selection-end-line="156" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/proposal/models/ModelProposal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.26923" vertical-offset="681" max-vertical-offset="1326">
+          <caret line="68" column="40" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/Cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1333333" vertical-offset="2856" max-vertical-offset="7378">
+          <caret line="173" column="25" selection-start-line="173" selection-start-column="25" selection-end-line="173" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/proposal/controllers/Proposal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.88" vertical-offset="3501" max-vertical-offset="4012">
-          <caret line="180" column="34" selection-start-line="180" selection-start-column="28" selection-end-line="180" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/proposal/views/list_detail.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030357143" vertical-offset="0" max-vertical-offset="1105">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.81785715" vertical-offset="4234" max-vertical-offset="4794">
+          <caret line="276" column="1" selection-start-line="276" selection-start-column="1" selection-end-line="276" selection-end-column="1" />
           <folding />
         </state>
       </provider>
