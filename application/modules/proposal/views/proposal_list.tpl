@@ -31,7 +31,7 @@
                         <th>Penanngung Jawab</th>
                         <th>Jenis Proposal</th>
                         <th>PPn Status</th>
-                        <th width="300px">Action</th>
+                        <th width="350px">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -58,14 +58,14 @@
                                            class="button btn btn-success ">
                                             Sales Order
                                         </a>
+                                        {if $key->type == 0}
+                                            <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
+                                               class="button btn btn-default ">
+                                                Detail
+                                            </a>
+                                        {/if}
                                     {/if}
 
-                                    {if $key->type == 0}
-                                        <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
-                                           class="button btn btn-default ">
-                                            Detail
-                                        </a>
-                                    {/if}
                                     <a href="{base_url('proposal/checkout')}/{$key->id_proposal}"
                                        class="button btn btn-warning ">
                                         Detail

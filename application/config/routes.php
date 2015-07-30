@@ -129,7 +129,7 @@ $route['stock-opname/store/save'] = "opname/Store/save";
 
 $route['proposal'] = "proposal";
 $route['proposal/delete'] = "proposal/reset";
-$route['proposal/edit'] = "proposal/editProposal";
+$route['proposal/edit/(:num)'] = "proposal/editProposal/$1";
 $route['proposal/save'] = "proposal/saveProposal";
 $route['proposal/detail'] = "proposal/insertDetail";
 $route['proposal/detail/delete/(:num)'] = "proposal/deleteDetail/$1";
