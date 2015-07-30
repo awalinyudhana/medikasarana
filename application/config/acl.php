@@ -57,7 +57,7 @@ $config['module_auth_message'] = 'please login to access this module.';
 //
 $config['module_list'] = ["bank",
     "card_stock", "credit", "customer", "debit", "delivery_order", "extract", "join", "opname", "pricing",
-    "principal", "product", "product_conversion", "product_distribution", "product_return", "proposal",
+    "principal", "product", "product_store", "product_opname", "product_opname_store","product_conversion", "product_distribution", "product_return", "proposal",
     "purchase_order", "retail", "retail_return", "sales_order", "sales_order_return", "store", "users", "warehouse"];
 $config['module_router'] =
     [
@@ -118,8 +118,13 @@ $config['module_router'] =
                             'title' => "Produk List",
                             'url' => 'product',
                             'module' => 'product'
+                        ],
+                        [
+                            'title' => "Produk Store",
+                            'url' => 'product/store',
+                            'module' => 'product_store'
                         ], [
-                            'title' => "Kategori Produk",
+                            'title' => "Produk Kategori",
                             'url' => 'product/category',
                             'module' => 'product'
                         ], [

@@ -63,6 +63,7 @@ $route['purchase-order/save'] = "purchase_order/PurchaseOrder/savePO";
 $route['purchase-order/invoice'] = "purchase_order/Invoice/index";
 $route['purchase-order/invoice/(:num)'] = "purchase_order/Invoice/summary/$1";
 
+$route['product/store'] = "product/Store";
 //$route['card-stock'] = "card_stock/CardStock";
 //$route['card-stock/detail/(:num)'] = "card_stock/CardStock/detailCS/$1";
 //$route['card-stock/checkout/(:num)'] = "card_stock/CardStock/checkout/$1";
