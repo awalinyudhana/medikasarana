@@ -31,7 +31,7 @@
                         <th>Penanngung Jawab</th>
                         <th>Jenis Proposal</th>
                         <th>PPn Status</th>
-                        <th width="350px">Action</th>
+                        <th width="375px">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -47,6 +47,12 @@
                             <td>{$array_status_ppn[$key->status_ppn]}</td>
                             <td>
                                 <div class="table-controls">
+
+                                    <a href="{base_url('proposal/checkout')}/{$key->id_proposal}"
+                                       class="button btn btn-warning ">
+                                        Detail
+                                    </a>
+
                                     {if $key->status == 0}
                                         <a href="{base_url('proposal/approve')}/{$key->id_proposal}"
                                            class="button btn btn-success "
@@ -63,13 +69,14 @@
                                                class="button btn btn-default ">
                                                 Edit
                                             </a>
+                                            <a href="{base_url('proposal/usang')}/{$key->id_proposal}"
+                                               class="button btn btn-primary "
+                                               onclick="return confirm('Proposal {$key->id_proposal} akan dipindahkan di data history')">
+                                                Usang
+                                            </a>
                                         {/if}
                                     {/if}
 
-                                    <a href="{base_url('proposal/checkout')}/{$key->id_proposal}"
-                                       class="button btn btn-warning ">
-                                        Detail
-                                    </a>
                                     <a href="{base_url('proposal/delete')}/{$key->id_proposal}"
                                        class="button btn btn-danger "
                                        onclick="return confirm('Proposal {$key->id_proposal} akan di hapus')">

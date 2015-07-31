@@ -27,24 +27,38 @@ class Listing extends MX_Controller
         $data['success'] = $this->session->flashdata('success') != null ? $this->session->flashdata('success') : null;
         $data['array_proposal_type'] = $this->proposal_type;
         $data['array_status_ppn'] = $this->status_ppn;
-        $data['items'] = $this->model_proposal->getListProposal([0,1]);
+        $data['items'] = $this->model_proposal->getListProposal([0, 1]);
 
         $this->parser->parse("proposal_list.tpl", $data);
     }
 
-    public function approve($id){
-        if($this->db
-            ->where('id_proposal',$id)
-            ->update('proposal',['status'=>1]))
-        {
-            $this->session->set_flashdata('success', "id proposal ".$id." berhasil di update");
+    public function approve($id)
+    {
+        if ($this->db
+            ->where('id_proposal', $id)
+            ->update('proposal', ['status' => 1])
+        ) {
+            $this->session->set_flashdata('success', "id proposal " . $id . " berhasil di update");
         }
         redirect('proposal/list');
     }
-    public function delete($id){
-        if($this->db->delete('proposal',['id_proposal'=>$id]))
-        {
-            $this->session->set_flashdata('success', "id proposal ".$id." berhasil di hapus");
+
+    public function delete($id)
+    {
+        if ($this->db->delete('proposal', ['id_proposal' => $id])) {
+            $this->session->set_flashdata('success', "id proposal " . $id . " berhasil di hapus");
+        }
+        redirect('proposal/list');
+    }
+
+
+    public function usang($id)
+    {
+        if ($this->db
+            ->where('id_proposal', $id)
+            ->update('proposal', ['status' => 2])
+        ) {
+            $this->session->set_flashdata('success', "id proposal " . $id . " tidak digunakan lagi");
         }
         redirect('proposal/list');
     }

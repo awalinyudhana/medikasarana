@@ -129,17 +129,18 @@ $route['stock-opname/store/save'] = "opname/Store/save";
 
 $route['proposal'] = "proposal";
 $route['proposal/delete'] = "proposal/reset";
-$route['proposal/edit/(:num)'] = "proposal/editProposal/$1";
 $route['proposal/save'] = "proposal/saveProposal";
 $route['proposal/detail'] = "proposal/insertDetail";
 $route['proposal/detail/delete/(:num)'] = "proposal/deleteDetail/$1";
 $route['proposal/detail/update'] = "proposal/detailUpdate";
 $route['proposal/checkout/(:num)'] = "proposal/checkout/$1";
+$route['proposal/edit/(:num)'] = "proposal/editProposal/$1";
 
 
 $route['proposal/list'] = "proposal/Listing/index";
 $route['proposal/approve/(:num)'] = "proposal/Listing/approve/$1";
 $route['proposal/delete/(:num)'] = "proposal/Listing/delete/$1";
+$route['proposal/usang/(:num)'] = "proposal/Listing/usang/$1";
 
 
 

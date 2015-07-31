@@ -59,19 +59,21 @@ class SalesOrder extends MX_Controller
         if ($this->input->post('id_proposal')) {
             if ($data_id_proposal = $this->model_proposal->getDataProposalActive($this->input->post('id_proposal'))) {
 
-                redirect('sales-order/'.$this->input->post('id_proposal'));
+                redirect('sales-order/' . $this->input->post('id_proposal'));
             }
             $data['error'] = 'no nota tidak ditemukan';
         }
         $this->parser->parse("sales_order-form.tpl", $data);
     }
 
-    public function invoice(){
+    public function invoice()
+    {
         if ($this->input->post('id_sales_order')) {
             if (
                 $this->db
-                    ->where('id_sales_order',$this->input->post('id_sales_order'))
-                    ->get('sales_order')->num_rows() > 0 ) {
+                    ->where('id_sales_order', $this->input->post('id_sales_order'))
+                    ->get('sales_order')->num_rows() > 0
+            ) {
                 redirect('sales-order/checkout/' . $this->input->post('id_sales_order'));
             }
             $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'data tidak di temukan'));
@@ -124,11 +126,15 @@ class SalesOrder extends MX_Controller
                     'grand_total' => $dpp + $ppn
                 ))->save()
                 ) {
-                    $this->db
-                        ->where(['id_proposal' => $this->cache['value']['id_proposal']])
-                        ->update('proposal', [
-                            'status' => 2
-                        ]);
+                    $proposal = $this->db->get_where('proposal', ['id_proposal' => $this->cache['value']['id_proposal']])
+                        ->row();
+                    if ($proposal->type == 0) {
+                        $this->db
+                            ->where(['id_proposal' => $this->cache['value']['id_proposal']])
+                            ->update('proposal', [
+                                'status' => 2
+                            ]);
+                    }
                     redirect('sales-order/checkout/' . $id_so);
                 }
                 $this->session->set_flashdata('error', "transaction error");
