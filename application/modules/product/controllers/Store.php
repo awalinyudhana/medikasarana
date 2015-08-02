@@ -17,16 +17,15 @@ class Store extends MX_Controller
         $this->load->model('ModStore');
         $this->id_store = $this->config->item('id_store');
     }
-
+    /*
     public function render($output)
     {
         $this->parser->parse('index.tpl', $output);
     }
-
-    public function index()
+    
+    public function indexGroceryCRUD()
     {
         $crud = new grocery_CRUD();
-
 
         $crud
             ->where('id_store', $this->id_store)
@@ -38,9 +37,10 @@ class Store extends MX_Controller
             ->display_as('license', 'AKL/AKD')
             ->display_as('value', 'Nilai Satuan')
             ->callback_column('sell_price', array($this, 'currencyFormat'))
-            ->set_relation('id_product_category', 'product_category', 'category')
-            ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
-            ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
+            // ->set_relation('id_product', 'product', 'id_product')
+            // ->set_relation('id_product_category', 'product_category', 'category')
+            // ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
+            // ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
             ->unset_read()
             ->unset_add()
             ->unset_edit()
@@ -49,5 +49,16 @@ class Store extends MX_Controller
         $output = $crud->render();
 
         $this->render($output);
+    }
+
+    public function currencyFormat($value, $row)
+    {
+        return "Rp " . number_format($value);
+    }*/
+
+    public function index()
+    {
+        $data['items'] = $this->ModStore->get($this->id_store);
+        $this->parser->parse("store.tpl", $data);
     }
 }

@@ -22,12 +22,17 @@ class Listing extends MX_Controller
     }
 
 
-    public function index()
+    public function index($type = 'pengadaan')
     {
         $data['success'] = $this->session->flashdata('success') != null ? $this->session->flashdata('success') : null;
         $data['array_proposal_type'] = $this->proposal_type;
         $data['array_status_ppn'] = $this->status_ppn;
-        $data['items'] = $this->model_proposal->getListProposal([0, 1]);
+
+        if ($type == 'pengadaan') {
+            $data['items'] = $this->model_proposal->getListProposal([0, 1], 0);
+        } else {
+            $data['items'] = $this->model_proposal->getListProposal([0, 1], 1);
+        }
 
         $this->parser->parse("proposal_list.tpl", $data);
     }
