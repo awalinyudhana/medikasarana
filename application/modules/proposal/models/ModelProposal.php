@@ -37,7 +37,7 @@ class ModelProposal extends CI_Model
             ->row();
     }
 
-    public function getListProposal($status = array())
+    public function getListProposal($status = array(), $type = 0)
     {
         $this->db
             ->select("*, staff.name as staff_name, customer.name as customer_name")
@@ -47,6 +47,7 @@ class ModelProposal extends CI_Model
         if($status != null){
             $this->db->where_in("status", $status);
         }
+        $this->db->where('type', $type);
         return $this->db->get()
             ->result();
     }
