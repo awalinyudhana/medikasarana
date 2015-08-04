@@ -20,9 +20,9 @@ class History extends MX_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_table('purchase_order')
-            ->columns('id_purchase_order', 'id_pricipal', 'id_staff', 'date', 'due_date', 'dpp', 'ppn', 'discount_price', 'grand_total')
+            ->columns('id_purchase_order', 'id_principal', 'id_staff', 'date', 'due_date', 'dpp', 'ppn', 'discount_price', 'grand_total')
             ->display_as('id_purchase_order', 'No Faktur')
-            ->display_as('id_pricipal', 'Principal')
+            ->display_as('id_principal', 'Principal')
             ->display_as('id_staff', 'Staff')
             ->display_as('date', 'Tanggal Transaksi')
             ->display_as('due_date', 'Jatuh Tempo')
@@ -32,7 +32,7 @@ class History extends MX_Controller
             ->callback_column('ppn', array($this, 'currencyFormat'))
             ->callback_column('discount_price', array($this, 'currencyFormat'))
             ->callback_column('grand_total', array($this, 'currencyFormat'))
-            ->set_relation('id_pricipal', 'principal', 'name')
+            ->set_relation('id_principal', 'principal', 'name')
             ->set_relation('id_staff', 'staff', 'name')
             ->add_action('Attach', '', '','ui-icon-image',array($this,'attach_file'))
             ->add_action('Detail', '', '', 'read-icon', array($this, 'checkout'))
