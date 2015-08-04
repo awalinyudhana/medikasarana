@@ -191,16 +191,21 @@ $config['module_router'] =
             'child' => [
                 [
                     'title' => 'Proposal',
+                    'url' => 'proposal',
+                    'module' => 'proposal'
+                ],
+                [
+                    'title' => 'Proposal List',
                     'child' => [
                         [
-                            'title' => "Proposal",
-                            'url' => 'proposal',
+                            'title' => "Tender",
+                            'url' => 'proposal/list/tender',
                             'module' => 'proposal'
 
                         ],
                         [
-                            'title' => "Proposal List",
-                            'url' => 'proposal/list',
+                            'title' => "Pengadaan",
+                            'url' => 'proposal/list/pengadaan',
                             'module' => 'proposal'
 
                         ]
