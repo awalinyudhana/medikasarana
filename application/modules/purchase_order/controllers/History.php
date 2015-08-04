@@ -12,7 +12,7 @@ class History extends MX_Controller
 
     public function render($output)
     {
-        $this->parser->parse('index.tpl', $output);
+        $this->parser->parse('history.tpl', $output);
     }
 
     public function index()
