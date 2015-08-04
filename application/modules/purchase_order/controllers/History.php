@@ -34,8 +34,8 @@ class History extends MX_Controller
             ->callback_column('grand_total', array($this, 'currencyFormat'))
             ->set_relation('id_principal', 'principal', 'name')
             ->set_relation('id_staff', 'staff', 'name')
-            ->add_action('Attach', '\assets\grocery_crud\themes\flexigrid\css\images\attachment-icon.png', '','',array($this,'attach_file'))
             ->add_action('Detail', '', '', 'read-icon', array($this, 'checkout'))
+            ->add_action('Attach', '\assets\grocery_crud\themes\flexigrid\css\images\attachment-icon.png', '','',array($this,'attach_file'))
             ->unset_read()
             ->unset_add()
             ->unset_edit()
@@ -52,7 +52,7 @@ class History extends MX_Controller
 
     public function attach_file($primary_key , $row)
     {
-        return site_url('upload/po/'). $row->file;
+        return $row->file;
     }
     public function checkout($primary_key , $row)
     {
