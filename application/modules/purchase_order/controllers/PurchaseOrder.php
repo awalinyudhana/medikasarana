@@ -153,7 +153,7 @@ class PurchaseOrder extends MX_Controller
                     if ($this->upload->do_upload('file') != false ) {
 
                         $file = $this->upload->data();
-                        $scan = base_url() . "/upload/po" . $file['file_name'];
+                        $scan = base_url() . "upload/po/" . $file['file_name'];
 
 
                         if($id_po =$this->cart->primary_data(array(

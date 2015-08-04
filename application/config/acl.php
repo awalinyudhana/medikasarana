@@ -296,13 +296,30 @@ $config['module_router'] =
                     'module' => 'retail'
                 ],
                 [
+                    'title' => 'History',
+                    'url' => 'retail/history',
+                    'module' => 'retail'
+                ]
+            ]
+        ],
+        [
+            'title' => " Retur Retail",
+            'icon' => 'icon-cart',
+            'child' => [
+               
+                [
                     'title' => "Return",
                     'url' => 'retail/returns',
                     'module' => 'retail'
                 ],
                 [
-                    'title' => 'Invoice Return',
+                    'title' => 'Invoice',
                     'url' => 'retail/returns/invoice',
+                    'module' => 'retail'
+                ],
+                [
+                    'title' => 'History',
+                    'url' => 'retail/returns/history',
                     'module' => 'retail'
                 ]
             ]

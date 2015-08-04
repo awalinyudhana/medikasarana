@@ -102,7 +102,7 @@ $route['retail/delete/(:num)'] = "retail/deleteItem/$1";
 $route['retail/save'] = "retail/save";
 $route['retail/invoice'] = "retail/invoice";
 $route['retail/checkout/(:num)'] = "retail/checkout/$1";
-
+$route['retail/history'] = "retail/History";
 
 $route['retail/returns'] = "retail_return/RetailReturn";
 $route['retail/returns/list-item'] = "retail_return/RetailReturn/listItem";
@@ -111,6 +111,8 @@ $route['retail/returns/return-item/(:num)'] = "retail_return/RetailReturn/return
 $route['retail/returns/save'] = "retail_return/RetailReturn/save";
 $route['retail/returns/checkout/(:num)'] = "retail_return/RetailReturn/checkout/$1";
 $route['retail/returns/invoice'] = "retail_return/RetailReturn/invoice";
+$route['retail/returns/history'] = "retail_return/History";
+
 
 
 $route['retail/replace/(:num)'] = "retail/Replace/index/$1";
