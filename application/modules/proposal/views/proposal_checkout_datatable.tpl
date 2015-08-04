@@ -69,44 +69,44 @@
                             {assign var=ppn value=0}
                             <tr>
                                 <td>{$val}</td>
-                                <td>{$key['name']}</td>
-                                <td>{$key['brand']}</td>
-                                <td>{$key['unit']} / {$key['value']}</td>
+                                <td>{$key->name}</td>
+                                <td>{$key->brand}</td>
+                                <td>{$key->unit} / {$key->value}</td>
                                 <td>
-                                    {$key['qty']}
+                                    {$key->qty}
                                 </td>
                                 {*{/if}*}
                                 <td style="width:130px;" class="text-right">
-                                    Rp {$key['price']|number_format:0}
+                                    Rp {$key->price|number_format:0}
                                 </td>
                                 <td style="width:130px;" class="text-right">
-                                    Rp {$key['discount']|number_format:0}
+                                    Rp {$key->discount|number_format:0}
                                 </td>
                                 {if $master->status_ppn == 1}
                                     <td style="width:130px;" class="text-right">
-                                        {assign var=ppn value=($key['qty']*($key['price'] - $key['discount'])*0.1)}
+                                        {assign var=ppn value=($key->qty*($key->price - $key->discount)*0.1)}
                                         Rp {$ppn|number_format:0}
                                     </td>
                                 {/if}
                                 <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] *
-                                    ($key['price'] - $key['discount'])
+                                    Rp {($key->qty *
+                                    ($key->price - $key->discount)
                                     +$ppn
                                     )|number_format:0}
                                 </td>
                                 <td style="width:90px;">
                                     <div class="table-controls">
                                         <a data-toggle="modal" class="btn btn-link btn-icon btn-xs tip" title="Update Qty"
-                                           href="#update-modal" onclick="updateItem({$key['id_product']})" role="button">
+                                           href="#update-modal" onclick="updateItem({$key->id_product})" role="button">
                                             <i class="icon-pencil3"></i></a>
-                                        <a href="{base_url('proposal/detail/delete')}/{$key['id_product']}"
+                                        <a href="{base_url('proposal/detail/delete')}/{$key->id_product}"
                                            class="btn btn-link btn-icon btn-xs tip" title="Hapus Data">
                                             <i class="icon-remove3"></i></a>
                                     </div>
                                 </td>
                             </tr>
                             {assign var=val value=$val+1}
-                            {assign var=total value=$total+($key['qty'] * ($key['price'] - $key['discount']))}
+                            {assign var=total value=$total+($key->qty * ($key->price - $key->discount))}
                             {assign var=ppn_total value=$ppn_total+ $ppn}
                         {/foreach}
                         </tbody>
