@@ -190,13 +190,14 @@ $config['module_router'] =
             ]
         ],
         [
-            'title' => 'Sales Order',
+            'title' => 'Proposal',
             'icon' => 'icon-cart',
             'child' => [
                 [
-                    'title' => 'Proposal',
+                    'title' => "Proposal",
                     'url' => 'proposal',
                     'module' => 'proposal'
+
                 ],
                 [
                     'title' => 'Proposal List',
@@ -216,7 +217,19 @@ $config['module_router'] =
                     ]
                 ],
                 [
-                    'title' => 'Sales Order',
+                    'title' => "History",
+                    'url' => 'proposal/history',
+                    'module' => 'proposal'
+
+                ]
+            ]
+        ],
+        [
+            'title' => 'Sales Order',
+            'icon' => 'icon-cart',
+            'child' => [
+                [
+                    'title' => 'Transaksi',
                     'child' => [
                         [
                             'title' => "Sales Order",
@@ -229,7 +242,17 @@ $config['module_router'] =
                             'module' => 'proposal'
                         ],
                         [
-                            'title' => "Return",
+                            'title' => 'History',
+                            'url' => 'sales-order/history',
+                            'module' => 'proposal'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'Retur',
+                    'child' => [
+                        [
+                            'title' => "Retur",
                             'url' => 'sales-order/returns',
                             'module' => 'proposal'
                         ],
@@ -237,13 +260,13 @@ $config['module_router'] =
                             'title' => 'Invoice Return',
                             'url' => 'sales-order/returns/invoice',
                             'module' => 'proposal'
+                        ],
+                        [
+                            'title' => 'History',
+                            'url' => 'sales-order/returns/history',
+                            'module' => 'proposal'
                         ]
                     ]
-                ],
-                [
-                    'title' => 'Delivery Order',
-                    'url' => 'delivery-order',
-                    'module' => 'delivery_order'
                 ],
                 [
                     'title' => 'Faktur',
@@ -263,6 +286,11 @@ $config['module_router'] =
                     ]
                 ]
             ]
+        ],
+        [
+            'title' => 'Delivery Order',
+            'url' => 'delivery-order',
+            'module' => 'delivery_order'
         ],
         [
             'title' => 'Debit & Credit',

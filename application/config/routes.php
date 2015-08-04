@@ -156,6 +156,7 @@ $route['sales-order/detail/delete/(:num)'] = "sales_order/SalesOrder/deleteDetai
 $route['sales-order/save'] = "sales_order/SalesOrder/save";
 $route['sales-order/update/(:num)/(:num)'] = "sales_order/SalesOrder/updateItem/$1/$2";
 $route['sales-order/checkout/(:num)'] = "sales_order/SalesOrder/checkout/$1";
+$route['sales-order/history'] = "sales_order/History";
 
 $route['debit'] = "debit";
 $route['debit/bill/(:num)'] = "debit/bill/$1";
@@ -198,6 +199,7 @@ $route['sales-order/returns/return-item/(:num)'] = "sales_order_return/SalesOrde
 $route['sales-order/returns/save'] = "sales_order_return/SalesOrderReturn/save";
 $route['sales-order/returns/checkout/(:num)'] = "sales_order_return/SalesOrderReturn/checkout/$1";
 $route['sales-order/returns/invoice'] = "sales_order_return/SalesOrderReturn/invoice";
+$route['sales-order/returns/history'] = "sales_order_return/History";
 
 $route['users/update-group-role/(:num)'] = "users/updateRole/$1";
 $route['users/update-group/(:num)'] = "users/updateGroup/$1";
