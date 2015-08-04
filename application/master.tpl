@@ -13,6 +13,7 @@
     {css('styles.css')}
     {css('icons.css')}
     {css('jqClock.css')}
+    {css('dataTables.tableTools.min.css')}
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext"
           rel="stylesheet" type="text/css">
 
@@ -49,6 +50,7 @@
     {js('plugins/interface/moment.js')}
     {js('plugins/interface/jgrowl.min.js')}
     {js('plugins/interface/datatables.min.js')}
+    {js('plugins/interface/tabletools.min.js')}
     {js('plugins/interface/colorpicker.js')}
     {js('plugins/interface/fullcalendar.min.js')}
     {js('plugins/interface/timepicker.min.js')}
@@ -56,6 +58,29 @@
     {js('bootstrap.min.js')}
     {js('application.js')}
     {block name=head}{/block}
+    <style type="text/css">
+    {literal}
+    .DTTT_button_copy div{
+    z-index: 5000 !important;
+}
+ 
+.DTTT_button_csv div{
+    z-index: 5001 !important;
+}
+ 
+.DTTT_button_xls div{
+    z-index: 5002 !important;
+}
+ 
+.DTTT_button_pdf div{
+    z-index: 5003 !important;
+}
+ 
+.DTTT_button_print div{
+    z-index: 5004 !important;
+}
+    {/literal}
+    </style>
 </head>
 
 <body>
@@ -151,6 +176,8 @@
             {*}*}
         {*});*}
     {*</script>*}
+
+    
 </div>
 <!-- /content -->
 

@@ -7,26 +7,13 @@
  */
 class CheckoutModel extends CI_Model  {
 
-    private  $result;
     function __construct() {
         parent::__construct();
     }
 
-    function get_list() {
-//        $query=$this->db->query($this->query_str);
-//
-//        $results_array=$query->result();
-        return $this->result;
-    }
-
-//    public function set_query_str($query_str)
-//    {
-//        $this->query_str = $query_str;
-//    }
-
     public function getDataProposalDetail($id_proposal)
     {
-        $this->result = $this->db
+        return $this->db
             ->select('*')
             ->from('proposal_detail pro')
             ->join('product p', 'p.id_product = pro.id_product', 'left')

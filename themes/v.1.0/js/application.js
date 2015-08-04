@@ -139,8 +139,8 @@ $(function() {
 	$('.datatable-tools table').dataTable({
 		dom: '<"datatable-header"Tfl>t<"datatable-footer"ip>',
 		tableTools: {
-			sRowSelect: "single",
-			sSwfPath: "media/swf/copy_csv_xls_pdf.swf",
+			// sRowSelect: "single",
+			sSwfPath: "/themes/v.1.0/js/media/swf/copy_csv_xls_pdf.swf",
 			aButtons: [
 				{
 					sExtends:    'copy',
