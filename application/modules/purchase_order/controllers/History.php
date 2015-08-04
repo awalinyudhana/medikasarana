@@ -34,7 +34,7 @@ class History extends MX_Controller
             ->callback_column('grand_total', array($this, 'currencyFormat'))
             ->set_relation('id_pricipal', 'principal', 'name')
             ->set_relation('id_staff', 'staff', 'name')
-            ->add_action('Attach', '', '','ui-icon-image',array($this,'attach_file'));
+            ->add_action('Attach', '', '','ui-icon-image',array($this,'attach_file'))
             ->add_action('Detail', '', '', 'read-icon', array($this, 'checkout'))
             ->unset_read()
             ->unset_add()
