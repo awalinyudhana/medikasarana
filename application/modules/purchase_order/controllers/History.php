@@ -52,10 +52,10 @@ class History extends MX_Controller
 
     public function attach_file($primary_key , $row)
     {
-        return base_url() . "/upload/po/".$row->file;
+        return site_url('/upload/po/' . $row->file);
     }
     public function checkout($primary_key , $row)
     {
-        site_url('purchase-order/invoice/' . $primary_key);
+        return site_url('purchase-order/invoice/' . $primary_key);
     }
 }
