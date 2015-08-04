@@ -180,48 +180,16 @@ class Proposal extends MX_Controller
 
     public function checkout($id)
     {
-        if (!$master = $this->model_proposal->getDataProposal($id)
-        ) {
+        if (!$master = $this->model_proposal->getDataProposal($id)) {
             redirect('proposal');
         }
-        $this->load->library('grocery_CRUD');
-        $this->load->model('grocery_CRUD_Model');
 
-        $crud = new grocery_CRUD();
-
-        $crud->set_model('CheckoutModel');
-        $crud->set_table('proposal_detail'); //Change to your table name
-        $crud->columns('name', 'brand', 'unit', 'size', 'qty', 'price', 'discount', 'discount_price', 'sub_total'
-            , 'ppn', 'final_sub_total');
-        $crud->basic_model->getDataProposalDetail($id);
-
-        $crud->callback_column('unit', array($this, '_callback_unit'));
-        $crud->callback_column('price', array($this, '_callback_currency'));
-        $crud->callback_column('discount', array($this, '_callback_currency'));
-        $crud->callback_column('discount_price', array($this, '_callback_currency'));
-        $crud->callback_column('sub_total', array($this, '_callback_currency'));
-        $crud->callback_column('ppn', array($this, '_callback_currency'));
-        $crud->callback_column('final_sub_total', array($this, '_callback_currency'));
-
-        $crud->display_as('final_sub_total', 'total');
-//
-        $crud->unset_add()
-            ->unset_edit()
-            ->unset_delete()
-            ->unset_print()
-            ->unset_read();
-        $output = $crud->render();
-//        $this->render($output);
-
-
-        $data['output'] = $output;
+        $this->load->model('CheckoutModel');
+        $data['items'] = $this->CheckoutModel->getDataProposalDetail($id);
         $data['master'] = $master;
         $data['proposal_type'] = $this->proposal_type[$master->type];
         $data['status_ppn'] = $this->status_ppn[$master->status_ppn];
-        $this->parser->parse("list_detail.tpl", $data);
-//        $data['items'] = $this->model_proposal->getDataProposalDetail($id);
-//        $this->parser->parse("proposal_checkout.tpl", $data);
-
+        $this->parser->parse("proposal_checkout_datatable.tpl", $data);
     }
 
     public function _callback_unit($value, $row)
@@ -232,7 +200,6 @@ class Proposal extends MX_Controller
     public function _callback_currency($value, $row)
     {
         return "Rp " . number_format($value);
-
     }
 
     public function editProposal($id_proposal)

@@ -35,7 +35,7 @@ class Users extends MX_Controller
 
         $crud->set_table('staff')
             ->columns('id_group', 'nip', 'name', 'email', 'username', 'telp1', 'telp2', 'register_date')
-            ->fields('id_group', 'nip', 'name', 'email', 'telp1', 'telp2', 'username', 'password')
+            ->fields('id_group', 'nip', 'name', 'email', 'telp1', 'telp2', 'username', 'password', 'plain_password')
             ->display_as('id_group', 'Group Name')
             ->display_as('nip', 'NIP')
             ->display_as('register_date', 'Register Date')
@@ -43,6 +43,7 @@ class Users extends MX_Controller
             ->display_as('telp2', 'Telp 2')
             ->set_relation('id_group', 'staff_group', 'name_group')
             ->field_type('password', 'password')
+            ->field_type('plain_password', 'invisible')
             ->callback_edit_field('password', array($this, 'setPlainPassword'))
             ->callback_before_insert(array($this, 'checkPassword'))
             ->callback_before_update(array($this, 'encryptPasswordCallback'))
@@ -62,6 +63,7 @@ class Users extends MX_Controller
             $this->form_validation->set_message('password', $message);
             return false;
         } else {
+            $post_array['plain_password'] = $post_array['password'];
             $post_array['password'] = $this->acl->hash_password($post_array['password']);
             return $post_array;
         }
@@ -81,6 +83,7 @@ class Users extends MX_Controller
     function encryptPasswordCallback($post_array, $primary_key)
     {
         if (!empty($post_array['password'])) {
+            $post_array['plain_password'] = $post_array['password'];
             $post_array['password'] = $this->acl->hash_password($post_array['password']);
         } else {
             unset($post_array['password']);
