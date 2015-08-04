@@ -6,7 +6,7 @@ class History extends MX_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->acl->auth('purchase_order');
+        $this->acl->auth('retail');
         $this->load->library('grocery_CRUD');
     }
 
