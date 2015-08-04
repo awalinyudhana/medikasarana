@@ -62,6 +62,7 @@ $route['purchase-order/detail/delete/(:num)'] = "purchase_order/PurchaseOrder/de
 $route['purchase-order/save'] = "purchase_order/PurchaseOrder/savePO";
 $route['purchase-order/invoice'] = "purchase_order/Invoice/index";
 $route['purchase-order/invoice/(:num)'] = "purchase_order/Invoice/summary/$1";
+$route['purchase-order/history'] = "purchase_order/History";
 
 $route['product/store'] = "product/Store";
 //$route['card-stock'] = "card_stock/CardStock";
