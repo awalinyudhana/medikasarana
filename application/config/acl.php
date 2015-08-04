@@ -182,6 +182,10 @@ $config['module_router'] =
                     'title' => 'Invoice',
                     'url' => 'purchase-order/invoice',
                     'module' => 'purchase_order'
+                ], [
+                    'title' => 'History',
+                    'url' => 'purchase-order/history',
+                    'module' => 'purchase_order'
                 ]
             ]
         ],
