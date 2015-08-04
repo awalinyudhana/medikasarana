@@ -5,7 +5,7 @@
  * Date: 6/2/2015
  * Time: 2:17 PM
  */
-class CheckoutModel extends grocery_CRUD_Model  {
+class CheckoutModel extends CI_Model  {
 
     private  $result;
     function __construct() {
