@@ -19,7 +19,7 @@ class History extends MX_Controller
     {
         $crud = new grocery_CRUD();
 
-        $crud->set_table('product')
+        $crud->set_table('purchase_order')
             ->columns('id_purchase_order', 'id_pricipal', 'id_staff', 'date', 'due_date', 'dpp', 'ppn', 'discount_price', 'grand_total')
             ->display_as('id_purchase_order', 'No Faktur')
             ->display_as('id_pricipal', 'Principal')
