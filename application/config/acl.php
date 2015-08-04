@@ -289,8 +289,19 @@ $config['module_router'] =
         ],
         [
             'title' => 'Delivery Order',
-            'url' => 'delivery-order',
-            'module' => 'delivery_order'
+            'icon' => 'icon-book2',
+            'child' => [
+                [
+                    'title' => 'Delivery Order',
+                    'url' => 'delivery-order',
+                    'module' => 'delivery_order'
+                ], [
+                    'title' => "History",
+                    'url' => 'delivery-order/history',
+                    'module' => 'delivery_order'
+
+                ]
+            ]
         ],
         [
             'title' => 'Debit & Credit',

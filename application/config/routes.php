@@ -172,7 +172,7 @@ $route['delivery-order/detail/delete/(:num)'] = "delivery_order/DeliveryOrder/de
 $route['delivery-order/detail/update/(:num)/(:num)'] = "delivery_order/DeliveryOrder/updateItem/$1/$2";
 $route['delivery-order/save'] = "delivery_order/DeliveryOrder/save";
 $route['delivery-order/checkout/(:num)/(:num)'] = "delivery_order/DeliveryOrder/checkout/$1/$2";
-
+$route['delivery-order/history'] = "delivery_order/History";
 
 $route['join'] = "join";
 $route['join/select/(:num)'] = "join/select/$1";
