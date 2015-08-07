@@ -55,10 +55,8 @@
 
     {js('bootstrap.min.js')}
     {js('application.js')}
-    {js('plugins/charts/flot.js')}
-    {js('plugins/charts/flot.time.js')}
-    {js('plugins/charts/flot.categories.js')}
-    {js('charts/widgets/grafik_dashboard.js')}
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
     {block name=head}{/block}
 </head>
 

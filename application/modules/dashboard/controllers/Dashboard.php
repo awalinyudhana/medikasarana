@@ -35,27 +35,55 @@ class Dashboard extends MX_Controller
         $pemb[1] = array("February", 300);
         $pemb[2] = array("March", 200);
         $data['dataPenjualan'] = json_encode($pemb);
+
+        $dataPenjualan = $this->ModDashboard->getDataPenjualan();
+        if ($dataPenjualan) {
+            foreach ($dataPenjualan as $row) {
+                $date = strtotime($row['date']) * 1000;
+                $total = $row['grand_total'];
+                $seriesPenjualan[] = "[$date, $total]";
+            }
+            $data['grafikPenjualan'] = "[".join($seriesPenjualan, ',')."]";
+        } else {
+            $data['grafikPenjualan'] = "[[0,0]]";
+        }
+
+        $dataPembelian = $this->ModDashboard->getDataPembelian();
+        if ($dataPembelian) {
+            foreach ($dataPembelian as $row) {
+                $date = strtotime($row['date_created']) * 1000;
+                $total = $row['grand_total'];
+                $seriesPembelian[] = "[$date, $total]";
+            }
+            $data['grafikPembelian'] = "[".join($seriesPembelian, ',')."]";
+        } else {
+            $data['grafikPembelian'] = "[[0,0]]";
+        }
+
         $this->parser->parse('dashboard.tpl', $data);
     }
 
     public function minimumStock()
     {
         $crud = new grocery_CRUD();
-        
-        $where = "product.`stock` < product.`minimum_stock`";
+        $where = "stock < minimum_stock";
         $crud->where($where)
-                ->set_table('product')
-                ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
-                ->display_as('id_product_category', 'Product Category')
-                ->display_as('id_product_unit', 'Product Unit')
-                ->display_as('date_expired', 'Date Expired')
-                ->display_as('minimum_stock', 'Minimum Stock')
-                ->callback_column('sell_price', array($this, 'currencyFormat'))
-                ->set_relation('id_product_category', 'product_category', 'category')
-                ->set_relation('id_product_unit', 'product_unit', 'unit')
-                ->set_relation('parent', 'product', '{name}')
-                ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
-                ->unset_operations();
+            ->set_table('product')
+            ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
+            ->display_as('id_product_category', 'Product Category')
+            ->display_as('id_product_unit', 'Product Satuan')
+            ->display_as('date_expired', 'Date Expired')
+            ->display_as('license', 'AKL/AKD')
+            ->display_as('minimum_stock', 'Minimum Stock')
+            ->display_as('value', 'Nilai Satuan')
+            ->callback_column('sell_price', array($this, 'currencyFormat'))
+            ->set_relation('id_product_category', 'product_category', 'category')
+            ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
+            ->unset_add()
+            ->unset_read()
+            ->unset_edit()
+            ->unset_delete();
+
         $extra = 'Informasi Produk Yang Melebihi Batasan Minimum Stock';
         $output = $crud->render($extra);
         
@@ -80,7 +108,10 @@ class Dashboard extends MX_Controller
                 ->set_relation('id_product_unit', 'product_unit', 'unit')
                 ->set_relation('parent', 'product', '{name}')
                 ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
-                ->unset_operations();
+                ->unset_add()
+                ->unset_read()
+                ->unset_edit()
+                ->unset_delete();
         $extra = 'Informasi Produk Yang Akan Expired';
         $output = $crud->render($extra);
         
@@ -107,7 +138,10 @@ class Dashboard extends MX_Controller
                 ->callback_column('grand_total', array($this, 'currencyFormat'))
                 ->callback_column('paid', array($this, 'currencyFormat'))
                 ->set_relation('id_principal', 'principal', 'name')
-                ->unset_operations();
+                ->unset_add()
+                ->unset_read()
+                ->unset_edit()
+                ->unset_delete();
         $extra = 'Informasi Tagihan Hutang';
         $output = $crud->render($extra);
         
@@ -134,7 +168,10 @@ class Dashboard extends MX_Controller
                 ->callback_column('grand_total', array($this, 'currencyFormat'))
                 ->callback_column('paid', array($this, 'currencyFormat'))
                 ->set_relation('id_customer', 'customer', 'name')
-                ->unset_operations();
+                ->unset_add()
+                ->unset_read()
+                ->unset_edit()
+                ->unset_delete();
         $extra = 'Informasi Tagihan Piutang';
         $output = $crud->render($extra);
         
@@ -151,17 +188,5 @@ class Dashboard extends MX_Controller
         $grand_total = (float) str_replace(',', '', substr($row->grand_total, 3, strlen($row->grand_total)));
         $paid = (float) str_replace(',', '', substr($row->paid, 3, strlen($row->paid)));
         return "Rp " . number_format($grand_total - $paid);
-    }
-
-    public function test()
-    {
-        $this->load->library('email');
-        $this->email->from('otoy.destroyed@gmail.com', 'Your Name');
-        $this->email->to('mafaikmon@gmail.com'); 
-
-        $this->email->subject('Email Test');
-        $this->email->message('Testing the email class.');  
-
-        $this->email->send();
     }
 } 

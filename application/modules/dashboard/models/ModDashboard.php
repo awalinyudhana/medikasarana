@@ -84,4 +84,32 @@ class ModDashboard extends CI_Model
            return $query->result_array();
         }
     }
+
+    public function getDataPenjualan()
+    {
+        $query = $this->db
+                    ->where('active', 1)
+                    ->select('date, grand_total')
+                    ->from('sales_order')
+                    ->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        return false;
+    }
+
+    public function getDataPembelian()
+    {
+        $query = $this->db
+                    ->where('status_paid', 1)
+                    ->select('date_created, grand_total')
+                    ->from('purchase_order')
+                    ->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        return false;
+    }
 }
