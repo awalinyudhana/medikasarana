@@ -47,6 +47,7 @@ class Product extends MX_Controller
             ->callback_column('sell_price', array($this, 'currencyFormat'))
             ->set_relation('id_product_category', 'product_category', 'category')
             ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
+            ->set_relation('parent', 'product', '{name}')
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
             ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
