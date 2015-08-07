@@ -26,7 +26,7 @@ class Product extends MX_Controller
                 ->unset_edit()
                 ->unset_delete();
         } else {
-            // $crud->add_action('Lihat Sub Produk', '', '', 'read-icon', array($this, 'addSubProductAction'));
+            $crud->add_action('Lihat Sub Produk', '', '', 'read-icon', array($this, 'addSubProductAction'));
         }
 
         $state = $crud->getState();
@@ -37,18 +37,17 @@ class Product extends MX_Controller
         }
 
         $crud->set_table('product')
-            ->columns('barcode', 'name', 'parent', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
+            ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
             ->display_as('id_product_category', 'Product Category')
             ->display_as('id_product_unit', 'Product Satuan')
             ->display_as('date_expired', 'Date Expired')
             ->display_as('license', 'AKL/AKD')
             ->display_as('minimum_stock', 'Minimum Stock')
             ->display_as('value', 'Nilai Satuan')
-            ->display_as('parent', 'Product Parent')
             ->callback_column('sell_price', array($this, 'currencyFormat'))
-            ->callback_field('id_product_category', array($this, 'productCategoryField'))
-            // ->set_relation('parent', 'product', '{name } - {unit} / {value}')
+            ->set_relation('id_product_category', 'product_category', 'category')
             ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
+            ->callback_field('id_product_category', array($this, 'productCategoryField'))
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
             ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
@@ -74,7 +73,6 @@ class Product extends MX_Controller
     function setProductParentField($value, $primary_key)
     {
         $productField = $this->ModProduct->getProductOnlyForDropdown();
-        $row_product = $this->ModProduct->getProduct($primary_key);
 
         $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
@@ -84,7 +82,7 @@ class Product extends MX_Controller
         $html.= '<option value=""></option>';
 
         foreach ($productField as $key => $forvalue) {
-            if ($key == $row_product->parent) {
+            if ($key == $value) {
                 $html.= "<option value='$key' selected>$forvalue</option>";
             } else {
                 $html.= "<option value='$key'>$forvalue</option>";
