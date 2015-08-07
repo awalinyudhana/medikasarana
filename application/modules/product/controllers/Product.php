@@ -46,7 +46,7 @@ class Product extends MX_Controller
             ->display_as('value', 'Nilai Satuan')
             ->callback_column('sell_price', array($this, 'currencyFormat'))
             ->set_relation('id_product_category', 'product_category', 'category')
-            ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
+            ->set_relation('id_product_unit', 'product_unit', '{unit}')
             ->set_relation('parent', 'product', '{name}')
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
             ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'minimum_stock')
@@ -85,9 +85,9 @@ class Product extends MX_Controller
 
         foreach ($productField as $row) {
             if (!empty($value) && $value == $row['id_product']) {
-                $html.= "<option value='".$row['id_product']."' selected>".$row['name']." ( ".$row['unit']."/".$row['value']." ) </option>";
+                $html.= "<option value='".$row['id_product']."' selected>".$row['name']." ( ".$row['unit']." ) </option>";
             } else {
-                $html.= "<option value='".$row['id_product']."'>".$row['name']." ( ".$row['unit']."/".$row['value']." ) </option>";
+                $html.= "<option value='".$row['id_product']."'>".$row['name']." ( ".$row['unit']." ) </option>";
             }
         }
         // foreach ($productField as $key => $forvalue) {
