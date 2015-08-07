@@ -46,7 +46,7 @@ class Product extends MX_Controller
             ->display_as('value', 'Nilai Satuan')
             ->display_as('parent', 'Product Parent')
             ->callback_column('sell_price', array($this, 'currencyFormat'))
-            ->callback_field('id_product_category', array($this, 'productCategoryField'))
+            // ->callback_field('id_product_category', array($this, 'productCategoryField'))
             ->set_relation('parent', 'product', '{name } - {unit} / {value}')
             ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
