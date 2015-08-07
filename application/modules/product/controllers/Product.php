@@ -37,7 +37,7 @@ class Product extends MX_Controller
         // }
 
         $crud->set_table('product')
-            ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
+            ->columns('barcode', 'name', 'parent', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
             ->display_as('id_product_category', 'Product Category')
             ->display_as('id_product_unit', 'Product Satuan')
             ->display_as('date_expired', 'Date Expired')
@@ -84,9 +84,9 @@ class Product extends MX_Controller
 
         foreach ($productField as $row) {
             if ($value == $row['id_product']) {
-                $html.= "<option value='".$row['id_product']."' selected>".$row['name']."</option>";
+                $html.= "<option value='".$row['id_product']."' selected>".$row['name']."-".$value."-".$row['id_product']"</option>";
             } else {
-                $html.= "<option value='".$row['id_product']."'>".$row['name']."</option>";
+                $html.= "<option value='".$row['id_product']."'>".$row['name']."-".$value."-".$row['id_product']"</option>";
             }
         }
         // foreach ($productField as $key => $forvalue) {
@@ -100,6 +100,45 @@ class Product extends MX_Controller
         return $html;
         // return form_dropdown('id_product', $productField, $value);
     }
+
+
+    public function productCategoryField($value = '', $primary_key = null)
+    {
+
+
+        $categories = $this->ModProduct->getCategoryProductOnly();
+
+        $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
+        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
+
+        $html.= "<div><select name='id_product_category' class='chosen-select' data-placeholder='Pilih Categori' style='width:500px;'>";
+        $html.= '<option value=""></option>';
+
+        foreach ($categories as $row) {
+            if (!empty($value) && $value == $row['id_product_category']) {
+                $html.= "<option value='".$row['id_product_category']."' selected>".$row['category']."</option>";
+            } else {
+                $html.= "<option value='".$row['id_product_category']."'>".$row['category']."</option>";
+            }
+        }
+        $html.= '</select></div>';
+        return $html;
+
+        /*
+        $text = '<select id="field-parent" name="parent" class="chosen-select chzn-done" data-placeholder="Select Parent" style="width: 300px;"><option value="">Select Parent</option>';
+        foreach ($categories as $row) {
+            if (!empty($value) && $value == $row['id_product_category']) {
+                $text .= '<option value="' . $row['id_product_category'] . '" selected>' . $row['category'] . '</option>';
+            } else {
+                $text .= '<option value="' . $row['id_product_category'] . '">' . $row['category'] . '</option>';
+            }
+            // $text .= '<option value="' . $row['id_product_category'] . '">' . $row['category'] . '-' . $value . '-' . $row['parent'] .'</option>';
+        }
+        $text .= '</select>';
+        return $text;*/
+    }
+
 
     public function category($action = null, $id_product_category = null)
     {
@@ -149,43 +188,6 @@ class Product extends MX_Controller
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
 
         $html.= "<div><select name='parent' class='chosen-select' data-placeholder='Pilih Categori' style='width:500px;'>";
-        $html.= '<option value=""></option>';
-
-        foreach ($categories as $row) {
-            if (!empty($value) && $value == $row['id_product_category']) {
-                $html.= "<option value='".$row['id_product_category']."' selected>".$row['category']."</option>";
-            } else {
-                $html.= "<option value='".$row['id_product_category']."'>".$row['category']."</option>";
-            }
-        }
-        $html.= '</select></div>';
-        return $html;
-
-        /*
-        $text = '<select id="field-parent" name="parent" class="chosen-select chzn-done" data-placeholder="Select Parent" style="width: 300px;"><option value="">Select Parent</option>';
-        foreach ($categories as $row) {
-            if (!empty($value) && $value == $row['id_product_category']) {
-                $text .= '<option value="' . $row['id_product_category'] . '" selected>' . $row['category'] . '</option>';
-            } else {
-                $text .= '<option value="' . $row['id_product_category'] . '">' . $row['category'] . '</option>';
-            }
-            // $text .= '<option value="' . $row['id_product_category'] . '">' . $row['category'] . '-' . $value . '-' . $row['parent'] .'</option>';
-        }
-        $text .= '</select>';
-        return $text;*/
-    }
-
-    public function productCategoryField($value = '', $primary_key = null)
-    {
-
-
-        $categories = $this->ModProduct->getCategoryProductOnly();
-
-        $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
-        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
-        $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/config/jquery.chosen.config.js"></script>';
-
-        $html.= "<div><select name='id_product_category' class='chosen-select' data-placeholder='Pilih Categori' style='width:500px;'>";
         $html.= '<option value=""></option>';
 
         foreach ($categories as $row) {
