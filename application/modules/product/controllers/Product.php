@@ -84,9 +84,9 @@ class Product extends MX_Controller
 
         foreach ($productField as $row) {
             if ($value == $row['id_product']) {
-                $html.= "<option value='$row['id_product']' selected>$row['name']</option>";
+                $html.= "<option value='".$row['id_product']."' selected>".$row['name']."</option>";
             } else {
-                $html.= "<option value='$row['id_product']'>$row['name']</option>";
+                $html.= "<option value='".$row['id_product']."'>".$row['name']."</option>";
             }
         }
         // foreach ($productField as $key => $forvalue) {
