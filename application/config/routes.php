@@ -206,3 +206,7 @@ $route['users/update-group/(:num)'] = "users/updateGroup/$1";
 $route['users/delete-group/(:num)'] = "users/deleteGroup/$1";
 
 $route['dashboard'] = "dashboard";
+$route['dashboard/minimum-stock'] = "dashboard/minimumStock";
+$route['dashboard/expired-products'] = "dashboard/expiredProducts";
+$route['dashboard/upcoming-credit'] = "dashboard/upcomingCredit";
+$route['dashboard/debit-alert'] = "dashboard/debitAlert";
