@@ -74,7 +74,7 @@ class Product extends MX_Controller
     function setProductParentField($value, $primary_key)
     {
         $productField = $this->ModProduct->getProductOnlyForDropdown();
-        $row_product = $this->ModProduct->getProduct($primary_key)
+        $row_product = $this->ModProduct->getProduct($primary_key);
 
         $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
