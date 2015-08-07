@@ -19,22 +19,22 @@ class Product extends MX_Controller
     public function index($id_product = null)
     {
         $crud = new grocery_CRUD();
-        if (!empty($id_product) && is_numeric($id_product)) {
-            $crud->where('product.parent', $id_product)
-                ->unset_read()
-                ->unset_add()
-                ->unset_edit()
-                ->unset_delete();
-        } else {
-            $crud->add_action('Lihat Sub Produk', '', '', 'read-icon', array($this, 'addSubProductAction'));
-        }
+        // if (!empty($id_product) && is_numeric($id_product)) {
+        //     $crud->where('product.parent', $id_product)
+        //         ->unset_read()
+        //         ->unset_add()
+        //         ->unset_edit()
+        //         ->unset_delete();
+        // } else {
+        //     $crud->add_action('Lihat Sub Produk', '', '', 'read-icon', array($this, 'addSubProductAction'));
+        // }
 
-        $state = $crud->getState();
-        $state_info = $crud->getStateInfo();
-        if ($state == 'add') {
-            $productParentField = $this->ModProduct->getProductOnlyForDropdown();
-            $crud->field_type('parent', 'dropdown', $productParentField);
-        }
+        // $state = $crud->getState();
+        // $state_info = $crud->getStateInfo();
+        // if ($state == 'add') {
+        //     $productParentField = $this->ModProduct->getProductOnlyForDropdown();
+        //     $crud->field_type('parent', 'dropdown', $productParentField);
+        // }
 
         $crud->set_table('product')
             ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
@@ -47,11 +47,12 @@ class Product extends MX_Controller
             ->callback_column('sell_price', array($this, 'currencyFormat'))
             ->set_relation('id_product_category', 'product_category', 'category')
             ->set_relation('id_product_unit', 'product_unit', '{unit} / {value}')
-            ->callback_field('id_product_category', array($this, 'productCategoryField'))
             ->fields('barcode', 'id_product_category', 'parent', 'name', 'brand', 'id_product_unit', 'size', 'date_expired', 'license', 'minimum_stock')
             ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
-            ->callback_edit_field('parent', array($this, 'setProductParentField'))
+            // ->callback_edit_field('parent', array($this, 'setProductParentField'))
+            ->callback_field('parent', array($this, 'setProductParentField'))
+            ->callback_field('id_product_category', array($this, 'productCategoryField'))
 //            ->unique_fields('barcode')
             ->unset_read();
 
@@ -81,13 +82,20 @@ class Product extends MX_Controller
         $html.= "<div><select name='id_product' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
         $html.= '<option value=""></option>';
 
-        foreach ($productField as $key => $forvalue) {
-            if ($key == $value) {
-                $html.= "<option value='$key' selected>$forvalue</option>";
+        foreach ($categories as $row) {
+            if ($value == $row['id_product']) {
+                $html.= "<option value='$row['id_product']' selected>$row['name']</option>";
             } else {
-                $html.= "<option value='$key'>$forvalue</option>";
+                $html.= "<option value='$row['id_product']'>$row['name']</option>";
             }
         }
+        // foreach ($productField as $key => $forvalue) {
+        //     if ($key == $value) {
+        //         $html.= "<option value='$key' selected>$forvalue</option>";
+        //     } else {
+        //         $html.= "<option value='$key'>$forvalue</option>";
+        //     }
+        // }
         $html.= '</select></div>';
         return $html;
         // return form_dropdown('id_product', $productField, $value);
