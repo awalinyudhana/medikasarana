@@ -65,7 +65,7 @@ class ModProduct extends CI_Model
             ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
             ->where('pr.parent is null');
         $result = $this->db->get();
-        $data = $result->result_array()
+        $data = $result->result_array();
         return $data;
     }
 
