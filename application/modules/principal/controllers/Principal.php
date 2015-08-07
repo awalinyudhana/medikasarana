@@ -30,7 +30,7 @@ class Principal extends MX_Controller
             ->display_as('pbak', 'PBAK')
             ->display_as('fak', 'FAK')
             ->fields('name', 'email', 'address', 'zipcode', 'city', 'state', 'country', 'telp1', 'telp2', 'npwp', 'siup', 'pbf', 'pbak', 'fak')
-            ->required_fields('name', 'address', 'zipcode', 'city', 'state', 'country', 'telp1')
+            ->required_fields('name', 'address', 'city', 'state', 'country', 'telp1')
             ->set_rules('email', 'Email', 'valid_email')
             ->unset_read();
         $output = $crud->render();
