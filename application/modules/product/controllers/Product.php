@@ -82,7 +82,7 @@ class Product extends MX_Controller
         $html.= "<div><select name='id_product' class='chosen-select' data-placeholder='Pilih Produk' style='width:500px;'>";
         $html.= '<option value=""></option>';
 
-        foreach ($categories as $row) {
+        foreach ($productField as $row) {
             if ($value == $row['id_product']) {
                 $html.= "<option value='$row['id_product']' selected>$row['name']</option>";
             } else {
