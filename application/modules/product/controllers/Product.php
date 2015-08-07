@@ -73,7 +73,7 @@ class Product extends MX_Controller
 
     function setProductParentField($value = '', $primary_key = null)
     {
-        $productField = $this->ModProduct->getAvailableProductParent();
+        $productField = $this->ModProduct->getAvailableProductParent($value);
 
         $html = '<link type="text/css" rel="stylesheet" href="'.base_url().'/assets/grocery_crud/css/jquery_plugins/chosen/chosen.css" />';
         $html .= '<script src="'.base_url().'/assets/grocery_crud/js/jquery_plugins/jquery.chosen.min.js"></script>';
@@ -84,9 +84,9 @@ class Product extends MX_Controller
 
         foreach ($productField as $row) {
             if (!empty($value) && $value == $row['id_product']) {
-                $html.= "<option value='".$row['id_product']."' selected>".$row['name']."-".$value."-".$row['id_product']."</option>";
+                $html.= "<option value='".$row['id_product']."' selected>".$row['name']." ( ".$row['unit']."/".$row['value']." ) </option>";
             } else {
-                $html.= "<option value='".$row['id_product']."'>".$row['name']."-".$value."-".$row['id_product']."</option>";
+                $html.= "<option value='".$row['id_product']."'>".$row['name']." ( ".$row['unit']."/".$row['value']." ) </option>";
             }
         }
         // foreach ($productField as $key => $forvalue) {

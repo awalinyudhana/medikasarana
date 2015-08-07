@@ -56,7 +56,7 @@ class ModProduct extends CI_Model
         return $data;
     }
 
-    public function getAvailableProductParent()
+    public function getAvailableProductParent($id = null)
     {
         $this->db
             ->select('p.*, pu.*')
@@ -64,6 +64,9 @@ class ModProduct extends CI_Model
             ->join('product pr', 'pr.parent = p.id_product', 'left')
             ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
             ->where('pr.parent is null');
+        if(!is_null($id)){
+            $this->db->or_where('p.id_product =',$id);
+        }        
         $result = $this->db->get();
         $data = $result->result_array();
         return $data;
