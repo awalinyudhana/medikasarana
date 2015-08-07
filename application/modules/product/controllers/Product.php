@@ -71,7 +71,7 @@ class Product extends MX_Controller
         return site_url('product/index') . '/' . $row->id_product;
     }
 
-    function setProductParentField($value, $primary_key)
+    function setProductParentField($value = '', $primary_key = null)
     {
         $productField = $this->ModProduct->getAvailableProductParent();
 
@@ -83,10 +83,10 @@ class Product extends MX_Controller
         $html.= '<option value=""></option>';
 
         foreach ($productField as $row) {
-            if ($value == $row['id_product']) {
-                $html.= "<option value='".$row['id_product']."' selected>".$row['name']."-".$value."-".$row['id_product']"</option>";
+            if (!empty($value) && $value == $row['id_product']) {
+                $html.= "<option value='".$row['id_product']."' selected>".$row['name']."-".$value."-".$row['id_product']."</option>";
             } else {
-                $html.= "<option value='".$row['id_product']."'>".$row['name']."-".$value."-".$row['id_product']"</option>";
+                $html.= "<option value='".$row['id_product']."'>".$row['name']."-".$value."-".$row['id_product']."</option>";
             }
         }
         // foreach ($productField as $key => $forvalue) {
