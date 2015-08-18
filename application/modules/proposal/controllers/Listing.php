@@ -14,7 +14,7 @@ class Listing extends MX_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->id_staff = $this->config->item('id_staff');
+        $this->id_staff = $this->session->userdata('uid');
         $this->load->model('ModelProposal', 'model_proposal');
         $this->load->library('cart',
             array(
@@ -32,7 +32,6 @@ class Listing extends MX_Controller
 
     public function index($type = 'pengadaan')
     {
-
         if ($this->cart->primary_data_exists()) {
             redirect('sales-order/list');
         }
