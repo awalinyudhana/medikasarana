@@ -54,6 +54,7 @@
                             <th>Nama Produk</th>
                             <th>Merek</th>
                             <th>Satuan / isi</th>
+                            <th>Stok</th>
                             <th>Jumlah Pesanan</th>
                             <th>Terkirim</th>
                             <th width="50px">Qty</th>
@@ -68,6 +69,7 @@
                                 <td>{$key['name']}</td>
                                 <td>{$key['brand']}</td>
                                 <td>{$key['unit']} / {$key['value']}</td>
+                                <td>{$key['stock']}</td>
                                 <td>
                                     {$key['qty']}
                                 </td>

@@ -70,7 +70,7 @@ class DeliveryOrder extends MX_Controller
 
         $data['master'] = $this->model_so->getDataSO($this->cache['value']['id_sales_order']);
 
-        $data['cache'] = $this->cache;
+        // $data['cache'] = $this->cache;
         $data['items'] = $this->cache['detail']['value'];
         $this->parser->parse("delivery_order.tpl", $data);
     }

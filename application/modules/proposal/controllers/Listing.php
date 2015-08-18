@@ -71,12 +71,18 @@ class Listing extends MX_Controller
 
     public function usang($id)
     {
+        $data = $this->model_proposal->getDataProposal($id);
         if ($this->db
             ->where('id_proposal', $id)
             ->update('proposal', ['status' => 2])
         ) {
             $this->session->set_flashdata('success', "id proposal " . $id . " tidak digunakan lagi");
         }
-        redirect('proposal/list/tender');
+
+        if($data->type == 0){
+            $redirect= "proposal/list/pengadaan";
+        }else{
+            $redirect= "proposal/list/tender";
+        }
     }
 }

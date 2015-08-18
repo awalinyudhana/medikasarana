@@ -141,7 +141,13 @@
                         </tbody>
                     </table>
                     <div class="btn-group pull-right">
-                        <a href="{base_url('proposal/list')}" class="btn btn-info button">
+
+                            {if $master->type == 0}
+                                <a href="{base_url('proposal/list/pengadaan')}" class="btn btn-info button">
+                            {else}
+                                <a href="{base_url('proposal/list/tender')}" class="btn btn-info button">
+                            {/if}
+
                             <i class="icon-box-add"></i> New Sales Order</a>
                         <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button>
                     </div>
