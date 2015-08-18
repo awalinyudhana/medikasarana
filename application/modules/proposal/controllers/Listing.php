@@ -16,6 +16,14 @@ class Listing extends MX_Controller
         parent::__construct();
         $this->id_staff = $this->config->item('id_staff');
         $this->load->model('ModelProposal', 'model_proposal');
+        $this->load->library('cart',
+            array(
+                'cache_path' => 'SALES_ORDER',
+                'cache_file' => $this->id_staff,
+                'primary_table' => 'sales_order',
+                'foreign_table' => 'sales_order_detail'
+            ));
+        $this->cache = $this->cart->array_cache();
 
         $this->proposal_type = [0 => "pengadaan", 1 => "tender"];
         $this->status_ppn = [0 => "non aktif", 1 => "aktif"];
@@ -24,6 +32,11 @@ class Listing extends MX_Controller
 
     public function index($type = 'pengadaan')
     {
+
+        if ($this->cart->primary_data_exists()) {
+            redirect('sales-order/list');
+        }
+
         $data['success'] = $this->session->flashdata('success') != null ? $this->session->flashdata('success') : null;
         $data['array_proposal_type'] = $this->proposal_type;
         $data['array_status_ppn'] = $this->status_ppn;
@@ -45,7 +58,7 @@ class Listing extends MX_Controller
         ) {
             $this->session->set_flashdata('success', "id proposal " . $id . " berhasil di update");
         }
-        redirect('proposal/list');
+        redirect('proposal/list/tender');
     }
 
     public function delete($id)
@@ -53,7 +66,7 @@ class Listing extends MX_Controller
         if ($this->db->delete('proposal', ['id_proposal' => $id])) {
             $this->session->set_flashdata('success', "id proposal " . $id . " berhasil di hapus");
         }
-        redirect('proposal/list');
+        redirect('proposal/list/tender');
     }
 
 
@@ -65,6 +78,6 @@ class Listing extends MX_Controller
         ) {
             $this->session->set_flashdata('success', "id proposal " . $id . " tidak digunakan lagi");
         }
-        redirect('proposal/list');
+        redirect('proposal/list/tender');
     }
 }

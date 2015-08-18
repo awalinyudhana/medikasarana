@@ -350,6 +350,17 @@ Class CI_Cart
         $this->deleteCache();
     }
 
+    private function filterDetailValue($data = array())
+    {
+        $result = array();
+        foreach ($data as $key) {
+            if($key['qty'] != 0){
+                $result[] = $key;
+            }
+        }
+        return $result;
+    }
+
     private function insertToDB($data = array())
     {
         $this->db->trans_start();
@@ -361,7 +372,7 @@ Class CI_Cart
             $data['detail']['table'],
             $data['detail']['foreign_key'],
             $reference_key,
-            $data['detail']['value']
+            $this->filterDetailValue($data['detail']['value']) 
         );
 
         $this->db->insert_batch($data['detail']['table'], $data_detail);

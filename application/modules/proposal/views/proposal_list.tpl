@@ -31,7 +31,7 @@
                         <th>Penanngung Jawab</th>
                         <th>Jenis Proposal</th>
                         <th>PPn Status</th>
-                        <th width="375px">Action</th>
+                        <th width="300px">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -69,19 +69,19 @@
                                                class="button btn btn-default ">
                                                 Edit
                                             </a>
-                                            <a href="{base_url('proposal/usang')}/{$key->id_proposal}"
-                                               class="button btn btn-primary "
-                                               onclick="return confirm('Proposal {$key->id_proposal} akan dipindahkan di data history')">
-                                                Usang
-                                            </a>
                                         {/if}
                                     {/if}
+                                    <a href="{base_url('proposal/usang')}/{$key->id_proposal}"
+                                       class="button btn btn-primary "
+                                       onclick="return confirm('Proposal {$key->id_proposal} akan dipindahkan di data history')">
+                                        Hapus
+                                    </a>
 
-                                    <a href="{base_url('proposal/delete')}/{$key->id_proposal}"
+                                    <!-- <a href="{base_url('proposal/delete')}/{$key->id_proposal}"
                                        class="button btn btn-danger "
                                        onclick="return confirm('Proposal {$key->id_proposal} akan di hapus')">
                                         Hapus
-                                    </a>
+                                    </a> -->
                                 </div>
                             </td>
                         </tr>

@@ -44,6 +44,7 @@ class SalesOrder extends MX_Controller
             ];
             $this->cart->primary_data($data_primary);
             foreach ($detail as $key) {
+                $key['qty'] = 0;
                 $this->cart->add_item($key['id_product'], $key);
             }
         }
@@ -84,7 +85,11 @@ class SalesOrder extends MX_Controller
     public function detail()
     {
         if (!$this->cart->primary_data_exists()) {
-            redirect('proposal/list');
+            if($this->cache['value']['type'] == 0){
+                redirect('proposal/list/pengadaan');
+            }else{
+                redirect('proposal/list/tender');
+            }
         }
         $data['error'] = $this->session->flashdata('error') != null ? $this->session->flashdata('error') : null;
 
@@ -102,8 +107,13 @@ class SalesOrder extends MX_Controller
 
     public function reset()
     {
+        if($this->cache['value']['type'] == 0){
+            $redirect= "proposal/list/pengadaan";
+        }else{
+            $redirect= "proposal/list/tender";
+        }
         $this->cart->delete_record();
-        redirect('proposal/list');
+        redirect($redirect);
     }
 
     public function save()
@@ -153,10 +163,10 @@ class SalesOrder extends MX_Controller
 
     public function checkout($id)
     {
-
         if (!$master = $this->model_so->getDataSO($id)
         ) {
-            redirect('proposal/list');
+
+            redirect('proposal');
         }
         $data['master'] = $master;
 //        $data['proposal_type'] = $this->proposal_type[$master->type];
@@ -168,7 +178,7 @@ class SalesOrder extends MX_Controller
     public function deleteDetail($id_product)
     {
         if (!$this->cart->primary_data_exists()) {
-            redirect('proposal/list');
+            redirect('proposal');
             return false;
         }
         if (!$this->cart->delete_item($id_product))
