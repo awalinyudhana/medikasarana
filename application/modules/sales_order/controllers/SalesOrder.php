@@ -140,7 +140,7 @@ class SalesOrder extends MX_Controller
                 ) {
                     $proposal = $this->db->get_where('proposal', ['id_proposal' => $this->cache['value']['id_proposal']])
                         ->row();
-                    if ($proposal->type == 0) {
+                    if ($proposal->type == 1) {
                         $this->db
                             ->where(['id_proposal' => $this->cache['value']['id_proposal']])
                             ->update('proposal', [
