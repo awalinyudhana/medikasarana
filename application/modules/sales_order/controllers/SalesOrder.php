@@ -44,7 +44,9 @@ class SalesOrder extends MX_Controller
             ];
             $this->cart->primary_data($data_primary);
             foreach ($detail as $key) {
-                $key['qty'] = 0;
+                if($primary->type == 0){
+                    $key['qty'] = 0;
+                }
                 $this->cart->add_item($key['id_product'], $key);
             }
         }
