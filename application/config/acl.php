@@ -178,11 +178,13 @@ $config['module_router'] =
                     'title' => 'Purchase Order',
                     'url' => 'purchase-order',
                     'module' => 'purchase_order'
-                ], [
-                    'title' => 'Invoice',
-                    'url' => 'purchase-order/invoice',
-                    'module' => 'purchase_order'
-                ], [
+                ], 
+                // [
+                //     'title' => 'Invoice',
+                //     'url' => 'purchase-order/invoice',
+                //     'module' => 'purchase_order'
+                // ], 
+                [
                     'title' => 'History',
                     'url' => 'purchase-order/history',
                     'module' => 'purchase_order'
@@ -243,7 +245,7 @@ $config['module_router'] =
                         // ],
                         [
                             'title' => 'History',
-                            'url' => 'sales-order/history/index',
+                            'url' => 'sales-order/history',
                             'module' => 'proposal'
                         ]
                     ]
@@ -256,11 +258,11 @@ $config['module_router'] =
                             'url' => 'sales-order/returns',
                             'module' => 'proposal'
                         ],
-                        [
-                            'title' => 'Invoice Return',
-                            'url' => 'sales-order/returns/invoice',
-                            'module' => 'proposal'
-                        ],
+                        // [
+                        //     'title' => 'Invoice Return',
+                        //     'url' => 'sales-order/returns/invoice',
+                        //     'module' => 'proposal'
+                        // ],
                         [
                             'title' => 'History',
                             'url' => 'sales-order/returns/history',
@@ -329,11 +331,11 @@ $config['module_router'] =
                     'url' => 'retail',
                     'module' => 'retail'
                 ],
-                [
-                    'title' => 'Invoice',
-                    'url' => 'retail/invoice',
-                    'module' => 'retail'
-                ],
+                // [
+                //     'title' => 'Invoice',
+                //     'url' => 'retail/invoice',
+                //     'module' => 'retail'
+                // ],
                 [
                     'title' => 'History',
                     'url' => 'retail/history',
@@ -351,11 +353,11 @@ $config['module_router'] =
                     'url' => 'retail/returns',
                     'module' => 'retail'
                 ],
-                [
-                    'title' => 'Invoice',
-                    'url' => 'retail/returns/invoice',
-                    'module' => 'retail'
-                ],
+                // [
+                //     'title' => 'Invoice',
+                //     'url' => 'retail/returns/invoice',
+                //     'module' => 'retail'
+                // ],
                 [
                     'title' => 'History',
                     'url' => 'retail/returns/history',
