@@ -156,7 +156,7 @@ $route['sales-order/detail/delete/(:num)'] = "sales_order/SalesOrder/deleteDetai
 $route['sales-order/save'] = "sales_order/SalesOrder/save";
 $route['sales-order/update/(:num)/(:num)'] = "sales_order/SalesOrder/updateItem/$1/$2";
 $route['sales-order/checkout/(:num)'] = "sales_order/SalesOrder/checkout/$1";
-$route['sales-order/history'] = "sales_order/History";
+$route['sales-order/history/index'] = "sales_order/History/index";
 
 $route['debit'] = "debit";
 $route['debit/bill/(:num)'] = "debit/bill/$1";

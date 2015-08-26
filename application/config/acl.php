@@ -236,14 +236,14 @@ $config['module_router'] =
                             'url' => 'sales-order/search',
                             'module' => 'proposal'
                         ],
-                        [
-                            'title' => 'Invoice',
-                            'url' => 'sales-order/invoice',
-                            'module' => 'proposal'
-                        ],
+                        // [
+                        //     'title' => 'Invoice',
+                        //     'url' => 'sales-order/invoice',
+                        //     'module' => 'proposal'
+                        // ],
                         [
                             'title' => 'History',
-                            'url' => 'sales-order/history',
+                            'url' => 'sales-order/history/index',
                             'module' => 'proposal'
                         ]
                     ]

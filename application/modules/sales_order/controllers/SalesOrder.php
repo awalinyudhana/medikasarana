@@ -14,6 +14,7 @@ class SalesOrder extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->acl->auth('sales_order');
         $this->id_staff = $this->session->userdata('uid');
         $this->load->model('proposal/ModelProduct', 'model_product');
         $this->load->model('proposal/ModelProposal', 'model_proposal');
