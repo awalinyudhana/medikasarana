@@ -157,8 +157,7 @@ $route['sales-order/save'] = "sales_order/SalesOrder/save";
 $route['sales-order/update/(:num)/(:num)'] = "sales_order/SalesOrder/updateItem/$1/$2";
 $route['sales-order/checkout/(:num)'] = "sales_order/SalesOrder/checkout/$1";
 $route['sales-order/history'] = "sales_order/History";
-$route['sales-order/history/index/ajax_list_info'] = "sales_order/History/index/ajax_list_info";
-$route['sales-order/history/index/ajax_list'] = "sales_order/History/index/ajax_list";
+$route['sales-order/history/index/(:any)'] = "sales_order/History/index/$1";
 
 $route['debit'] = "debit";
 $route['debit/bill/(:num)'] = "debit/bill/$1";
