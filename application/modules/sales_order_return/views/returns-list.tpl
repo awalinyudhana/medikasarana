@@ -45,6 +45,7 @@
                         <th>Satuan</th>
                         <th>Qty</th>
                         <th>Retur</th>
+                        <th>Terkirim</th>
                         <th>Harga</th>
                         <th>Diskon Harga</th>
                         <th>Subtotal</th>
@@ -68,6 +69,7 @@
                                     {$key['return']}
                                 {/if}
                             </td>
+                            <td>{$key['delivered']}</td>
                             <td style="width:130px;" class="text-right">Rp {$key['price']|number_format:0}</td>
                             <td style="width:130px;" class="text-right">Rp {$key['discount']|number_format:0}</td>
                             <td style="width:130px;" class="text-right">

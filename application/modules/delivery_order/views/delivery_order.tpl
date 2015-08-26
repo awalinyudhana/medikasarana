@@ -64,49 +64,51 @@
                         <tbody>
                         {assign var=val value=1}
                         {foreach $items as $key }
-                            <tr>
-                                <td>{$val}</td>
-                                <td>{$key['name']}</td>
-                                <td>{$key['brand']}</td>
-                                <td>{$key['unit']} / {$key['value']}</td>
-                                <td>{$key['stock']}</td>
-                                <td>
-                                    {$key['qty']}
-                                </td>
-                                <td>
-                                    {$key['delivered']}
-                                </td>
-                                <td>
-                                    {if $key['stock'] > $key['qty_delivered']}
-                                        <input type="number" id="qty-{$key['id_sales_order_detail']}"
-                                               value="{$key['qty_delivered']}"
-                                               class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
-                                                '{base_url('delivery-order/detail/update')}',event)">
-                                    {else}
-                                        <input type="number" id="qty-{$key['id_sales_order_detail']}"
-                                               value="{$key['stock']}"
-                                               class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
-                                                '{base_url('delivery-order/detail/update')}',event)">
 
-                                    {/if}
+                            {if $key['qty_delivered'] > $key['stock']}
+                                <tr class="warning">
+                            {else}
+                                <tr >
+                            {/if}
+                                    <td>{$val}</td>
+                                    <td>{$key['name']}</td>
+                                    <td>{$key['brand']}</td>
+                                    <td>{$key['unit']} / {$key['value']}</td>
+                                    <td>{$key['stock']}</td>
+                                    <td>
+                                        {$key['qty']}
+                                    </td>
+                                    <td>
+                                        {$key['delivered']}
+                                    </td>
+                                    <td>
+                                        {if $key['stock'] > $key['qty_delivered']}
+                                            <input type="number" id="qty-{$key['id_sales_order_detail']}"
+                                                   value="{$key['qty_delivered']}"
+                                                   class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
+                                                    '{base_url('delivery-order/detail/update')}',event)">
+                                        {else}
+                                            <input type="number" id="qty-{$key['id_sales_order_detail']}"
+                                                   value="{$key['stock']}"
+                                                   class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
+                                                    '{base_url('delivery-order/detail/update')}',event)">
 
-                                    
-                                    
+                                        {/if}
 
-                                </td>
+                                    </td>
 
-                                <td style="width:90px;">
+                                    <td style="width:90px;">
 
-                                    <div class="table-controls">
-                                        <a class="btn btn-link btn-icon btn-xs tip" title="Update Qty"
-                                           onclick="updateQty({$key['id_sales_order_detail']},
-                                                   '{base_url('delivery-order/detail/update')}')">
-                                            <i class="icon-pencil3"></i></a>
-                                        <a href="{base_url('delivery-order/detail/delete')}/{$key['id_sales_order_detail']}"
-                                           class="btn btn-link btn-icon btn-xs tip" title="Hapus Data">
-                                            <i class="icon-remove3"></i></a>
-                                    </div>
-                                </td>
+                                        <div class="table-controls">
+                                            <a class="btn btn-link btn-icon btn-xs tip" title="Update Qty"
+                                               onclick="updateQty({$key['id_sales_order_detail']},
+                                                       '{base_url('delivery-order/detail/update')}')">
+                                                <i class="icon-pencil3"></i></a>
+                                            <a href="{base_url('delivery-order/detail/delete')}/{$key['id_sales_order_detail']}"
+                                               class="btn btn-link btn-icon btn-xs tip" title="Hapus Data">
+                                                <i class="icon-remove3"></i></a>
+                                        </div>
+                                    </td>
                             </tr>
                             {assign var=val value=$val+1}
 

@@ -72,12 +72,12 @@ class Debit extends MX_Controller
 
         $data['error'] = $this->session->flashdata('error') != null ? $this->session->flashdata('error') : null;
         if ($this->input->post()) {
-            if ($this->form_validation->run('credit')) {
+            if ($this->form_validation->run('debit')) {
 
                 $scan = '';
 
                 if (isset($_FILES['file']['size']) && ($_FILES['file']['size'] > 0)) {
-                    $config['upload_path'] = './upload/credit';
+                    $config['upload_path'] = './upload/debit';
                     $config['allowed_types'] = 'gif|jpg|png';
                     $config['max_size'] = '4048';
                     $config['max_width'] = '4024';
@@ -92,7 +92,7 @@ class Debit extends MX_Controller
                         redirect('bill' . '/' . $id_sales_order);
                     }
                     $file = $this->upload->data();
-                    $scan = base_url() . "/upload/credit" . $file['file_name'];
+                    $scan = base_url() . "upload/debit/" . $file['file_name'];
 
 
                 }

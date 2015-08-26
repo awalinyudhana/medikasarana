@@ -50,6 +50,7 @@
                         <th>Satuan</th>
                         <th>Qty</th>
                         <th>Retur</th>
+                        <th>Terkirim</th>
                         <th>Harga</th>
                         <th>Diskon</th>
                         <th>Subtotal</th>
@@ -63,6 +64,7 @@
                         <td>{$detail_item->unit}/{$detail_item->value}</td>
                         <td>{$detail_item->qty}</td>
                         <td>{$detail_item->return}</td>
+                        <td>{$detail_item->delivered}</td>
                         <td class="text-right">Rp {$detail_item->price|number_format:0}</td>
                         <td class="text-right">Rp {$detail_item->discount|number_format:0}</td>
                         <td class="text-right">

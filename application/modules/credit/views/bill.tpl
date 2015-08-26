@@ -65,7 +65,7 @@
                             <span class="input-group-addon">Rp</span>
                             <input type="number" name="amount"
                                    value="{set_value('amount',($po->grand_total - $po->paid))}"
-                                   class="form-control" placeholder="0">
+                                   class="form-control currency-format" placeholder="0">
                         </div>
                         {if form_error('amount')}
                             <span class="label label-block label-danger text-left">{form_error('amount') }</span>

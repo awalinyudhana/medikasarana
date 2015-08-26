@@ -63,6 +63,7 @@ $route['purchase-order/save'] = "purchase_order/PurchaseOrder/savePO";
 $route['purchase-order/invoice'] = "purchase_order/Invoice/index";
 $route['purchase-order/invoice/(:num)'] = "purchase_order/Invoice/summary/$1";
 $route['purchase-order/history'] = "purchase_order/History";
+$route['purchase-order/history/index/(:any)'] = "purchase_order/History/index/$1";
 
 $route['product/store'] = "product/Store";
 //$route['card-stock'] = "card_stock/CardStock";
@@ -112,6 +113,7 @@ $route['retail/returns/save'] = "retail_return/RetailReturn/save";
 $route['retail/returns/checkout/(:num)'] = "retail_return/RetailReturn/checkout/$1";
 $route['retail/returns/invoice'] = "retail_return/RetailReturn/invoice";
 $route['retail/returns/history'] = "retail_return/History";
+$route['retail/returns/history/index/(:any)'] = "retail_return/History/index/$1";
 
 
 
@@ -174,6 +176,7 @@ $route['delivery-order/detail/update/(:num)/(:num)'] = "delivery_order/DeliveryO
 $route['delivery-order/save'] = "delivery_order/DeliveryOrder/save";
 $route['delivery-order/checkout/(:num)/(:num)'] = "delivery_order/DeliveryOrder/checkout/$1/$2";
 $route['delivery-order/history'] = "delivery_order/History";
+$route['delivery-order/history/index/(:any)'] = "delivery_order/History/index/$1";
 
 $route['join'] = "join";
 $route['join/select/(:num)'] = "join/select/$1";
@@ -201,6 +204,7 @@ $route['sales-order/returns/save'] = "sales_order_return/SalesOrderReturn/save";
 $route['sales-order/returns/checkout/(:num)'] = "sales_order_return/SalesOrderReturn/checkout/$1";
 $route['sales-order/returns/invoice'] = "sales_order_return/SalesOrderReturn/invoice";
 $route['sales-order/returns/history'] = "sales_order_return/History";
+$route['sales-order/returns/history/index/(:any)'] = "sales_order_return/History/index/$1";
 
 $route['users/update-group-role/(:num)'] = "users/updateRole/$1";
 $route['users/update-group/(:num)'] = "users/updateGroup/$1";

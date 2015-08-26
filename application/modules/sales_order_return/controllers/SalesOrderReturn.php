@@ -40,7 +40,7 @@ class SalesOrderReturn extends MX_Controller
                 ));
                 redirect('sales-order/returns/list-item');
             }
-            $data['error'] = 'no nota tidak ditemukan';
+            $data['error'] = 'no nota tidak ditemukan atau barang belum terkirim';
         }
         $this->parser->parse("returns-form.tpl", $data);
     }
@@ -86,7 +86,7 @@ class SalesOrderReturn extends MX_Controller
 
         if ($this->input->post()) {
             if ($this->form_validation->run('returns') == TRUE) {
-                if ($this->input->post('qty_return') <= $detailItem->qty) {
+                if ($this->input->post('qty_return') <= $detailItem->delivered) {
                     if( $this->model_return->checkStock($this->input->post('id_product'),
                         $this->input->post('qty')
                     )){

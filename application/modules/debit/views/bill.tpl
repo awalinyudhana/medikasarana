@@ -53,8 +53,8 @@
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-pencil4"></i> Form Pembayaran Hutang
-                        <small class="display-block">Lorem ipsum dolor sit amet centraur Piutang</small>
+                        <i class="icon-pencil4"></i> Form Pembayaran Piutang
+                        <!-- <small class="display-block">Lorem ipsum dolor sit amet centraur Piutang</small> -->
                     </h6>
                 </div>
                 <div class="form-group">
@@ -91,7 +91,7 @@
                         <div class="radio">
                             <label>
                                 {form_radio('payment_type', 'lunas', FALSE,'class="styled"')}
-                                Dianggap Lunas Oleh Pemilih
+                                Dianggap Lunas Oleh Pemilik
                             </label>
                         </div>
                     </div>

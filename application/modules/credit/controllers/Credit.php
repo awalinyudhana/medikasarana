@@ -75,7 +75,7 @@ class Credit extends MX_Controller
                 $scan = '';
 
                 if (isset($_FILES['file']['size']) && ($_FILES['file']['size'] > 0)) {
-                    $config['upload_path'] = './upload/credit';
+                    $config['upload_path'] = './upload/credit/';
                     $config['allowed_types'] = 'gif|jpg|png';
                     $config['max_size'] = '4048';
                     $config['max_width'] = '4024';

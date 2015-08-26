@@ -94,14 +94,15 @@ class DeliveryOrder extends MX_Controller
 
     public function updateItem($id_sales_order, $qty)
     {
-        $available = $this->cache['detail']['value'][$id_sales_order]['qty']
-            - $this->cache['detail']['value'][$id_sales_order]['delivered'];
-        if($qty <= $available){
+        // $available = $this->cache['detail']['value'][$id_sales_order]['qty']
+        //     - $this->cache['detail']['value'][$id_sales_order]['delivered'];
+        // if($qty <= $available){
+        if($this->cache['detail']['value'][$id_sales_order]['stock'] <= $qty){
             $this->cart->field_updateable(['qty_delivered']);
             if (!$this->cart->update_item($id_sales_order, ['qty_delivered' => $qty]))
                 $this->session->set_flashdata('error', $this->cart->getError());
         }else{
-            $this->session->set_flashdata('error', 'Qty tidak cocok');
+            $this->session->set_flashdata('error', 'Stock tidak tersedia');
         }
         redirect('delivery-order/list');
     }

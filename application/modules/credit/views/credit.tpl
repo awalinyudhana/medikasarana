@@ -46,9 +46,12 @@
             </div><!-- /panel body -->
 
 
-
+<!-- 
             <div class="table-responsive pre-scrollable">
                 <table class="table table-striped table-bordered">
+ -->                    
+            <div class="datatable-tools">
+                <table class="table">
                     <thead>
                     <tr>
                         <th>No</th>
