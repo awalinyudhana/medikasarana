@@ -26,7 +26,7 @@ class Proposal extends MX_Controller
                 'foreign_table' => 'proposal_detail'
             ));
 
-        $this->proposal_type = [0 => "pengadaan", 1 => "tender"];
+        $this->proposal_type = [0 => "pengadaan", 1 => "tender", 2 => "pinjam bendera"];
         $this->status_ppn = [0 => "non aktif", 1 => "aktif"];
         $this->cache = $this->cart->array_cache();
     }

@@ -27,7 +27,7 @@ class SalesOrder extends MX_Controller
                 'foreign_table' => 'sales_order_detail'
             ));
         $this->cache = $this->cart->array_cache();
-        $this->proposal_type = [0 => "pengadaan", 1 => "tender"];
+        $this->proposal_type = [0 => "pengadaan", 1 => "tender", 2 => "pinjam bendera"];
         $this->status_ppn = [0 => "non aktif", 1 => "aktif"];
     }
 
@@ -90,8 +90,10 @@ class SalesOrder extends MX_Controller
         if (!$this->cart->primary_data_exists()) {
             if($this->cache['value']['type'] == 0){
                 redirect('proposal/list/pengadaan');
-            }else{
+            }elseif($this->cache['value']['type'] == 1){
                 redirect('proposal/list/tender');
+            }else{
+                redirect('proposal/list/pinjam');
             }
         }
         $data['error'] = $this->session->flashdata('error') != null ? $this->session->flashdata('error') : null;
@@ -112,8 +114,10 @@ class SalesOrder extends MX_Controller
     {
         if($this->cache['value']['type'] == 0){
             $redirect= "proposal/list/pengadaan";
+        }elseif($this->cache['value']['type'] == 1){
+            redirect('proposal/list/tender');
         }else{
-            $redirect= "proposal/list/tender";
+            redirect('proposal/list/pinjam');
         }
         $this->cart->delete_record();
         redirect($redirect);
@@ -128,7 +132,7 @@ class SalesOrder extends MX_Controller
                 $dpp = $this->input->post('total') - $this->input->post('discount_price');
                 $ppn = $status_ppn == 1 ? $dpp * 0.1 : 0;
 
-                if ($id_so = $this->cart->primary_data(array(
+                $primary = array(
                     'total' => $this->input->post('total'),
                     'discount_price' => $this->input->post('discount_price'),
 //                    'status_ppn' => 1,
@@ -136,12 +140,18 @@ class SalesOrder extends MX_Controller
                     'due_date' => $this->input->post('due_date'),
                     'ppn' => $ppn,
                     'dpp' => $dpp,
-                    'grand_total' => $dpp + $ppn
-                ))->save()
+                    'grand_total' => $dpp + $ppn);
+
+                if ($this->cache['value']['type'] == 2){
+                    $primary['paid'] = $dpp + $ppn;
+                    $primary['status_paid'] = 1;
+                    $primary['status'] = 1;
+                }
+                if ($id_so = $this->cart->primary_data($primary)->save()
                 ) {
                     $proposal = $this->db->get_where('proposal', ['id_proposal' => $this->cache['value']['id_proposal']])
                         ->row();
-                    if ($proposal->type == 1) {
+                    if ($proposal->type != 0) {
                         $this->db
                             ->where(['id_proposal' => $this->cache['value']['id_proposal']])
                             ->update('proposal', [

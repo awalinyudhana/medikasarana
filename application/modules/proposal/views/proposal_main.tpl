@@ -44,6 +44,12 @@
                                 Tender
                             </label>
                         </div>
+                        <div class="radio">
+                            <label>
+                                {form_radio('type', '2', FALSE,'class="styled"')}
+                                Pinjam Bendera
+                            </label>
+                        </div>
                     </div>
                 </div>
 

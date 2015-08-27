@@ -61,8 +61,10 @@ class History extends MX_Controller
     {
         if($row->type == 0){
             return "Pengadaan";
-        }else{
+        }elseif($row->type == 1){
             return "Tender";
+        }else{
+            return "Pinjam Bendera";
         }
     }
 

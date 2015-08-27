@@ -25,7 +25,7 @@ class Listing extends MX_Controller
             ));
         $this->cache = $this->cart->array_cache();
 
-        $this->proposal_type = [0 => "pengadaan", 1 => "tender"];
+        $this->proposal_type = [0 => "pengadaan", 1 => "tender", 2 => "pinjam bendera"];
         $this->status_ppn = [0 => "non aktif", 1 => "aktif"];
     }
 
@@ -42,8 +42,10 @@ class Listing extends MX_Controller
 
         if ($type == 'pengadaan') {
             $data['items'] = $this->model_proposal->getListProposal([0, 1], 0);
-        } else {
+        } elseif ($type == 'tender') {
             $data['items'] = $this->model_proposal->getListProposal([0, 1], 1);
+        } elseif ($type == 'pinjam') {
+            $data['items'] = $this->model_proposal->getListProposal([0, 1], 2);
         }
 
         $this->parser->parse("proposal_list.tpl", $data);
@@ -81,8 +83,10 @@ class Listing extends MX_Controller
 
         if($data->type == 0){
             $redirect= "proposal/list/pengadaan";
-        }else{
+        }elseif($data->type == 1){
             $redirect= "proposal/list/tender";
+        }elseif ($data->type == 2) {
+            $redirect= "proposal/list/pinjam";
         }
     }
 }

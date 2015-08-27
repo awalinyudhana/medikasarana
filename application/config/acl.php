@@ -66,20 +66,20 @@ $config['module_router'] =
             'icon' => 'icon-settings',
             'child' => [
                 [
-                    'title' => 'Users',
+                    'title' => 'Pegawai',
                     'child' => [
                         [
-                            'title' => 'Staff List',
+                            'title' => 'Daftar Pegawai',
                             'url' => 'users',
                             'module' => 'users'
                         ], [
-                            'title' => 'Staff Kategori',
+                            'title' => 'Hak Akses',
                             'url' => 'users/group',
                             'module' => 'users'
                         ]
                     ]
                 ], [
-                    'title' => 'Store',
+                    'title' => 'Toko',
                     'url' => 'store',
                     'module' => 'store'
                 ], [
@@ -89,46 +89,46 @@ $config['module_router'] =
                         'url' => 'warehouse',
                         'module' => 'warehouse'
                     ], [
-                        'title' => 'Rack',
+                        'title' => 'Rak',
                         'url' => 'warehouse/rack',
                         'module' => 'warehouse'
                     ]
                     ]
                 ], [
-                    'title' => 'Principal',
+                    'title' => 'Prinsipal',
                     'child' => [
                         [
-                            'title' => 'Principal List',
+                            'title' => 'Daftar Prinsipal',
                             'url' => 'principal',
                             'module' => 'principal'
                         ], [
-                            'title' => 'Bank Info',
+                            'title' => 'Info Bank',
                             'url' => 'bank',
                             'module' => 'bank'
                         ],
                     ]
                 ], [
-                    'title' => 'Customer',
+                    'title' => 'Konsumen',
                     'url' => 'customer',
                     'module' => 'customer'
                 ], [
                     'title' => 'Produk',
                     'child' => [
                         [
-                            'title' => "Produk List",
+                            'title' => "Daftar Produk",
                             'url' => 'product',
                             'module' => 'product'
                         ],
                         [
-                            'title' => "Produk Store",
+                            'title' => "Produk Toko",
                             'url' => 'product/store',
                             'module' => 'product_store'
                         ], [
-                            'title' => "Produk Kategori",
+                            'title' => "Kategori Produk",
                             'url' => 'product/category',
                             'module' => 'product'
                         ], [
-                            'title' => "Produk Satuan",
+                            'title' => "Satuan Produk",
                             'url' => 'product/unit',
                             'module' => 'product'
                         ]
@@ -140,19 +140,19 @@ $config['module_router'] =
             'title' => 'Produk',
             'child' => [
                 [
-                    'title' => "Produk Opname",
+                    'title' => "Opname Gudang",
                     'url' => 'stock-opname',
                     'module' => 'product_opname'
                 ], [
-                    'title' => "Produk Opname Store",
+                    'title' => "Opname Toko",
                     'url' => 'stock-opname/store',
                     'module' => 'product_opname_store'
                 ], [
-                    'title' => "Distribusi Produk",
+                    'title' => "Pindah ke Toko",
                     'url' => 'product-distribution',
                     'module' => 'product_distribution'
                 ], [
-                    'title' => "Produk Return",
+                    'title' => "Pindah ke Gudang",
                     'url' => 'product-returns',
                     'module' => 'product_return'
                 ], [
@@ -164,18 +164,18 @@ $config['module_router'] =
                     'url' => 'product-conversion',
                     'module' => 'product_conversion'
                 ], [
-                    'title' => 'Product Placing',
+                    'title' => 'Penempatan Produk',
                     'url' => 'warehouse/placing',
                     'module' => 'warehouse'
                 ]
             ]
         ],
         [
-            'title' => 'Purchase Order',
+            'title' => 'Order Beli',
             'icon' => 'icon-tag',
             'child' => [
                 [
-                    'title' => 'Purchase Order',
+                    'title' => 'Order Beli',
                     'url' => 'purchase-order',
                     'module' => 'purchase_order'
                 ], 
@@ -196,13 +196,13 @@ $config['module_router'] =
             'icon' => 'icon-cart',
             'child' => [
                 [
-                    'title' => "Proposal",
+                    'title' => "Proposal Baru",
                     'url' => 'proposal',
                     'module' => 'proposal'
 
                 ],
                 [
-                    'title' => 'Proposal List',
+                    'title' => 'Daftar Proposal',
                     'child' => [
                         [
                             'title' => "Tender",
@@ -213,6 +213,12 @@ $config['module_router'] =
                         [
                             'title' => "Pengadaan",
                             'url' => 'proposal/list/pengadaan',
+                            'module' => 'proposal'
+
+                        ],
+                        [
+                            'title' => "Pinjam Bendera",
+                            'url' => 'proposal/list/pinjam',
                             'module' => 'proposal'
 
                         ]
@@ -227,14 +233,14 @@ $config['module_router'] =
             ]
         ],
         [
-            'title' => 'Sales Order',
+            'title' => 'Order Jual',
             'icon' => 'icon-cart',
             'child' => [
                 [
                     'title' => 'Transaksi',
                     'child' => [
                         [
-                            'title' => "Sales Order",
+                            'title' => "Order Jual",
                             'url' => 'sales-order/search',
                             'module' => 'proposal'
                         ],
@@ -251,10 +257,10 @@ $config['module_router'] =
                     ]
                 ],
                 [
-                    'title' => 'Retur',
+                    'title' => 'Retur Jual',
                     'child' => [
                         [
-                            'title' => "Retur",
+                            'title' => "Retur Jual",
                             'url' => 'sales-order/returns',
                             'module' => 'proposal'
                         ],
@@ -274,7 +280,7 @@ $config['module_router'] =
                     'title' => 'Faktur',
                     'child' => [
                         [
-                            'title' => "Join Faktur",
+                            'title' => "Gabung Faktur",
                             'url' => 'join',
                             'module' => 'join'
 
@@ -290,11 +296,11 @@ $config['module_router'] =
             ]
         ],
         [
-            'title' => 'Delivery Order',
+            'title' => 'Order Kirim',
             'icon' => 'icon-book2',
             'child' => [
                 [
-                    'title' => 'Delivery Order',
+                    'title' => 'Order Kirim',
                     'url' => 'delivery-order',
                     'module' => 'delivery_order'
                 ], [
@@ -306,11 +312,11 @@ $config['module_router'] =
             ]
         ],
         [
-            'title' => 'Debit & Credit',
+            'title' => 'Hutang & Piutang',
             'icon' => 'icon-book2',
             'child' => [
                 [
-                    'title' => " Hutang",
+                    'title' => "Hutang",
                     'url' => 'credit',
                     'module' => 'credit'
                 ], [
@@ -323,11 +329,11 @@ $config['module_router'] =
 
         ],
         [
-            'title' => " Retail",
+            'title' => "Retail",
             'icon' => 'icon-cart',
             'child' => [
                 [
-                    'title' => 'retail',
+                    'title' => 'Retail',
                     'url' => 'retail',
                     'module' => 'retail'
                 ],
@@ -344,12 +350,12 @@ $config['module_router'] =
             ]
         ],
         [
-            'title' => " Retur Retail",
+            'title' => "Retur Retail",
             'icon' => 'icon-cart',
             'child' => [
                
                 [
-                    'title' => "Return",
+                    'title' => "Retur Retail",
                     'url' => 'retail/returns',
                     'module' => 'retail'
                 ],
