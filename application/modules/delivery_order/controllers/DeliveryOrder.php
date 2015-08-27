@@ -42,6 +42,9 @@ class DeliveryOrder extends MX_Controller
             ];
             $this->cart->primary_data($data_primary);
             foreach ($detail as $key) {
+                if($key['stock'] <= $key['qty_delivered']){
+                    $key['qty_delivered'] = $key['stock'];
+                }
                 $this->cart->add_item($key['id_sales_order_detail'], $key);
             }
         }
@@ -97,12 +100,12 @@ class DeliveryOrder extends MX_Controller
         // $available = $this->cache['detail']['value'][$id_sales_order]['qty']
         //     - $this->cache['detail']['value'][$id_sales_order]['delivered'];
         // if($qty <= $available){
-        if($this->cache['detail']['value'][$id_sales_order]['stock'] <= $qty){
+        if($this->cache['detail']['value'][$id_sales_order]['stock'] > $qty){
             $this->cart->field_updateable(['qty_delivered']);
             if (!$this->cart->update_item($id_sales_order, ['qty_delivered' => $qty]))
                 $this->session->set_flashdata('error', $this->cart->getError());
         }else{
-            $this->session->set_flashdata('error', 'Stock tidak tersedia');
+            $this->session->set_flashdata('error', 'Stock hanya tersedia'. $this->cache['detail']['value'][$id_sales_order]['stock']);
         }
         redirect('delivery-order/list');
     }

@@ -82,18 +82,18 @@
                                         {$key['delivered']}
                                     </td>
                                     <td>
-                                        {if $key['stock'] > $key['qty_delivered']}
+                                        <!-- {if $key['stock'] > $key['qty_delivered']} -->
                                             <input type="number" id="qty-{$key['id_sales_order_detail']}"
                                                    value="{$key['qty_delivered']}"
                                                    class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
                                                     '{base_url('delivery-order/detail/update')}',event)">
-                                        {else}
+                                        <!--{else} 
                                             <input type="number" id="qty-{$key['id_sales_order_detail']}"
                                                    value="{$key['stock']}"
                                                    class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
                                                     '{base_url('delivery-order/detail/update')}',event)">
 
-                                        {/if}
+                                        {/if} -->
 
                                     </td>
 

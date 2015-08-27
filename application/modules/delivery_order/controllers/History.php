@@ -38,6 +38,6 @@ class History extends MX_Controller
     }
     public function checkout($primary_key , $row)
     {
-        return site_url('delivery-order/checkout/' . $primary_key);
+        return site_url('delivery-order/checkout/' . $primary_key . '/'.$row->id_sales_order);
     }
 }
