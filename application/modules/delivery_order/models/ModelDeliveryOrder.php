@@ -56,7 +56,7 @@ class ModelDeliveryOrder extends CI_Model
     public function getDataSODetail($id)
     {
         return $this->db
-            ->select('*, (pro.qty - pro.delivered) as qty_delivered')
+            ->select('*, IF(p.stock > (pro.qty - pro.delivered), pro.qty - pro.delivered, p.stock) as qty_delivered', false)
             ->from('sales_order_detail pro')
             ->join('product p', 'p.id_product = pro.id_product', 'left')
             ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit', 'left')

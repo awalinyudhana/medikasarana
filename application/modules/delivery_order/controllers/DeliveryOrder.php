@@ -42,9 +42,6 @@ class DeliveryOrder extends MX_Controller
             ];
             $this->cart->primary_data($data_primary);
             foreach ($detail as $key) {
-                if($key['stock'] <= $key['qty_delivered']){
-                    $key['qty_delivered'] = $key['stock'];
-                }
                 $this->cart->add_item($key['id_sales_order_detail'], $key);
             }
         }
