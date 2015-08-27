@@ -79,7 +79,7 @@
                                         {$key['qty']}
                                     </td>
                                     <td>
-                                        {$key['delivered']} / {$key['qty_delivered']}
+                                        {$key['delivered']}
                                     </td>
                                     <td>
                                         <input type="number" id="qty-{$key['id_sales_order_detail']}"
@@ -103,7 +103,6 @@
                                     </td>
                             </tr>
                             {assign var=val value=$val+1}
-
                         {/foreach}
                         </tbody>
                     </table>
