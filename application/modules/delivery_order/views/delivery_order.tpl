@@ -79,7 +79,7 @@
                                         {$key['qty']}
                                     </td>
                                     <td>
-                                        {$key['delivered']}
+                                        {$key['delivered']} / {$key['qty_delivered']}
                                     </td>
                                     <td>
                                         <!-- {if $key['stock'] > $key['qty_delivered']} -->
