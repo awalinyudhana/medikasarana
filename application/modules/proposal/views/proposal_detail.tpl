@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </div>
-                        {if $cache['value']['type'] == 1}
+                        {if $cache['value']['type'] != 0}
                             <div class="form-group">
                                 <div class="row">
                                     <label class="col-sm-4 control-label">Qty: </label>
