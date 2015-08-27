@@ -82,18 +82,10 @@
                                         {$key['delivered']} / {$key['qty_delivered']}
                                     </td>
                                     <td>
-                                        <!-- {if $key['stock'] > $key['qty_delivered']} -->
-                                            <input type="number" id="qty-{$key['id_sales_order_detail']}"
-                                                   value="{$key['qty_delivered']}"
-                                                   class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
-                                                    '{base_url('delivery-order/detail/update')}',event)">
-                                        <!--{else} 
-                                            <input type="number" id="qty-{$key['id_sales_order_detail']}"
-                                                   value="{$key['stock']}"
-                                                   class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
-                                                    '{base_url('delivery-order/detail/update')}',event)">
-
-                                        {/if} -->
+                                        <input type="number" id="qty-{$key['id_sales_order_detail']}"
+                                               value="{$key['qty_delivered']}"
+                                               class="form-control" onkeypress="qtyKeyPress({$key['id_sales_order_detail']},
+                                                '{base_url('delivery-order/detail/update')}',event)">
 
                                     </td>
 
