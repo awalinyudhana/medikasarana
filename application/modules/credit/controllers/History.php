@@ -19,6 +19,8 @@ class History extends MX_Controller
     public function index()
     {
         $po = $this->db
+            ->from('purchase_order po')
+            ->join('principal p', 'p.id_principal = po.id_principal')
             ->where('po.status_paid', true)
             ->order_by('date_created','desc')
             ->get()

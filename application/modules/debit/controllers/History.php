@@ -20,6 +20,10 @@ class History extends MX_Controller
     {
 
         $po = $this->db
+            ->select('so.*, c.*')
+            ->from('sales_order so')
+            ->join('proposal p', 'p.id_proposal = so.id_proposal')
+            ->join('customer c', 'c.id_customer = p.id_customer')
             ->where('so.status_paid', true)
             ->order_by('due_date','desc')
             ->get()
