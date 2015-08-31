@@ -51,7 +51,7 @@
                     <tr>
                         <th>No</th>
                         <th>No Faktur</th>
-                        <th>Nama Principal</th>
+                        <th>Nama Prinsipal</th>
                         <th>Tanggal Transaksi</th>
                         <th>Jatuh Tempo</th>
                         <th>Tagihan</th>

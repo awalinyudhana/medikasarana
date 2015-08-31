@@ -312,16 +312,33 @@ $config['module_router'] =
             ]
         ],
         [
-            'title' => 'Hutang & Piutang',
+            'title' => 'Hutang',
             'icon' => 'icon-book2',
             'child' => [
                 [
-                    'title' => "Hutang",
+                    'title' => "Daftar Hutang",
                     'url' => 'credit',
                     'module' => 'credit'
                 ], [
-                    'title' => "Piutang",
+                    'title' => "History",
+                    'url' => 'credit/history',
+                    'module' => 'credit'
+
+                ]
+            ]
+
+        ],
+        [
+            'title' => 'Piutang',
+            'icon' => 'icon-book2',
+            'child' => [
+                [
+                    'title' => "Daftar Piutang",
                     'url' => 'debit',
+                    'module' => 'debit'
+                ], [
+                    'title' => "History",
+                    'url' => 'debit/history',
                     'module' => 'debit'
 
                 ]

@@ -80,6 +80,7 @@ $route['credit'] = "credit";
 $route['credit/bill/(:num)'] = "credit/bill/$1";
 $route['credit/paid/(:num)'] = "credit/update/$1";
 $route['credit/detail/(:num)'] = "credit/detailBayar/$1";
+$route['credit/history'] = "credit/History";
 
 $route['product-distribution'] = "product_distribution/Distribution";
 $route['product-distribution/detail/add'] = "product_distribution/Distribution/add";
@@ -165,6 +166,7 @@ $route['debit'] = "debit";
 $route['debit/bill/(:num)'] = "debit/bill/$1";
 $route['debit/paid/(:num)'] = "debit/update/$1";
 $route['debit/detail/(:num)'] = "debit/detailBayar/$1";
+$route['debit/history'] = "debit/History";
 
 
 $route['delivery-order'] = "delivery_order/DeliveryOrder/listing";
