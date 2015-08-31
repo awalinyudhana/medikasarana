@@ -21,7 +21,7 @@ class History extends MX_Controller
 
         $po = $this->db
             ->where('so.status_paid', true)
-            ->order_by('due_date desc')
+            ->order_by('due_date','desc')
             ->get()
             ->result();
         $data['po'] = $po;
