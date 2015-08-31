@@ -40,6 +40,7 @@
                         <th>Type Pembayaran</th>
                         <th>No Resi</th>
                         <th>Bukti Pembayaran</th>
+                        <th>Status Pembayaran</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -55,13 +56,28 @@
                                 <td>Rp {$key->amount|number_format:0}</td>
                                 <td>{$key->payment_type}</td>
                                 <td>{$key->resi_number}</td>
+
                                 <td>
                                     <div class="table-controls">
                                         <a href="{$key->file}"
                                            class="btn btn-link btn-icon btn-xs tip" title="Lihat Bukti Pembayaran">
                                             <i class="icon-picassa"></i>
                                         </a>
+                                        {if $key->status == "0"}
+                                            <a href="{base_url('debit/paid')}/{$key->id_debit}"
+                                               class="btn btn-link btn-icon btn-xs tip" title="Ubah Status">
+                                                <i class="icon-coin"></i>
+                                            </a>
+                                        {/if}
                                     </div>
+                                </td>
+
+                                <td>
+                                    {if $key->status == "1"}
+                                        Terbayar
+                                    {else}
+                                        Belum Terbayar
+                                    {/if}
                                 </td>
                             </tr>
                             {assign var=val value=$val+1}

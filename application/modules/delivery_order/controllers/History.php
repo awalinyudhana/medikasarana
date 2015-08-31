@@ -20,8 +20,9 @@ class History extends MX_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_table('delivery_order')
-            ->columns('id_delivery_order', 'date_printed', 'date_sending', 'id_staff')
+            ->columns('id_delivery_order','id_sales_order', 'date_printed', 'date_sending', 'id_staff')
             ->display_as('id_delivery_order', 'No Faktur')
+            ->display_as('id_sales_order', 'No Faktur Jual')
             ->display_as('id_staff', 'Staff')
             ->display_as('date_printed', 'Tanggal Pembuatan')
             ->display_as('date_sending', 'Tanggal Pengiriman')
@@ -30,7 +31,8 @@ class History extends MX_Controller
             ->unset_read()
             ->unset_add()
             ->unset_edit()
-            ->unset_delete();
+            ->unset_delete()
+            ->order_by('id_delivery_order','desc');
 
         $output = $crud->render();
 

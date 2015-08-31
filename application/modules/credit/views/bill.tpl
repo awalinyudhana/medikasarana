@@ -54,7 +54,6 @@
                 <div class="block-inner">
                     <h6 class="heading-hr">
                         <i class="icon-pencil4"></i> Form Pembayaran Hutang
-                        <small class="display-block">Lorem ipsum dolor sit amet centraur hutang</small>
                     </h6>
                 </div>
                 <div class="form-group">
@@ -63,7 +62,7 @@
                     <div class="col-sm-4">
                         <div class="input-group">
                             <span class="input-group-addon">Rp</span>
-                            <input type="number" name="amount"
+                            <input type="text" name="amount"
                                    value="{set_value('amount',($po->grand_total - $po->paid))}"
                                    class="form-control currency-format" placeholder="0">
                         </div>

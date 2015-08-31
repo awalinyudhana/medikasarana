@@ -73,47 +73,51 @@ class Debit extends MX_Controller
         $data['error'] = $this->session->flashdata('error') != null ? $this->session->flashdata('error') : null;
         if ($this->input->post()) {
             if ($this->form_validation->run('debit')) {
-
                 $scan = '';
+                if($this->input->post('payment_type') == "bg" && $this->input->post('date_withdrawal') == null){
+                    $data['error'] = "masukkan tanggal penarikan:";
+                }else{
+                    if (isset($_FILES['file']['size']) && ($_FILES['file']['size'] > 0)) {
+                        $config['upload_path'] = './upload/debit';
+                        $config['allowed_types'] = 'gif|jpg|png';
+                        $config['max_size'] = '4048';
+                        $config['max_width'] = '4024';
+                        $config['max_height'] = '4668';
+                        $config['encrypt_name'] = true;
 
-                if (isset($_FILES['file']['size']) && ($_FILES['file']['size'] > 0)) {
-                    $config['upload_path'] = './upload/debit';
-                    $config['allowed_types'] = 'gif|jpg|png';
-                    $config['max_size'] = '4048';
-                    $config['max_width'] = '4024';
-                    $config['max_height'] = '4668';
-                    $config['encrypt_name'] = true;
+                        $this->load->library('upload', $config);
 
-                    $this->load->library('upload', $config);
+                        if (!$this->upload->do_upload('file')) {
+                            $this->session->set_flashdata('error',
+                                $this->upload->display_errors(''));
+                            redirect('debit/bill' . '/' . $id_sales_order);
+                        }
+                        $file = $this->upload->data();
+                        $scan = base_url() . "upload/debit/" . $file['file_name'];
 
-                    if (!$this->upload->do_upload('file')) {
-                        $this->session->set_flashdata('error',
-                            $this->upload->display_errors(''));
-                        redirect('bill' . '/' . $id_sales_order);
+
                     }
-                    $file = $this->upload->data();
-                    $scan = base_url() . "upload/debit/" . $file['file_name'];
+                    $data_insert = array(
+                        'id_staff' => $this->id_staff,
+                        'id_sales_order' => $id_sales_order,
+                            'payment_type' => $this->input->post('payment_type'),
+                            'amount' => $this->input->post('amount'),
+                            'resi_number' => $this->input->post('resi_number'),
+                            'date_withdrawal' => $this->input->post('date_withdrawal') == "" ?
+                                null : $this->input->post('date_withdrawal'),
+                            'status' => $this->input->post('payment_type') == "bg" ? 0 : 1,
+                        'file' => $scan
+                    );
 
+                    $this->db->insert('debit', $data_insert);
 
+    //                $this->db
+    //                    ->where('id_sales_order' , $id_sales_order)
+    //                    ->set('status_extract',0)
+    //                    ->update('sales_order');
+                    $this->session->set_flashdata('success', 'insert data berhasil');
+                    redirect('debit');
                 }
-                $data_insert = array(
-                    'id_staff' => $this->id_staff,
-                    'id_sales_order' => $id_sales_order,
-                    'payment_type' => $this->input->post('payment_type'),
-                    'amount' => $this->input->post('amount'),
-                    'resi_number' => $this->input->post('resi_number'),
-//                    'status' => $this->input->post('payment_type') == "bg" ? 0 : 1,
-                    'file' => $scan
-                );
-
-                $this->db->insert('debit', $data_insert);
-
-//                $this->db
-//                    ->where('id_sales_order' , $id_sales_order)
-//                    ->set('status_extract',0)
-//                    ->update('sales_order');
-                $this->session->set_flashdata('success', 'insert data berhasil');
-                redirect('debit');
             }
         }
         $so = $this->db
@@ -129,6 +133,17 @@ class Debit extends MX_Controller
 
         $data['so'] = $so;
         $this->parser->parse("bill.tpl", $data);
+    }
+
+
+    public function update($id_debit)
+    {
+        $this->db
+            ->where('id_debit',$id_debit)
+            ->set('status',true)
+            ->update('debit');
+        $row = $this->db->get_where('debit',['id_debit'=>$id_debit])->row();
+            redirect('credit/detail'.'/'.$row->id_sales_order);
     }
 
     public function detailBayar($id_sales_order)

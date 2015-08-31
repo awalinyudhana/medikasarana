@@ -53,13 +53,20 @@ class Listing extends MX_Controller
 
     public function approve($id)
     {
+        $data = $this->model_proposal->getDataProposal($id);
         if ($this->db
             ->where('id_proposal', $id)
             ->update('proposal', ['status' => 1])
         ) {
             $this->session->set_flashdata('success', "id proposal " . $id . " berhasil di update");
         }
-        redirect('proposal/list/tender');
+        if($data->type == 0){
+            $redirect= "proposal/list/pengadaan";
+        }elseif($data->type == 1){
+            $redirect= "proposal/list/tender";
+        }elseif ($data->type == 2) {
+            $redirect= "proposal/list/pinjam";
+        }
     }
 
     public function delete($id)

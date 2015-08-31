@@ -90,10 +90,25 @@
                         </div>
                         <div class="radio">
                             <label>
+                                {form_radio('payment_type', 'bg', FALSE,'class="styled"')}
+                                Cek BG
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
                                 {form_radio('payment_type', 'lunas', FALSE,'class="styled"')}
                                 Dianggap Lunas Oleh Pemilik
                             </label>
                         </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3">Tanggal Penarikan:</label>
+
+                    <div class="col-sm-4 {if form_error('date_withdrawal')}has-warning{/if}">
+                        {form_input('date_withdrawal', set_value('date_withdrawal'),
+                        'class="datepicker-trigger form-control" data-mask="9999-99-99" placeholder"YYYY-MM-dd"')}
+
                     </div>
                 </div>
                 <div class="form-group">

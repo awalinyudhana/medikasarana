@@ -133,7 +133,7 @@
                         <tr>
                             <th>Grand Total:</th>
                             <td class="text-right text-danger">
-                                <h6>Rp <span id="sum-grand_total-text">
+                                <h6>    <span id="sum-grand_total-text">
                                     Rp {$master->grand_total|number_format:0}
                                 </h6>
                             </td>

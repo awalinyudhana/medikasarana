@@ -43,7 +43,8 @@ class History extends MX_Controller
             ->unset_read()
             ->unset_add()
             ->unset_edit()
-            ->unset_delete();
+            ->unset_delete()
+            ->order_by('id_sales_order','desc');
 
         $output = $crud->render();
 

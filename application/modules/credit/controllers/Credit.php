@@ -74,42 +74,46 @@ class Credit extends MX_Controller
 
                 $scan = '';
 
-                if (isset($_FILES['file']['size']) && ($_FILES['file']['size'] > 0)) {
-                    $config['upload_path'] = './upload/credit/';
-                    $config['allowed_types'] = 'gif|jpg|png';
-                    $config['max_size'] = '4048';
-                    $config['max_width'] = '4024';
-                    $config['max_height'] = '4668';
-                    $config['encrypt_name'] = true;
+                if($this->input->post('payment_type') == "bg" && $this->input->post('date_withdrawal') == null){
+                    $data['error'] = "masukkan tanggal penarikan:";
+                }else{
+                    if (isset($_FILES['file']['size']) && ($_FILES['file']['size'] > 0)) {
+                        $config['upload_path'] = './upload/credit/';
+                        $config['allowed_types'] = 'gif|jpg|png';
+                        $config['max_size'] = '4048';
+                        $config['max_width'] = '4024';
+                        $config['max_height'] = '4668';
+                        $config['encrypt_name'] = true;
 
-                    $this->load->library('upload', $config);
+                        $this->load->library('upload', $config);
 
-                    if (!$this->upload->do_upload('file')) {
-                        $this->session->set_flashdata('error',
-                            $this->upload->display_errors(''));
-                        redirect('credit/bill' . '/' . $id_purchase_order);
+                        if (!$this->upload->do_upload('file')) {
+                            $this->session->set_flashdata('error',
+                                $this->upload->display_errors(''));
+                            redirect('credit/bill' . '/' . $id_purchase_order);
+                        }
+                        $file = $this->upload->data();
+                        $scan = base_url() . "upload/credit/" . $file['file_name'];
+
+                        $data_insert = array(
+                            'id_staff' => $this->id_staff,
+                            'id_purchase_order' => $id_purchase_order,
+                            'payment_type' => $this->input->post('payment_type'),
+                            'amount' => $this->input->post('amount'),
+                            'resi_number' => $this->input->post('resi_number'),
+                            'date_withdrawal' => $this->input->post('date_withdrawal') == "" ?
+                                null : $this->input->post('date_withdrawal'),
+                            'status' => $this->input->post('payment_type') == "bg" ? 0 : 1,
+                            'file' => $scan
+                        );
+
+                        $this->db->insert('credit', $data_insert);
+                        $this->session->set_flashdata('success', 'insert data berhasil');
+                        redirect('credit');
                     }
-                    $file = $this->upload->data();
-                    $scan = base_url() . "upload/credit/" . $file['file_name'];
-
-
-                    $data_insert = array(
-                        'id_staff' => $this->id_staff,
-                        'id_purchase_order' => $id_purchase_order,
-                        'payment_type' => $this->input->post('payment_type'),
-                        'amount' => $this->input->post('amount'),
-                        'resi_number' => $this->input->post('resi_number'),
-                        'date_withdrawal' => $this->input->post('date_withdrawal') == "" ?
-                            null : $this->input->post('date_withdrawal'),
-                        'status' => $this->input->post('payment_type') == "bg" ? 0 : 1,
-                        'file' => $scan
-                    );
-
-                    $this->db->insert('credit', $data_insert);
-                    $this->session->set_flashdata('success', 'insert data berhasil');
-                    redirect('credit');
+                }else{
+                    $data['error'] = "masukkan bukti pembayaran";
                 }
-                $data['error'] = "masukkan bukti pembayaran";
             }
         }
         $po = $this->db->from('purchase_order po')

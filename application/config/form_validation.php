@@ -103,6 +103,18 @@ $config = array(
             'rules' => 'trim|required'
         ),
     ),
+    'debit' => array(
+        array(
+            'field' => 'amount',
+            'label' => 'Jumlah Bayar',
+            'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'payment_type',
+            'label' => 'Payment Type',
+            'rules' => 'trim|required'
+        ),
+    ),
     'distribution' => array(
         array(
             'field' => 'id_product',
