@@ -111,8 +111,9 @@ class Credit extends MX_Controller
                         $this->session->set_flashdata('success', 'insert data berhasil');
                         redirect('credit');
                     }
-                }else{
-                    $data['error'] = "masukkan bukti pembayaran";
+                    else{
+                        $data['error'] = "masukkan bukti pembayaran";
+                    }
                 }
             }
         }
