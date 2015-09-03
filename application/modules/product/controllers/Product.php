@@ -37,7 +37,7 @@ class Product extends MX_Controller
         // }
 
         $crud->set_table('product')
-            ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
+            ->columns('barcode', 'name', 'parent', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
             ->display_as('id_product_category', 'Product Category')
             ->display_as('id_product_unit', 'Product Satuan')
             ->display_as('date_expired', 'Date Expired')
@@ -45,6 +45,7 @@ class Product extends MX_Controller
             ->display_as('minimum_stock', 'Minimum Stock')
             ->display_as('value', 'Nilai Satuan')
             ->callback_column('sell_price', array($this, 'currencyFormat'))
+            ->callback_column('parent', array($this, 'getParentName'))
             ->set_relation('id_product_category', 'product_category', 'category')
             ->set_relation('id_product_unit', 'product_unit', '{unit}')
             // ->set_relation('parent', 'product', '{name}')
@@ -70,6 +71,12 @@ class Product extends MX_Controller
     function addSubProductAction($value, $row)
     {
         return site_url('product/index') . '/' . $row->id_product;
+    }
+
+    public function getParentName($value, $row)
+    {   
+        $parentName = $this->ModProduct->getProduct($row->parent);
+        return $parentName->name;    
     }
 
     function setProductParentField($value = '', $primary_key = null)
