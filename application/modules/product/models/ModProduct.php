@@ -177,7 +177,7 @@ class ModProduct extends CI_Model
 
     public function getProductById($id_product)
     {
-        return "a"
+        return "a";
     }
 
 }
