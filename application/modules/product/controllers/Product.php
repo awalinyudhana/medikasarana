@@ -52,9 +52,9 @@ class Product extends MX_Controller
             ->required_fields('id_product_category', 'name', 'brand', 'id_product_unit', 'minimum_stock')
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
             // ->callback_edit_field('parent', array($this, 'setProductParentField'))
-            ->callback_field('parent', array($this, 'setProductParentField'))
-            ->callback_field('id_product_category', array($this, 'productCategoryField'))
 //            ->unique_fields('barcode')
+            // ->callback_field('parent', array($this, 'setProductParentField'))
+            ->callback_field('id_product_category', array($this, 'productCategoryField'))
             ->unset_read();
 
         $output = $crud->render();
