@@ -132,8 +132,10 @@
                             <div class="row">
                                 <label class="col-sm-4 control-label">Kembali Uang: </label>
                                 <div class="col-md-4 {if form_error('cashback')}has-warning{/if}">
-                                    <input type="text" name="cashback" value="{set_value('cashback')}" id="input-cashback"
-                                           class="form-control  currency-format" placeholder="0">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Rp</span>
+                                        <input type="text" name="cashback"  value="{set_value('cashback')}" id="input-cashback" class="form-control currency-format" placeholder="0">
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -161,7 +161,7 @@
                         <th>Nama Produk</th>
                         <th>Merek</th>
                         <th>Satuan / isi</th>
-                        <th width="70px">Qty</th>
+                        <th width="90px">Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
                         {if $cache['value']['status_ppn'] == 1}

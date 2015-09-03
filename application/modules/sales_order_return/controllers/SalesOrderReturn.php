@@ -99,7 +99,7 @@ class SalesOrderReturn extends MX_Controller
                         );
                         redirect('sales-order/returns/list-item');
                     }
-                    $data['error'] =     'stok tidak cukup';
+                    $data['error'] = 'stok tidak cukup';
                 }else{
                     $data['error'] = 'Jumlah retur tidak sesuai';
                 }

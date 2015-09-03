@@ -16,7 +16,7 @@ class Product extends MX_Controller
         $this->parser->parse('index.tpl', $output);
     }
 
-    public function index($id_product = null)
+    public function index()
     {
         $crud = new grocery_CRUD();
         // if (!empty($id_product) && is_numeric($id_product)) {

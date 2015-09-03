@@ -354,7 +354,7 @@ Class CI_Cart
     {
         $result = array();
         foreach ($data as $key) {
-            if($key['qty'] != 0){
+            if($key['qty'] != "0"){
                 $result[] = $key;
             }
         }

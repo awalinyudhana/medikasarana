@@ -67,14 +67,24 @@ class Listing extends MX_Controller
         }elseif ($data->type == 2) {
             $redirect= "proposal/list/pinjam";
         }
+        redirect($redirect);
     }
 
     public function delete($id)
     {
+        $data = $this->model_proposal->getDataProposal($id);
         if ($this->db->delete('proposal', ['id_proposal' => $id])) {
             $this->session->set_flashdata('success', "id proposal " . $id . " berhasil di hapus");
         }
-        redirect('proposal/list/tender');
+
+        if($data->type == 0){
+            $redirect= "proposal/list/pengadaan";
+        }elseif($data->type == 1){
+            $redirect= "proposal/list/tender";
+        }elseif ($data->type == 2) {
+            $redirect= "proposal/list/pinjam";
+        }
+        redirect($redirect);
     }
 
 
@@ -95,5 +105,6 @@ class Listing extends MX_Controller
         }elseif ($data->type == 2) {
             $redirect= "proposal/list/pinjam";
         }
+        redirect($redirect);
     }
 }
