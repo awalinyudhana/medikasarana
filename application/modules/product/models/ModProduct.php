@@ -177,7 +177,15 @@ class ModProduct extends CI_Model
 
     public function getProductById($id_product)
     {
-        return "a";
+
+        $this->db->where('id_product', $id_product_unit);
+        $result = $this->db->get('product');
+        if ($result->num_rows() > 0) {
+            $row = $result->row();
+
+            return $row->name;
+        }
+        return '';
     }
 
 }
