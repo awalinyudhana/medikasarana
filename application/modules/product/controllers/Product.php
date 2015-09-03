@@ -75,7 +75,7 @@ class Product extends MX_Controller
 
     public function getParentName($value, $row)
     {   
-        $parentName = $this->ModProduct->getProduct($row->parent);
+        $parentName = $this->ModProduct->getProductById($value);
         return $parentName->name;    
     }
 
