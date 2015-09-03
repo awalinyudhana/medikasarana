@@ -53,7 +53,7 @@ class Product extends MX_Controller
             ->unset_fields('weight', 'length', 'width', 'height', 'sell_price', 'stock')
             // ->callback_edit_field('parent', array($this, 'setProductParentField'))
 //            ->unique_fields('barcode')
-            // ->callback_field('parent', array($this, 'setProductParentField'))
+            ->callback_field('parent', array($this, 'setProductParentField'))
             ->callback_field('id_product_category', array($this, 'productCategoryField'))
             ->unset_read();
 
