@@ -67,7 +67,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Retrur Invoice</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i> Retur Invoice</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -128,11 +128,7 @@
                             <td style="width:100px;">{$key['unit']} ( {$key['value']} )</td>
                             <td>{$key['qty']}</td>
                             <td>
-                                {if !empty($key['qty_return'])}
-                                    {$key['return'] + $key['qty_return']}
-                                {else}
-                                    {$key['return']}
-                                {/if}
+                                {$key['return']}
                             </td>
                             <td style="width:130px;" class="text-right">Rp {$key['price']|number_format:0}</td>
                             <td style="width:130px;" class="text-right">
