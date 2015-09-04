@@ -24,6 +24,8 @@
                 </form>
             <!--Form-->
             </div>
+            
+            <br>
         <!-- /panel body -->
             {if $items}
             <form action="{base_url('join/select')}/{$id_customer}" role="form" method="post" onsubmit="return confirm('Process Data');">
