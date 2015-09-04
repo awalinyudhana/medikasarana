@@ -32,7 +32,7 @@ class Debit extends MX_Controller
         }
         $po = $this->db
             ->where('so.status_paid', false)
-            ->order_by('due_date  asc')
+            ->order_by('so.id_sales_order  asc')
             ->get()
             ->result();
         $data['po'] = $po;

@@ -277,6 +277,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="panel-body">
+            <div class="row invoice-payment">
+                <div class="col-sm-8">
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="btn-group pull-right">
+                        <a href="{base_url('extract')}" class="btn btn-info button">
+                            <i class="icon-box-add"></i> Pisah Faktur baru</a>
+                        <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button>
+                    </div>
+                </div>
+            </div>
+
+            <h6>Notes &amp; Information:</h6>
+            This invoice contains a incomplete list of items destroyed by the Federation ship Enterprise on Startdate
+            5401.6 in an unprovked attacked on a peaceful &amp; wholly scientific mission to Outpost 775.
+            The Romulan people demand immediate compensation for the loss of their Warbird, Shuttle, Cloaking Device,
+            and to a lesser extent thier troops.
+        </div>
     </div>
     <!-- /new invoice template -->
 {/block}

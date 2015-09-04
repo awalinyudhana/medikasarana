@@ -202,8 +202,8 @@
                         </tbody>
                     </table>
                     <div class="btn-group pull-right">
-                        <a href="{base_url('retail')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Retail</a>
+                        <a href="{base_url('sales-order/search')}" class="btn btn-info button">
+                            <i class="icon-box-add"></i> New Sales Order</a>
                         <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
                             <i class="icon-print2"></i> Print</button>
                     </div>

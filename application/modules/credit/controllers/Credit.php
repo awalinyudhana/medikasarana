@@ -30,7 +30,7 @@ class Credit extends MX_Controller
         }
         $po = $this->db
             ->where('po.status_paid', false)
-            ->order_by('date_created  asc')
+            ->order_by('po.id_purchase_order  asc')
             ->get()
             ->result();
         $data['po'] = $po;
