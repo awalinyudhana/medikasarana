@@ -192,7 +192,7 @@
                     <div class="col-md-2">
                         <h3 class="text-danger text-semibold">Harga</h3>
 
-                        <h3 class="text-success text-semibold" id="text-sell_price"></h3>
+                        <h3 class="text-success text-semibold convert-currency" id="text-sell_price"></h3>
                     </div>
                 </div>
             </form>

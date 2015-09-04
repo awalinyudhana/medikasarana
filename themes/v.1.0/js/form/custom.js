@@ -38,7 +38,7 @@ function appendItem(data){
 function htmlConvertCurrency(){
     $( ".convert-currency" ).each(function() {
         tag_value = $( this ).text();
-        $( this ).html("Rp "+ numberFormat(tag_value));
+        $( this ).html(numberFormat(tag_value));
     });
 }
 
