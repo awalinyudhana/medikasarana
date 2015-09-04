@@ -21,7 +21,7 @@ class ModelSalesOrderReturn extends CI_Model
             ->join('customer', 'customer.id_customer = sales_order.id_customer')
             ->where('sales_order.id_sales_order', $id_sales_order)
             ->where('sales_order.active', 1)
-            ->where('sales_order.status', 1)
+            // ->where('sales_order.status', 1)
             ->get()
             ->row();
     }
