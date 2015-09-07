@@ -54,9 +54,7 @@
                             <th>Qty</th>
                             <th>Harga</th>
                             <th>Diskon</th>
-                            {if $master->status_ppn == 1}
-                                <th>PPN</th>
-                            {/if}
+                            <th>PPN</th>
                             <th>Subtotal</th>
                         </tr>
                         </thead>
@@ -76,28 +74,22 @@
                                     {$key->qty}
                                 </td>
                                 {*{/if}*}
-                                <td style="width:130px;" class="text-right">
+                                <td style="width:100px;" class="text-right">
                                     Rp {$key->price|number_format:0}
                                 </td>
-                                <td style="width:130px;" class="text-right">
+                                <td style="width:100px;" class="text-right">
                                     Rp {$key->discount|number_format:0}
                                 </td>
-                                {if $master->status_ppn == 1}
-                                    <td style="width:130px;" class="text-right">
-                                        {assign var=ppn value=($key->qty*($key->price - $key->discount)*0.1)}
-                                        Rp {$ppn|number_format:0}
-                                    </td>
-                                {/if}
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key->qty *
-                                    ($key->price - $key->discount)
-                                    +$ppn
-                                    )|number_format:0}
+                                <td style="width:100px;" class="text-right">
+                                    Rp {$key->ppn|number_format:0}
+                                </td>
+                                <td style="width:100px;" class="text-right">
+                                    Rp {$key->final_sub_total|number_format:0}
                                 </td>
                             </tr>
                             {assign var=val value=$val+1}
-                            {assign var=total value=$total+($key->qty * ($key->price - $key->discount))}
-                            {assign var=ppn_total value=$ppn_total+ $ppn}
+                            {assign var=total value=$total+$key->_sub_total}
+                            {assign var=ppn_total value=$ppn_total+ $key->ppn}
                         {/foreach}
                         </tbody>
                     </table>

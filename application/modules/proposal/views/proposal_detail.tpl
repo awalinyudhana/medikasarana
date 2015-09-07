@@ -166,8 +166,8 @@
                         <th>Qty</th>
                         <th>Harga</th>
                         <th>Diskon </th>
+                        <th>Subtotal</th>
                         {if $cache['value']['status_ppn'] == 1}
-                            <th>Subtotal</th>
                             <th>Ppn</th>
                         {/if}
                         <th>Total</th>
@@ -188,27 +188,25 @@
                             <td>
                                 {$key['qty']}
                             </td>
-                            {*{/if}*}
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['price']|number_format:0}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
+                            <td style="width:100px;" class="text-right">
+                                Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
+                            </td>
                             {if $cache['value']['status_ppn'] == 1}
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
-                                </td>
-                                <td style="width:130px;" class="text-right">
+                                <td style="width:100px;" class="text-right">
                                     {assign var=ppn value=$ppn+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
                                     Rp {$ppn|number_format:0}
-
+                                </td>
+                            {else}
+                                <td style="width:100px;" class="text-right">
+                                    0
                                 </td>
                             {/if}
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] * ($key['price'] - $key['discount'])
-                                +$ppn)|number_format:0}
-                            </td>
                             <td style="width:90px;">
 
                                 <div class="table-controls">
