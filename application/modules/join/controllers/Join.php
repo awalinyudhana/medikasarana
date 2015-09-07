@@ -54,7 +54,7 @@ class Join extends MX_Controller
     {
         if ($this->input->post('id_sales_order'))
         {
-            if($this->model_join->checkAvailabeJoin($this->input->post('id_sales_order') == TRUE)
+            if($this->model_join->checkAvailabeJoin($this->input->post('id_sales_order')) == TRUE)
             {  
                 $detail = $this->model_join->getDataSODetail($this->input->post('id_sales_order'));
                 $discount_price = $this->model_join->getDiscountPrice($this->input->post('id_sales_order'));
