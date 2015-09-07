@@ -54,8 +54,9 @@
                             <th>Qty</th>
                             <th>Harga</th>
                             <th>Diskon</th>
-                            <th>PPN</th>
                             <th>Subtotal</th>
+                            <th>PPN</th>
+                            <th>Total</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -79,6 +80,9 @@
                                 </td>
                                 <td style="width:100px;" class="text-right">
                                     Rp {$key->discount|number_format:0}
+                                </td>
+                                <td style="width:100px;" class="text-right">
+                                    Rp {$key->sub_total|number_format:0}
                                 </td>
                                 <td style="width:100px;" class="text-right">
                                     Rp {$key->ppn|number_format:0}
