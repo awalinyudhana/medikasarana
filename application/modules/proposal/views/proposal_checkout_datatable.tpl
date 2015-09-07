@@ -107,13 +107,10 @@
                             <th>Total:</th>
                             <td class="text-right">Rp {$total|number_format:0}</td>
                         </tr>
-                        {if $master->status_ppn == 1}
-                            <tr>
-                                <th>PPn:</th>
-                                <td class="text-right">Rp {$ppn_total|number_format:0}</td>
-                            </tr>
-                        {/if}
-
+                        <tr>
+                            <th>PPn:</th>
+                            <td class="text-right">Rp {$ppn_total|number_format:0}</td>
+                        </tr>
                         <tr>
                             <th>Grand Total:</th>
                             <td class="text-right text-danger">
