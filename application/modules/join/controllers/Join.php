@@ -80,6 +80,7 @@ class Join extends MX_Controller
                 }
             }else{
                 $this->session->set_flashdata('error', "tidak bisa diproses status ppn berbeda");
+                redirect('join');
             }
         }
         redirect('join/do');
