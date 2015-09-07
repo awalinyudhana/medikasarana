@@ -88,7 +88,7 @@
                                 </td>
                             </tr>
                             {assign var=val value=$val+1}
-                            {assign var=total value=$total+$key->_sub_total}
+                            {assign var=total value=$total+$key->sub_total}
                             {assign var=ppn_total value=$ppn_total+ $key->ppn}
                         {/foreach}
                         </tbody>
