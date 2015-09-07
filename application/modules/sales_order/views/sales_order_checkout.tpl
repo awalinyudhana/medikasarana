@@ -91,7 +91,7 @@
                                     Rp {$ppn|number_format:0}
                                 </td>
                             <td style="width:100px;" class="text-right">
-                                Rp {$key['sub_total']+$ppn|number_format:0}
+                                Rp {($key['sub_total']+$ppn)|number_format:0}
                             </td>
                             {*<td style="width:90px;">*}
 
