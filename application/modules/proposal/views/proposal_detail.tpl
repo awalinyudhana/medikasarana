@@ -167,9 +167,7 @@
                         <th>Harga</th>
                         <th>Diskon </th>
                         <th>Subtotal</th>
-                        {if $cache['value']['status_ppn'] == 1}
-                            <th>Ppn</th>
-                        {/if}
+                        <th>Ppn</th>    
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
