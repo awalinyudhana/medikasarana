@@ -84,10 +84,6 @@
                         <td style="width:100px;" class="text-right">
                             Rp {$key['sub_total']|number_format:0}
                         </td>
-
-                        <td style="width:100px;" class="text-right">
-                                Rp {$key['sub_total']|number_format:0}
-                        </td>
                             {if $master->status_ppn == 1}
                                 {assign var=ppn value=($key['sub_total']*0.1)}
                             {else}
