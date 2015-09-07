@@ -205,6 +205,10 @@
                                     0
                                 </td>
                             {/if}
+                            <td style="width:100px;" class="text-right">
+                                Rp {($key['qty'] * ($key['price'] - $key['discount'])
+                                +$ppn)|number_format:0}
+                            </td>
                             <td style="width:90px;">
 
                                 <div class="table-controls">
