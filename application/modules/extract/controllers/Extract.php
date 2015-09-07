@@ -142,6 +142,7 @@ class Extract extends MX_Controller
             $this->process($data, $record);
             $this->cart->delete_record();
             $this->process($data, $this->session->userdata('items_second'));
+            $this->cart->delete_record();
             $this->session->unset_userdata('items_second');
 
             $this->db

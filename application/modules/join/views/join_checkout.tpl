@@ -129,7 +129,7 @@
                     <div class="btn-group pull-right">
                         <a href="{base_url('join')}" class="btn btn-info button">
                             <i class="icon-box-add"></i> New Join</a>
-                        <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button>
+                        <!-- <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button> -->
                     </div>
                 </div>
             </div>
