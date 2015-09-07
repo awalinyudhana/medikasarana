@@ -280,7 +280,7 @@
                     <div class="btn-group pull-right">
                         <a href="{base_url('extract')}" class="btn btn-info button">
                             <i class="icon-box-add"></i> Pisah Faktur baru</a>
-                        <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button>
+                        <!-- <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button> -->
                     </div>
                 </div>
             </div>
