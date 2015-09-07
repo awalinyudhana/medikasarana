@@ -55,10 +55,8 @@
                         <th width="100px">Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
-                        {if $cache['value']['status_ppn'] == 1}
-                            <th>Subtotal</th>
-                            <th>Ppn</th>
-                        {/if}
+                        <th>Subtotal</th>
+                        <th>Ppn</th>
                         <th>Total</th>
                         {*<th>Action</th>*}
                     </tr>
@@ -76,49 +74,32 @@
                             <td>{$key['brand']}</td>
                             <td>{$key['unit']} / {$key['value']}</td>
                             <td>
-                                {*{if $cache['value']['status_ppn'] == 0}*}
-                                    {*<input type="number" id="qty-{$key['id_product']}" value="{$key['qty']}"*}
-                                           {*class="form-control" onkeypress="qtyKeyPress({$key['id_product']},*}
-                                            {*'{base_url('sales-order/update')}')">*}
-                                {*{else}*}
-                                    {$key['qty']}
-                                {*{/if}*}
+                                {$key['qty']}
                             </td>
-                            {*{/if}*}
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['price']|number_format:0}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
-                            {if $cache['value']['status_ppn'] == 1}
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
-                                </td>
-                                <td style="width:130px;" class="text-right">
-                                    {assign var=ppn value=$ppn+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
-                                    Rp {$ppn|number_format:0}
-
-                                </td>
-                            {/if}
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] * ($key['price'] - $key['discount'])
-                                +$ppn)|number_format:0}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$key['sub_total']|number_format:0}
                             </td>
-                            {*<td style="width:90px;">*}
 
-                                {*<div class="table-controls">*}
-                                    {*<a data-toggle="modal" class="btn btn-link btn-icon btn-xs tip" title="Update Qty"*}
-                                       {*href="#update-modal" onclick="updateItem({$key['id_product']})" role="button">*}
-                                        {*<i class="icon-pencil3"></i></a>*}
-                                    {*<a href="{base_url('sales_order/detail/delete')}/{$key['id_product']}"*}
-                                       {*class="btn btn-link btn-icon btn-xs tip" title="Hapus Data">*}
-                                        {*<i class="icon-remove3"></i></a>*}
-                                {*</div>*}
-                            {*</td>*}
+                            {if $cache['value']['status_ppn'] == 1}
+                                {assign var=ppn value=($key['sub_total']*0.1)}
+                            {else}
+                                {assign var=ppn value=0}
+                            {/if}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$ppn|number_format:0}
+                            </td>
+                            <td style="width:100px;" class="text-right">
+                                Rp {($key['sub_total']+$ppn)|number_format:0}
+                            </td>
                         </tr>
                         {assign var=val value=$val+1}
-                        {assign var=total value=$total+($key['qty'] * ($key['price'] - $key['discount']))}
+                        {assign var=total value=$total_first+$key['sub_total']}
                         {assign var=ppn_total value=$ppn_total+$ppn}
 
                     {/foreach}
@@ -137,39 +118,6 @@
                             <h6>Summary:</h6>
                             <table class="table">
                                 <tbody>
-                                {*<tr>*}
-                                    {*<th>Jatuh Tempo:</th>*}
-                                    {*<td class="text-right">*}
-                                        {*<div class="form-group">*}
-                                            {*<div class="row">*}
-                                                {*<div class="col-md-12 {if form_error('due_date')}has-warning{/if}">*}
-                                                    {*{form_input('due_date', set_value('due_date'),*}
-                                                    {*'class="datepicker-trigger form-control" data-mask="9999-99-99" placeholder"YYYY-MM-dd"')}*}
-                                                {*</div>*}
-                                            {*</div>*}
-                                        {*</div>*}
-                                    {*</td>*}
-                                {*</tr>*}
-
-                                {*<tr>*}
-                                    {*<th>Total:</th>*}
-                                    {*<td class="text-right">Rp*}
-                                        {*<span id="sum-total-text"> {$total|number_format:0} </span>*}
-                                    {*</td>*}
-                                {*</tr>*}
-                                {*<tr>*}
-                                    {*<th>Diskon:</th>*}
-                                    {*<td class="text-right" style="max-width: 135px;">*}
-                                        {*<div class="input-group">*}
-                                            {*<span class="input-group-addon">Rp</span>*}
-
-                                            {*<input type="text" name="discount_price" value="{set_value('discount_price',$cache['value']['discount_price'])}"*}
-                                                   {*class="form-control currency-format" placeholder="0"*}
-                                                   {*id="input-discount_price" onblur="setDpp(this.value)">*}
-
-                                        {*</div>*}
-                                    {*</td>*}
-                                {*</tr>*}
 
                                 <tr>
                                     <th>DPP:</th>
@@ -180,10 +128,6 @@
                                 <tr>
                                     <th>
                                         <label class="radio">
-                                            {if $cache['value']['status_ppn'] == 0}
-                                                <input type="checkbox" name="status_ppn" class="styled"
-                                                       onclick="ppnCheck()">
-                                            {/if}
                                             PPN 10 %
                                         </label>
                                     </th>

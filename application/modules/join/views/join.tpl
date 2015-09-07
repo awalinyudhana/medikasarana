@@ -25,6 +25,12 @@
             <!--Form-->
             </div>
 
+            {if $error}
+                <div class="callout callout-danger fade in">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p>{$error}</p>
+                </div>
+            {/if}
             <br>
         <!-- /panel body -->
             {if $items}
@@ -68,7 +74,7 @@
                 <div class="panel-body">
 
                     <div class="row invoice-payment">
-                        <div class="col-sm-4 pull-right">
+                        <div class="col-sm-5 pull-right">
                             <div class="btn-group right-box">
                                 <button type="submit" name="save" class="btn block full-width btn-success"><i
                                             class="icon-checkmark">

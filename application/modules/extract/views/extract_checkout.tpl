@@ -55,8 +55,8 @@
                         <th>Harga</th>
                         <th>Diskon</th>
                         <!-- join faktur -->
-                            <th>Subtotal</th>
-                            <th>Ppn</th>
+                        <th>Subtotal</th>
+                        <th>Ppn</th>
                         <th>Total</th>
                     </tr>
                     </thead>
@@ -74,36 +74,30 @@
                             <td>
                                 {$key['qty']}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['price']|number_format:0}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
-                                </td>
-                                <td style="width:130px;" class="text-right">
-                                    {assign var=ppn_first value=$ppn_first+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
-                                    Rp {$ppn_first|number_format:0}
-
-                                </td>
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] * ($key['price'] - $key['discount'])
-                                +$ppn_first)|number_format:0}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$key['sub_total']|number_format:0}
                             </td>
-                            {*<td style="width:90px;">*}
+                                {if $master->status_ppn == 1}
+                                    {assign var=ppn_first value=($key['sub_total']*0.1)}
+                                {else}
+                                    {assign var=ppn_first value=0}
+                                {/if}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$ppn_first|number_format:0}
 
-                                {*<div class="table-controls">*}
-                                    {*<a href="{base_url('extract/move')}/{$key['reference']}"*}
-                                       {*class="button btn btn-success ">*}
-                                        {*Pindah*}
-                                    {*</a>*}
-                                {*</div>*}
-                            {*</td>*}
+                            </td>
+                            <td style="width:130px;" class="text-right">
+                                Rp {($key['sub_total']+$ppn_first)|number_format:0}
+                            </td>
                         </tr>
                         {assign var=val_first value=$val_first+1}
-                        {assign var=total_first value=$total_first+($key['qty'] * ($key['price'] - $key['discount']))}
+                        {assign var=total_first value=$total_first+$key['sub_total']}
                         {assign var=ppn_total_first value=$ppn_total_first+$ppn_first}
                     {/foreach}
                     </tbody>
@@ -183,7 +177,6 @@
                             <th>Subtotal</th>
                             <th>Ppn</th>
                         <th>Total</th>
-                        {*<th>Action</th>*}
                     </tr>
                     </thead>
                     <tbody>
@@ -206,30 +199,24 @@
                             <td style="width:130px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
-                                </td>
-                                <td style="width:130px;" class="text-right">
-                                    {assign var=ppn_second value=$ppn_second+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
-                                    Rp {$ppn_second|number_format:0}
-
-                                </td>
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] * ($key['price'] - $key['discount'])
-                                +$ppn_second)|number_format:0}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$key['sub_total']|number_format:0}
                             </td>
-                            {*<td style="width:90px;">*}
+                                {if $master->status_ppn == 1}
+                                    {assign var=ppn_second value=($key['sub_total']*0.1)}
+                                {else}
+                                    {assign var=ppn_second value=0}
+                                {/if}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$ppn_second|number_format:0}
 
-                                {*<div class="table-controls">*}
-                                    {*<a href="{base_url('extract/undo')}/{$key['reference']}"*}
-                                       {*class="button btn btn-success ">*}
-                                        {*Pindah*}
-                                    {*</a>*}
-                                {*</div>*}
-                            {*</td>*}
+                            </td>
+                            <td style="width:130px;" class="text-right">
+                                Rp {($key['sub_total']+$ppn_second)|number_format:0}
+                            </td>
                         </tr>
                         {assign var=val_second value=$val_second+1}
-                        {assign var=total_second value=$total_second+($key['qty'] * ($key['price'] - $key['discount']))}
+                        {assign var=total_first value=$total_second+$key['sub_total']}
                         {assign var=ppn_total_second value=$ppn_total_second+$ppn_second}
                     {/foreach}
                     </tbody>

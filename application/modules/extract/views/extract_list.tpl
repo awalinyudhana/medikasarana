@@ -93,7 +93,7 @@
                             </td>
                         </tr>
                         {assign var=val_first value=$val_first+1}
-                        {assign var=total_first value=$total_first+($key['qty'] * ($key['price'] - $key['discount']))}
+                        {assign var=total_first value=$total_first+$key['sub_total']}
                         {assign var=ppn_total_first value=$ppn_total_first+$ppn_first}
                     {/foreach}
                     </tbody>
