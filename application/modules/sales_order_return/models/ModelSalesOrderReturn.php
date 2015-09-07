@@ -26,6 +26,15 @@ class ModelSalesOrderReturn extends CI_Model
             ->row();
     }
 
+    public function getDataProposal($id_proposal)
+    {
+        return $this->db
+            ->from('proposal')
+            ->where('id_proposal', $id_proposal)
+            ->get()
+            ->row();
+    }
+
     public function getSalesOrderDetail($id_sales_order)
     {
         return $this->db

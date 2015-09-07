@@ -15,6 +15,7 @@ class SalesOrderReturn extends MX_Controller
         $this->acl->auth('proposal');
         $this->id_staff = $this->session->userdata('uid');
         $this->load->model('ModelSalesOrderReturn', 'model_return');
+        $this->load->model('proposal/ModelProduct', 'model_product');
         $this->load->library('cart',
             array(
                 'cache_path' => 'SALES_ORDER_RETURN',
@@ -105,9 +106,15 @@ class SalesOrderReturn extends MX_Controller
                 }
             }
         }
-
-        $data['product_storage'] = $product_storage = $this->model_return->getProduct();
         $data['master'] = $this->model_return->getDataSalesOrder($this->cache['value']['id_sales_order']);
+        if($data['master']->id_proposal == null){
+            $data['product_storage'] = $product_storage = $this->model_return->getProduct();
+        }else{
+            $proposal = $this->model_return->getDataProposal($data['master']->id_proposal);
+            $data['product_storage'] = $product_storage = $this->model_product->get($proposal->id_customer,
+                $proposal->type);
+        }
+
         $data['detail_item'] = $detailItem;
         $this->parser->parse("returns-item.tpl", $data);
     }

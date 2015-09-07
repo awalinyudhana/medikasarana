@@ -32,6 +32,7 @@
                         <tr>
                             <th>No.</th>
                             <th>No Faktur</th>
+                            <th>No Proposal</th>
                             <th>Tanggal Transaksi</th>
                             <th>Jumlah Tagihan</th>
                             <th>Action</th>
@@ -44,6 +45,7 @@
                             <tr>
                                 <td>{$val}</td>
                                 <td>{$key->id_sales_order}</td>
+                                <td>{$key->id_proposal}</td>
                                 <td>{$key->date}</td>
                                 <td class="text-right">
                                     Rp {$key->grand_total|number_format:0}</td>

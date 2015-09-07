@@ -54,10 +54,9 @@
                         <th width="100px">Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
-                        {if $master->status_ppn == 1}
+                        <!-- join faktur -->
                             <th>Subtotal</th>
                             <th>Ppn</th>
-                        {/if}
                         <th>Total</th>
                     </tr>
                     </thead>
@@ -81,7 +80,6 @@
                             <td style="width:130px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
-                            {if $master->status_ppn == 1}
                                 <td style="width:130px;" class="text-right">
                                     Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
                                 </td>
@@ -90,7 +88,6 @@
                                     Rp {$ppn_first|number_format:0}
 
                                 </td>
-                            {/if}
                             <td style="width:130px;" class="text-right">
                                 Rp {($key['qty'] * ($key['price'] - $key['discount'])
                                 +$ppn_first)|number_format:0}
@@ -183,10 +180,8 @@
                         <th width="100px">Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
-                        {if $master->status_ppn == 1}
                             <th>Subtotal</th>
                             <th>Ppn</th>
-                        {/if}
                         <th>Total</th>
                         {*<th>Action</th>*}
                     </tr>
@@ -211,7 +206,6 @@
                             <td style="width:130px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
-                            {if $master->status_ppn == 1}
                                 <td style="width:130px;" class="text-right">
                                     Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
                                 </td>
@@ -220,7 +214,6 @@
                                     Rp {$ppn_second|number_format:0}
 
                                 </td>
-                            {/if}
                             <td style="width:130px;" class="text-right">
                                 Rp {($key['qty'] * ($key['price'] - $key['discount'])
                                 +$ppn_second)|number_format:0}

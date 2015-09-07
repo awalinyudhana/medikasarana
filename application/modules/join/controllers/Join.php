@@ -26,6 +26,7 @@ class Join extends MX_Controller
             ));
 
         $this->load->model('ModelJoin', 'model_join');
+        $this->status_ppn = [0 => "non aktif", 1 => "aktif"];
         $this->cache = $this->cart->array_cache();
     }
 
@@ -45,30 +46,36 @@ class Join extends MX_Controller
             $customer[$object->id_customer] = $object->name;
         }
         $data['customers'] = $customer;
+        $data['status_ppn'] = $this->status_ppn;
         $this->parser->parse("join.tpl", $data);
     }
 
     public function select($id_customer)
     {
         if ($this->input->post('id_sales_order')) {
-            $detail = $this->model_join->getDataSODetail($this->input->post('id_sales_order'));
-            $discount_price = $this->model_join->getDiscountPrice($this->input->post('id_sales_order'));
-            $due_date = $this->model_join->getDueDate($this->input->post('id_sales_order'));
-            $data_primary = [
-                'id_customer' => $id_customer,
-                'id_staff' => $this->id_staff,
-                'selected' => $this->input->post('id_sales_order'),
-                'discount_price' => $discount_price->discount_price,
-                'due_date' => $due_date->due_date,
-                'id_proposal' => null,
-                'status_ppn' => 0 // set able
-            ];
-            $this->cart->primary_data($data_primary);
-            foreach ($detail as $key) {
-                $row = array_merge($key,['reference'=>$key['id_sales_order_detail']]);
-                unset($row['id_sales_order_detail']);
-                $this->cart->add_item($key['id_sales_order_detail'], $row);
+            if($this->model_join->checkAvailabeJoin($this->input->post('id_sales_order')){
+                $detail = $this->model_join->getDataSODetail($this->input->post('id_sales_order'));
+                $discount_price = $this->model_join->getDiscountPrice($this->input->post('id_sales_order'));
+                $due_date = $this->model_join->getDueDate($this->input->post('id_sales_order'));
+                $id=$this->input->post('id_sales_order');
+                $data_so = $this->model_join->getDataSO($id[0]);
+                $data_primary = [
+                    'id_customer' => $id_customer,
+                    'id_staff' => $this->id_staff,
+                    'selected' => $this->input->post('id_sales_order'),
+                    'discount_price' => $discount_price->discount_price,
+                    'due_date' => $due_date->due_date,
+                    'id_proposal' => null,
+                    'status_ppn' => $data_so->status_ppn // set able
+                ];
+                $this->cart->primary_data($data_primary);
+                foreach ($detail as $key) {
+                    $row = array_merge($key,['reference'=>$key['id_sales_order_detail']]);
+                    unset($row['id_sales_order_detail']);
+                    $this->cart->add_item($key['id_sales_order_detail'], $row);
+                }
             }
+            $this->session->set_flashdata('error', "tidak bisa diproses status ppn berbeda");
         }
         redirect('join/do');
     }

@@ -54,9 +54,7 @@
                     <th>Qty</th>
                     <th>Harga</th>
                     <th>Diskon</th>
-                    {if $master->status_ppn == 1}
                         <th>Ppn</th>
-                    {/if}
                     <th>Subtotal</th>
                 </tr>
                 </thead>
@@ -82,12 +80,10 @@
                         <td style="width:130px;" class="text-right">
                             Rp {$key['discount']|number_format:0}
                         </td>
-                        {if $master->status_ppn == 1}
                             <td style="width:130px;" class="text-right">
                                 {assign var=ppn value=($key['qty']*($key['price'] - $key['discount'])*0.1)}
                                 Rp {$ppn|number_format:0}
                             </td>
-                        {/if}
                         <td style="width:130px;" class="text-right">
                             Rp {($key['qty'] *
                             ($key['price'] - $key['discount'])

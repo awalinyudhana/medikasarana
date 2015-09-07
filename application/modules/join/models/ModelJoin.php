@@ -38,6 +38,21 @@ class ModelJoin extends CI_Model
             ->get()->result_array();
     }
 
+    public function checkAvailabeJoin($id)
+    {
+        $this->db->distinct()
+            ->select('status_ppn')
+            ->where_in('id_sales_order',$id);
+
+        $query = $this->db->get('sales_order');
+
+        if($query->num_rows() == 1){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     public function getDiscountPrice($id){
         return $this->db->select_sum('discount_price')
             ->where_in('id_sales_order',$id)

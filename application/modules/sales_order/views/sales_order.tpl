@@ -164,10 +164,9 @@
                         <th width="90px">Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
-                        {if $cache['value']['status_ppn'] == 1}
+                        <!-- join faktur -->
                             <th>Subtotal</th>
                             <th>Ppn</th>
-                        {/if}
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
@@ -198,7 +197,7 @@
                             <td style="width:130px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
-                            {if $cache['value']['status_ppn'] == 1}
+                            <!-- join faktur -->
                                 {assign var=ppn value=$ppn+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
                                 <td style="width:130px;" class="text-right">
                                     Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
@@ -207,7 +206,6 @@
                                     Rp {$ppn|number_format:0}
 
                                 </td>
-                            {/if}
                             <td style="width:130px;" class="text-right">
                                 Rp {($key['qty'] * ($key['price'] - $key['discount'])
                                 +$ppn)|number_format:0}
@@ -287,9 +285,10 @@
                                 <tr>
                                     <th>
                                         <label class="radio">
+                                            <!-- join faktur -->
                                             {if $cache['value']['status_ppn'] == 0}
-                                                <input type="checkbox" name="status_ppn" class="styled"
-                                                onclick="ppnCheck()">
+                                                <!-- <input type="checkbox" name="status_ppn" class="styled"
+                                                onclick="ppnCheck()"> -->
                                             {/if}
                                             PPN 10 %
                                         </label>
