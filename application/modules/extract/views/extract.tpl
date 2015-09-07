@@ -26,13 +26,14 @@
             <br>
             <!--Form-->
             {if $items}
-                <div class="table-responsive pre-scrollable">
-                    <table class="table table-striped table-bordered">
+            <div class="datatable-tools">
+                <table class="table">
                         <thead>
                         <tr>
                             <th>No.</th>
                             <th>No Faktur</th>
                             <th>No Proposal</th>
+                            <th>Status PPn</th>
                             <th>Tanggal Transaksi</th>
                             <th>Jumlah Tagihan</th>
                             <th>Action</th>
@@ -46,6 +47,7 @@
                                 <td>{$val}</td>
                                 <td>{$key->id_sales_order}</td>
                                 <td>{$key->id_proposal}</td>
+                                <td>{$status_ppn[$key->status_ppn]}</td>
                                 <td>{$key->date}</td>
                                 <td class="text-right">
                                     Rp {$key->grand_total|number_format:0}</td>

@@ -30,6 +30,7 @@ class Extract extends MX_Controller
         $this->load->model('join/ModelJoin', 'model_join');
         $this->load->model('ModelExtract', 'model_extract');
         $this->cache = $this->cart->array_cache();
+        $this->status_ppn = [0 => "non aktif", 1 => "aktif"];
     }
 
 
@@ -48,6 +49,7 @@ class Extract extends MX_Controller
             $customer[$object->id_customer] = $object->name;
         }
         $data['customers'] = $customer;
+        $data['status_ppn'] = $this->status_ppn;
         $this->parser->parse("extract.tpl", $data);
     }
 

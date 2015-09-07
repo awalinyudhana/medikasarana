@@ -41,10 +41,8 @@
                         <th width="100px">Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
-                        {if $cache['value']['status_ppn'] == 1}
-                            <th>Subtotal</th>
-                            <th>Ppn</th>
-                        {/if}
+                        <th>Subtotal</th>
+                        <th>Ppn</th>    
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
@@ -63,25 +61,26 @@
                             <td>
                                 {$key['qty']}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['price']|number_format:0}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
+                            <td style="width:100px;" class="text-right">
+                                Rp {$key['sub_total']|number_format:0}
+                            </td>
                             {if $cache['value']['status_ppn'] == 1}
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
-                                </td>
-                                <td style="width:130px;" class="text-right">
-                                    {assign var=ppn_first value=$ppn_first+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
-                                    Rp {$ppn_first|number_format:0}
-
-                                </td>
+                                {assign var=ppn_first value=($key['sub_total']*0.1)}
+                            {else}
+                                {assign var=ppn_first value=0}
                             {/if}
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] * ($key['price'] - $key['discount'])
-                                +$ppn_first)|number_format:0}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$ppn_first|number_format:0}
+
+                            </td>
+                            <td style="width:100px;" class="text-right">
+                                Rp {($key['sub_total']+$ppn_first)|number_format:0}
                             </td>
                             <td style="width:90px;">
 
@@ -152,10 +151,8 @@
                         <th width="100px">Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
-                        {if $cache['value']['status_ppn'] == 1}
-                            <th>Subtotal</th>
-                            <th>Ppn</th>
-                        {/if}
+                        <th>Subtotal</th>
+                        <th>Ppn</th>
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
@@ -174,25 +171,25 @@
                             <td>
                                 {$key['qty']}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['price']|number_format:0}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
+                            <td style="width:100px;" class="text-right">
+                                Rp {$key['sub_total']|number_format:0}
+                            </td>
                             {if $cache['value']['status_ppn'] == 1}
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
-                                </td>
-                                <td style="width:130px;" class="text-right">
-                                    {assign var=ppn_second value=$ppn_second+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
-                                    Rp {$ppn_second|number_format:0}
-
-                                </td>
+                                {assign var=ppn_second value=($key['sub_total']*0.1)}
+                            {else}
+                                {assign var=ppn_second value=0}
                             {/if}
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] * ($key['price'] - $key['discount'])
-                                +$ppn_second)|number_format:0}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$ppn_second|number_format:0}
+                            </td>
+                            <td style="width:100px;" class="text-right">
+                                Rp {($key['sub_total']+$ppn_second)|number_format:0}
                             </td>
                             <td style="width:90px;">
 
