@@ -56,7 +56,7 @@
                         <th>Diskon</th>
                         <th>Subtotal</th>
                         <th>Ppn</th>        
-                        <th>Subtotal</th>
+                        <th>Total</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -91,7 +91,7 @@
                                     Rp {$ppn|number_format:0}
                                 </td>
                             <td style="width:100px;" class="text-right">
-                                Rp {$key['sub_total']|number_format:0}
+                                Rp {$key['sub_total']+$ppn|number_format:0}
                             </td>
                             {*<td style="width:90px;">*}
 
