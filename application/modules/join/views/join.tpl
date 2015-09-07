@@ -5,6 +5,12 @@
     <div class="panel panel-default">
         <div class="panel-heading"><h6 class="panel-title"><i class="icon-file-zip"></i>Mix Faktur</h6></div>
         <div class="panel-body">
+            {if $error}
+                <div class="callout callout-danger fade in">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p>{$error}</p>
+                </div>
+            {/if}
             <div class="row">
                 <form action="{current_url()}" role="form" method="post">
                     <div class="form-group">
@@ -25,12 +31,6 @@
             <!--Form-->
             </div>
 
-            {if $error}
-                <div class="callout callout-danger fade in">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <p>{$error}</p>
-                </div>
-            {/if}
             <br>
         <!-- /panel body -->
             {if $items}

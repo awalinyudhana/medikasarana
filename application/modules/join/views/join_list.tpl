@@ -58,7 +58,6 @@
                         <th>Subtotal</th>
                         <th>Ppn</th>
                         <th>Total</th>
-                        {*<th>Action</th>*}
                     </tr>
                     </thead>
                     <tbody>
@@ -99,7 +98,7 @@
                             </td>
                         </tr>
                         {assign var=val value=$val+1}
-                        {assign var=total value=$total_first+$key['sub_total']}
+                        {assign var=total value=$total+$key['sub_total']}
                         {assign var=ppn_total value=$ppn_total+$ppn}
 
                     {/foreach}
