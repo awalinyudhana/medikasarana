@@ -54,9 +54,8 @@
                         <th>Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
-                        {if $master->status_ppn == 1}
-                            <th>Ppn</th>
-                        {/if}
+                        <th>Subtotal</th>
+                        <th>Ppn</th>        
                         <th>Subtotal</th>
                     </tr>
                     </thead>
@@ -73,23 +72,26 @@
                                 {$key['qty']}
                             </td>
                             {*{/if}*}
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['price']|number_format:0}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
+                            <td style="width:100px;" class="text-right">
+                                Rp {$key['sub_total']|number_format:0}
+                            </td>
                             {if $master->status_ppn == 1}
-                                <td style="width:130px;" class="text-right">
-                                    {assign var=ppn value=($key['qty']*($key['price'] - $key['discount'])*0.1)}
+                                    {assign var=ppn value=($key['sub_total']*0.1)}
+                            {else}    
+                                    {assign var=ppn value=0}
+                            {/if}
+
+                                <td style="width:100px;" class="text-right">
                                     Rp {$ppn|number_format:0}
                                 </td>
-                            {/if}
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] *
-                                ($key['price'] - $key['discount'])
-                                +$ppn
-                                )|number_format:0}
+                            <td style="width:100px;" class="text-right">
+                                Rp {$key['sub_total']|number_format:0}
                             </td>
                             {*<td style="width:90px;">*}
 
@@ -121,10 +123,10 @@
                             <th>Dpp:</th>
                             <td class="text-right">Rp {$master->dpp|number_format:0}</td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>Discount:</th>
                             <td class="text-right">Rp {$master->discount_price|number_format:0}</td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <th>PPn:</th>
                             <td class="text-right">Rp {$master->ppn|number_format:0}</td>

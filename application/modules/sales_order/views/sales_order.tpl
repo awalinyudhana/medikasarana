@@ -165,8 +165,8 @@
                         <th>Harga</th>
                         <th>Diskon</th>
                         <!-- join faktur -->
-                            <th>Subtotal</th>
-                            <th>Ppn</th>
+                        <th>Subtotal</th>
+                        <th>Ppn</th>
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
@@ -191,27 +191,31 @@
                                     {$key['qty']}
                                 {/if}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['price']|number_format:0}
                             </td>
-                            <td style="width:130px;" class="text-right">
+                            <td style="width:100px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
+                            <td style="width:100px;" class="text-right">
+                                Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
+                            </td>
                             <!-- join faktur -->
+                            {if $cache['value']['status_ppn'] == 1}
                                 {assign var=ppn value=$ppn+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
-                                <td style="width:130px;" class="text-right">
-                                    Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
-                                </td>
-                                <td style="width:130px;" class="text-right">
+                                <td style="width:100px;" class="text-right">
                                     Rp {$ppn|number_format:0}
-
                                 </td>
-                            <td style="width:130px;" class="text-right">
+                            {else}
+                                <td style="width:100px;" class="text-right">
+                                    0
+                                </td>
+                            {/if}
+                            <td style="width:100px;" class="text-right">
                                 Rp {($key['qty'] * ($key['price'] - $key['discount'])
                                 +$ppn)|number_format:0}
                             </td>
                             <td style="width:90px;">
-
                                 <div class="table-controls">
                                     <a class="btn btn-link btn-icon btn-xs tip" title="Update Qty"
                                        onclick="updateQty({$key['id_product']},
