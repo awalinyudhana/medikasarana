@@ -53,7 +53,7 @@ class Join extends MX_Controller
     public function select($id_customer)
     {
         if ($this->input->post('id_sales_order')) {
-            if($this->model_join->checkAvailabeJoin($this->input->post('id_sales_order')){
+            if($this->model_join->checkAvailabeJoin($this->input->post('id_sales_order') == TRUE){  
                 $detail = $this->model_join->getDataSODetail($this->input->post('id_sales_order'));
                 $discount_price = $this->model_join->getDiscountPrice($this->input->post('id_sales_order'));
                 $due_date = $this->model_join->getDueDate($this->input->post('id_sales_order'));
