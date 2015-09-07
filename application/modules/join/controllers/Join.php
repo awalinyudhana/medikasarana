@@ -36,6 +36,8 @@ class Join extends MX_Controller
         if ($this->cart->primary_data_exists()) {
             redirect('join/do');
         }
+        $data['error'] = $this->session->flashdata('error') != null ? $this->session->flashdata('error') : null;
+
         $data['items'] = null;
         if ($this->input->post('id_customer')) {
             $data['items'] = $this->model_join->getListSO($this->input->post('id_customer'));
