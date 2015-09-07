@@ -55,7 +55,7 @@ class Join extends MX_Controller
         if ($this->input->post('id_sales_order'))
         {
             if($this->model_join->checkAvailabeJoin($this->input->post('id_sales_order')) == TRUE)
-            {  
+            {
                 $detail = $this->model_join->getDataSODetail($this->input->post('id_sales_order'));
                 $discount_price = $this->model_join->getDiscountPrice($this->input->post('id_sales_order'));
                 $due_date = $this->model_join->getDueDate($this->input->post('id_sales_order'));
@@ -76,8 +76,9 @@ class Join extends MX_Controller
                     unset($row['id_sales_order_detail']);
                     $this->cart->add_item($key['id_sales_order_detail'], $row);
                 }
+            }else{
+                $this->session->set_flashdata('error', "tidak bisa diproses status ppn berbeda");
             }
-            $this->session->set_flashdata('error', "tidak bisa diproses status ppn berbeda");
         }
         redirect('join/do');
     }

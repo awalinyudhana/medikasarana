@@ -29,8 +29,8 @@
         <!-- /panel body -->
             {if $items}
             <form action="{base_url('join/select')}/{$id_customer}" role="form" method="post" onsubmit="return confirm('Process Data');">
-                <div class="table-responsive pre-scrollable">
-                    <table class="table table-striped table-bordered">
+            <div class="datatable-tools">
+                <table class="table">
                         <thead>
                         <tr>
                             <th>No.</th>
