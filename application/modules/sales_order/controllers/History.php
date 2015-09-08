@@ -69,4 +69,41 @@ class History extends MX_Controller
             return "Aktif";
         }
     }
+
+
+    public function old()
+    {
+        $crud = new grocery_CRUD();
+
+        $crud->set_table('sales_order')
+            ->columns('id_sales_order', 'id_proposal', 'id_customer', 'id_staff', 'date', 'due_date', 'dpp', 'ppn', 'discount_price', 'grand_total','status_ppn','paid')
+            ->display_as('id_sales_order', 'No Faktur')
+            ->display_as('id_proposal', 'No Proposal')
+            ->display_as('id_customer', 'Customer')
+            ->display_as('id_staff', 'Staff')
+            ->display_as('date', 'Tanggal Transaksi')
+            ->display_as('due_date', 'Jatuh Tempo')
+            ->display_as('discount_price', 'Discount')
+            ->display_as('grand_total', 'Grand Total')
+            ->display_as('status_ppn', 'Status PPn')
+            ->callback_column('dpp', array($this, 'currencyFormat'))
+            ->callback_column('ppn', array($this, 'currencyFormat'))
+            ->callback_column('discount_price', array($this, 'currencyFormat'))
+            ->callback_column('grand_total', array($this, 'currencyFormat'))
+            ->callback_column('paid', array($this, 'currencyFormat'))
+            ->callback_column('status_ppn',array($this,'_callback_status_ppn'))
+            ->set_relation('id_customer', 'customer', 'name')
+            ->set_relation('id_staff', 'staff', 'name')
+            ->add_action('Detail', '', '', 'read-icon', array($this, 'checkout'))
+            ->where('active','0')
+            ->unset_read()
+            ->unset_add()
+            ->unset_edit()
+            ->unset_delete()
+            ->order_by('id_sales_order','desc');
+
+        $output = $crud->render();
+
+        $this->render($output);
+    }
 }

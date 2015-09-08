@@ -93,17 +93,6 @@
                             <td style="width:100px;" class="text-right">
                                 Rp {($key['sub_total']+$ppn)|number_format:0}
                             </td>
-                            {*<td style="width:90px;">*}
-
-                                {*<div class="table-controls">*}
-                                    {*<a data-toggle="modal" class="btn btn-link btn-icon btn-xs tip" title="Update Qty"*}
-                                       {*href="#update-modal" onclick="updateItem({$key['id_product']})" role="button">*}
-                                        {*<i class="icon-pencil3"></i></a>*}
-                                    {*<a href="{base_url('proposal/detail/delete')}/{$key['id_product']}"*}
-                                       {*class="btn btn-link btn-icon btn-xs tip" title="Hapus Data">*}
-                                        {*<i class="icon-remove3"></i></a>*}
-                                {*</div>*}
-                            {*</td>*}
                         </tr>
                         {assign var=val value=$val+1}
 

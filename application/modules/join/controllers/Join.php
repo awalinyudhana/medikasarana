@@ -112,7 +112,8 @@ class Join extends MX_Controller
         if ($this->input->post()) {
 //            if ($this->form_validation->run('sales_order/save') == TRUE) {
 
-                $status_ppn = $this->input->post('status_ppn') == "on" ? 1 : 0;
+                // $status_ppn = $this->input->post('status_ppn') == "on" ? 1 : 0;
+                $status_ppn = $this->cache['value']['status_ppn'];
                 $dpp = $this->input->post('total') - $this->input->post('discount_price');
                 $ppn = $status_ppn == 1 ? $dpp * 0.1 : 0;
 
@@ -120,7 +121,8 @@ class Join extends MX_Controller
                 if ($id_sales_order = $this->cart->primary_data(array(
                     'total' => $this->input->post('total'),
                     'discount_price' => $this->input->post('discount_price'),
-                    'status_ppn' => $this->cache['value']['status_ppn'] == 1 ? 1 : $status_ppn,
+                    'status_ppn' => $this->cache['value']['status_ppn'] == 1,
+                    // 'status_ppn' => $this->cache['value']['status_ppn'] == 1 ? 1 : $status_ppn,
 //                    'due_date' => $this->input->post('due_date'),
                     'ppn' => $ppn,
                     'dpp' => $dpp,

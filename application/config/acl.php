@@ -254,6 +254,11 @@ $config['module_router'] =
                             'url' => 'sales-order/history',
                             'module' => 'proposal'
                         ]
+                        [
+                            'title' => 'History Nota Lama',
+                            'url' => 'sales-order/history/old',
+                            'module' => 'proposal'
+                        ]
                     ]
                 ],
                 [
