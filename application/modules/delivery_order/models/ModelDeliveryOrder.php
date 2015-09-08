@@ -26,6 +26,7 @@ class ModelDeliveryOrder extends CI_Model
             ->join('customer', 'customer.id_customer = sales_order.id_customer')
             ->where("sales_order.status", $status)
             ->where("sales_order.active", 1)
+            ->order_by("due_date asc")
             ->get()
             ->result();
     }

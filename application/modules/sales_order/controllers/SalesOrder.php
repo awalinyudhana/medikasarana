@@ -115,9 +115,9 @@ class SalesOrder extends MX_Controller
         if($this->cache['value']['type'] == 0){
             $redirect= "proposal/list/pengadaan";
         }elseif($this->cache['value']['type'] == 1){
-            redirect('proposal/list/tender');
+            $redirect= "proposal/list/tender";
         }else{
-            redirect('proposal/list/pinjam');
+            $redirect= "proposal/list/pinjam";
         }
         $this->cart->delete_record();
         redirect($redirect);
