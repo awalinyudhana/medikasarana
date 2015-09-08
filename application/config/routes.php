@@ -162,6 +162,7 @@ $route['sales-order/checkout/(:num)'] = "sales_order/SalesOrder/checkout/$1";
 $route['sales-order/history'] = "sales_order/History";
 $route['sales-order/history/index/(:any)'] = "sales_order/History/index/$1";
 $route['sales-order/history/old'] = "sales_order/History/old";
+$route['sales-order/history/old/(:any)'] = "sales_order/History/old/$1";
 
 $route['debit'] = "debit";
 $route['debit/bill/(:num)'] = "debit/bill/$1";
