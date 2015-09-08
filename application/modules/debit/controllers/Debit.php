@@ -143,7 +143,7 @@ class Debit extends MX_Controller
             ->set('status',true)
             ->update('debit');
         $row = $this->db->get_where('debit',['id_debit'=>$id_debit])->row();
-            redirect('credit/detail'.'/'.$row->id_sales_order);
+            redirect('debit/detail'.'/'.$row->id_sales_order);
     }
 
     public function detailBayar($id_sales_order)

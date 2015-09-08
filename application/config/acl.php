@@ -253,11 +253,6 @@ $config['module_router'] =
                             'title' => 'History',
                             'url' => 'sales-order/history',
                             'module' => 'proposal'
-                        ],
-                        [
-                            'title' => 'History Nota Lama',
-                            'url' => 'sales-order/history/old',
-                            'module' => 'proposal'
                         ]
                     ]
                 ],
@@ -295,6 +290,11 @@ $config['module_router'] =
                             'url' => 'extract',
                             'module' => 'extract'
 
+                        ],
+                        [
+                            'title' => 'History Nota Lama',
+                            'url' => 'sales-order/history/old',
+                            'module' => 'proposal'
                         ]
                     ]
                 ]
