@@ -46,6 +46,13 @@
                     <p>{$error}</p>
                 </div>
             {/if}
+
+            {if form_error('due_date')}
+                <div class="callout callout-danger fade in">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p>{form_error('due_date') }</p>
+                </div>
+            {/if}
             <!-- /callout -->
 
             {if $cache['value']['type'] == 0}
@@ -254,10 +261,7 @@
                                                 <div class="col-md-12 {if form_error('due_date')}has-warning{/if}">
                                                     {form_input('due_date', set_value('due_date'),
                                                     'class="datepicker-trigger form-control" data-mask="9999-99-99" placeholder"YYYY-MM-dd"')}
-                                                    {if form_error('due_date')}
-                                                        <span class="label label-block label-danger text-left">{form_error('due_date') }</span>
-                                                    {/if}
-                        
+
                                                 </div>
                                             </div>
                                         </div>

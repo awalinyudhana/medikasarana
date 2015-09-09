@@ -42,6 +42,13 @@
                     <p>{$error}</p>
                 </div>
             {/if}
+
+            {if form_error('date_sending')}
+                <div class="callout callout-danger fade in">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p>{form_error('date_sending') }</p>
+                </div>
+            {/if}
             <!-- /panel body -->
 
 
@@ -123,11 +130,6 @@
                                                 <div class="col-md-12 {if form_error('date_sending')}has-warning{/if}">
                                                     {form_input('date_sending', set_value('date_sending'),
                                                     'class="datepicker-trigger form-control" data-mask="9999-99-99" placeholder"YYYY-MM-dd"')}
-
-
-                                                    {if form_error('date_sending')}
-                                                        <span class="label label-block label-danger text-left">{form_error('date_sending') }</span>
-                                                    {/if}
                                                 </div>
                                             </div>
                                         </div>
