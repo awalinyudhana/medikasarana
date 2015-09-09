@@ -1,67 +1,5 @@
 {* Extend our master template *}
 {extends file="../../../master.tpl"}
-
-{block name=print}
-    <div id="print">
-        <table border="0" width="100%">
-            <tr>
-                <td width="60%" align="left" valign="top">
-                    <h3>{$master->store_name}</h3>
-                    <span>{$master->address} - {$master->zipcode}
-                        </br>
-                        {$master->city} - {$master->state}
-                        </br>
-                        {$master->telp1} - {$master->telp2}
-                    </span>
-                </td>
-                <td align="right" valign="center">
-                    No Faktur Retur# <strong class="text-danger pull-right">{$master->id_retail_return}</strong></br>
-                    No Faktur Retail# <strong class="text-danger pull-right">{$master->id_retail}</strong></br>
-                    Staff <strong class="pull-right">{$master->staff_name} </strong></br>
-                    Date : <strong class="pull-right">{$master->date}</strong></br>
-                </td>
-            </tr>
-        </table>
-        <table border="1" width="100%">
-            <thead>
-            <tr>
-                <th>No</th>
-                <th width="40%">Nama Produk</th>
-                <th>Merek</th>
-                <th>Satuan</th>
-                <th>Qty</th>
-                <th>Cashback</th>
-            </tr>
-            </thead>
-            <tbody>
-            {assign var=no value=1}
-            {assign var=total_cashback value=0}
-            {foreach $items as $key }
-                <tr>
-                    <td valign="top" align="left">{$no}</td>
-                    <td valign="top" align="left">{$return['name']}</td>
-                    <td valign="top" align="left">{$return['brand']}</td>
-                    <td valign="top">{$return['unit']} ( {$return['value']} )</td>
-                    <td valign="top" align="left">{$return['qty']}</td>
-                    <td valign="top" align="right">
-                        {if $return['cashback']}
-                            {$return['cashback']|number_format:0}
-                            {assign var=total_cashback value=$total_cashback+$return['cashback']}
-                        {else}
-                            0
-                        {/if}
-                </tr>
-                {assign var=no value=$no+1}
-
-            {/foreach}
-            <tr>
-                <td colspan="6" align="right" valign="top">Cash Back</td>
-                <td align="right" valign="top">Rp {$master->total_cashback|number_format:0}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-{/block}
 {block name=content}
 
     <!-- New invoice template -->
@@ -118,8 +56,9 @@
                     </thead>
                     <tbody>
                     {assign var=no value=1}
+                    {assign var=total_cashback value=0}
                     {foreach $items as $return }
-                    
+                        {assign var=total_cashback value=$total_cashback+$return['cashback']}
                         <tr>
                             <td rowspan="2">{$no} </td>
                             <td>{$return['barcode']}</td>
