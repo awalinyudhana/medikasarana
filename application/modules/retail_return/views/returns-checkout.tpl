@@ -83,7 +83,7 @@
                             {else}
                                 <td colspan="5"></td>
                             {/if}
-                            <td>Rp
+                            <td>$total_cashbackRp
                                 {if $return['cashback']}
                                     {$return['cashback']|number_format:0}
                                 {else}
