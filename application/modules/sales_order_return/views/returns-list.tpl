@@ -122,12 +122,12 @@
                             </tr>
 
                             <tr>
-                                <td>{$product_storage[$return['id_product']]['barcode']}</td>
-                                <td>{$product_storage[$return['id_product']]['name']}</td>
-                                <td>{$product_storage[$return['id_product']]['brand']}</td>
+                                <td>{$product_storage[$return['id_product_cache']]['barcode']}</td>
+                                <td>{$product_storage[$return['id_product_cache']]['name']}</td>
+                                <td>{$product_storage[$return['id_product_cache']]['brand']}</td>
                                 <td>
-                                    {$product_storage[$return['id_product']]['unit']}
-                                    ( {$product_storage[$return['id_product']]['value']} )
+                                    {$product_storage[$return['id_product_cache']]['unit']}
+                                    ( {$product_storage[$return['id_product_cache']]['value']} )
                                     </td>
                                 <td>{$return['qty']}</td>
                                 <td>Rp
