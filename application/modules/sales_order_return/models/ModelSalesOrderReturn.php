@@ -101,7 +101,7 @@ class ModelSalesOrderReturn extends CI_Model
 
     public function getReturnReplacedDetailItem($id_return)
     {
-        $this->db->select('*, sales_order_return_detail.id_product as id_product_cache');
+        $this->db->select('*, ed.id_product as id_product_cache');
         $this->db->from('sales_order_return_detail ed');
         $this->db->join('sales_order_detail rd', 'rd.id_sales_order_detail = ed.id_sales_order_detail');
         $this->db->join('product p', 'p.id_product = rd.id_product');
