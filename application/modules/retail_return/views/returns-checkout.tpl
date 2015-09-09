@@ -83,7 +83,7 @@
                             {else}
                                 <td colspan="5"></td>
                             {/if}
-                            <td>{$total_cashback}Rp
+                            <td>Rp
                                 {if $return['cashback']}
                                     {$return['cashback']|number_format:0}
                                 {else}
@@ -91,58 +91,12 @@
                                 {/if}
                             </td>
                         </tr>
-
                         {assign var=no value=$no+1}
                     {/foreach}
                     </tbody>
                 </table>
             </div>
-            <!-- <hr>
-            <div class="block-inner">
-                <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Item Pengganti
-                    <small class="display-block">Data item pengganti</small>
-                </h6>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Barcode</th>
-                        <th>Nama Produk</th>
-                        <th>Merek</th>
-                        <th>Satuan</th>
-                        <th>Qty</th>
-                        <th>Cashback</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {assign var=no value=1}
-                    {assign var=total_cashback value=0}
-                    {foreach $returns as $return }
-                        <tr>
-                            <td>{$no}</td>
-                            <td>{$return['barcode']}</td>
-                            <td>{$return['name']}</td>
-                            <td>{$return['brand']}</td>
-                            <td style="width:100px;">{$return['unit']} ( {$return['value']} )</td>
-                            <td>{$return['qty']}</td>
-                            <td class="text-right">Rp
-                                {if $return['cashback']}
-                                    {$return['cashback']|number_format:0}
-                                    {assign var=total_cashback value=$total_cashback+$return['cashback']}
-                                {else}
-                                    0
-                                {/if}
-                            </td>
-                        </tr>
-                        {assign var=no value=$no+1}
-                    {/foreach}
-                    </tbody>
-                </table>
-            </div> -->
-
+            
             <div class="row invoice-payment">
                 <div class="col-sm-8">
                 </div>
@@ -152,7 +106,7 @@
                         <tbody>
                             <tr>
                                 <th>Total:</th>
-                                <td class="text-right">Rp {$total_cashback|number_format:0}</td>
+                                <td class="text-right">{$total_cashback}Rp {$total_cashback|number_format:0}</td>
                             </tr>
                         </tbody>
                     </table>
