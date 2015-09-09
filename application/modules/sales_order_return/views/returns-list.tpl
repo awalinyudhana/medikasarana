@@ -112,7 +112,7 @@
                         {foreach $returns as $return }
                         
                             <tr>
-                                <td rowspan="2">{$no}</td>
+                                <td rowspan="2">{$no} $return['id_product'] -$return['id_product_cache']</td>
                                 <td>{$return['barcode']}</td>
                                 <td>{$return['name']}</td>
                                 <td>{$return['brand']}</td>
