@@ -76,7 +76,7 @@ class ModelRetailReturn extends CI_Model
         }
     }
     public function getReturnReplacedDetailItem($id_return)
-    {, 
+    {
         $this->db->select('*, ed.id_product_store as id_product_cache');
         $this->db->from('retail_return_detail ed');
         $this->db->join('retail_detail rd', 'rd.id_retail_detail = ed.id_retail_detail');
