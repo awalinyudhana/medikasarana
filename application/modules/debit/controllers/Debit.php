@@ -20,10 +20,9 @@ class Debit extends MX_Controller
     {
         $data['success'] = $this->session->flashdata('success') != null ? $this->session->flashdata('success') : null;
         $this->db
-            ->select('so.*, c.*')
             ->from('sales_order so')
             // ->join('proposal p', 'p.id_proposal = so.id_proposal','left')
-            ->join('customer c', 'c.id_customer = p.id_customer');
+            ->join('customer c', 'c.id_customer = so.id_customer');
         if ($this->input->post()) {
 
             $this->db->where('so.date >=', $this->input->post('date') . '-01')
