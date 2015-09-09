@@ -22,7 +22,7 @@ class Debit extends MX_Controller
         $this->db
             ->select('so.*, c.*')
             ->from('sales_order so')
-            ->join('proposal p', 'p.id_proposal = so.id_proposal','left')
+            // ->join('proposal p', 'p.id_proposal = so.id_proposal','left')
             ->join('customer c', 'c.id_customer = p.id_customer');
         if ($this->input->post()) {
 
