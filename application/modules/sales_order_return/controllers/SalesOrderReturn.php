@@ -74,7 +74,7 @@ class SalesOrderReturn extends MX_Controller
         $return = array();
         $product = $this->model_return->getProduct();
         foreach ($product as $row) {
-            $return[$row] = $row;
+            $return[$row['id_product']] = $row;
         }
         return $return;
     }
