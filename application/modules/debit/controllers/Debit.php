@@ -95,28 +95,31 @@ class Debit extends MX_Controller
                         $file = $this->upload->data();
                         $scan = base_url() . "upload/debit/" . $file['file_name'];
 
+                        $data_insert = array(
+                            'id_staff' => $this->id_staff,
+                            'id_sales_order' => $id_sales_order,
+                                'payment_type' => $this->input->post('payment_type'),
+                                'amount' => $this->input->post('amount'),
+                                'resi_number' => $this->input->post('resi_number'),
+                                'date_withdrawal' => $this->input->post('date_withdrawal') == "" ?
+                                    null : $this->input->post('date_withdrawal'),
+                                'status' => $this->input->post('payment_type') == "bg" ? 0 : 1,
+                            'file' => $scan
+                        );
+
+                        $this->db->insert('debit', $data_insert);
+
+        //                $this->db
+        //                    ->where('id_sales_order' , $id_sales_order)
+        //                    ->set('status_extract',0)
+        //                    ->update('sales_order');
+                        $this->session->set_flashdata('success', 'insert data berhasil');
+                        redirect('debit');
 
                     }
-                    $data_insert = array(
-                        'id_staff' => $this->id_staff,
-                        'id_sales_order' => $id_sales_order,
-                            'payment_type' => $this->input->post('payment_type'),
-                            'amount' => $this->input->post('amount'),
-                            'resi_number' => $this->input->post('resi_number'),
-                            'date_withdrawal' => $this->input->post('date_withdrawal') == "" ?
-                                null : $this->input->post('date_withdrawal'),
-                            'status' => $this->input->post('payment_type') == "bg" ? 0 : 1,
-                        'file' => $scan
-                    );
-
-                    $this->db->insert('debit', $data_insert);
-
-    //                $this->db
-    //                    ->where('id_sales_order' , $id_sales_order)
-    //                    ->set('status_extract',0)
-    //                    ->update('sales_order');
-                    $this->session->set_flashdata('success', 'insert data berhasil');
-                    redirect('debit');
+                    else{
+                        $data['error'] = "masukkan bukti pembayaran";
+                    }
                 }
             }
         }
