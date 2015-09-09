@@ -78,7 +78,7 @@ class SalesOrderReturn extends MX_Controller
     private function validation($post, $detailItem){
 
         if($post['qty_return'] > $detailItem->delivered){
-            return 'Jumlah retur tidak sesuai';
+            return false;
         }else{
             if($post['id_product'] == "" && $post['qty'] == ""){
                 return true;
