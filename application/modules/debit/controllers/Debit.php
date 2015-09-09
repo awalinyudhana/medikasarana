@@ -124,7 +124,7 @@ class Debit extends MX_Controller
             // ->select('so.*, c.*')
             ->from('sales_order so')
             // ->join('proposal p', 'p.id_proposal = so.id_proposal')
-            ->join('customer c', 'c.id_customer = p.id_customer')
+            ->join('customer c', 'c.id_customer = so.id_customer')
             ->where(array(
                 'id_sales_order' => $id_sales_order
             ))
@@ -152,7 +152,7 @@ class Debit extends MX_Controller
             // ->select('so.*, c.*')
             ->from('sales_order so')
             // ->join('proposal p', 'p.id_proposal = so.id_proposal')
-            ->join('customer c', 'c.id_customer = p.id_customer')
+            ->join('customer c', 'c.id_customer = so.id_customer')
             ->where(array(
                 'id_sales_order' => $id_sales_order
             ))
