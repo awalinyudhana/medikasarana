@@ -127,7 +127,7 @@ class SalesOrderReturn extends MX_Controller
                     $this->cart->update_item($id_sales_order_detail,
                         array_merge(
                             ['id_sales_order_detail'=>$id_sales_order_detail],
-                            $this->input->post()
+                            array_merge($this->input->post(),['id_product_cache'=>$this->input->post('id_product')]);
                         ),
                         false
                     );
