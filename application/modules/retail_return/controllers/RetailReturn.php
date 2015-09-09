@@ -88,7 +88,7 @@ class RetailReturn extends MX_Controller
 
     private function validation($post, $detailItem){
 
-        if($post['qty_return'] > $detailItem->delivered){
+        if($post['qty_return'] > $detailItem->qty){
             return ['status' => false, 'msg' =>'Jumlah retur tidak sesuai'];
         }else{
             if($post['id_product_store'] == "" && $post['qty'] == ""){
