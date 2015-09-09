@@ -254,31 +254,15 @@
                                                 <div class="col-md-12 {if form_error('due_date')}has-warning{/if}">
                                                     {form_input('due_date', set_value('due_date'),
                                                     'class="datepicker-trigger form-control" data-mask="9999-99-99" placeholder"YYYY-MM-dd"')}
+                                                    {if form_error('due_date')}
+                                                        <span class="label label-block label-danger text-left">{form_error('due_date') }</span>
+                                                    {/if}
+                        
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
-
-                                {*<tr>*}
-                                    {*<th>Total:</th>*}
-                                    {*<td class="text-right">Rp*}
-                                        {*<span id="sum-total-text"> {$total|number_format:0} </span>*}
-                                    {*</td>*}
-                                {*</tr>*}
-                                {*<tr>*}
-                                    {*<th>Diskon:</th>*}
-                                    {*<td class="text-right" style="max-width: 135px;">*}
-                                        {*<div class="input-group">*}
-                                            {*<span class="input-group-addon">Rp</span>*}
-
-                                            {*<input type="text" name="discount_price" value="{set_value('discount_price')}"*}
-                                                   {*class="form-control currency-format" placeholder="0"*}
-                                                   {*id="input-discount_price" onblur="setDpp(this.value)">*}
-
-                                        {*</div>*}
-                                    {*</td>*}
-                                {*</tr>*}
 
                                 <tr>
                                     <th>DPP:</th>

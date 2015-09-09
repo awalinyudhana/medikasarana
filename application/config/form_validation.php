@@ -240,7 +240,7 @@ $config = array(
         array(
             'field' => 'qty',
             'label' => 'Jumlah Retur',
-            'rules' => 'integer'
+            'rules' => 'integer|is_natural_no_zero'
         ),
         array(
             'field' => 'id_product_store',

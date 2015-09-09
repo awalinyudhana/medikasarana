@@ -62,9 +62,7 @@ class SalesOrderReturn extends MX_Controller
             ->result_array_item(false);
 
         $data['returns'] = $this->cart
-            ->list_item(
-                $this->model_return->getSalesOrderItemStorage($this->cache['value']['id_sales_order']),
-                'id_sales_order_detail')
+            ->list_item($this->model_return->getSalesOrderItemStorage($this->cache['value']['id_sales_order']),'id_sales_order_detail')
             ->result_array_item();
         $this->parser->parse("returns-list.tpl", $data);
     }
@@ -87,23 +85,33 @@ class SalesOrderReturn extends MX_Controller
 
         if ($this->input->post()) {
             if ($this->form_validation->run('returns') == TRUE) {
-                if ($this->input->post('qty_return') <= $detailItem->delivered) {
-                    if( $this->model_return->checkStock($this->input->post('id_product'),
-                        $this->input->post('qty')
-                    )){
-                        $this->cart->update_item($id_sales_order_detail,
-                            array_merge(
-                                ['id_sales_order_detail'=>$id_sales_order_detail],
-                                $this->input->post()
-                            ),
-                            false
-                        );
-                        redirect('sales-order/returns/list-item');
-                    }
-                    $data['error'] = 'stok tidak cukup';
-                }else{
+                if ($this->input->post('qty_return') > $detailItem->delivered) {
                     $data['error'] = 'Jumlah retur tidak sesuai';
+                }else{
+                    if($this->input->post('barcode') != null){
+                        if($this->input->post('qty') == null){
+                            $data['error'] = 'Masukkan jumlah barang';
+                        }else{
+                            if(!$this->model_return->checkStock($this->input->post('id_product'),$this->input->post('qty'))) {
+                                $data['error'] = 'stok tidak cukup';
+                            }
+
+                        }
+
+                    }
                 }
+
+                if($data['error'] != null){
+                    $this->cart->update_item($id_sales_order_detail,
+                        array_merge(
+                            ['id_sales_order_detail'=>$id_sales_order_detail],
+                            $this->input->post()
+                        ),
+                        false
+                    );
+                    redirect('sales-order/returns/list-item');
+                }
+                
             }
         }
         $data['master'] = $this->model_return->getDataSalesOrder($this->cache['value']['id_sales_order']);
