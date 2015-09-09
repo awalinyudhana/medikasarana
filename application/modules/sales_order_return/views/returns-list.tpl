@@ -134,7 +134,7 @@
                                     {if $return['cashback']}
                                         {$return['cashback']|number_format:0}
                                     {else}
-                                        {0['cashback']|number_format:0}
+                                        {0|number_format:0}
                                     {/if}
                                 </td>
                             </tr>
