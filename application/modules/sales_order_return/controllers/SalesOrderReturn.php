@@ -109,7 +109,7 @@ class SalesOrderReturn extends MX_Controller
         if ($this->input->post()) {
             if ($this->form_validation->run('returns') == TRUE) {
                 $validation = $this->validation($this->input->post(), $detailItem);
-                if($validation == true){
+                if($validation['status'] == true){
                     $this->cart->update_item($id_sales_order_detail,
                         array_merge(
                             ['id_sales_order_detail'=>$id_sales_order_detail],
@@ -119,7 +119,7 @@ class SalesOrderReturn extends MX_Controller
                     );
                     redirect('sales-order/returns/list-item');
                 }
-                $data['error'] = $validation;
+                $data['error'] = $validation['msg'];
             }
         }
         $data['master'] = $this->model_return->getDataSalesOrder($this->cache['value']['id_sales_order']);
