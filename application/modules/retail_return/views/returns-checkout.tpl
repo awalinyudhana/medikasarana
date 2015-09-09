@@ -104,7 +104,7 @@
 
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
-                    <thead>
+                   <thead>
                     <tr>
                         <th>No</th>
                         <th>Barcode</th>
@@ -112,35 +112,53 @@
                         <th>Merek</th>
                         <th>Satuan</th>
                         <th>Qty</th>
-                        <th>Retur</th>
-                        <th>Harga</th>
-                        <th>Subtotal</th>
+                        <th>Cashback</th>
+                        <th>Keterangan</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {assign var=val value=1}
-                    {foreach $items as $key }
+                    {assign var=no value=1}
+                    {foreach $items as $return }
+                    
                         <tr>
-                            <td>{$val}</td>
-                            <td>{$key['barcode']}</td>
-                            <td>{$key['name']}</td>
-                            <td>{$key['brand']}</td>
-                            <td style="width:100px;">{$key['unit']} ( {$key['value']} )</td>
-                            <td>{$key['qty']}</td>
-                            <td>
-                                {$key['return']}
-                            </td>
-                            <td style="width:130px;" class="text-right">Rp {$key['price']|number_format:0}</td>
-                            <td style="width:130px;" class="text-right">
-                                Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}
+                            <td rowspan="2">{$no} </td>
+                            <td>{$return['barcode']}</td>
+                            <td>{$return['name']}</td>
+                            <td>{$return['brand']}</td>
+                            <td style="width:100px;">{$return['unit']} ( {$return['value']} )</td>
+                            <td>{$return['qty_return']}</td>
+                            <td></td>
+                            <td rowspan="2">{$return['reason']}</td>
+                        </tr>
+
+                        <tr>
+                            {if $return['id_product_cache']}
+                                <td>{$product_storage[$return['id_product_cache']]['barcode']}</td>
+                                <td>{$product_storage[$return['id_product_cache']]['name']}</td>
+                                <td>{$product_storage[$return['id_product_cache']]['brand']}</td>
+                                <td>
+                                    {$product_storage[$return['id_product_cache']]['unit']}
+                                    ( {$product_storage[$return['id_product_cache']]['value']} )
+                                    </td>
+                                <td>{$return['qty']}</td>
+                            {else}
+                                <td colspan="5"></td>
+                            {/if}
+                            <td>Rp
+                                {if $return['cashback']}
+                                    {$return['cashback']|number_format:0}
+                                {else}
+                                    {0|number_format:0}
+                                {/if}
                             </td>
                         </tr>
-                        {assign var=val value=$val+1}
+
+                        {assign var=no value=$no+1}
                     {/foreach}
                     </tbody>
                 </table>
             </div>
-            <hr>
+            <!-- <hr>
             <div class="block-inner">
                 <h6 class="heading-hr">
                     <i class="icon-clipboard"></i> Item Pengganti
@@ -184,7 +202,7 @@
                     {/foreach}
                     </tbody>
                 </table>
-            </div>
+            </div> -->
 
             <div class="row invoice-payment">
                 <div class="col-sm-8">

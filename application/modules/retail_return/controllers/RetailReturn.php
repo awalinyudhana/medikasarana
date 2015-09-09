@@ -66,9 +66,20 @@ class RetailReturn extends MX_Controller
                 $this->model_return->getRetailItemStorage($this->cache['value']['id_retail']),
                 'id_retail_detail')
             ->result_array_item();
+        $data['product_storage'] = $this->getProductStore();
         $this->parser->parse("returns-list.tpl", $data);
 //        var_dump($data['returns']);
     }
+
+    private function storageProduct(){
+        $return = array();
+        $product = $this->model_return->getProductStore($this->id_store);
+        foreach ($product as $row) {
+            $return[$row['id_product_store']] = $row;
+        }
+        return $return;
+    }
+
     public function reset(){
         if(!$this->cart->delete_record())
             redirect('retail/returns');
@@ -118,7 +129,7 @@ class RetailReturn extends MX_Controller
                     $this->cart->update_item($id_detail,
                         array_merge(
                             ['id_retail_detail'=>$id_detail],
-                            $this->input->post()
+                            array_merge($this->input->post(),['id_product_cache'=>$this->input->post('id_product_store')])
                         ),
                         false
                     );
@@ -168,7 +179,9 @@ class RetailReturn extends MX_Controller
         }
         $data['master'] = $data_return;
         $data['items'] = $this->model_return->getReturnReplacedDetailItem($id_return);
-        $data['returns'] = $this->model_return->getReturnReplacerDetailItem($id_return);
+        // $data['returns'] = $this->model_return->getReturnReplacerDetailItem($id_return);
+
+        $data['product_storage'] = $this->getProductStore();
 //        var_dump($data['items']);
         $this->parser->parse("returns-checkout.tpl", $data);
     }
