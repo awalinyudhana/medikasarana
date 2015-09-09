@@ -106,7 +106,7 @@
                         <tbody>
                             <tr>
                                 <th>Total:</th>
-                                <td class="text-right">{$total_cashback}Rp {$total_cashback|number_format:0}</td>
+                                <td class="text-right">Rp {$total_cashback|number_format:0}</td>
                             </tr>
                         </tbody>
                     </table>
