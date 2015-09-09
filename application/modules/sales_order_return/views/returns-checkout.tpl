@@ -128,7 +128,7 @@
                             <td style="width:100px;">{$return['unit']} ( {$return['value']} )</td>
                             <td>{$return['qty_return']}</td>
                             <td></td>
-                            <td rowspan="2">{$return['note']}</td>
+                            <td rowspan="2">{$return['note']}a</td>
                         </tr>
 
                         <tr>
@@ -159,7 +159,7 @@
                 </table>
             </div>
 
-            <div class="table-responsive">
+         <!--    <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <thead>
                     <tr>
@@ -243,7 +243,7 @@
                     {/foreach}
                     </tbody>
                 </table>
-            </div>
+            </div> -->
 
             <div class="row invoice-payment">
                 <div class="col-sm-8">
