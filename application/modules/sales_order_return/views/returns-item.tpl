@@ -144,9 +144,9 @@
                             <div class="row">
                                 <label class="col-sm-4 control-label">Keterangan
                                     Retur: </label>
-                                <div class="col-md-8  {if form_error('note')}has-warning{/if}">
-                                    <textarea rows="4" cols="5" name="note" placeholder="Ket..."
-                                              class="elastic form-control">{set_value('note')}</textarea>
+                                <div class="col-md-8  {if form_error('ket')}has-warning{/if}">
+                                    <textarea rows="4" cols="5" name="ket" placeholder="Ket..."
+                                              class="elastic form-control">{set_value('ket')}</textarea>
                                 </div>
                             </div>
                         </div>

@@ -253,7 +253,7 @@ $config = array(
             'rules' => 'integer'
         ),
         array(
-            'field' => 'note',
+            'field' => 'ket',
             'label' => 'Keterangan',
             'rules' => 'required|trim'
         )

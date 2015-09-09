@@ -128,7 +128,7 @@
                             <td style="width:100px;">{$return['unit']} ( {$return['value']} )</td>
                             <td>{$return['qty_return']}</td>
                             <td></td>
-                            <td rowspan="2">{$return['note']}a</td>
+                            <td rowspan="2">{$return['ket']}</td>
                         </tr>
 
                         <tr>
