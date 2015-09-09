@@ -121,9 +121,9 @@ class Debit extends MX_Controller
             }
         }
         $so = $this->db
-            ->select('so.*, c.*')
+            // ->select('so.*, c.*')
             ->from('sales_order so')
-            ->join('proposal p', 'p.id_proposal = so.id_proposal')
+            // ->join('proposal p', 'p.id_proposal = so.id_proposal')
             ->join('customer c', 'c.id_customer = p.id_customer')
             ->where(array(
                 'id_sales_order' => $id_sales_order
@@ -149,9 +149,9 @@ class Debit extends MX_Controller
     public function detailBayar($id_sales_order)
     {
         $so = $this->db
-            ->select('so.*, c.*')
+            // ->select('so.*, c.*')
             ->from('sales_order so')
-            ->join('proposal p', 'p.id_proposal = so.id_proposal')
+            // ->join('proposal p', 'p.id_proposal = so.id_proposal')
             ->join('customer c', 'c.id_customer = p.id_customer')
             ->where(array(
                 'id_sales_order' => $id_sales_order
