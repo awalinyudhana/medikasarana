@@ -88,20 +88,19 @@ class SalesOrderReturn extends MX_Controller
                 if ($this->input->post('qty_return') > $detailItem->delivered) {
                     $data['error'] = 'Jumlah retur tidak sesuai';
                 }else{
-                    if($this->input->post('barcode') != null){
+                    if($this->input->post('id_product') != null){
                         if($this->input->post('qty') == null){
                             $data['error'] = 'Masukkan jumlah barang';
                         }else{
                             if(!$this->model_return->checkStock($this->input->post('id_product'),$this->input->post('qty'))) {
                                 $data['error'] = 'stok tidak cukup';
                             }
-
                         }
 
                     }
                 }
 
-                if($data['error'] != null){
+                if($data['error'] != null && $data['error'] != ""){
                     $this->cart->update_item($id_sales_order_detail,
                         array_merge(
                             ['id_sales_order_detail'=>$id_sales_order_detail],
