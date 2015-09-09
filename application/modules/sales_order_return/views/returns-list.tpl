@@ -110,19 +110,35 @@
                         <tbody>
                         {assign var=no value=1}
                         {foreach $returns as $return }
+                        
                             <tr>
-                                <td>{$no}</td>
+                                <td rowspan="2">{$no}</td>
                                 <td>{$return['barcode']}</td>
                                 <td>{$return['name']}</td>
                                 <td>{$return['brand']}</td>
                                 <td style="width:100px;">{$return['unit']} ( {$return['value']} )</td>
+                                <td>{$return['qty_return']}</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>{$product_storage[$return['id_product']]['barcode']}</td>
+                                <td>{$product_storage[$return['id_product']]['name']}</td>
+                                <td>{$product_storage[$return['id_product']]['brand']}</td>
+                                <td>
+                                    {$product_storage[$return['id_product']]['unit']}
+                                    ( {$product_storage[$return['id_product']]['value']} )
+                                    </td>
                                 <td>{$return['qty']}</td>
                                 <td>Rp
                                     {if $return['cashback']}
                                         {$return['cashback']|number_format:0}
+                                    {else}
+                                        {0['cashback']|number_format:0}
                                     {/if}
                                 </td>
                             </tr>
+
                             {assign var=no value=$no+1}
                         {/foreach}
                         </tbody>

@@ -66,7 +66,17 @@ class SalesOrderReturn extends MX_Controller
                 $this->model_return->getSalesOrderItemStorage($this->cache['value']['id_sales_order']),
                 'id_sales_order_detail')
             ->result_array_item();
+        $data['product_storage'] = $this->storageProduct();
         $this->parser->parse("returns-list.tpl", $data);
+    }
+
+    private function storageProduct(){
+        $return = array();
+        $product = $this->model_return->getProduct();
+        foreach ($product as $row) {
+            $return[$row] = $row;
+        }
+        return $return;
     }
 
 
@@ -81,7 +91,11 @@ class SalesOrderReturn extends MX_Controller
             return ['status' => false, 'msg' =>'Jumlah retur tidak sesuai'];
         }else{
             if($post['id_product'] == "" && $post['qty'] == ""){
-                return ['status' => true, 'msg' =>'success'];
+                if($post['cashback'] == "" ){
+                    return ['status' => false, 'msg' =>'masukkan item pengganti'];
+                }else{
+                    return ['status' => true, 'msg' =>'success'];
+                }
             }elseif($post['id_product'] == "" || $post['qty'] == ""){
                 return ['status' => false, 'msg' =>'masukkan item pengganti dan jumlahnya'];
             }else{

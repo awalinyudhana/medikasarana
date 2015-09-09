@@ -74,6 +74,33 @@ class RetailReturn extends MX_Controller
             redirect('retail/returns');
     }
 
+
+    private function validation($post, $detailItem){
+
+        if($post['qty_return'] > $detailItem->delivered){
+            return ['status' => false, 'msg' =>'Jumlah retur tidak sesuai'];
+        }else{
+            if($post['id_product_store'] == "" && $post['qty'] == ""){
+                if($post['cashback'] == "" ){
+                    return ['status' => false, 'msg' =>'masukkan item pengganti'];
+                }else{
+                    return ['status' => true, 'msg' =>'success'];
+                }
+            }elseif($post['id_product_store'] == "" || $post['qty'] == ""){
+                return ['status' => false, 'msg' =>'masukkan item pengganti dan jumlahnya'];
+            }else{
+                if( $this->model_return->checkStock($this->input->post('id_product_store'),
+                    $this->input->post('qty')
+                )){
+                    return ['status' => true, 'msg' =>'success'];
+                }else{
+                    return ['status' => false, 'msg' =>'stok tidak cukup'];
+                }
+            }
+        }
+    }
+
+
     public function returnsItem($id_detail)
     {
         if (!$this->cart->primary_data_exists()) {
@@ -86,23 +113,37 @@ class RetailReturn extends MX_Controller
 
         if ($this->input->post()) {
             if ($this->form_validation->run('returns') == TRUE) {
-                if ($this->input->post('qty_return') <= $detailItem->qty) {
-                    if( $this->model_return->checkStock($this->input->post('id_product_store'),
-                        $this->input->post('qty')
-                    )){
-                        $this->cart->update_item($id_detail,
-                            array_merge(
-                                ['id_retail_detail'=>$id_detail],
-                                $this->input->post()
-                            ),
-                            false
-                        );
-                        redirect('retail/returns/list-item');
-                    }
-                    $data['error'] = 'stok tidak cukup';
-                }else{
-                    $data['error'] = 'Jumlah retur tidak sesuai';
+                $validation = $this->validation($this->input->post(), $detailItem);
+                if($validation['status'] == true){
+                    $this->cart->update_item($id_detail,
+                        array_merge(
+                            ['id_retail_detail'=>$id_detail],
+                            $this->input->post()
+                        ),
+                        false
+                    );
+                    redirect('retail/returns/list-item');
                 }
+                $data['error'] = $validation['msg'];
+
+
+                // if ($this->input->post('qty_return') <= $detailItem->qty) {
+                //     if( $this->model_return->checkStock($this->input->post('id_product_store'),
+                //         $this->input->post('qty')
+                //     )){
+                //         $this->cart->update_item($id_detail,
+                //             array_merge(
+                //                 ['id_retail_detail'=>$id_detail],
+                //                 $this->input->post()
+                //             ),
+                //             false
+                //         );
+                //         redirect('retail/returns/list-item');
+                //     }
+                //     $data['error'] = 'stok tidak cukup';
+                // }else{
+                //     $data['error'] = 'Jumlah retur tidak sesuai';
+                // }
             }
         }
 
