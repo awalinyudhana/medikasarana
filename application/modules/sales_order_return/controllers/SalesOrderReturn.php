@@ -78,19 +78,19 @@ class SalesOrderReturn extends MX_Controller
     private function validation($post, $detailItem){
 
         if($post['qty_return'] > $detailItem->delivered){
-            return false;
+            return ['status' => false, 'msg' =>'Jumlah retur tidak sesuai';
         }else{
             if($post['id_product'] == "" && $post['qty'] == ""){
-                return true;
+                return ['status' => true, 'msg' =>'success';
             }elseif($post['id_product'] == "" || $post['qty'] == ""){
-                return 'masukkan item pengganti dan jumlahnya';
+                return ['status' => false, 'msg' =>'masukkan item pengganti dan jumlahnya';
             }else{
                 if( $this->model_return->checkStock($this->input->post('id_product'),
                     $this->input->post('qty')
                 )){
-                    return true;
+                    return ['status' => true, 'msg' =>'success';
                 }else{
-                    $data['error'] = 'stok tidak cukup';
+                    return ['status' => false, 'msg' =>'stok tidak cukup';
                 }
             }
         }
