@@ -66,7 +66,7 @@ class RetailReturn extends MX_Controller
                 $this->model_return->getRetailItemStorage($this->cache['value']['id_retail']),
                 'id_retail_detail')
             ->result_array_item();
-        $data['product_storage'] = $this->getProductStore();
+        $data['product_storage'] = $this->storageProduct();
         $this->parser->parse("returns-list.tpl", $data);
 //        var_dump($data['returns']);
     }
@@ -181,7 +181,7 @@ class RetailReturn extends MX_Controller
         $data['items'] = $this->model_return->getReturnReplacedDetailItem($id_return);
         // $data['returns'] = $this->model_return->getReturnReplacerDetailItem($id_return);
 
-        $data['product_storage'] = $this->getProductStore();
+        $data['product_storage'] = $this->storageProduct();
 //        var_dump($data['items']);
         $this->parser->parse("returns-checkout.tpl", $data);
     }
