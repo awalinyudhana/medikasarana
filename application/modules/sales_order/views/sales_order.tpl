@@ -244,7 +244,7 @@
                 </table>
             </div>
             <form action="{base_url('sales-order/save')}" role="form" method="post"
-                  onsubmit="checkLimit({$total+$ppn_total},{$master->plafond});">
+                  onsubmit="return checkLimit({$total+$ppn_total},{$master->plafond});">
                 <input type="hidden" name="total" value="{$total}">
                 <div class="panel-body">
 
