@@ -92,17 +92,25 @@ class DeliveryOrder extends MX_Controller
         redirect('delivery-order/list');
     }
 
-    public function updateItem($id_sales_order, $qty)
+    public function updateItem($id_sales_order_detail, $qty)
     {
         // $available = $this->cache['detail']['value'][$id_sales_order]['qty']
         //     - $this->cache['detail']['value'][$id_sales_order]['delivered'];
         // if($qty <= $available){
-        if($this->cache['detail']['value'][$id_sales_order]['stock'] > $qty){
-            $this->cart->field_updateable(['qty_delivered']);
-            if (!$this->cart->update_item($id_sales_order, ['qty_delivered' => $qty]))
-                $this->session->set_flashdata('error', $this->cart->getError());
+
+        $so_detail = $this->model_do->getDataSODetailById($id_sales_order_detail);
+        $undelivered = $so_detail->qty - $so_detail->delivered;
+
+        if($qty > $undelivered){
+            $this->session->set_flashdata('error', 'Maksimal jumlah pengiriman sesuai pesanan ('. $undelivered .')');
         }else{
-            $this->session->set_flashdata('error', 'Stock hanya tersedia'. $this->cache['detail']['value'][$id_sales_order]['stock']);
+            if($this->cache['detail']['value'][$id_sales_order_detail]['stock'] > $qty){
+                $this->cart->field_updateable(['qty_delivered']);
+                if (!$this->cart->update_item($id_sales_order_detail, ['qty_delivered' => $qty]))
+                    $this->session->set_flashdata('error', $this->cart->getError());
+            }else{
+                $this->session->set_flashdata('error', 'Stock hanya tersedia'. $this->cache['detail']['value'][$id_sales_order]['stock']);
+            }
         }
         redirect('delivery-order/list');
     }

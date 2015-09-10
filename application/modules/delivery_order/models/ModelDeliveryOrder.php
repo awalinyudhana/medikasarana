@@ -42,6 +42,14 @@ class ModelDeliveryOrder extends CI_Model
             ->get()->result_array();
     }
 
+    public function getDataSODetailById($id_sales_order_detail)
+    {
+        return $this->db->from('sales_order_detail')
+            ->where(['id_sales_order_detail' => $id_sales_order_detail])
+            ->get()
+            ->row();
+    }
+
     public function getDataDO($id)
     {
         return $this->db

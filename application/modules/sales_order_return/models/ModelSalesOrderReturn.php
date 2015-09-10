@@ -17,10 +17,12 @@ class ModelSalesOrderReturn extends CI_Model
         return $this->db
             ->select('*, staff.name as staff_name, customer.name as customer_name')
             ->from('sales_order')
+            ->join('proposal', 'proposal.id_proposal = sales_order.id_proposal', 'left')
             ->join('staff', 'staff.id_staff = sales_order.id_staff')
             ->join('customer', 'customer.id_customer = sales_order.id_customer')
             ->where('sales_order.id_sales_order', $id_sales_order)
             ->where('sales_order.active', 1)
+            ->where("proposal.type !=", 2)
             // ->where('sales_order.status', 1)
             ->get()
             ->row();
