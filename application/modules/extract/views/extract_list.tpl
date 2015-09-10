@@ -30,6 +30,16 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- Callout -->
+            {if $error}
+                <div class="callout callout-danger fade in">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <p>{$error}</p>
+                </div>
+            {/if}
+            <!-- /callout -->
+            
             <div class="datatable-tools">
                 <table class="table">
                     <thead>
