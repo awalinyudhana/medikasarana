@@ -132,7 +132,7 @@
 
                         <tr>
                             <td colspan="2" class="text-right text-warning">
-                              * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond}</span></i>
+                              * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond|number_format:0}</span></i>
                             </td>
                         </tr>
 
@@ -241,7 +241,7 @@
 
                         <tr>
                             <td colspan="2" class="text-right text-warning">
-                              * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond}</span></i>
+                              * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond|number_format:0}</span></i>
                             </td>
                         </tr>
                         </tbody>

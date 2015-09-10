@@ -155,6 +155,7 @@ class Extract extends MX_Controller
             return false;
 
         }
+        $this->session->set_flashdata('error', "pilih item yang di pisah");
 
         $this->listing();
     }
