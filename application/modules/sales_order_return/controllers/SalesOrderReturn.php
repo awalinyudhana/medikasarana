@@ -35,11 +35,13 @@ class SalesOrderReturn extends MX_Controller
         $data['error'] = $this->session->flashdata('error') != null ? $this->session->flashdata('error') : null;
         if ($this->input->post('id_sales_order')) {
             if ($data_id_sales_order = $this->model_return->getDataSalesOrder($this->input->post('id_sales_order'))) {
-                $this->cart->primary_data(array(
-                    'id_sales_order' => $this->input->post('id_sales_order'),
-                    'id_staff' => $this->id_staff
-                ));
-                redirect('sales-order/returns/list-item');
+                if($data_id_sales_order->type != 2){
+                    $this->cart->primary_data(array(
+                        'id_sales_order' => $this->input->post('id_sales_order'),
+                        'id_staff' => $this->id_staff
+                    ));
+                    redirect('sales-order/returns/list-item');
+                }
             }
             $data['error'] = 'no nota tidak ditemukan atau barang belum terkirim';
         }

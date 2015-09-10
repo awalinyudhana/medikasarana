@@ -146,6 +146,7 @@ class SalesOrder extends MX_Controller
                     $primary['paid'] = $dpp + $ppn;
                     $primary['status_paid'] = 1;
                     $primary['status'] = 1;
+                    $primary['status_extract'] = 0;
                 }
                 if ($id_so = $this->cart->primary_data($primary)->save()
                 ) {
