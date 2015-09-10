@@ -156,8 +156,7 @@ class Extract extends MX_Controller
 
         }
         $this->session->set_flashdata('error', "pilih item yang di pisah");
-
-        $this->listing();
+        redirect('extract/do');
     }
 
     private function process($primary, $data)
