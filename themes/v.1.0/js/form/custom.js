@@ -146,7 +146,7 @@ function formatAsNumber(el){
 }
 
 function checkLimit(a,b){
-    if(b >= 0){
+    if(b > 0){
         if(a > b){
             if(confirm("faktur melebihi limit transaksi, apakah anda yakin data di proses?") == false){
                 return false;

@@ -107,7 +107,7 @@
                 </table>
             </div>
             <form action="{base_url('join/save')}" role="form" method="post"
-                  onsubmit="return confirm('Process Data');">
+                  onsubmit="return checkLimit({$total+$ppn_total},{$master->plafond});">
                 <input type="hidden" name="total" value="{$total}">
 
 

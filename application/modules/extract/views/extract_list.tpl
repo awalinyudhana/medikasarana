@@ -251,7 +251,7 @@
             </div>
             <div class="row">
                 <div class="col-md-2 pull-right text-left">
-                    <a href="{base_url('extract/save')}" class="btn block full-width btn-success">
+                    <a href="{base_url('extract/save')}" onclick="return confirm('apakah anda yakin memproses data ini');" class="btn block full-width btn-success">
                         <i class="icon-checkmark">
                         </i> Checkout
                     </a>
