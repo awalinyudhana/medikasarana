@@ -141,6 +141,11 @@
                                         </h6>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td colspan="2" class="text-right text-warning">
+                                      * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond}</span></i>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                             <div class="btn-group right-box">

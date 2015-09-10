@@ -31,6 +31,7 @@
                     <ul class="invoice-details">
                         <li>Jenis Proposal <strong class="text-info">{$proposal_type}</strong></li>
                         <li>PPn status # <strong class="text-info">{$status_ppn}</strong></li>
+                        <li>Plafond <strong class="text-info">Rp <span class="convert-currency">{$master->plafond}</strong></li>
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('sales-order/delete')}" class=" button btn btn-danger">
                                 <i class="icon-eject"></i>Ganti Dengan Proposal Lain</a>
@@ -243,7 +244,7 @@
                 </table>
             </div>
             <form action="{base_url('sales-order/save')}" role="form" method="post"
-                  onsubmit="return confirm('Process Data');">
+                  onsubmit="checkLimit({$total+$ppn_total},{$master->plafond}<);">
                 <input type="hidden" name="total" value="{$total}">
                 <div class="panel-body">
 
@@ -296,6 +297,11 @@
                                         <h6>Rp <span
                                                     id="sum-grand_total-text">{($total+$ppn_total)|number_format:0} </span>
                                         </h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-right text-warning">
+                                      * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond}</span></i>
                                     </td>
                                 </tr>
                                 </tbody>

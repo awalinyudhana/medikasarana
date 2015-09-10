@@ -129,14 +129,15 @@
                                 </h6>
                             </td>
                         </tr>
+
+                        <tr>
+                            <td colspan="2" class="text-right text-warning">
+                              * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond}</span></i>
+                            </td>
+                        </tr>
+
                         </tbody>
                     </table>
-                    {*<div class="btn-group right-box">*}
-                    {*<button type="submit" name="save" class="btn block full-width btn-success"><i*}
-                    {*class="icon-checkmark">*}
-                    {*</i> Checkout*}
-                    {*</button>*}
-                    {*</div>*}
                 </div>
             </div>
 
@@ -235,6 +236,12 @@
                                 <h6>Rp <span
                                             id="sum-grand_total-text">{($total_second+$ppn_total_second)|number_format:0} </span>
                                 </h6>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" class="text-right text-warning">
+                              * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond}</span></i>
                             </td>
                         </tr>
                         </tbody>
