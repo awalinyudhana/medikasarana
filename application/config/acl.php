@@ -55,9 +55,31 @@ $config['logout_message'] = 'Success! You have been logged out.';
 $config['module_auth_message'] = 'please login to access this module.';
 
 //
-$config['module_list'] = ["bank","credit", "customer", "debit", "delivery_order", "extract", "join", "opname", "pricing",
-    "principal", "product", "product_store", "product_opname", "product_opname_store","product_conversion", "product_distribution", "product_return", "proposal",
-    "purchase_order", "retail", "sales_order", "store", "users", "warehouse"];
+$config['module_list'] = [
+    "users" => "Pegawai", 
+    "customer" => "Konsumen", 
+    "principal" => "Prinsipal", 
+    "bank" => "bank info",
+    "warehouse" => "Gudang",
+    "product" => "Produk Gudang", 
+    "product_opname" => "Produk Toko Opname", 
+    "product_conversion"  => "Konversi Produk", 
+    "pricing" => "Penentuan Harga",
+    "store" => "Toko", 
+    "product_store" => "Produk Toko", 
+    "product_opname_store" => "Produk Gudang Opname", 
+    "product_distribution"  => "Pindah barang dari gudang ke toko", 
+    "product_return" => "Pindah barang dari toko ke gudang",
+    "proposal" => "Proposal", 
+    "purchase_order" => "Order Beli",  
+    "retail" => "Retail", 
+    "sales_order" => "Order Jual", 
+    "delivery_order" => "Order Kirim", 
+    "credit" => "Hutang", 
+    "debit" => "Piutang", 
+    "extract" => "Pisah Faktur", 
+    "join" => "Gabung Faktur"
+];
 $config['module_router'] =
     [
         [

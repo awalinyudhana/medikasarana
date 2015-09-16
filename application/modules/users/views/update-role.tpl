@@ -27,12 +27,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Daftar Modul:</label>
-                                            {foreach $modulesList as $module}
+                                            {foreach from=$modulesList item=label}
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" name="selected_modules[]" class="styled"
-                                                               {if in_array($module, $userGroupRoles)}checked="checked"{/if}
-                                                               value="{$module}">{$module}
+                                                               {if in_array($label.key, $userGroupRoles)}checked="checked"{/if}
+                                                               value="{$label.key}">{$label.value}
                                                     </label>
                                                 </div>
                                             {/foreach}
