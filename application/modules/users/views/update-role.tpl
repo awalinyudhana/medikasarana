@@ -16,36 +16,29 @@
 
             {if $modulesList}
                 <form method="post">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><h6 class="panel-title"><i class="icon-pencil3"></i> Update Group
-                                Role</h6></div>
-                        <div class="panel-body">
-
-                            <!-- Company General Information -->
-                            <div class="block-inner">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Daftar Modul:</label>
-                                            {foreach $modulesList as $module => $value}
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" name="selected_modules[]" class="styled"
-                                                               {if in_array($module, $userGroupRoles)}checked="checked"{/if}
-                                                               value="{$module}">{$value}
-                                                    </label>
-                                                </div>
-                                            {/foreach}
+                    <!-- Company General Information -->
+                    <div class="block-inner">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Daftar Modul:</label>
+                                    {foreach $modulesList as $module => $value}
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="selected_modules[]" class="styled"
+                                                       {if in_array($module, $userGroupRoles)}checked="checked"{/if}
+                                                       value="{$module}">{$value}
+                                            </label>
                                         </div>
-                                    </div>
+                                    {/foreach}
                                 </div>
                             </div>
-
-                            <div class="form-actions text-left">
-                                <input type="submit" value="Simpan" class="btn btn-info">
-                                <a href="{base_url('users/group')}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin membatalkan operasi?');">Cancel</a>
-                            </div>
                         </div>
+                    </div>
+
+                    <div class="form-actions text-left">
+                        <input type="submit" value="Simpan" class="btn btn-info">
+                        <a href="{base_url('users/group')}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin membatalkan operasi?');">Cancel</a>
                     </div>
                 </form>
             {/if}
