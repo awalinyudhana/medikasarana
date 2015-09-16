@@ -65,7 +65,7 @@ class SalesOrder extends MX_Controller
 
                 redirect('sales-order/' . $this->input->post('id_proposal'));
             }
-            $data['error'] = 'no nota tidak ditemukan';
+            $data['error'] = 'No nota tidak ditemukan';
         }
         $this->parser->parse("sales_order-form.tpl", $data);
     }
@@ -80,7 +80,7 @@ class SalesOrder extends MX_Controller
             ) {
                 redirect('sales-order/checkout/' . $this->input->post('id_sales_order'));
             }
-            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'data tidak di temukan'));
+            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'Data tidak ditemukan'));
         }
         $this->parser->parse("invoice-form.tpl");
     }
@@ -161,7 +161,7 @@ class SalesOrder extends MX_Controller
                     }
                     redirect('sales-order/checkout/' . $id_so);
                 }
-                $this->session->set_flashdata('error', "transaction error");
+                $this->session->set_flashdata('error', "Transaction error");
             }
         }
         $this->detail();

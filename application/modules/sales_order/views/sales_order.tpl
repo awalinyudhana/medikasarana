@@ -9,7 +9,7 @@
     </script>
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Sales Order</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Order Jual</h6></div>
 
         <div class="panel-body">
             <div class="row invoice-header">

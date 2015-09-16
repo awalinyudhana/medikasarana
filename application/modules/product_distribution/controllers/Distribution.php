@@ -71,7 +71,7 @@ class Distribution extends MX_Controller
                     }
 
                 }else{
-                    $this->session->set_flashdata('error', "stok tidak cukup");
+                    $this->session->set_flashdata('error', "Stok tidak cukup");
                 }
             }else{
                 $this->session->set_flashdata('error', validation_errors());
@@ -107,7 +107,7 @@ class Distribution extends MX_Controller
                         redirect('product-distribution');
                     }
                 } else {
-                    $this->session->set_flashdata('error', "input data error");
+                    $this->session->set_flashdata('error', "Input data error");
                     redirect('product-distribution');
                 }
                 $i++;
@@ -115,7 +115,7 @@ class Distribution extends MX_Controller
             if($id_distribution = $this->cart->save()){
                 redirect('product-distribution/checkout'.'/'.$id_distribution);
             }
-            $this->session->set_flashdata('error', "transaction error");
+            $this->session->set_flashdata('error', "Transaction error");
         }
         redirect('product-distribution');
     }

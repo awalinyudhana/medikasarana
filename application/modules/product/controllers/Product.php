@@ -59,7 +59,8 @@ class Product extends MX_Controller
             ->unset_read();
 
         $output = $crud->render();
-
+        $output['title'] = "Data Produk";
+        $output['summary'] = "Informasi umum tentang data produk gudang";
         $this->render($output);
     }
 
@@ -177,6 +178,8 @@ class Product extends MX_Controller
             ->unset_delete();
 
         $output = $crud->render();
+        $output['title'] = "Data Kategori Produk";
+        $output['summary'] = "Informasi umum tentang data kategori produk";
         $this->render($output);
     }
 
@@ -245,6 +248,8 @@ class Product extends MX_Controller
 //            ->callback_before_insert(array($this, 'checkPrefixCode'))
             ->unset_read();
         $output = $crud->render();
+        $output['title'] = "Data Satuan Produk";
+        $output['summary'] = "Informasi umum tentang data satuan produk";
         $this->render($output);
     }
 
@@ -317,6 +322,8 @@ class Product extends MX_Controller
             ->callback_column('category_parent', array($this, 'getCategoryParentName'))
             ->unset_operations();
         $output = $crud->render();
+        $output['title'] = "Data Produk";
+        $output['summary'] = "Informasi umum tentang data produk gudang";
         $this->render($output);
     }
 

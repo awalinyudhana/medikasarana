@@ -8,13 +8,12 @@
     </script>
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Purchase Order</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Order Beli</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Purchase Info
-                    <small class="display-block">Informasi umum tentang proses purchasing</small>
+                    <i class="icon-clipboard"></i> Order Beli <small class="display-block">Proses input detail order beli</small>
                 </h6>
             </div>
             <div class="row invoice-header">
@@ -52,7 +51,7 @@
                 </div>
             </div>
 
-            <!-- Callout -->
+        <!-- Callout -->
             {if $error}
                 <div class="callout callout-danger fade in">
                     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -61,7 +60,7 @@
                     <p>{$error}</p>
                 </div>
             {/if}
-            <!-- /callout -->
+        <!-- /callout -->
 
             <div class="row">
                 <div class="col-md-4">
@@ -172,8 +171,8 @@
                     </div>
                 </div>
             </div>
-            <!-- /panel body -->
-            <br>
+        <!-- /panel body -->
+         <br>
 
             {if $items}
                 <div class="table-responsive pre-scrollable">
@@ -364,11 +363,6 @@
                 <!-- /panel body -->
             {/if}
         </div>
-
-        {*<div class="panel-body">*}
-        {*<h6>Notes &amp; Information:</h6>*}
-        {*Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.*}
-        {*</div>*}
     </div>
     <!-- /default panel -->
 

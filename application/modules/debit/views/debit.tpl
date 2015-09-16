@@ -11,13 +11,13 @@
     {/if}
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Piutang</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Informasi Daftar Piutang</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-coin"></i> Piutang Info
-                    <small class="display-block">Informasi umum tentang proposal</small>
+                    <i class="icon-coin"></i> Informasi Piutang
+                    <small class="display-block">Proses input detail pembayaran piutang</small>
                 </h6>
             </div>
 

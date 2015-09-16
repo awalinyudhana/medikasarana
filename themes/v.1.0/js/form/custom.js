@@ -148,12 +148,12 @@ function formatAsNumber(el){
 function checkLimit(a,b){
     if(b > 0){
         if(a > b){
-            if(confirm("faktur melebihi limit transaksi, apakah anda yakin data di proses?") == false){
+            if(confirm("Faktur melebihi limit transaksi, apakah anda yakin data di proses?") == false){
                 return false;
             }
         }
     }
-    return confirm("apakah anda yakin data di proses?");
+    return confirm("Apakah anda yakin data di proses?");
 }
 
 function print_doc() {

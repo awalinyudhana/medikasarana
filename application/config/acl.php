@@ -55,10 +55,9 @@ $config['logout_message'] = 'Success! You have been logged out.';
 $config['module_auth_message'] = 'please login to access this module.';
 
 //
-$config['module_list'] = ["bank",
-    "card_stock", "credit", "customer", "debit", "delivery_order", "extract", "join", "opname", "pricing",
+$config['module_list'] = ["bank","credit", "customer", "debit", "delivery_order", "extract", "join", "opname", "pricing",
     "principal", "product", "product_store", "product_opname", "product_opname_store","product_conversion", "product_distribution", "product_return", "proposal",
-    "purchase_order", "retail", "retail_return", "sales_order", "sales_order_return", "store", "users", "warehouse"];
+    "purchase_order", "retail", "sales_order", "store", "users", "warehouse"];
 $config['module_router'] =
     [
         [
@@ -242,7 +241,7 @@ $config['module_router'] =
                         [
                             'title' => "Order Jual",
                             'url' => 'sales-order/search',
-                            'module' => 'proposal'
+                            'module' => 'sales_order'
                         ],
                         // [
                         //     'title' => 'Invoice',
@@ -252,7 +251,7 @@ $config['module_router'] =
                         [
                             'title' => 'History',
                             'url' => 'sales-order/history',
-                            'module' => 'proposal'
+                            'module' => 'sales_order'
                         ]
                     ]
                 ],
@@ -262,7 +261,7 @@ $config['module_router'] =
                         [
                             'title' => "Retur Jual",
                             'url' => 'sales-order/returns',
-                            'module' => 'proposal'
+                            'module' => 'sales_order'
                         ],
                         // [
                         //     'title' => 'Invoice Return',
@@ -272,7 +271,7 @@ $config['module_router'] =
                         [
                             'title' => 'History',
                             'url' => 'sales-order/returns/history',
-                            'module' => 'proposal'
+                            'module' => 'sales_order'
                         ]
                     ]
                 ],

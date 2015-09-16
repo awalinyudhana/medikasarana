@@ -85,7 +85,7 @@ class PurchaseOrder extends MX_Controller
                     redirect('purchase-order/detail');
 
                 }
-                $data['error'] = "item sudah ditambahkan, silakan update Qty.";
+                $data['error'] = "Item sudah ditambahkan, silakan update Qty.";
             }
         }
 
@@ -173,7 +173,7 @@ class PurchaseOrder extends MX_Controller
                     $this->session->set_flashdata('error',
                         $this->upload->display_errors());
                 }else{
-                    $this->session->set_flashdata('error', "mohon upload bukti pembelian");
+                    $this->session->set_flashdata('error', "Mohon upload bukti pembelian");
                 }
             }
         }

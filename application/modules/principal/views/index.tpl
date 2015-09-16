@@ -14,13 +14,13 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Master Principal</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Data Prinsipal</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Master Principal
-                    <small class="display-block">Informasi principal</small>
+                    <i class="icon-clipboard"></i> Data Prinsipal
+                    <small class="display-block">Informasi umum tentang data prinsipal</small>
                 </h6>
             </div>
 

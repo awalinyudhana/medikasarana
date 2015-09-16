@@ -155,7 +155,7 @@ class Extract extends MX_Controller
             return false;
 
         }
-        $this->session->set_flashdata('error', "pilih item yang di pisah");
+        $this->session->set_flashdata('error', "Pilih item yang dipisah");
         redirect('extract/do');
     }
 
@@ -206,7 +206,7 @@ class Extract extends MX_Controller
 
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();
-            $this->error['db'][] = 'error db transaction';
+            $this->error['db'][] = 'Rrror db transaction';
             return false;
         } else {
             $this->db->trans_commit();

@@ -5,12 +5,12 @@
 
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">History Hutang</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Daftar informasi pembayaran hutang</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i>History Hutang <small class="display-block">Daftar history Hutang</small>
+                        <i class="icon-coin"></i>Hutang <small class="display-block">Daftar informasi pembayaran</small>
                     </h6>
                 </div>
                 <hr>

@@ -14,13 +14,13 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Product Placing</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Penempatan Produk</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Product Placing
-                    <small class="display-block">Informasi penempatan produk di rack</small>
+                    <i class="icon-clipboard"></i> Penempatan Produk
+                    <small class="display-block"> Informasi penempatan produk di rak</small>
                 </h6>
             </div>
 

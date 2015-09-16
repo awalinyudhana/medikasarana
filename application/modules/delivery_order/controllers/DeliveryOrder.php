@@ -109,7 +109,7 @@ class DeliveryOrder extends MX_Controller
                 if (!$this->cart->update_item($id_sales_order_detail, ['qty_delivered' => $qty]))
                     $this->session->set_flashdata('error', $this->cart->getError());
             }else{
-                $this->session->set_flashdata('error', 'Stock hanya tersedia'. $this->cache['detail']['value'][$id_sales_order]['stock']);
+                $this->session->set_flashdata('error', 'Stock hanya tersedia'. $this->cache['detail']['value'][$id_sales_order_detail]['stock']);
             }
         }
         redirect('delivery-order/list');

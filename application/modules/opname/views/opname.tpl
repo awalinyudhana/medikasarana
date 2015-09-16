@@ -5,13 +5,13 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Stock Opname</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Stok Opname Gudang</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Stock Opname
-                    <small class="display-block">Stock Opname</small>
+                    <i class="icon-clipboard"></i> Stok Opname Gudang
+                    <!-- <small class="display-block">Stock Opname</small> -->
                 </h6>
             </div>
             <!-- Callout -->

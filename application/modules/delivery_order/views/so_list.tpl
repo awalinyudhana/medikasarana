@@ -5,13 +5,13 @@
 
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Delivery Order</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Daftar Order Jual</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i>Delivery Order
-                    <small class="display-block">Informasi umum tentang proses Delivery Order</small>
+                    <i class="icon-clipboard"></i>Daftar Order Jual
+                    <small class="display-block">Daftar nota order jual yang belum dikirim</small>
                 </h6>
             </div>
             {if $success}
@@ -66,10 +66,6 @@
                     </tbody>
                 </table>
             </div>
-            {*<h6>Notes &amp; Information:</h6>*}
-            {*Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.*}
-
-
         </div>
     </div>
     <!-- /default panel -->

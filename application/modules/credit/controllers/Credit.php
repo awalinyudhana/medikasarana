@@ -75,7 +75,7 @@ class Credit extends MX_Controller
                 $scan = '';
 
                 if($this->input->post('payment_type') == "bg" && $this->input->post('date_withdrawal') == null){
-                    $data['error'] = "masukkan tanggal penarikan:";
+                    $data['error'] = "Masukkan tanggal penarikan:";
                 }else{
                     if (isset($_FILES['file']['size']) && ($_FILES['file']['size'] > 0)) {
                         $config['upload_path'] = './upload/credit/';
@@ -112,7 +112,7 @@ class Credit extends MX_Controller
                         redirect('credit');
                     }
                     else{
-                        $data['error'] = "masukkan bukti pembayaran";
+                        $data['error'] = "Masukkan bukti pembayaran";
                     }
                 }
             }

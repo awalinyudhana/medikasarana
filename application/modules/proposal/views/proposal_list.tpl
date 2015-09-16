@@ -10,8 +10,8 @@
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Proposal Info
-                    <small class="display-block">Informasi umum tentang proses Proposal Info</small>
+                    <i class="icon-clipboard"></i> Informasi detail proposal
+                    <small class="display-block">Informasi umum tentang detail proposal</small>
                 </h6>
             </div>
             {if $success}

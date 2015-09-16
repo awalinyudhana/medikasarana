@@ -79,7 +79,7 @@ class Join extends MX_Controller
                     $this->cart->add_item($key['id_sales_order_detail'], $row);
                 }
             }else{
-                $this->session->set_flashdata('error', "tidak bisa diproses status ppn berbeda");
+                $this->session->set_flashdata('error', "Tidak bisa diproses status ppn berbeda");
                 redirect('join');
             }
         }
@@ -141,7 +141,7 @@ class Join extends MX_Controller
 //                        ]);
                     redirect('join/checkout/' . $id_sales_order);
                 }
-                $this->session->set_flashdata('error', "transaction error");
+                $this->session->set_flashdata('error', "Transaction error");
 //            }
         }
         $this->listing();

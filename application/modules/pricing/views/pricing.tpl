@@ -7,13 +7,13 @@
     {js('form/conversion.js')}
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Pricing</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Pricing Produk Retail</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Pricing
-                    <small class="display-block">Informasi umum tentang proses Pricing</small>
+                    <i class="icon-clipboard"></i> Pricing Produk Retail
+                    <small class="display-block">Proses input harga produk retail</small>
                 </h6>
             </div>
             <!-- Callout -->

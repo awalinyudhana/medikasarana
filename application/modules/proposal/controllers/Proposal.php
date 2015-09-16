@@ -173,7 +173,7 @@ class Proposal extends MX_Controller
             if ($id_proposal = $this->cart->save()) {
                 redirect('proposal/checkout/' . $id_proposal);
             }
-            $this->session->set_flashdata('error', "transaction error");
+            $this->session->set_flashdata('error', "Transaction error");
         }
         $this->insertDetail();
     }

@@ -5,7 +5,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Retur Invoice</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i>Invoice Retur Order Jual</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">

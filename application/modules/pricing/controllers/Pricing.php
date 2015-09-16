@@ -40,7 +40,7 @@ class Pricing extends MX_Controller
                 $this->session->set_flashdata('success','data berhasil di update');
                 redirect('pricing');
             }
-            $data['error'] = 'error transaction';
+            $data['error'] = 'Error transaction';
         }
         $data['price_movement'] = $this->db
             ->from('product_price_movement pm')

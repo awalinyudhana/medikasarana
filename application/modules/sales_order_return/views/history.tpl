@@ -13,7 +13,7 @@
 {block name=content}
     <!-- Default panel -->
     <div class="panel panel-default">
-        <div class="panel-heading"><h6 class="panel-title">History Return Sales Order</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">History Retur Order Jual</h6></div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">

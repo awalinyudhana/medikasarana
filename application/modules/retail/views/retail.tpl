@@ -14,7 +14,7 @@
             <div class="block-inner">
                 <h6 class="heading-hr">
                     <i class="icon-clipboard"></i> Retail
-                    <small class="display-block">Informasi umum tentang proses retail</small>
+                    <small class="display-block">Detail transaksi penjualan retail</small>
                 </h6>
             </div>
 

@@ -4,9 +4,14 @@
 {block name=content}
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Delivery Order</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Order Kirim</h6></div>
 
         <div class="panel-body">
+            <div class="block-inner">
+                <h6 class="heading-hr">
+                    <i class="icon-clipboard"></i> Order Kirim <small class="display-block">Proses input detail pengiriman</small>
+                </h6>
+            </div>
             <div class="row invoice-header">
                 <div class="col-sm-4">
                     <h3>{$master->name}</h3>

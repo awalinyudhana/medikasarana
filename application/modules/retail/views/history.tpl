@@ -14,7 +14,7 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">History Retail</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">History Penjualan Retail</h6></div>
 
         <div class="panel-body">
 

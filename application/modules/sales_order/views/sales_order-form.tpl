@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading"><h6 class="panel-title">Form Sales Order</h6></div>
+                <div class="panel-heading"><h6 class="panel-title">Form Order Jual</h6></div>
                 <div class="panel-body">
                     {if $error}
                         <div class="callout callout-danger fade in">

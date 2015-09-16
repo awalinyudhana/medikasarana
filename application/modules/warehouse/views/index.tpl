@@ -14,13 +14,13 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Master Warehouse</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Data Gudang</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Master Warehouse
-                    <small class="display-block">Informasi warehouse pusat</small>
+                    <i class="icon-clipboard"></i> Data Gudang
+                    <small class="display-block">Informasi umum tentang data gudang</small>
                 </h6>
             </div>
 

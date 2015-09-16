@@ -42,7 +42,7 @@ class RetailReturn extends MX_Controller
                 ));
                 redirect('retail/returns/list-item');
             }
-            $data['error'] = 'no nota tidak ditemukan';
+            $data['error'] = 'No nota tidak ditemukan';
         }
         $this->parser->parse("returns-form.tpl", $data);
     }
@@ -195,7 +195,7 @@ class RetailReturn extends MX_Controller
                     ->get('retail_return')->num_rows() > 0 ) {
                 redirect('retail/returns/checkout/' . $this->input->post('id_retail_return'));
             }
-            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'data tidak di temukan'));
+            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'Data tidak di emukan'));
         }
         $this->parser->parse("invoice-form.tpl");
     }

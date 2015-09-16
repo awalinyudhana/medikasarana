@@ -13,8 +13,11 @@
 {block name=content}
     <!-- Default panel -->
     <div class="panel panel-default">
-        <div class="panel-heading"><h6 class="panel-title">History Order Kirim</h6></div>
+
+        <div class="panel-heading"><h6 class="panel-title">History Nota Lama</h6></div>
+
         <div class="panel-body">
+
             <div class="row">
                 <div class="col-md-12">
                     {$output}

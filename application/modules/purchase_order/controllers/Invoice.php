@@ -28,7 +28,7 @@ class Invoice extends MX_Controller
                 ->get('purchase_order')->num_rows() > 0 ) {
                 redirect('purchase-order/invoice/'.$this->input->post('id_purchase_order'));
             }
-            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'data tidak di temukan'));
+            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'Data tidak di temukan'));
         }
         $this->parser->parse("invoice-form.tpl");
     }

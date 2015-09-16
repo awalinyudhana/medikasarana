@@ -5,13 +5,13 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Product Return</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Distribusi Barang ke Gudang</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Product Return
-                    <small class="display-block">Informasi umum tentang Product Return</small>
+                    <i class="icon-clipboard"></i> Distribusi Barang ke Gudang
+                    <small class="display-block">Proses distribusi barang dari toko ke gudang</small>
                 </h6>
             </div>
             <!-- Callout -->

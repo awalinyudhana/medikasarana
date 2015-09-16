@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading"><h6 class="panel-title">Invoice Retur Retur</h6></div>
+                <div class="panel-heading"><h6 class="panel-title">Invoice Retur Order Jual</h6></div>
                 <div class="panel-body">
                     {if flashdata('message')}
                         {assign var=msg value=flashdata('message')}

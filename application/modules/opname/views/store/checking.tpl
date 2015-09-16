@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading"><h6 class="panel-title">Stok Opname</h6></div>
+                <div class="panel-heading"><h6 class="panel-title">Stok Opname Toko</h6></div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-12">

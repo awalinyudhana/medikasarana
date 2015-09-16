@@ -14,7 +14,7 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">History Purchase Order</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">History Order Beli</h6></div>
 
         <div class="panel-body">
 

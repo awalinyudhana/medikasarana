@@ -12,7 +12,7 @@ class SalesOrderReturn extends MX_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->acl->auth('proposal');
+        $this->acl->auth('sales_order');
         $this->id_staff = $this->session->userdata('uid');
         $this->load->model('ModelSalesOrderReturn', 'model_return');
         $this->load->model('proposal/ModelProduct', 'model_product');
@@ -43,7 +43,7 @@ class SalesOrderReturn extends MX_Controller
                     redirect('sales-order/returns/list-item');
                 }
             }
-            $data['error'] = 'no nota tidak ditemukan atau barang belum terkirim';
+            $data['error'] = 'No nota tidak ditemukan atau barang belum terkirim';
         }
         $this->parser->parse("returns-form.tpl", $data);
     }
@@ -182,7 +182,7 @@ class SalesOrderReturn extends MX_Controller
                     ->get('sales_order_return')->num_rows() > 0 ) {
                 redirect('retail/returns/checkout/' . $this->input->post('id_sales_order_return'));
             }
-            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'data tidak di temukan'));
+            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'Data tidak ditemukan'));
         }
         $this->parser->parse("invoice-form.tpl");
     }

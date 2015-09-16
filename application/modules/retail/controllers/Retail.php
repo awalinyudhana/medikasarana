@@ -47,7 +47,7 @@ class Retail extends MX_Controller
                     ]);
                     redirect('retail');
                 }
-                $data['error'] = "stock tidak cukup";
+                $data['error'] = "Stock tidak cukup";
             }
         }
         $data['items'] = $this->cart->list_item($product_storage, 'id_product_store')->result_array_item();
@@ -63,7 +63,7 @@ class Retail extends MX_Controller
             if (!$this->cart->update_item($id_product_store, ['qty' => $qty]))
                 $this->session->set_flashdata('error', $this->cart->getError());
         } else {
-            $this->session->set_flashdata('error', "stock tidak cukup");
+            $this->session->set_flashdata('error', "Stock tidak cukup");
         }
         redirect('retail');
     }
@@ -134,7 +134,7 @@ class Retail extends MX_Controller
                     ->get('retail')->num_rows() > 0 ) {
                 redirect('retail/checkout/' . $this->input->post('id_retail'));
             }
-            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'data tidak di temukan'));
+            $this->session->set_flashdata('message', array('class' => 'error', 'msg' => 'Data tidak di temukan'));
         }
         $this->parser->parse("invoice-form.tpl");
     }

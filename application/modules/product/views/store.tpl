@@ -5,13 +5,13 @@
 
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Product Store</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Data Produk Toko</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i>Product Store
-                    <small class="display-block">Informasi umum tentang proses Product Store</small>
+                    <i class="icon-clipboard"></i>Data Produk Toko
+                    <small class="display-block">Informasi umum tentang data produk toko</small>
                 </h6>
             </div>
             

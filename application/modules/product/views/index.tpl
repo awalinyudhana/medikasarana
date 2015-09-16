@@ -14,9 +14,15 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Master Product</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">{$title}</h6></div>
 
         <div class="panel-body">
+            <div class="block-inner">
+                <h6 class="heading-hr">
+                    <i class="icon-clipboard"></i> {$title}
+                    <small class="display-block">{$summary}</small>
+                </h6>
+            </div>
 
             <div class="row">
                 <div class="col-md-12">

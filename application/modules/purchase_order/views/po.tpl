@@ -6,12 +6,12 @@
     <form action="{current_url()}" role="form" method="post">
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Purchase Order</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Order Beli</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-clipboard"></i> Purchase Info <small class="display-block">Informasi umum tentang proses purchasing</small>
+                        <i class="icon-clipboard"></i> Order Beli <small class="display-block">Proses input detail order beli</small>
                     </h6>
                 </div>
                 <div class="form-group">

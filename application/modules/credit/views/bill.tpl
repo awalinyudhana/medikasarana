@@ -18,7 +18,7 @@
             <div class="block-inner">
                 <h6 class="heading-hr">
                     <i class="icon-file4"></i> Info Hutang
-                    <small class="display-block">Informasi umum tentang hutang</small>
+                    <small class="display-block">Form Pembayaran Hutang</small>
                 </h6>
             </div>
             <div class="col-sm-12">

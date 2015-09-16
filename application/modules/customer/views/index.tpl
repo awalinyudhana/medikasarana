@@ -14,13 +14,13 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Master Customer</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Data Konsumen</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Master Customer
-                    <small class="display-block">Informasi pelanggan</small>
+                    <i class="icon-clipboard"></i> Data Konsumen
+                    <small class="display-block">Informasi umum tentang data konsumen</small>
                 </h6>
             </div>
 

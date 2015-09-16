@@ -5,13 +5,13 @@
     <!-- Default panel -->
 
     <div class="panel panel-default">
-        <div class="panel-heading"><h6 class="panel-title">Create Proposal Penawaran Harga</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">uat Proposal Penawaran Harga</h6></div>
         <form class="form-horizontal" method="post" role="form" action="{current_url()}">
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-clipboard"></i> Proposal Info
-                        <small class="display-block">Informasi umum tentang proses Proposal Info</small>
+                        <i class="icon-clipboard"></i> Detail Proposal Baru
+                        <small class="display-block">Proses input detail proposal baru</small>
                     </h6>
                 </div>
                 <div class="form-group">
