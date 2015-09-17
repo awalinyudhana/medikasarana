@@ -147,7 +147,7 @@
             </table>
         </font>
         <font size="1.0em">
-            <table border="1" width="100%">
+            <table border="0" width="100%">
                 <thead>
                 <tr>
                     <th>No</th>
