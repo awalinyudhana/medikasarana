@@ -3,7 +3,7 @@
 
 {block name=content}
     <div class="panel panel-default">
-        <div class="panel-heading"><h6 class="panel-title"><i class="icon-file-zip"></i>Mix Faktur</h6></div>
+        <div class="panel-heading"><h6 class="panel-title"><i class="icon-file-zip"></i>Gabung Faktur</h6></div>
         <div class="panel-body">
             {if $error}
                 <div class="callout callout-danger fade in">
