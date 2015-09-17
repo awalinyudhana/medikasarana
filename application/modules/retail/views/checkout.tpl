@@ -170,12 +170,12 @@
                 {assign var=total value=0}
                 {assign var=val value=1}
                 {foreach $items as $key }
-                    <tr class="nobordersbottomtop">
+                    <tr>
                         <td valign="top" align="left">{$val}</td>
                         <td valign="top" align="left">{$key['name']}</td>
-                        <td valign="top" align="left">{$key['brand']}</td>
+                        <td valign="top" align="center">{$key['brand']}</td>
                         <td valign="top">{$key['unit']} ( {$key['value']} )</td>
-                        <td valign="top" align="left">{$key['qty']}</td>
+                        <td valign="top" align="center">{$key['qty']}</td>
                         <td valign="top" align="right">
                             Rp {$key['price']|number_format:0}</td>
                         <td valign="top" align="right">
