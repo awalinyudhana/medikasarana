@@ -125,10 +125,10 @@
 
 {block name=print}
     <div id="print">
-        <font size="1.3em">
+        <font size="1.4em">
             <table border="0" width="100%">
                 <tr>
-                    <td width="60%" align="left" valign="top">
+                    <td width="70%" align="left" valign="top">
                         <h3>{$master->store_name}</h3>
                         <span>{$master->address} - {$master->zipcode}
                             </br>
@@ -139,16 +139,17 @@
                             NPWP : {$master->npwp}
                         </span>
                     </td>
-                    <td align="right" valign="center">
-                        <strong class="pull-right">{$master->id_retail} / {$master->staff_name}</strong></br>
-                        <strong class="pull-right">{$master->date}</strong></br>
+                    <td valign="center">
+                        <strong>{$master->id_retail} / {$master->staff_name} / $master->id_group</strong>
+                        </br>
+                        <strong>{$master->date}</strong></br>
                     </td>
                 </tr>
             </table>
         </font>
-        <font size="1.0em">
+        <font size="1.1em">
             <table border="0" width="100%">
-                <thead>
+                <thead style="border-top: 1px dashed; border-bottom: 1px dashed;">
                 <tr>
                     <th>No</th>
                     <th min-width="40%">Nama Produk</th>
@@ -179,33 +180,40 @@
                     {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
                 {/foreach}
                 </tbody>
-                <tr class="nobordersbottomtop">
-                    <td colspan="6" align="right" valign="top">Diskon</td>
-                    <td align="right" valign="top">Rp {$master->discount_price|number_format:0}</td>
-                </tr>
-                <tr>
-                    <td colspan="6" align="right" valign="top">Harga Jual</td>
-                    <td align="right" valign="top">Rp {$master->grand_total|number_format:0}</td>
-                </tr>
-                <tr class="nobordersbottomtop">
-                    <td colspan="6" align="right" valign="top">Total</td>
-                    <td align="right" valign="top">Rp {$master->grand_total|number_format:0}</td>
-                </tr>
-                <tr class="nobordersbottomtop">
-                    <td colspan="6" align="right" valign="top">Tunai</td>
-                    <td align="right" valign="top">Rp {$master->paid|number_format:0}</td>
-                </tr>
-                <tr class="nobordersbottomtop">
-                    <td colspan="6" align="right" valign="top">Kembali</td>
-                    <td align="right" valign="top">Rp {($master->paid-$master->grand_total)|number_format:0}</td>
-                </tr>
-                <tr class="nobordersbottomtop">
-                    <td colspan="6" align="right" valign="top">Anda Hemat</td>
-                    <td align="right" valign="top">Rp {$master->discount_price|number_format:0}</td>
-                </tr>
+                </br>
+                <tbody>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td valign="top">Diskon</td>
+                        <td align="right" valign="top">Rp {$master->discount_price|number_format:0}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td style="border-top: 1px dashed; border-bottom: 1px dashed;" valign="top">Harga Jual</td>
+                        <td align="right"style="border-top: 1px dashed; border-bottom: 1px dashed;" valign="top">Rp {$master->grand_total|number_format:0}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td valign="top">Total</td>
+                        <td align="right" valign="top">Rp {$master->grand_total|number_format:0}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td valign="top">Tunai</td>
+                        <td align="right" valign="top">Rp {$master->paid|number_format:0}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td valign="top">Kembali</td>
+                        <td align="right" valign="top">Rp {($master->paid-$master->grand_total)|number_format:0}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td valign="top">Anda Hemat</td>
+                        <td align="right" valign="top">Rp {$master->discount_price|number_format:0}</td>
+                    </tr>
+                </tbody>
             </table>
-        </font>
-        <font size="1.0em">
             <table border="0" width="100%">
                 <tr>
                     <td width="100%" align="center" valign="top">
