@@ -125,7 +125,7 @@
 
 {block name=print}
     <div id="print">
-        <font size="1.4em">
+        <font size="1.6em">
             <table border="0" width="100%">
                 <tr>
                     <td width="70%" align="left" valign="top">
@@ -147,7 +147,7 @@
                 </tr>
             </table>
         </font>
-        <font size="1.1em">
+        <font size="1.3em">
             <table border="0" width="100%">
                 <thead style="border-top: 1px dashed; border-bottom: 1px dashed;">
                 <tr>
