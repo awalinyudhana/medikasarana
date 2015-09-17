@@ -140,7 +140,7 @@
                         </span>
                     </td>
                     <td valign="center">
-                        <strong>{$master->id_retail} / {$master->staff_name} / $master->id_group</strong>
+                        <strong>{$master->id_retail} / {$master->staff_name} / {$master->id_group}</strong>
                         </br>
                         <strong>{$master->date}</strong></br>
                     </td>
