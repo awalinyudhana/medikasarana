@@ -125,11 +125,20 @@
 
 {block name=print}
     <div id="print">
-        <font size="3em">
+        <font size="2em">
             <table border="0" width="100%">
                 <tr>
                     <td width="70%" align="left" valign="top">
                         <h3>{$master->store_name}</h3>
+                    </td>
+                    <td valign="center">
+                        #{$master->id_retail} / {$master->staff_name} / {$master->id_group}
+                        </br>
+                        {$master->date}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="40%">
                         <span>{$master->address} - {$master->zipcode}
                             </br>
                             {$master->city} - {$master->state}
@@ -139,10 +148,7 @@
                             NPWP : {$master->npwp}
                         </span>
                     </td>
-                    <td valign="center">
-                        <strong>{$master->id_retail} / {$master->staff_name} / {$master->id_group}</strong>
-                        </br>
-                        <strong>{$master->date}</strong></br>
+                    <td>
                     </td>
                 </tr>
             </table>
