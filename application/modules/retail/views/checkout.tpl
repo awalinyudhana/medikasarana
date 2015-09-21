@@ -170,11 +170,6 @@
                 <tbody>
                     {assign var=total value=0}
                     {assign var=val value=1}
-                    {foreach $items as $key }
-                        
-                        {assign var=val value=$val+1}
-                        {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
-                    {/foreach}
                 </tbody>
                 </br>
                 <tbody>
