@@ -149,6 +149,8 @@ class Credit extends MX_Controller
             ->get()
             ->row();
 
+        $this->load->model('store/ModStore', 'model_store');
+        $data['store'] = $this->model_store->getStoreDataById($this->config->item('id_store'));
         $data['po'] = $po;
 
         $credit = $this->db->from('credit')

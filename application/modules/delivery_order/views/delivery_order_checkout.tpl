@@ -131,7 +131,7 @@
                         </br>
                         Staff : {$do->name}
                         </br>
-                        Tanggal Kirim : $do->date_sending}
+                        Tanggal Kirim : {$do->date_sending}
                         </br>
                     </td>
                 </tr>

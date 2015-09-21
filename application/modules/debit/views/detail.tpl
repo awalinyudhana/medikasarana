@@ -35,6 +35,7 @@
                 <tr>
                     <th>No</th>
                     <th>Tanggal</th>
+                    <th>Tanggal Penarikan</th>
                     <th>Staff</th>
                     <th>Jumlah Bayar</th>
                     <th>Type Pembayaran</th>
@@ -52,6 +53,7 @@
                         <tr>
                             <td>{$val}</td>
                             <td>{$key->date}</td>
+                            <td>{$key->date_withdrawal}</td>
                             <td>{$key->name}</td>
                             <td>Rp {$key->amount|number_format:0}</td>
                             <td>{$key->payment_type}</td>
@@ -113,10 +115,10 @@
             <div class="col-sm-6">
 
                 <div class="btn-group pull-right">
-                    <a href="{base_url('credit')}" class="btn btn-info button">
-                        <i class="icon-box-add"></i> Daftar Piutang</a>
-                    <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
-                        <i class="icon-print2"></i> Print</button>
+                    <a href="{base_url('debit')}" class="btn btn-info button">
+                        <i class="icon-box-add"></i> Daftar Hutang</a>
+                   <!--  <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
+                        <i class="icon-print2"></i> Print</button> -->
                 </div>
             </div>  
         </div>

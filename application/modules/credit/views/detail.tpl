@@ -116,8 +116,8 @@
                 <div class="col-sm-6">
 
                     <div class="btn-group pull-right">
-                        <a href="{base_url('debit')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> Daftar Hutang</a>
+                        <a href="{base_url('credit')}" class="btn btn-info button">
+                            <i class="icon-box-add"></i> Daftar Piutang</a>
                         <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
                             <i class="icon-print2"></i> Print</button>
                     </div>
@@ -128,4 +128,116 @@
 
         </div><!-- /default panel -->
 
+{/block}
+{block name=print}
+    <div id="print">
+        <font size="2em">
+            <table border="0" width="100%">
+                <tr>
+                    <td width="35%" align="left" valign="top">
+                        <h3>{$store->name}</h3>
+                    </td>
+                    <td width="35%" rowspan="2" align="left" valign="top">
+                        Kepada Yth.
+                        </br>
+                        {$po->customer_name}
+                        </br>
+                        {$po->address} - {$po->zipcode}
+                        </br>
+                        {$po->city} - {$so->state}
+                        </br>
+                        {$po->telp1} - {$po->telp2}
+                        </br>
+                        NPWP : {$po->npwp}
+                    </td>
+                    <td rowspan="2" align="left" valign="top">
+                        No Faktur : #{$po->id_purchase_order}
+                        </br>
+                        Tanggal Nota Transaksi: {$po->date}
+                        </br>
+                        Tanggal Jatuh Tempo: {$po->due_date}
+                        </br>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" valign="top">
+                        {$store->address} - {$store->zipcode}
+                        </br>
+                        {$store->city} - {$store->state}
+                        </br>
+                        {$store->telp1} - {$store->telp2}
+                        </br>
+                        NPWP : {$store->npwp}
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </font>
+        </br>
+        <font size="2em">
+            <table border="0" width="100%">
+                <thead style="border-top: 1px dashed; border-bottom: 1px dashed;">
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Tanggal Penarikan</th>
+                        <!-- <th>Staff</th> -->
+                        <th>Jumlah Bayar</th>
+                        <th>Type Pembayaran</th>
+                        <th>No Resi</th>
+                        <!-- <th>Bukti Pembayaran</th> -->
+                        <th>Status Pembayaran</th>
+                    </tr>
+                </thead>
+                <tbody>
+ {if $credit}
+                        {assign var=total value=0}
+                        {assign var=val value=1}
+                        {foreach $credit as $key }
+
+                            <tr>
+                                <td>{$val}</td>
+                                <td>{$key->date}</td>
+                                <td>{$key->date_withdrawal}</td>
+                                <!-- <td>{$key->name}</td> -->
+                                <td>Rp {$key->amount|number_format:0}</td>
+                                <td>{$key->payment_type}</td>
+                                <td>{$key->resi_number}</td>
+                                <td>
+                                    {if $key->status == "1"}
+                                        Terbayar
+                                    {else}
+                                        Belum Terbayar
+                                    {/if}
+                                </td>
+                            </tr>
+                            {assign var=val value=$val+1}
+                            {assign var=total value=$total+($key->amount)}
+                        {/foreach}
+                    {/if}
+                    <tr>
+                        <td colspan="10">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8"></td>
+                        <td valign="top">Total Tagihan</td>
+                        <td align="right" valign="top">Rp {$po->grand_total|number_format:0}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8"></td>
+                        <td style="border-top: 1px dashed; border-bottom: 1px dashed;" valign="top">Total Bayar</td>
+                        <td align="right"style="border-top: 1px dashed; border-bottom: 1px dashed;" valign="top">Rp {$po->paid|number_format:0}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8"></td>
+                        <td valign="top">Sisa Piutang</td>
+                        <td align="right" valign="top">Rp {($po->grand_total - $po->paid)|number_format:0}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </font>
+    </div>
 {/block}
