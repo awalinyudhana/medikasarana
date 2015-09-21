@@ -255,12 +255,12 @@
                         <td align="right" valign="top">Rp {$master->dpp|number_format:0}</td>
                     </tr>
                     <tr>
-                        <td colspan="5"></td>
+                        <td colspan="8"></td>
                         <td style="border-top: 1px dashed; border-bottom: 1px dashed;" valign="top">PPN</td>
                         <td align="right"style="border-top: 1px dashed; border-bottom: 1px dashed;" valign="top">Rp {$master->ppn|number_format:0}</td>
                     </tr>
                     <tr>
-                        <td colspan="5"></td>
+                        <td colspan="8"></td>
                         <td valign="top">Jumlah Total</td>
                         <td align="right" valign="top">Rp {$master->grand_total|number_format:0}</td>
                     </tr>
