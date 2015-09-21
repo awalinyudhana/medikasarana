@@ -112,9 +112,16 @@
                     </table>
 
                 </div>
-                {*<h6>Notes &amp; Information:</h6>*}
-                {*Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.*}
+                
+                <div class="col-sm-6">
 
+                    <div class="btn-group pull-right">
+                        <a href="{base_url('debit')}" class="btn btn-info button">
+                            <i class="icon-box-add"></i> Daftar Hutang</a>
+                        <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
+                            <i class="icon-print2"></i> Print</button>
+                    </div>
+                </div>  
 
             </div>
 

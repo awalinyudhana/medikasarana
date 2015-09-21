@@ -166,11 +166,12 @@ class SalesOrderReturn extends MX_Controller
         ) {
             redirect('sales-order/returns');
         }
+        $this->load->model('store/ModStore', 'model_store');
+        $data['store'] = $this->model_store->getStoreDataById($this->config->item('id_store'));
         $data['master'] = $data_return;
         $data['items'] = $this->model_return->getReturnReplacedDetailItem($id_return);
         $data['returns'] = $this->model_return->getReturnReplacerDetailItem($id_return);
         $data['product_storage'] = $this->storageProduct();
-//        var_dump($data['items']);
         $this->parser->parse("returns-checkout.tpl", $data);
     }
     public function invoice()

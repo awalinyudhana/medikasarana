@@ -183,8 +183,8 @@ class SalesOrder extends MX_Controller
         }
 
         $this->load->model('store/ModStore', 'model_store');
-        $data['master'] = $master;
         $data['store'] = $this->model_store->getStoreDataById($this->config->item('id_store'));
+        $data['master'] = $master;
         $data['status_ppn'] = $this->status_ppn[$master->status_ppn];
         $data['items'] = $this->model_so->getDataSODetail($id);
         $this->parser->parse("sales_order_checkout.tpl", $data);
