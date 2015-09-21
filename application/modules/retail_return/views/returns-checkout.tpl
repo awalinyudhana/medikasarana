@@ -48,9 +48,9 @@
                         <th>Barcode</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan</th>
-                        <th>Qty</th>
-                        <th>Cashback</th>
+                        <th>Satuan / Isi</th>
+                        <th>Jumlah</th>
+                        <th>Kembali</th>
                         <th>Keterangan</th>
                     </tr>
                     </thead>
@@ -120,6 +120,106 @@
             </div>
         </div>
     </div>
-
     <!-- /new invoice template -->
 {/block}
+{block name=print}
+    <div id="print">
+        <font size="2em">
+            <table border="0" width="100%">
+                <tr>
+                    <td width="70%" align="left" valign="top">
+                        <h3>{$master->store_name}</h3>
+                    </td>
+                    <td valign="center">
+                        #{$master->id_retail_return} / #{$master->id_retail} / {$master->staff_name} / {$master->id_group}
+                        </br>
+                        {$master->date}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="40%">
+                        <span>{$master->address} - {$master->zipcode}
+                            </br>
+                            {$master->city} - {$master->state}
+                            </br>
+                            {$master->telp1} - {$master->telp2}
+                            </br>
+                            NPWP : {$master->npwp}
+                        </span>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </font>
+        <font size="2em">
+            <table border="0" width="100%">
+                <thead style="border-top: 1px dashed; border-bottom: 1px dashed;">
+                <tr>
+                    <th>No</th>
+                    <th min-width="40%">Nama Produk</th>
+                    <th>Merek</th>
+                    <th>Satuan / Isi</th>
+                    <th>Jumlah</th>
+                    <th>Kembali</th>
+                    <th>Keterangan</th>
+                </tr>
+                </thead>
+                <tbody class="tbody-a5">
+                {assign var=no value=1}
+                    {assign var=total_cashback value=0}
+                    {foreach $items as $return }
+                        {assign var=total_cashback value=$total_cashback+$return['cashback']}
+                        <tr>
+                            <td rowspan="2">{$no} </td>
+                            <td>{$return['name']}</td>
+                            <td>{$return['brand']}</td>
+                            <td style="width:100px;">{$return['unit']} ( {$return['value']} )</td>
+                            <td>{$return['qty_return']}</td>
+                            <td></td>
+                            <td rowspan="2">{$return['reason']}</td>
+                        </tr>
+                        <tr>
+                            {if $return['id_product_cache']}
+                                <td>{$product_storage[$return['id_product_cache']]['name']}</td>
+                                <td>{$product_storage[$return['id_product_cache']]['brand']}</td>
+                                <td>
+                                    {$product_storage[$return['id_product_cache']]['unit']}
+                                    ( {$product_storage[$return['id_product_cache']]['value']} )
+                                    </td>
+                                <td>{$return['qty']}</td>
+                            {else}
+                                <td colspan="4"></td>
+                            {/if}
+                            <td>Rp
+                                {if $return['cashback']}
+                                    {$return['cashback']|number_format:0}
+                                {else}
+                                    {0|number_format:0}
+                                {/if}
+                            </td>
+                        </tr>
+                        {assign var=no value=$no+1}
+                    {/foreach}
+                </tbody>
+            </table>
+            </br>
+            <table border="0" width="100%">
+                <tr>
+                    <td width="100%" align="center" valign="top">
+                        Total Kembali : Rp {$total_cashback|number_format:0} 
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" align="center" valign="top">
+                        <span>
+                            TERIMA KASIH DAN SELAMAT BELANJA KEMBALI
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </font>
+    </div>
+{/block}
+
+
