@@ -270,18 +270,12 @@
                     <td width="40%" height="80px" align="left" valign="top">
                         Catatan :
                     </td>
-                </tr>
-                <tr>
                     <td width="20%" align="left" valign="top">
                         Disiapkan :
                     </td>
-                </tr>
-                <tr>
                     <td width="20%" align="left" valign="top">
                         Diperiksa :
                     </td>
-                </tr>
-                <tr>
                     <td width="20%" align="left" valign="top">
                         Penerima :
                     </td>
