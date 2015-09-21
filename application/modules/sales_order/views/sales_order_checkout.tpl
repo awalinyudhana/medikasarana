@@ -154,8 +154,18 @@
                     <td width="35%" align="left" valign="top">
                         <h3>{$store->name}</h3>
                     </td>
-                    <td width="35%" align="left" valign="top">
-                        <h3>{$master->customer_name}</h3>
+                    <td width="35%" rowspan="2" align="left" valign="top">
+                        Kepada Yth.
+                        </br>
+                        {$master->customer_name}
+                        </br>
+                        {$master->address} - {$master->zipcode}
+                        </br>
+                        {$master->city} - {$master->state}
+                        </br>
+                        {$master->telp1} - {$master->telp2}
+                        </br>
+                        NPWP : {$master->npwp}
                     </td>
                     <td rowspan="2" align="left" valign="top">
                         No Faktur : #{$master->id_sales_order}
@@ -176,14 +186,7 @@
                         </br>
                         NPWP : {$store->npwp}
                     </td>
-                    <td align="left" valign="top">
-                        {$master->address} - {$master->zipcode}
-                        </br>
-                        {$master->city} - {$master->state}
-                        </br>
-                        {$master->telp1} - {$master->telp2}
-                        </br>
-                        NPWP : {$master->npwp}
+                    <td>
                     </td>
                     <td>
                     </td>
@@ -197,7 +200,6 @@
                     <tr>
                         <th>No</th>
                         <th min-width="40%">Nama Produk</th>
-                        <th>Nama Produk</th>
                         <th>Merek</th>
                         <th>Satuan / isi</th>
                         <th>Jumlah</th>
@@ -220,13 +222,13 @@
                             <td>
                                 {$key['qty']}
                             </td>
-                            <td style="width:100px;" class="text-right">
+                            <td align="right">
                                 Rp {$key['price']|number_format:0}
                             </td>
-                            <td style="width:100px;" class="text-right">
+                            <td align="right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
-                            <td style="width:100px;" class="text-right">
+                            <td align="right">
                                 Rp {$key['sub_total']|number_format:0}
                             </td>
                             {if $master->status_ppn == 1}
@@ -235,20 +237,20 @@
                                     {assign var=ppn value=0}
                             {/if}
 
-                                <td style="width:100px;" class="text-right">
+                                <td align="right">
                                     Rp {$ppn|number_format:0}
                                 </td>
-                            <td style="width:100px;" class="text-right">
+                            <td align="right">
                                 Rp {($key['sub_total']+$ppn)|number_format:0}
                             </td>
                         </tr>
                         {assign var=val value=$val+1}
                     {/foreach}
                     <tr>
-                        <td colspan="7">&nbsp;</td>
+                        <td colspan="10">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td colspan="5"></td>
+                        <td colspan="8"></td>
                         <td valign="top">Dpp</td>
                         <td align="right" valign="top">Rp {$master->dpp|number_format:0}</td>
                     </tr>
