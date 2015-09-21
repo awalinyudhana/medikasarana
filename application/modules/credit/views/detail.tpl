@@ -117,7 +117,7 @@
 
                     <div class="btn-group pull-right">
                         <a href="{base_url('credit')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> Daftar Piutang</a>
+                            <i class="icon-box-add"></i> Daftar Hutang</a>
                         <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
                             <i class="icon-print2"></i> Print</button>
                     </div>
@@ -140,11 +140,11 @@
                     <td width="35%" rowspan="2" align="left" valign="top">
                         Kepada Yth.
                         </br>
-                        {$po->customer_name}
+                        {$po->name}
                         </br>
                         {$po->address} - {$po->zipcode}
                         </br>
-                        {$po->city} - {$so->state}
+                        {$po->city} - {$po->state}
                         </br>
                         {$po->telp1} - {$po->telp2}
                         </br>

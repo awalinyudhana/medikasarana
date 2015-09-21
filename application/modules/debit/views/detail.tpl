@@ -116,7 +116,7 @@
 
                 <div class="btn-group pull-right">
                     <a href="{base_url('debit')}" class="btn btn-info button">
-                        <i class="icon-box-add"></i> Daftar Hutang</a>
+                        <i class="icon-box-add"></i> Daftar Piutang</a>
                    <!--  <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
                         <i class="icon-print2"></i> Print</button> -->
                 </div>
