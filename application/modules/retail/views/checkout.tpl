@@ -168,6 +168,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {assign var=total value=0}
+                    {assign var=val value=1}
+                    {foreach $items as $key }
+                        <tr>
+                            <td valign="top" align="left">{$val}</td>
+                            <td valign="top" align="left">{$key['name']}</td>
+                            <td valign="top" align="center">{$key['brand']}</td>
+                            <td valign="top">{$key['unit']} ( {$key['value']} )</td>
+                            <td valign="top" align="center">{$key['qty']}</td>
+                            <td valign="top" align="right">
+                                Rp {$key['price']|number_format:0}</td>
+                            <td valign="top" align="right">
+                                Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}
+                            </td>
+                        </tr>
+                        {assign var=val value=$val+1}
+                        {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
+                    {/foreach}
+                </tbody>
+                </br>
+                <tbody>
                     <tr>
                         <td colspan="5"></td>
                         <td valign="top">Diskon</td>
