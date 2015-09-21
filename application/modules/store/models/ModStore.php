@@ -13,7 +13,7 @@ class ModStore extends CI_Model
         $query = $this->db->get('store');
 
         if ($query->num_rows() > 0) {
-            return $query->row_array();
+            return $query->row();
         }
         return false;
     }

@@ -132,7 +132,7 @@
                     <div class="btn-group pull-right">
                         <a href="{base_url('sales-order/search')}" class="btn btn-info button">
                             <i class="icon-box-add"></i> New Sales Order</a>
-                        <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button>
+                        <button type="button" onclick="print_doc();" class="btn btn-primary"><i class="icon-print2"></i> Print</button>
                     </div>
                 </div>
             </div>
@@ -267,7 +267,7 @@
             </br>
             <table border="1" width="100%">
                 <tr>
-                    <td width="40%" height="35px" align="left" valign="top">
+                    <td width="40%" height="80px" align="left" valign="top">
                         Catatan :
                     </td>
                 </tr>
