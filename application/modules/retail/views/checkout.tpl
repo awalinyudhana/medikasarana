@@ -187,6 +187,9 @@
                         {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
                     {/foreach}
                     <tr>
+                        <td colspan="7">&nbsp;</td>
+                    </tr>
+                    <tr>
                         <td colspan="5"></td>
                         <td valign="top">Diskon</td>
                         <td align="right" valign="top">Rp {$master->discount_price|number_format:0}</td>
