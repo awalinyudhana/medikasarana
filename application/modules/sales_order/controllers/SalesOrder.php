@@ -179,11 +179,12 @@ class SalesOrder extends MX_Controller
     {
         if (!$master = $this->model_so->getDataSO($id)
         ) {
-
             redirect('proposal');
         }
+
+        $this->load->model('store/ModStore', 'model_store');
         $data['master'] = $master;
-//        $data['proposal_type'] = $this->proposal_type[$master->type];
+        $data['store'] = $this->model_store->getStoreDataById($this->config->item('id_store'));
         $data['status_ppn'] = $this->status_ppn[$master->status_ppn];
         $data['items'] = $this->model_so->getDataSODetail($id);
         $this->parser->parse("sales_order_checkout.tpl", $data);
