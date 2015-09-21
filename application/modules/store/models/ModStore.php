@@ -16,4 +16,5 @@ class ModStore extends CI_Model
             return $query->row_array();
         }
         return false;
+    }
 }
