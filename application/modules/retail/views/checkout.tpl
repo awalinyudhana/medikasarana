@@ -167,10 +167,6 @@
                         <th>Subtotal</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {assign var=total value=0}
-                    {assign var=val value=1}
-                </tbody>
                 </br>
                 <tbody>
                     <tr>
