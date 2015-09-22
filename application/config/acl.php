@@ -36,7 +36,7 @@ $config['login_controller'] = 'login';
 
 // Set the default landing page for users that successfully login.
 // controller/method as a string or NULL, null will be the site main page 
-$config['login_landing_page'] = 'users';
+$config['login_landing_page'] = 'dashboard';
 
 // Set the flash message for logging a user out, NULL for no flashdata message
 $config['login_message'] = 'Success! You have been logged in.';
@@ -82,6 +82,11 @@ $config['module_list'] = [
 ];
 $config['module_router'] =
     [
+        [
+            'title' => 'Dashboard',
+            'url' => 'dashboard',
+            'module' => ''
+        ],
         [
             'title' => 'Master',
             'icon' => 'icon-settings',

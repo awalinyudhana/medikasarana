@@ -214,7 +214,7 @@ class Acl
                     $this->filter($value['child']);
                     $this->menu .= "</ul></li>";
                 }
-            } elseif (in_array($value['module'], $this->roles)) {
+            } elseif (in_array($value['module'], $this->roles) or $value['module'] == "") {
                 $title = isset($value['title']) ? $value['title'] : "";
                 $url = isset($value['title']) ? $value['url'] : "";
                 $this->menu .= "<li>";
