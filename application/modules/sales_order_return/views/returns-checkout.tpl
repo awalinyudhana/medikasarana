@@ -215,11 +215,23 @@
     <div id="print">
         <font size="2em">
             <table border="0" width="100%">
-               <tr>
+                <tr>
                     <td width="35%" align="left" valign="top">
-                        <h3>{$store->name}</h3>
+                        PT. SARANA MEDIKA SEJAHTERA
+                        </br>
+                        Ruko Armada Estate Blok A1No. 1
+                        </br>
+                        Jl. A. Yani Magelang
+                        </br>
+                        Telp. (0293) 561755,
+                        </br>
+                        Fax.   (0293) 366829
+                        </br>
+                        NPWP : {$store->npwp}
                     </td>
-                    <td width="35%" rowspan="2" align="left" valign="top">
+                    <td width="10%">
+                    </td>
+                    <td width="35%" align="left" valign="top">
                         Kepada Yth.
                         </br>
                         {$master->customer_name}
@@ -232,28 +244,12 @@
                         </br>
                         NPWP : {$master->npwp}
                     </td>
-                    <td rowspan="2" align="left" valign="top">
+                    <td align="left" valign="top">
                         No Faktur Retur : #{$master->id_sales_order_return} / {$master->id_sales_order}
                         </br>
                         Staff : {$master->staff_name}
                         </br>
                         Tanggal : {$master->date}
-                        </br>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" valign="top">
-                        {$store->address} - {$store->zipcode}
-                        </br>
-                        {$store->city} - {$store->state}
-                        </br>
-                        {$store->telp1} - {$store->telp2}
-                        </br>
-                        NPWP : {$store->npwp}
-                    </td>
-                    <td>
-                    </td>
-                    <td>
                     </td>
                 </tr>
             </table>

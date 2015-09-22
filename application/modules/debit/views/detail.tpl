@@ -128,11 +128,24 @@
     <div id="print">
         <font size="2em">
             <table border="0" width="100%">
+
                 <tr>
                     <td width="35%" align="left" valign="top">
-                        <h3>{$store->name}</h3>
+                        PT. SARANA MEDIKA SEJAHTERA
+                        </br>
+                        Ruko Armada Estate Blok A1No. 1
+                        </br>
+                        Jl. A. Yani Magelang
+                        </br>
+                        Telp. (0293) 561755,
+                        </br>
+                        Fax.   (0293) 366829
+                        </br>
+                        NPWP : {$store->npwp}
                     </td>
-                    <td width="35%" rowspan="2" align="left" valign="top">
+                    <td width="10%">
+                    </td>
+                    <td width="35%" align="left" valign="top">
                         Kepada Yth.
                         </br>
                         {$so->name}
@@ -145,28 +158,12 @@
                         </br>
                         NPWP : {$so->npwp}
                     </td>
-                    <td rowspan="2" align="left" valign="top">
+                    <td align="left" valign="top">
                         No Faktur : #{$so->id_sales_order}
                         </br>
                         Tanggal Nota : {$so->date}
                         </br>
                         Tanggal Jatuh Tempo: {$so->due_date}
-                        </br>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" valign="top">
-                        {$store->address} - {$store->zipcode}
-                        </br>
-                        {$store->city} - {$store->state}
-                        </br>
-                        {$store->telp1} - {$store->telp2}
-                        </br>
-                        NPWP : {$store->npwp}
-                    </td>
-                    <td>
-                    </td>
-                    <td>
                     </td>
                 </tr>
             </table>

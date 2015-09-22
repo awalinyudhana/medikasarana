@@ -91,7 +91,7 @@
                     <div class="btn-group pull-right">
                         <a href="{base_url('delivery-order')}" class="btn btn-info button">
                             <i class="icon-box-add"></i> New Delivery Order</a>
-                        <button type="button" onclick="print_doc();"  class="btn btn-primary"><i class="icon-print2"></i> Print</button>
+                        <!-- <button type="button" onclick="print_doc();"  class="btn btn-primary"><i class="icon-print2"></i> Print</button> -->
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
     </div>
     <!-- /new invoice template -->
 {/block}
-{block name=print}
+<!-- {block name=print}
     <div id="print">
         <font size="2em">
             <table border="0" width="100%">
@@ -204,3 +204,4 @@
     </div>
 {/block}
 
+ -->

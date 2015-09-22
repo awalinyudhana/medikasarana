@@ -164,8 +164,6 @@ class DeliveryOrder extends MX_Controller
         ) {
             redirect('delivery-order');
         }        
-        $this->load->model('store/ModStore', 'model_store');
-        $data['store'] = $this->model_store->getStoreDataById($this->config->item('id_store'));
         $data['do'] = $this->model_do->getDataDO($id_delivery_order);
         $data['master'] = $master;
         $data['status_ppn'] = $this->status_ppn[$master->status_ppn];
