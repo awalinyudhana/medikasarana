@@ -98,6 +98,19 @@ class ModDashboard extends CI_Model
         }
         return false;
     }
+    public function getDataPenjualanRetail()
+    {
+        $query = $this->db
+                    // ->where('active', 1)
+                    ->select('date, grand_total')
+                    ->from('retail')
+                    ->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        return false;
+    }
 
     public function getDataPembelian()
     {

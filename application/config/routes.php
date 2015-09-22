@@ -222,6 +222,7 @@ $route['dashboard'] = "dashboard";
 
 $route['dashboard/buying'] = "dashboard/buying";
 $route['dashboard/selling'] = "dashboard/selling";
+$route['dashboard/selling-retail'] = "dashboard/sellingRetail";
 $route['dashboard/credit'] = "dashboard/credit";
 $route['dashboard/credit-cek'] = "dashboard/creditBG";
 $route['dashboard/debit'] = "dashboard/debit";

@@ -99,9 +99,14 @@ $config['module_router'] =
                             'module' => 'purchase_order'
                         ],
                         [
-                            'title' => 'Grafik Penjualan',
+                            'title' => 'Grafik Order Jual',
                             'url' => 'dashboard/selling',
                             'module' => 'sales_order'
+                        ],
+                        [
+                            'title' => 'Grafik Penjualan Retail',
+                            'url' => 'dashboard/selling-retail',
+                            'module' => 'retail'
                         ]
                     ]
                 ], [
@@ -125,7 +130,7 @@ $config['module_router'] =
                             'url' => 'dashboard/debit',
                             'module' => 'credit'
                         ], [
-                            'title' => 'Hutang',
+                            'title' => 'Cek BG',
                             'url' => 'dashboard/debit-cek',
                             'module' => 'debit'
                         ]

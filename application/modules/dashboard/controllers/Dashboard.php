@@ -31,10 +31,6 @@ class Dashboard extends MX_Controller
         $data['creditCount'] = $dataCredit['count'];
         $data['creditSum'] = $dataCredit['sum'];
         $data['debitSum'] = $this->ModDashboard->getDebitSum();
-        $pemb[0] = array("January", 100);
-        $pemb[1] = array("February", 300);
-        $pemb[2] = array("March", 200);
-        $data['dataPenjualan'] = json_encode($pemb);
 
         $dataPenjualan = $this->ModDashboard->getDataPenjualan();
         if ($dataPenjualan) {
@@ -61,6 +57,78 @@ class Dashboard extends MX_Controller
         }
 
         $this->parser->parse('dashboard.tpl', $data);
+    }
+
+    public function buying(){
+        $dataPembelian = $this->ModDashboard->getDataPembelian();
+        if ($dataPembelian) {
+            foreach ($dataPembelian as $row) {
+                $date = strtotime($row['date_created']) * 1000;
+                $total = $row['grand_total'];
+                $seriesPembelian[] = "[$date, $total]";
+            }
+            $data['grafikPembelian'] = "[".join($seriesPembelian, ',')."]";
+        } else {
+            $data['grafikPembelian'] = "[[0,0]]";
+        }
+
+        $this->parser->parse('buying.tpl', $data);
+    }
+
+    public function selling()
+    {
+        $dataPenjualan = $this->ModDashboard->getDataPenjualan();
+        if ($dataPenjualan) {
+            foreach ($dataPenjualan as $row) {
+                $date = strtotime($row['date']) * 1000;
+                $total = $row['grand_total'];
+                $seriesPenjualan[] = "[$date, $total]";
+            }
+            $data['grafikPenjualan'] = "[".join($seriesPenjualan, ',')."]";
+        } else {
+            $data['grafikPenjualan'] = "[[0,0]]";
+        }
+
+        $this->parser->parse('selling.tpl', $data);
+    }
+    public function sellingRetail()
+    {
+        $dataPenjualan = $this->ModDashboard->getDataPenjualanRetail();
+        if ($dataPenjualan) {
+            foreach ($dataPenjualan as $row) {
+                $date = strtotime($row['date']) * 1000;
+                $total = $row['grand_total'];
+                $seriesPenjualan[] = "[$date, $total]";
+            }
+            $data['grafikPenjualan'] = "[".join($seriesPenjualan, ',')."]";
+        } else {
+            $data['grafikPenjualan'] = "[[0,0]]";
+        }
+
+        $this->parser->parse('selling-retail.tpl', $data);
+    }
+
+    public function credit()
+    {
+        $data['items'] = $this->ModDashboard->upcomingCredit();
+        $this->parser->parse("credit.tpl", $data);
+    }
+
+    public function debit()
+    {
+        $data['items'] = $this->ModDashboard->upcomingDebit();
+        $this->parser->parse("debit.tpl", $data);
+    }
+
+    public function creditBG()
+    {
+        $data['items'] = $this->ModDashboard->upcomingCreditBG();
+        $this->parser->parse("credit-bg.tpl", $data);
+    }
+    public function debitBG()
+    {
+        $data['items'] = $this->ModDashboard->upcomingDebitBG();
+        $this->parser->parse("debit-bg.tpl", $data);
     }
 
     public function minimumStock()
@@ -190,59 +258,4 @@ class Dashboard extends MX_Controller
     //     return "Rp " . number_format($grand_total - $paid);
     // }
 
-    public function buying(){
-        $dataPembelian = $this->ModDashboard->getDataPembelian();
-        if ($dataPembelian) {
-            foreach ($dataPembelian as $row) {
-                $date = strtotime($row['date_created']) * 1000;
-                $total = $row['grand_total'];
-                $seriesPembelian[] = "[$date, $total]";
-            }
-            $data['grafikPembelian'] = "[".join($seriesPembelian, ',')."]";
-        } else {
-            $data['grafikPembelian'] = "[[0,0]]";
-        }
-
-        $this->parser->parse('buying.tpl', $data);
-    }
-
-    public function selling()
-    {
-        $dataPenjualan = $this->ModDashboard->getDataPenjualan();
-        if ($dataPenjualan) {
-            foreach ($dataPenjualan as $row) {
-                $date = strtotime($row['date']) * 1000;
-                $total = $row['grand_total'];
-                $seriesPenjualan[] = "[$date, $total]";
-            }
-            $data['grafikPenjualan'] = "[".join($seriesPenjualan, ',')."]";
-        } else {
-            $data['grafikPenjualan'] = "[[0,0]]";
-        }
-
-        $this->parser->parse('selling.tpl', $data);
-    }
-
-    public function credit()
-    {
-        $data['items'] = $this->ModDashboard->upcomingCredit();
-        $this->parser->parse("credit.tpl", $data);
-    }
-
-    public function debit()
-    {
-        $data['items'] = $this->ModDashboard->upcomingDebit();
-        $this->parser->parse("debit.tpl", $data);
-    }
-
-    public function creditBG()
-    {
-        $data['items'] = $this->ModDashboard->upcomingCreditBG();
-        $this->parser->parse("credit-bg.tpl", $data);
-    }
-    public function debitBG()
-    {
-        $data['items'] = $this->ModDashboard->upcomingDebitBG();
-        $this->parser->parse("debit-bg.tpl", $data);
-    }
 } 

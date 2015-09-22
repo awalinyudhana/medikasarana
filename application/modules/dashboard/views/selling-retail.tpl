@@ -6,17 +6,17 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Pembelian</h6>
+                    <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan Retail</h6>
                 </div>
                 <div class="panel-body" style="min-height:900px;">
-                    <div class="graph-standard" id="grafik_pembelian"></div>
+                    <div class="graph-standard" id="grafik_penjualan"></div>
                 </div>
             </div>
         </div>
     </div>
     <script>
         $(function () {
-            $('#grafik_pembelian').highcharts('StockChart', {
+            $('#grafik_penjualan').highcharts('StockChart', {
                 rangeSelector : {
                     selected : 1,
                     buttons: [{
@@ -49,7 +49,7 @@
                 },
 
                 title : {
-                    text : 'Grafik Pembelian'
+                    text : 'Grafik Penjualan'
                 },
 
                 subtitle : {
@@ -57,15 +57,14 @@
                 },
 
                 series : [{
-                    name : 'Pembelian Rp.',
-                    data : {$grafikPembelian}
+                    name : 'Penjualan Rp.',
+                    data : {$grafikPenjualan}
                     ,
                     tooltip: {
                         valueDecimals: 2
                     }
                 }]
             });
-
         });
     </script>
 {/block}
