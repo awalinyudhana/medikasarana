@@ -6,7 +6,7 @@ class Dashboard extends MX_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->acl->auth('dashboard');
+        // $this->acl->auth('dashboard');
         $this->load->library('grocery_CRUD');
         $this->load->model('ModDashboard');
         $this->curDate = date('Y-m-d');

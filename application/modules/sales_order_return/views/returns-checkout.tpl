@@ -227,7 +227,7 @@
                         </br>
                         Fax.   (0293) 366829
                         </br>
-                        NPWP : {
+                        NPWP : 
                     </td>
                     <td width="10%">
                     </td>
