@@ -8,7 +8,7 @@
                 <div class="panel-heading">
                     <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan Retail</h6>
                 </div>
-                <div class="panel-body" style="min-height:900px;">
+                <div class="panel-body" style="min-height:400px;">
                     <div class="graph-standard" id="grafik_penjualan"></div>
                 </div>
             </div>
