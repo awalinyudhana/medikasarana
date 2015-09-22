@@ -29,13 +29,13 @@ class Debit extends MX_Controller
                 ->where('so.date <', "DATE_ADD( '" . $this->input->post('date') . "-01', INTERVAL 1 MONTH)", false);
 
         }
-        $po = $this->db
+        $so = $this->db
             ->where('so.status_paid', false)
             ->where('so.active', true)
             ->order_by('so.id_sales_order  asc')
             ->get()
             ->result();
-        $data['po'] = $po;
+        $data['so'] = $so;
 
         $grand_total = $this->db->select_sum('grand_total')
             ->where(array('so.status_paid' => false))

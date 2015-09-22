@@ -19,7 +19,7 @@ class Login extends MX_Controller{
         // or you can set it as a string param ie
         // $this->acl->validate('dashboard/profile')
 
-        $this->acl->validate('users');
+        $this->acl->validate('dashboard');
     }
 
     /**

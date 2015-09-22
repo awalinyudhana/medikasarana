@@ -84,8 +84,58 @@ $config['module_router'] =
     [
         [
             'title' => 'Dashboard',
-            'url' => 'dashboard',
-            'module' => ''
+            'url' => 'icon-home',
+            'child' => [
+                [
+                    'title' => 'Dashboard',
+                    'url' => 'dashboard',
+                    'module' => ''
+                ], [
+                    'title' => 'Grafik',
+                    'child' => [
+                        [
+                            'title' => 'Grafik Pembelian',
+                            'url' => 'dashboard/buying',
+                            'module' => 'purchase_order'
+                        ],
+                        [
+                            'title' => 'Grafik Penjualan',
+                            'url' => 'dashboard/selling',
+                            'module' => 'sales_order'
+                        ]
+                    ]
+                ], [
+                    'title' => 'Hutang',
+                    'child' => [
+                        [
+                            'title' => 'Daftar Hutang',
+                            'url' => 'dashboard/credit',
+                            'module' => 'credit'
+                        ], [
+                            'title' => 'Cek BG',
+                            'url' => 'dashboard/credit-cek',
+                            'module' => 'credit'
+                        ]
+                    ]
+                ], [
+                    'title' => 'Piutang',
+                    'child' => [
+                        [
+                            'title' => 'Daftar Piutang',
+                            'url' => 'dashboard/debit',
+                            'module' => 'credit'
+                        ], [
+                            'title' => 'Hutang',
+                            'url' => 'dashboard/debit-cek',
+                            'module' => 'debit'
+                        ]
+                    ]
+                ], [
+                    'title' => 'Barang',
+                    'url' => 'dashboard/produk',
+                    'module' => 'product'
+                ]
+            ]
         ],
         [
             'title' => 'Master',

@@ -112,4 +112,31 @@ class ModDashboard extends CI_Model
         }
         return false;
     }
+
+    public function upcomingCredit()
+    {
+        $where = "((SELECT DATEDIFF(po.`due_date`, '$this->curDate') AS days) < 14) AND (po.`due_date` > '$this->curDate') AND (po.`status_paid` = 0)";
+        $po = $this->db
+            ->from('purchase_order po')
+            ->join('principal p', 'p.id_principal = po.id_principal')
+            ->where($where)
+            ->order_by('po.id_purchase_order  asc')
+            ->get()
+            ->result();
+        return $po;
+    }
+
+    public function upcomingDebit()
+    {
+        $where = "((SELECT DATEDIFF(so.`due_date`, '$this->curDate') AS days) < 14) AND (so.`due_date` > '$this->curDate') AND (so.`status_paid` = 0)";
+        $so = $this->db
+            ->from('sales_order so')
+            ->join('customer c', 'c.id_customer = so.id_customer')
+            ->where($where)
+            ->order_by('so.id_sales_order  asc')
+            ->get()
+            ->result();
+
+        return $so;
+    }
 }
