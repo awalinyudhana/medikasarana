@@ -162,7 +162,7 @@
                         </br>
                         Fax.   (0293) 366829
                         </br>
-                        NPWP : {$store->npwp}
+                        NPWP : 
                     </td>
                     <td width="10%">
                     </td>
