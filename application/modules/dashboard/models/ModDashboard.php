@@ -139,4 +139,30 @@ class ModDashboard extends CI_Model
 
         return $so;
     }
+
+    public function upcomingCreditBG(){
+        $where = "((SELECT DATEDIFF(credit.date_withdrawal, '$this->curDate') AS days) < 14) AND (credit.date_withdrawal > '$this->curDate')";
+        $credit = $this->db->from('credit')
+            ->join('purchase_order', 'purchase_order.id_purchase_order = credit.id_purchase_order')
+            ->join('principal', 'principal.id_principal = purchase_order.id_principal')
+            ->where('credit.payment_type', 'bg')
+            ->where('credit.status', 0)
+            ->where($where)
+            ->get()
+            ->result();
+        return $credit;
+    }
+
+    public function upcomingDebitBG(){
+        $where = "((SELECT DATEDIFF(debit.date_withdrawal, '$this->curDate') AS days) < 14) AND (debit.date_withdrawal > '$this->curDate')";
+        $debit = $this->db->from('debit')
+            ->join('sales_order', 'sales_order.id_sales_order = debit.id_sales_order')
+            ->join('customer', 'customer.id_customer = sales_order.id_customer')
+            ->where('debit.payment_type', 'bg')
+            ->where('debit.status', 0)
+            ->where($where)
+            ->get()
+            ->result();
+        return $debit;
+    }
 }

@@ -234,4 +234,15 @@ class Dashboard extends MX_Controller
         $data['items'] = $this->ModDashboard->upcomingDebit();
         $this->parser->parse("debit.tpl", $data);
     }
+
+    public function creditBG()
+    {
+        $data['items'] = $this->ModDashboard->upcomingCreditBG();
+        $this->parser->parse("credit-bg.tpl", $data);
+    }
+    public function debitBG()
+    {
+        $data['items'] = $this->ModDashboard->upcomingDebitBG();
+        $this->parser->parse("debit-bg.tpl", $data);
+    }
 } 

@@ -130,10 +130,19 @@ $config['module_router'] =
                             'module' => 'debit'
                         ]
                     ]
-                ], [
+                ],[
                     'title' => 'Barang',
-                    'url' => 'dashboard/produk',
-                    'module' => 'product'
+                    'child' => [
+                        [
+                            'title' => 'Minimum Stok',
+                            'url' => 'dashboard/product-stock',
+                            'module' => 'product'
+                        ], [
+                            'title' => 'Expired',
+                            'url' => 'dashboard/product-expired',
+                            'module' => 'product'
+                        ]
+                    ]
                 ]
             ]
         ],
