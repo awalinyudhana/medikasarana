@@ -141,7 +141,7 @@
                     <td width="40%" align="left" valign="top">
                     </td>
                     <td>
-                        #{$master->id_retail} / {$master->staff_name}
+                        #{$master->id_retail_return} / #{$master->id_retail} / {$master->staff_name} /
                         </br>
                         {$master->date}
                     </td>
