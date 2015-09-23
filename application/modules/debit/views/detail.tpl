@@ -137,11 +137,11 @@
                         </br>
                         Jl. A. Yani Magelang
                         </br>
-                        Telp. (0293) 561755,
+                        Telp. (0293) 361755,
                         </br>
                         Fax.   (0293) 366829
                         </br>
-                        NPWP : 
+                        NPWP : 31.354.959.4-524.000
                     </td>
                     <td width="10%">
                     </td>
