@@ -128,27 +128,23 @@
         <font size="2em">
             <table border="0" width="100%">
                 <tr>
-                    <td width="70%" align="left" valign="top">
-                        <h3>{$master->store_name}</h3>
-                    </td>
-                    <td valign="center">
-                        #{$master->id_retail} / {$master->staff_name} / {$master->id_group}
+                    <td width="40%" align="left" valign="top">
+                        {$master->store_name}
                         </br>
-                        {$master->date}
+                        {$master->address} - {$master->zipcode}
+                        </br>
+                        {$master->city} - {$master->state}
+                        </br>
+                        {$master->telp1} - {$master->telp2}
+                        </br>
+                        NPWP : {$master->npwp}
                     </td>
-                </tr>
-                <tr>
-                    <td width="40%">
-                        <span>{$master->address} - {$master->zipcode}
-                            </br>
-                            {$master->city} - {$master->state}
-                            </br>
-                            {$master->telp1} - {$master->telp2}
-                            </br>
-                            NPWP : {$master->npwp}
-                        </span>
+                    <td width="40%" align="left" valign="top">
                     </td>
                     <td>
+                        #{$master->id_retail} / {$master->staff_name}
+                        </br>
+                        {$master->date}
                     </td>
                 </tr>
             </table>
