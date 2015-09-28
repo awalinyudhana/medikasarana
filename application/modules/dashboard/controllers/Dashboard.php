@@ -28,7 +28,7 @@ class Dashboard extends MX_Controller
         $data['minimumStock'] = $this->ModDashboard->getMinimumStock();
         $data['expiredProducts'] = $this->ModDashboard->getExpiredProducts();
         $dataCredit = $this->ModDashboard->getCreditData();
-        $dataCreditBG = $this->ModDashboard->getCrediBGData();
+        $dataCreditBG = $this->ModDashboard->getCreditBGData();
         $dataDebit = $this->ModDashboard->getDebitData();
         $dataDebitBG = $this->ModDashboard->getDebitBGData();
 
