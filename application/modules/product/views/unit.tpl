@@ -14,13 +14,13 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">{$title}</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Data Satuan Produk</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> {$title}
-                    <small class="display-block">{$summary}</small>
+                    <i class="icon-clipboard"></i> Data Satuan Produk
+                    <small class="display-block">Informasi umum tentang data satuan produk</small>
                 </h6>
             </div>
 

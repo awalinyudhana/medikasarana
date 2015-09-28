@@ -28,9 +28,19 @@ class Dashboard extends MX_Controller
         $data['minimumStock'] = $this->ModDashboard->getMinimumStock();
         $data['expiredProducts'] = $this->ModDashboard->getExpiredProducts();
         $dataCredit = $this->ModDashboard->getCreditData();
+        $dataCreditBG = $this->ModDashboard->getCrediBGtData();
+        $dataDebit = $this->ModDashboard->getDebitData();
+        $dataDebitBG = $this->ModDashboard->getDebitBGData();
+
+
         $data['creditCount'] = $dataCredit['count'];
         $data['creditSum'] = $dataCredit['sum'];
-        $data['debitSum'] = $this->ModDashboard->getDebitSum();
+        $data['debitCount'] = $$dataDebit['count'];
+        $data['debitSum'] = $$dataDebit['sum'];
+        $data['creditBGCount'] = $dataCreditBG['count'];
+        $data['creditBGSum'] = $dataCreditBG['sum'];
+        $data['debitBGCount'] = $$dataDebitBG['count'];
+        $data['debitBGSum'] = $$dataDebitBG['sum'];
 
         $dataPenjualan = $this->ModDashboard->getDataPenjualan();
         if ($dataPenjualan) {
@@ -56,6 +66,20 @@ class Dashboard extends MX_Controller
             $data['grafikPembelian'] = "[[0,0]]";
         }
 
+
+        $dataPenjualanRetail = $this->ModDashboard->getDataPenjualanRetail();
+        if ($dataPenjualanRetail) {
+            foreach ($dataPenjualanRetail as $row) {
+                $date = strtotime($row['date']) * 1000;
+                $total = $row['grand_total'];
+                $seriesPenjualanRetail[] = "[$date, $total]";
+            }
+            $data['grafikPenjualanRetail'] = "[".join($seriesPenjualanRetail, ',')."]";
+        } else {
+            $data['grafikPenjualanRetail'] = "[[0,0]]";
+        }
+
+        $data['roles'] = $this->session->userdata('roles');
         $this->parser->parse('dashboard.tpl', $data);
     }
 

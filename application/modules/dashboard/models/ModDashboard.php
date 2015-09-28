@@ -28,7 +28,8 @@ class ModDashboard extends CI_Model
 
     public function getCreditData()
     {
-        $where = "((SELECT DATEDIFF(purchase_order.`due_date`, '$this->curDate') AS days) < 14) AND (purchase_order.`due_date` > '$this->curDate') AND (purchase_order.`status_paid` = 0)";
+        // $where = "((SELECT DATEDIFF(purchase_order.`due_date`, '$this->curDate') AS days) < 14) AND (purchase_order.`due_date` > '$this->curDate') AND (purchase_order.`status_paid` = 0)";
+        $where = "(SELECT DATEDIFF(purchase_order.`due_date`, '$this->curDate') AS days) < 14 AND purchase_order.`status_paid` = 0";
         $this->db->where($where);
         $this->db->from('purchase_order');
         $query = $this->db->get();
@@ -45,21 +46,71 @@ class ModDashboard extends CI_Model
         return $data;
     }
 
-    public function getDebitSum()
+    public function getCreditBGData()
     {
-        $where = "((SELECT DATEDIFF(sales_order.`due_date`, '$this->curDate') AS days) < 14) AND (sales_order.`due_date` > '$this->curDate') AND (sales_order.`status_paid` = 0)";
+
+
+        $where = "(SELECT DATEDIFF(credit.date_withdrawal, '$this->curDate') AS days) < 14";
+        $query = $this->db->from('credit')
+            // ->join('purchase_order', 'purchase_order.id_purchase_order = credit.id_purchase_order')
+            ->where('credit.payment_type', 'bg')
+            ->where('credit.status', 0)
+            ->where($where)
+            ->get();
+
+        $data['count'] = 0;
+        $data['sum'] = 0;
+
+        if ($query->num_rows() > 0) {
+           foreach ($query->result() as $row) {
+              $data['count']++;
+              $data['sum'] += $row->amount;
+           }
+        }
+        return $data;
+    }
+
+    public function getDebitData()
+    {
+        // $where = "((SELECT DATEDIFF(sales_order.`due_date`, '$this->curDate') AS days) < 14) AND (sales_order.`due_date` > '$this->curDate') AND (sales_order.`status_paid` = 0)";
+        $where = "(SELECT DATEDIFF(sales_order.`due_date`, '$this->curDate') AS days) < 14 AND sales_order.`status_paid` = 0";
         $this->db->where($where);
         $this->db->from('sales_order');
         $query = $this->db->get();
 
-        $debitSum = 0;
+        $data['sum'] = 0;
+        $data['count'] = 0;
 
         if ($query->num_rows() > 0) {
            foreach ($query->result() as $row) {
-              $debitSum += ($row->grand_total - $row->paid);
+              $data['count']++;
+              $data['sum'] += ($row->grand_total - $row->paid);
            }
         }
-        return $debitSum;
+        return $data;
+    }
+
+    public function getDebitBGData()
+    {
+
+        $where = "(SELECT DATEDIFF(debit.date_withdrawal, '$this->curDate') AS days) < 14";
+        $query = $this->db->from('debit')
+            // ->join('sales_order', 'sales_order.id_sales_order = debit.id_sales_order')
+            ->where('debit.payment_type', 'bg')
+            ->where('debit.status', 0)
+            ->where($where)
+            ->get();
+
+        $data['sum'] = 0;
+        $data['count'] = 0;
+
+        if ($query->num_rows() > 0) {
+           foreach ($query->result() as $row) {
+              $data['count']++;
+              $data['sum'] += $row->amount;
+           }
+        }
+        return $data;
     }
 
     public function getRetailData($type = null)
@@ -128,7 +179,8 @@ class ModDashboard extends CI_Model
 
     public function upcomingCredit()
     {
-        $where = "((SELECT DATEDIFF(po.`due_date`, '$this->curDate') AS days) < 14) AND (po.`due_date` > '$this->curDate') AND (po.`status_paid` = 0)";
+        // $where = "((SELECT DATEDIFF(po.`due_date`, '$this->curDate') AS days) < 14) AND (po.`due_date` > '$this->curDate') AND (po.`status_paid` = 0)";
+        $where = "(SELECT DATEDIFF(po.`due_date`, '$this->curDate') AS days) < 14 AND po.`status_paid` = 0";
         $po = $this->db
             ->from('purchase_order po')
             ->join('principal p', 'p.id_principal = po.id_principal')
@@ -141,7 +193,8 @@ class ModDashboard extends CI_Model
 
     public function upcomingDebit()
     {
-        $where = "((SELECT DATEDIFF(so.`due_date`, '$this->curDate') AS days) < 14) AND (so.`due_date` > '$this->curDate') AND (so.`status_paid` = 0)";
+        // $where = "((SELECT DATEDIFF(so.`due_date`, '$this->curDate') AS days) < 14) AND (so.`due_date` > '$this->curDate') AND (so.`status_paid` = 0)";
+        $where = "(SELECT DATEDIFF(so.`due_date`, '$this->curDate') AS days) < 14 AND so.`status_paid` = 0";
         $so = $this->db
             ->from('sales_order so')
             ->join('customer c', 'c.id_customer = so.id_customer')
@@ -154,7 +207,8 @@ class ModDashboard extends CI_Model
     }
 
     public function upcomingCreditBG(){
-        $where = "((SELECT DATEDIFF(credit.date_withdrawal, '$this->curDate') AS days) < 14) AND (credit.date_withdrawal > '$this->curDate')";
+        // $where = "((SELECT DATEDIFF(credit.date_withdrawal, '$this->curDate') AS days) < 14) AND (credit.date_withdrawal > '$this->curDate')";
+        $where = "(SELECT DATEDIFF(credit.date_withdrawal, '$this->curDate') AS days) < 14";
         $credit = $this->db->from('credit')
             ->join('purchase_order', 'purchase_order.id_purchase_order = credit.id_purchase_order')
             ->join('principal', 'principal.id_principal = purchase_order.id_principal')
@@ -167,7 +221,8 @@ class ModDashboard extends CI_Model
     }
 
     public function upcomingDebitBG(){
-        $where = "((SELECT DATEDIFF(debit.date_withdrawal, '$this->curDate') AS days) < 14) AND (debit.date_withdrawal > '$this->curDate')";
+        // $where = "((SELECT DATEDIFF(debit.date_withdrawal, '$this->curDate') AS days) < 14) AND (debit.date_withdrawal > '$this->curDate')";
+        $where = "(SELECT DATEDIFF(debit.date_withdrawal, '$this->curDate') AS days) < 14";
         $debit = $this->db->from('debit')
             ->join('sales_order', 'sales_order.id_sales_order = debit.id_sales_order')
             ->join('customer', 'customer.id_customer = sales_order.id_customer')
