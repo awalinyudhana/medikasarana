@@ -35,12 +35,12 @@ class Dashboard extends MX_Controller
 
         $data['creditCount'] = $dataCredit['count'];
         $data['creditSum'] = $dataCredit['sum'];
-        $data['debitCount'] = $$dataDebit['count'];
-        $data['debitSum'] = $$dataDebit['sum'];
+        $data['debitCount'] = $dataDebit['count'];
+        $data['debitSum'] = $dataDebit['sum'];
         $data['creditBGCount'] = $dataCreditBG['count'];
         $data['creditBGSum'] = $dataCreditBG['sum'];
-        $data['debitBGCount'] = $$dataDebitBG['count'];
-        $data['debitBGSum'] = $$dataDebitBG['sum'];
+        $data['debitBGCount'] = $dataDebitBG['count'];
+        $data['debitBGSum'] = $dataDebitBG['sum'];
 
         $dataPenjualan = $this->ModDashboard->getDataPenjualan();
         if ($dataPenjualan) {
