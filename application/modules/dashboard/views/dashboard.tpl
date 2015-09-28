@@ -9,7 +9,7 @@
     </div>
 
     <ul class="page-stats list-justified">
-        {if "product"|in_array($roles)}
+        {if "product"|in_array:$roles}
             <li class="{if $minimumStock == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/product-stock')}">
                     <div class="page-stats-showcase">
@@ -27,7 +27,7 @@
                 </a>
             </li>
         {/if}
-        {if "credit"|in_array($roles)}
+        {if "credit"|in_array:$roles}
             <li class="{if $creditCount == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/credit')}">
                     <div class="page-stats-showcase">
@@ -45,7 +45,7 @@
                 </a>
             </li>
         {/if}
-        {if "debit"|in_array($roles)}
+        {if "debit"|in_array:$roles}
             <li class="{if $debitCount == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/debit')}">
                     <div class="page-stats-showcase">
@@ -66,7 +66,7 @@
     </ul>
 
     <div class="row">
-        {if "purchase_order"|in_array($roles)}
+        {if "purchase_order"|in_array:$roles}
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -131,7 +131,7 @@
                 });
             </script>
         {/if}
-        {if "sales_order"|in_array($roles)}
+        {if "sales_order"|in_array:$roles}
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -198,7 +198,7 @@
                 });
             </script>
         {/if}
-        {if "retail"|in_array($roles)}
+        {if "retail"|in_array:$roles}
             <script>
                 $(function () {
                     $('#grafik_penjualan_retail').highcharts('StockChart', {
