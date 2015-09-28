@@ -32,7 +32,7 @@
                 <a href="{base_url('dashboard/credit')}">
                     <div class="page-stats-showcase">
                         <span>Tagihan Hutang</span>
-                        <h2>{$creditCount} | Rp {$creditSum|number_format:0}</h2>
+                        <h2>{$creditCount} <br/> Rp {$creditSum|number_format:0}</h2>
                     </div>
                 </a>
             </li>
@@ -40,7 +40,7 @@
                 <a href="{base_url('dashboard/credit')}">
                     <div class="page-stats-showcase">
                         <span>Hutang Cek BG</span>
-                        <h2>{$creditBGCount} | Rp {$creditBGSum|number_format:0}</h2>
+                        <h2>{$creditBGCount} <br/> Rp {$creditBGSum|number_format:0}</h2>
                     </div>
                 </a>
             </li>
@@ -49,8 +49,8 @@
             <li class="{if $debitCount == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/debit')}">
                     <div class="page-stats-showcase">
-                        <span>Tagihan debitSum</span>
-                        <h2>{$debitCount} | Rp {$debitSum|number_format:0}</h2>
+                        <span>Tagihan Piutang</span>
+                        <h2>{$debitCount} <br/> Rp {$debitSum|number_format:0}</h2>
                     </div>
                 </a>
             </li>
@@ -58,7 +58,7 @@
                 <a href="{base_url('dashboard/debit')}">
                     <div class="page-stats-showcase">
                         <span>Piutang Cek BG</span>
-                        <h2>{$debitBGCount} | Rp {$debitBGSum|number_format:0}</h2>
+                        <h2>{$debitBGCount} <br/> Rp {$debitBGSum|number_format:0}</h2>
                     </div>
                 </a>
             </li>
