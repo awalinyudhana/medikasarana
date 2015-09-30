@@ -506,6 +506,11 @@ $config['module_router'] =
                             'module' => 'sales_order'
                         ]
                     ]
+                ],
+                [
+                    'title' => 'Pinjam Bendera',
+                    'url' => 'report/pinjam-bendera',
+                    'module' => 'proposal'
                 ]
             ]
         ]   

@@ -7,7 +7,7 @@ class Penjualan extends MX_Controller
     {
         parent::__construct();
         $this->load->model('ModPenjualan');
-        $this->proposal_type = [0 => "pengadaan", 1 => "tender"];
+        $this->proposal_type = [0 => "penjualan-pengadaan", 1 => "penjualan-tender"];
         $this->status_ppn = [0 => "Non Aktif", 1 => "Aktif"];
     }
 
