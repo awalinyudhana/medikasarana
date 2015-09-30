@@ -55,7 +55,7 @@
                                 <td>{$key->date_created}</td>
                                 <td>{$key->staff_name}</td>
                                 <td>{$key->customer_name}</td>
-                                <td>{$array_status_ppn[$key->customer_name]}</td>
+                                <td>{$array_status_ppn[$key->status_ppn]}</td>
                                 <td>
                                     <div class="table-controls">
                                         <a href="{base_url('report/pinjam-bendera/detail/')}/{$key->id_proposal}"

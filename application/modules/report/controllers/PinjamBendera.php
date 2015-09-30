@@ -24,9 +24,9 @@ class PinjamBendera extends MX_Controller
         $this->parser->parse('pinjam-bendera.tpl', $data);
     }
 
-    public function detail($type = 2,$id_proposal)
+    public function detail($id_proposal)
     {
-        
+        $type = 2;
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
             $data['penjualan'] = $this->ModPinjamBendera->getPenjualan($type, $id_proposal, $this->input->post('date_from'), $this->input->post('date_to'));
             $data['from'] = $this->input->post('date_from');
