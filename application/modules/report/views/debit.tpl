@@ -69,7 +69,7 @@
                                 <td>{$status[$key->amount]}</td>
                             </tr>
                             {assign var=val value=$val+1}
-                            {assign var=total value=$total+$key->grand_total}
+                            {assign var=total value=$total+$key->amount}
                         {/foreach}
 
                         </tbody>
