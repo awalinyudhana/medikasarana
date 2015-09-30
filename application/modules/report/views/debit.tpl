@@ -65,7 +65,7 @@
                                 <td>{$key->staff_name}</td>
                                 <td>{$key->payment_type}</td>
                                 <td>{$key->resi_number}</td>
-                                <td class="text-right">{$key->amount|number_format:0}</td>
+                                <td class="text-right">Rp {$key->amount|number_format:0}</td>
                                 <td>{$status[$key->status]}</td>
                             </tr>
                             {assign var=val value=$val+1}
