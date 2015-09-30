@@ -21,7 +21,7 @@ class ModOpnameStore extends CI_Model
                 ->join('product_store ps', 'ps.id_product_store = os.id_product_store')
                 ->join('product p', 'p.id_product = ps.id_product')
                 ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
-                ->join('product_category pc', 'pc.id_product_category = p.id_product_category');
+                ->join('product_category pc', 'pc.id_product_category = p.id_product_category')
                 ->order_by('os.date desc');
                     
         $query = $this->db->get();

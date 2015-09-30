@@ -20,7 +20,7 @@ class ModOpname extends CI_Model
                 ->join('staff s', 's.id_staff = o.id_staff')
                 ->join('product p', 'p.id_product = o.id_product')
                 ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
-                ->join('product_category pc', 'pc.id_product_category = p.id_product_category');
+                ->join('product_category pc', 'pc.id_product_category = p.id_product_category')
                 ->order_by('o.date desc');
                     
         $query = $this->db->get();
