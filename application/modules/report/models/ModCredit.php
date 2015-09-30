@@ -18,7 +18,7 @@ class ModCredit extends CI_Model
                 ->select('c.*, po.invoice_number, p.date_created AS tanggal_transaksi, p.name AS principal_name, s.name AS staff_name')
                 ->from('credit c')
                 ->join('purchase_order po', 'po.id_purchase_order = c.id_purchase_order')
-                ->join('pricipal p', 'p.id_pricipal = po.id_pricipal')
+                ->join('principal p', 'p.id_pricipal = po.id_pricipal')
                 ->join('staff s', 's.id_staff = c.id_staff')
                 ->order_by('c.date desc');
                     
