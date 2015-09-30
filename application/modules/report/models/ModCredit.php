@@ -15,7 +15,7 @@ class ModCredit extends CI_Model
         }
 
         $this->db
-                ->select('c.*, po.invoice_number, p.date_created AS tanggal_transaksi, p.name AS principal_name, s.name AS staff_name')
+                ->select('c.*, po.invoice_number, po.date_created AS tanggal_transaksi, p.name AS principal_name, s.name AS staff_name')
                 ->from('credit c')
                 ->join('purchase_order po', 'po.id_purchase_order = c.id_purchase_order')
                 ->join('principal p', 'p.id_pricipal = po.id_pricipal')
