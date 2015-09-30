@@ -230,8 +230,8 @@ $route['dashboard/debit-cek'] = "dashboard/debitBG";
 $route['dashboard/product-stock'] = "dashboard/minimumStock";
 $route['dashboard/product-expired'] = "dashboard/expiredProducts";
 
-$route['report/penjualan-retail'] = "report/penjualanretail";
-$route['report/penjualan-retail/detail/(:num)'] = "report/penjualanretail/detail/$1";
-$route['report/penjualan-pengadaan'] = "report/penjualan/pengadaan";
-$route['report/penjualan-tender'] = "report/penjualan/tender";
-$route['report/penjualan-detail/(:num)'] = "report/penjualan/detail/$1";
+$route['report/penjualan-retail'] = "report/PenjualanRetail";
+$route['report/penjualan-retail/detail/(:num)'] = "report/PenjualanRetail/detail/$1";
+$route['report/penjualan-pengadaan'] = "report/Penjualan/pengadaan";
+$route['report/penjualan-tender'] = "report/Penjualan/tender";
+$route['report/penjualan-detail/(:num)'] = "report/Penjualan/detail/$1";

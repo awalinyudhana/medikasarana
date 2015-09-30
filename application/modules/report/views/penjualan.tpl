@@ -33,73 +33,61 @@
 
                 <hr>
 
+                <div class="datatable-tools">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No Faktur</th>
+                                <th>Customer</th>
+                                <th>Nama Staff</th>
+                                <th>Tanggal Transaksi</th>
+                                <th>Jatuh Tempo</th>
+                                <th>Total</th>
+                                <th>DPP</th>
+                                <th>PPN</th>
+                                <th>Discount</th>
+                                <th>Grand Total</th>
+                                <th>Paid</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
+                        {assign var=total value=0}
+                        {assign var=val value=1}
+                        {foreach $penjualan as $key }
 
+                            <tr>
+                                <td>{$val}</td>
+                                <td>{$key->id_sales_order}</td>
+                                <td>{$key->customer_name}</td>
+                                <td>{$key->staff_name}</td>
+                                <td>{$key->date}</td>
+                                <td>{$key->due_date}</td>
+                                <td>Rp {$key->total|number_format:0}</td>
+                                <td>Rp {$key->dpp|number_format:0}</td>
+                                <td>Rp {$key->ppn|number_format:0}</td>
+                                <td>Rp {$key->discount_price|number_format:0}</td>
+                                <td>Rp {$key->grand_total|number_format:0}</td>
+                                <td>Rp {$key->paid|number_format:0}</td>
+                                <td>
+                                    <div class="table-controls">
+                                        <a href="{base_url('report/penjualan-detail/')}/{$key->id_sales_order}"
+                                           class="btn btn-link btn-icon btn-xs tip" title="Detail">
+                                            <i class="icon-list"></i>
+                                        </a>
 
-            </div><!-- /panel body -->
+                                    </div>
+                                </td>
+                            </tr>
+                            {assign var=val value=$val+1}
+                            {assign var=total value=$total+$key->grand_total}
+                        {/foreach}
 
-
-<!-- 
-            <div class="table-responsive pre-scrollable">
-                <table class="table table-striped table-bordered">
- -->                    
-            <div class="datatable-tools">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>No Faktur</th>
-                            <th>Customer</th>
-                            <th>Nama Staff</th>
-                            <th>Tanggal Transaksi</th>
-                            <th>Jatuh Tempo</th>
-                            <th>Total</th>
-                            <th>DPP</th>
-                            <th>PPN</th>
-                            <th>Discount</th>
-                            <th>Grand Total</th>
-                            <th>Paid</th>
-                            <th>Detail</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    {assign var=total value=0}
-                    {assign var=val value=1}
-                    {foreach $penjualan as $key }
-
-                        <tr>
-                            <td>{$val}</td>
-                            <td>{$key->id_sales_order}</td>
-                            <td>{$key->customer_name}</td>
-                            <td>{$key->staff_name}</td>
-                            <td>{$key->date}</td>
-                            <td>{$key->due_date}</td>
-                            <td>Rp {$key->total|number_format:0}</td>
-                            <td>Rp {$key->dpp|number_format:0}</td>
-                            <td>Rp {$key->ppn|number_format:0}</td>
-                            <td>Rp {$key->discount_price|number_format:0}</td>
-                            <td>Rp {$key->grand_total|number_format:0}</td>
-                            <td>Rp {$key->paid|number_format:0}</td>
-                            <td>
-                                <div class="table-controls">
-                                    <a href="{base_url('report/penjualan-detail/')}/{$key->id_sales_order}"
-                                       class="btn btn-link btn-icon btn-xs tip" title="Detail">
-                                        <i class="icon-list"></i>
-                                    </a>
-
-                                </div>
-                            </td>
-                        </tr>
-                        {assign var=val value=$val+1}
-                        {assign var=total value=$total+$key->grand_total}
-                    {/foreach}
-
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="panel-body">
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="col-sm-8">
                     <table class="table">
@@ -118,8 +106,8 @@
                     </table>
 
                 </div>
-            </div>
 
+            </div><!-- /panel body -->
 
         </div><!-- /default panel -->
 
