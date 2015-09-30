@@ -15,7 +15,7 @@ class ModOpname extends CI_Model
         }
 
         $this->db
-                ->select('o.*, p.*, pu.*, pc.*, p.name AS product_name, p.note AS opname_note, s.name AS staff_name')
+                ->select('o.*, p.*, pu.*, pc.*, p.name AS product_name, o.note AS opname_note, s.name AS staff_name')
                 ->from('opname o')
                 ->join('staff s', 's.id_staff = o.id_staff')
                 ->join('product p', 'p.id_product = o.id_product')
