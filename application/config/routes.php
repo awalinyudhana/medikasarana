@@ -229,7 +229,6 @@ $route['dashboard/debit'] = "dashboard/debit";
 $route['dashboard/debit-cek'] = "dashboard/debitBG";
 $route['dashboard/product-stock'] = "dashboard/minimumStock";
 $route['dashboard/product-expired'] = "dashboard/expiredProducts";
-
 $route['report/penjualan-retail'] = "report/PenjualanRetail";
 $route['report/penjualan-retail/detail/(:num)'] = "report/PenjualanRetail/detail/$1";
 $route['report/penjualan-pengadaan'] = "report/Penjualan/pengadaan";
@@ -241,3 +240,5 @@ $route['report/pinjam-bendera'] = "report/PinjamBendera";
 $route['report/pinjam-bendera/detail/(:num)'] = "report/PinjamBendera/detail/$1";
 $route['report/credit'] = "report/Credit";
 $route['report/debit'] = "report/Debit";
+$route['report/opname'] = "report/Opname";
+$route['report/opname-store'] = "report/OpnameStore";

@@ -518,14 +518,34 @@ $config['module_router'] =
                     'module' => 'proposal'
                 ],
                 [
-                    'title' => 'Pembayaran Hutang',
-                    'url' => 'report/credit',
-                    'module' => 'credit'
+                    'title' => 'Keuangan',
+                    'child' => [
+                        [
+                            'title' => 'Pembayaran Hutang',
+                            'url' => 'report/credit',
+                            'module' => 'credit'
+                        ],
+                        [
+                            'title' => 'Pembayaran Piutang',
+                            'url' => 'report/debit',
+                            'module' => 'debit'
+                        ]
+                    ]
                 ],
                 [
-                    'title' => 'Pembayaran Piutang',
-                    'url' => 'report/debit',
-                    'module' => 'debit'
+                    'title' => 'Opname Produk',
+                    'child' => [
+                        [
+                            'title' => 'Gudang',
+                            'url' => 'report/opname',
+                            'module' => 'product_opname'
+                        ],
+                        [
+                            'title' => 'Toko',
+                            'url' => 'report/opname-store',
+                            'module' => 'product_opname_store'
+                        ]
+                    ]
                 ]
             ]
         ]   
