@@ -166,7 +166,7 @@ class ModDashboard extends CI_Model
     public function getDataPembelian()
     {
         $query = $this->db
-                    ->where('status_paid', 1)
+                    // ->where('status_paid', 1)
                     ->select('date_created, grand_total')
                     ->from('purchase_order')
                     ->get();

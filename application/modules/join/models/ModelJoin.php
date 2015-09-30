@@ -25,6 +25,7 @@ class ModelJoin extends CI_Model
             ->where("sales_order.status_extract", 1)
             ->where("sales_order.active", 1)
             ->where("sales_order.paid", "0")
+            ->order_by("sales_order.id_proposal")
             // ->where("proposal.type !=", 2)
             ->get()
             ->result();
@@ -45,6 +46,21 @@ class ModelJoin extends CI_Model
     {
         $this->db->distinct()
             ->select('status_ppn')
+            ->where_in('id_sales_order',$id);
+
+        $query = $this->db->get('sales_order');
+
+        if($query->num_rows() == 1){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public function checkAvailabeProposalJoin($id)
+    {
+        $this->db->distinct()
+            ->select('id_proposal')
             ->where_in('id_sales_order',$id);
 
         $query = $this->db->get('sales_order');

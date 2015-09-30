@@ -482,7 +482,34 @@ $config['module_router'] =
                     'module' => 'retail'
                 ]
             ]
-        ]
+        ],
+        [
+            'title' => 'Report',
+            'url' => 'icon-cart',
+            'child' => [
+                [
+                    'title' => 'Penjualan',
+                    'child' => [
+                        [
+                            'title' => 'Retail',
+                            'url' => 'report/penjualan-retail',
+                            'module' => 'retail'
+                        ],
+                        [
+                            'title' => 'Penjualan Pengadaan',
+                            'url' => 'report/penjualan-pengadaan',
+                            'module' => 'sales_order'
+                        ],
+                        [
+                            'title' => 'Penjualan Tender',
+                            'url' => 'report/penjualan-tender',
+                            'module' => 'sales_order'
+                        ]
+                    ]
+                ]
+            ]
+        ]   
+                 
     ];
 //    [
 //        'title' => 'Users',

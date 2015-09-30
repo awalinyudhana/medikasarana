@@ -83,7 +83,7 @@
                             <td>Rp {$key->paid|number_format:0}</td>
                             <td>
                                 <div class="table-controls">
-                                    <a href="{base_url('report/penjualan/detail/')}/{$key->id_sales_order}"
+                                    <a href="{base_url('report/penjualan-detail/')}/{$key->id_sales_order}"
                                        class="btn btn-link btn-icon btn-xs tip" title="Detail">
                                         <i class="icon-list"></i>
                                     </a>
@@ -118,10 +118,6 @@
                     </table>
 
                 </div>
-                {*<h6>Notes &amp; Information:</h6>*}
-                {*Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.*}
-
-
             </div>
 
 
