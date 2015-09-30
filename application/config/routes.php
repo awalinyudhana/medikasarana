@@ -229,3 +229,6 @@ $route['dashboard/debit'] = "dashboard/debit";
 $route['dashboard/debit-cek'] = "dashboard/debitBG";
 $route['dashboard/product-stock'] = "dashboard/minimumStock";
 $route['dashboard/product-expired'] = "dashboard/expiredProducts";
+
+$route['report/penjualan-retail'] = "report/penjualanretail";
+$route['report/penjualan-retail/detail/(:num)'] = "report/penjualanretail/detail/$1";
