@@ -66,7 +66,7 @@
                                 <td>{$key->payment_type}</td>
                                 <td>{$key->resi_number}</td>
                                 <td>{$key->amount}</td>
-                                <td>{$status[$key->amount]}</td>
+                                <td>{$status[$key->status]}</td>
                             </tr>
                             {assign var=val value=$val+1}
                             {assign var=total value=$total+$key->amount}
