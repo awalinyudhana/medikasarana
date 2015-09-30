@@ -58,12 +58,12 @@
                                 <td>{$val}</td>
                                 <td>{$key->id_retail}</td>
                                 <td>{$key->name}</td>
-                                <td>Rp {$key->total|number_format:0}</td>
-                                <td>Rp {$key->dpp|number_format:0}</td>
-                                <td>Rp {$key->ppn|number_format:0}</td>
-                                <td>Rp {$key->discount_price|number_format:0}</td>
-                                <td>Rp {$key->grand_total|number_format:0}</td>
-                                <td>Rp {$key->paid|number_format:0}</td>
+                                <td class="text-right">Rp {$key->total|number_format:0}</td>
+                                <td class="text-right">Rp {$key->dpp|number_format:0}</td>
+                                <td class="text-right">Rp {$key->ppn|number_format:0}</td>
+                                <td class="text-right">Rp {$key->discount_price|number_format:0}</td>
+                                <td class="text-right">Rp {$key->grand_total|number_format:0}</td>
+                                <td class="text-right">Rp {$key->paid|number_format:0}</td>
                                 <td>
                                     <div class="table-controls">
                                         <a href="{base_url('report/penjualan-retail/detail/')}/{$key->id_retail}"

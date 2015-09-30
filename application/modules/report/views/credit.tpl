@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">
-                                <a href="{base_url('report/penjualan-retail')}" class="btn btn-warning">Reset</a>
+                                <a href="{base_url('report/credit')}" class="btn btn-warning">Reset</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                 <td>{$key->staff_name}</td>
                                 <td>{$key->payment_type}</td>
                                 <td>{$key->resi_number}</td>
-                                <td>{$key->amount}</td>
+                                <td class="text-right">{$key->amount|number_format:0}</td>
                                 <td>{$status[$key->status]}</td>
                             </tr>
                             {assign var=val value=$val+1}

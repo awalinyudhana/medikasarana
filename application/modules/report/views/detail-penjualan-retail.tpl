@@ -46,8 +46,8 @@
                             <td>{$key->brand}</td>
                             <td>{$key->unit}</td>
                             <td>{$key->qty}</td>
-                            <td>Rp {$key->price|number_format:0}</td>
-                            <td>Rp {$key->sub_total|number_format:0}</td>
+                            <td class="text-right">Rp {$key->price|number_format:0}</td>
+                            <td class="text-right">Rp {$key->sub_total|number_format:0}</td>
                         </tr>
                         {assign var=val value=$val+1}
                         {assign var=total value=$total+$key->sub_total}
