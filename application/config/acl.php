@@ -511,6 +511,16 @@ $config['module_router'] =
                     'title' => 'Pinjam Bendera',
                     'url' => 'report/pinjam-bendera',
                     'module' => 'proposal'
+                ],
+                [
+                    'title' => 'Pembayaran Hutang',
+                    'url' => 'report/credit',
+                    'module' => 'credit'
+                ],
+                [
+                    'title' => 'Pembayaran Piutang',
+                    'url' => 'report/debit',
+                    'module' => 'debit'
                 ]
             ]
         ]   

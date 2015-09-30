@@ -238,3 +238,5 @@ $route['report/penjualan-detail/(:num)'] = "report/Penjualan/detail/$1";
 
 $route['report/pinjam-bendera'] = "report/PinjamBendera";
 $route['report/pinjam-bendera/detail/(:num)'] = "report/PinjamBendera/detail/$1";
+$route['report/credit'] = "report/Credit";
+$route['report/debit'] = "report/Debit";

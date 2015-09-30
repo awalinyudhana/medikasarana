@@ -62,7 +62,7 @@
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>Total Penjualan Retail:</th>
+                            <th>Total Penjualan:</th>
                             <td class="text-right"><h6>Rp {$total|number_format:0}</h6></td>
                         </tr>
                         </tbody>
