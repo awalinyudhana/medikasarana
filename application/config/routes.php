@@ -235,7 +235,8 @@ $route['report/penjualan-retail/detail/(:num)'] = "report/PenjualanRetail/detail
 $route['report/penjualan-pengadaan'] = "report/Penjualan/pengadaan";
 $route['report/penjualan-tender'] = "report/Penjualan/tender";
 $route['report/penjualan-detail/(:num)'] = "report/Penjualan/detail/$1";
-
+$route['report/pembelian'] = "report/Pembelian";
+$route['report/pembelian-detail/(:num)'] = "report/Pembelian/detail/$1";
 $route['report/pinjam-bendera'] = "report/PinjamBendera";
 $route['report/pinjam-bendera/detail/(:num)'] = "report/PinjamBendera/detail/$1";
 $route['report/credit'] = "report/Credit";

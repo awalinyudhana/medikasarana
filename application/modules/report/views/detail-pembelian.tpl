@@ -47,9 +47,9 @@
                             <td>{$key->brand}</td>
                             <td>{$key->unit} / {$key->value}</td>
                             <td>{$key->qty}</td>
-                            <td>Rp {$key->price|number_format:0}</td>
-                            <td>Rp {$key->discount_total|number_format:0}</td>
-                            <td>Rp {$key->sub_total|number_format:0}</td>
+                            <td class="text-right">Rp {$key->price|number_format:0}</td>
+                            <td class="text-right">Rp {$key->discount_total|number_format:0}</td>
+                            <td class="text-right">Rp {$key->sub_total|number_format:0}</td>
                         </tr>
                         {assign var=val value=$val+1}
                         {assign var=total value=$total+$key->sub_total}

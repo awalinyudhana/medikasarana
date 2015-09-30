@@ -508,6 +508,11 @@ $config['module_router'] =
                     ]
                 ],
                 [
+                    'title' => 'Pembelian',
+                    'url' => 'report/pembelian',
+                    'module' => 'purchase_order'
+                ],
+                [
                     'title' => 'Pinjam Bendera',
                     'url' => 'report/pinjam-bendera',
                     'module' => 'proposal'
