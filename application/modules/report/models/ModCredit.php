@@ -27,3 +27,4 @@ class ModCredit extends CI_Model
            return $query->result();
         }
     }
+}
