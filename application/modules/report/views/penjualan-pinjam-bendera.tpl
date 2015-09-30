@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">
-                                <a href="{base_url('report')}/{$array_type[$type]}" class="btn btn-warning">Reset</a>
+                                <a href="{base_url('report/pinjam-bendera/detail')}/{$id_proposal}" class="btn btn-warning">Reset</a>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         </tr>
                         {/if}
                         <tr>
-                            <th>Total {$title}:</th>
+                            <th>Total :</th>
                             <td class="text-right"><h6>Rp {$total_penjualan|number_format:0}</h6></td>
                         </tr>
                         </tbody>
