@@ -33,7 +33,9 @@ class ModProduct extends CI_Model
                 ->join('principal p', 'p.id_principal = pm.id_principal')
                 ->join('product pr', 'pr.id_product = pm.id_product')
                 ->join('product_category pc', 'pc.id_product_category = pr.id_product_category')
-                ->join('product_unit pu', 'pu.id_product_unit = pr.id_product_unit');
+                ->join('product_unit pu', 'pu.id_product_unit = pr.id_product_unit')
+                ->where('pm.id_product', $id_product)
+                ->where('pm.id_principal', $id_principal);
                     
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
