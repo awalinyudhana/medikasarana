@@ -6,6 +6,7 @@ class Debit extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->acl->auth('debit');
         $this->load->model('ModDebit');
         $this->status = [0 => "pending", 1 => "terbayar"];
     }

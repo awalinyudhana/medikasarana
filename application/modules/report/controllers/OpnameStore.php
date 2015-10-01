@@ -6,6 +6,7 @@ class OpnameStore extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->acl->auth('product_opname_store');
         $this->load->model('ModOpnameStore');
     }
 

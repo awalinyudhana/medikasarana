@@ -6,6 +6,7 @@ class PinjamBendera extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->acl->auth('proposal');
         $this->load->model('ModPinjamBendera');
         $this->status_ppn = [0 => "Non Aktif", 1 => "Aktif"];
     }

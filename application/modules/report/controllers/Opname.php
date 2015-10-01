@@ -6,6 +6,7 @@ class Opname extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->acl->auth('product_opname');
         $this->load->model('ModOpname');
     }
 

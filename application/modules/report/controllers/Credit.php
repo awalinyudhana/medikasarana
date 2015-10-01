@@ -6,6 +6,7 @@ class Credit extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->acl->auth('credit');
         $this->load->model('ModCredit');
         $this->status = [0 => "pending", 1 => "terbayar"];
     }

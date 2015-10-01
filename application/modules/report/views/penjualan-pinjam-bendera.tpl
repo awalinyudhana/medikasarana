@@ -89,24 +89,32 @@
                     </table>
                 </div>
 
-                <div class="col-sm-8">
-                    <table class="table">
-                        <tbody>
-                        {if isset($from)}
-                        <tr>
-                            <th>Total {$title} Mulai "{$from} hingga {$to}":</th>
-                            <td class="text-right">Rp {$total|number_format:0}</td>
-                        </tr>
-                        {/if}
-                        <tr>
-                            <th>Total :</th>
-                            <td class="text-right"><h6>Rp {$total_penjualan|number_format:0}</h6></td>
-                        </tr>
-                        </tbody>
-                    </table>
-
+                <div class="row">
+                    <div class="col-sm-8">
+                        <table class="table">
+                            <tbody>
+                            {if isset($from)}
+                            <tr>
+                                <th>Total {$title} Mulai "{$from} hingga {$to}":</th>
+                                <td class="text-right">Rp {$total|number_format:0}</td>
+                            </tr>
+                            {/if}
+                            <tr>
+                                <th>Total :</th>
+                                <td class="text-right"><h6>Rp {$total_penjualan|number_format:0}</h6></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-sm-4 pull-right">
+                        <div class="btn-group right-box">
+                            <a href="{s_url('report/pinjam-bendera')"  class="btn block full-width btn-default">Kembali
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div><!-- /panel body -->
 
         </div><!-- /default panel -->
