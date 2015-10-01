@@ -12,11 +12,11 @@ class Product extends MX_Controller
     public function index()
     {
         $data['items'] = $this->ModProduct->getItems();
-        $this->parser->parse('product.tpl', $data);
     }
 
-    public function index($id_product, $id_principal){
+    public function detail($id_product, $id_principal)
+    {
         $data['items'] = $this->ModProduct->priceMovementList($id_product, $id_principal);
-
+        $this->parser->parse('product-detail.tpl', $data);
     }
 }
