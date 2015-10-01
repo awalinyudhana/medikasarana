@@ -11,7 +11,7 @@ class ModProduct extends CI_Model
     {
 
         $this->db
-        		->select('p.*, p.name as principal_name, pr.*, pr.name as product name, pc.category, pu.unit, pu.value');
+        		->select('p.*, p.name as principal_name, pr.*, pr.name as product name, pc.category, pu.unit, pu.value')
                 ->from('principal p')
                 ->join('purchase_order po', 'po.id_principal = p.id_principal')
                 ->join('purchase_order_detail pod', 'pod.id_purchase_order = po.id_purchase_order')
@@ -28,7 +28,7 @@ class ModProduct extends CI_Model
 
     public function priceMovementList($id_product, $id_principal){
     	$this->db
-        		->select('pm.*, p.name as principal_name, pr.*, pr.name as product name, pc.category, pu.unit, pu.value');
+        		->select('pm.*, p.name as principal_name, pr.*, pr.name as product name, pc.category, pu.unit, pu.value')
                 ->from('product_price_movement pm')
                 ->join('principal p', 'p.id_principal = pm.id_principal')
                 ->join('product pr', 'pr.id_product = pm.id_product')
