@@ -242,3 +242,5 @@ $route['report/credit'] = "report/Credit";
 $route['report/debit'] = "report/Debit";
 $route['report/opname'] = "report/Opname";
 $route['report/opname-store'] = "report/OpnameStore";
+$route['report/product'] = "report/Product";
+$route['report/product-detail/(:num)/(:num)'] = "report/Product/detail/$1/$1";

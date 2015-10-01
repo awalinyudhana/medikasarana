@@ -4,7 +4,7 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Laporan Proposal Pinjam Pendera</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Laporan Proposal Pinjam Bendera</h6></div>
 
             <div class="panel-body">
                 <!-- <div class="block-inner">
