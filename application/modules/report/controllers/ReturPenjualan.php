@@ -50,8 +50,7 @@ class ReturPenjualan extends MX_Controller
 
         $data['id_sales_order_return'] = $id_sales_order_return;
         $data['product_storage'] = $this->storageProduct();
-        // $this->parser->parse('detail-retur-penjualan.tpl', $data);
-        var_dump($data['product_storage']);
+        $this->parser->parse('detail-retur-penjualan.tpl', $data);
     }
 
     private function storageProduct(){
