@@ -6,6 +6,7 @@ class ReturPenjualan extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->acl->auth('sales_order');
         $this->load->model('ModReturPenjualan');
         $this->proposal_type = [0 => "penjualan-pengadaan", 1 => "penjualan-tender"];
         $this->id_store = $this->config->item('id_store');

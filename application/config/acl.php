@@ -508,6 +508,26 @@ $config['module_router'] =
                     ]
                 ],
                 [
+                    'title' => 'Retur Penjualan',
+                    'child' => [
+                        [
+                            'title' => 'Retur Retail',
+                            'url' => 'report/retur-penjualan-retail',
+                            'module' => 'retail'
+                        ],
+                        [
+                            'title' => 'Penjualan Pengadaan',
+                            'url' => 'report/retur-penjualan-pengadaan',
+                            'module' => 'sales_order'
+                        ],
+                        [
+                            'title' => 'Penjualan Tender',
+                            'url' => 'report/retur-penjualan-tender',
+                            'module' => 'sales_order'
+                        ]
+                    ]
+                ],
+                [
                     'title' => 'Pembelian',
                     'url' => 'report/pembelian',
                     'module' => 'purchase_order'

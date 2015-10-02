@@ -6,6 +6,7 @@ class ReturPenjualanRetail extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->acl->auth('retail');
         $this->load->model('ModReturPenjualanRetail');
         $this->id_store = $this->config->item('id_store');
     }
