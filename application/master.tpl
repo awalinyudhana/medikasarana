@@ -57,6 +57,7 @@
 
     {js('bootstrap.min.js')}
     {js('application.js')}
+    {js('excellentexport.js')}
     {block name=head}{/block}
     <style type="text/css">
     {literal}
