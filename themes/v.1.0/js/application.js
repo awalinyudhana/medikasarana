@@ -693,16 +693,12 @@ $(function() {
     });
 
     $( ".from-date" ).datepicker({
-      defaultDate: "+1w",
-      numberOfMonths: 3,
       showOtherMonths: true,
       onClose: function( selectedDate ) {
         $( ".to-date" ).datepicker( "option", "minDate", selectedDate );
       }
     });
     $( ".to-date" ).datepicker({
-      defaultDate: "+1w",
-      numberOfMonths: 3,
       showOtherMonths: true,
       onClose: function( selectedDate ) {
         $( ".from-date" ).datepicker( "option", "maxDate", selectedDate );
