@@ -91,11 +91,11 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-sm-4 pull-right">
                         <div class="btn-group right-box">
-                            <a href="{base_url('report/penjualan-retail')}"  class="btn block full-width btn-default">Kembali
+                            <a href="{base_url('report/retur-penjualan-retail')}"  class="btn block full-width btn-default">Kembali
                             </a>
                         </div>
                     </div>
