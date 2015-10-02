@@ -58,7 +58,7 @@
                                 <td>{$key->staff_name}</td>
                                 <td>
                                     <div class="table-controls">
-                                        <a href="{base_url('report/retur-penjualan/detail/')}/{$key->id_sales_order_return}"
+                                        <a href="{base_url('report/retur-penjualan-detail/')}/{$key->id_sales_order_return}"
                                            class="btn btn-link btn-icon btn-xs tip" title="Detail">
                                             <i class="icon-list"></i>
                                         </a>
