@@ -99,20 +99,8 @@
                                 <td class="text-right">Rp {$total|number_format:0}</td>
                             </tr>
                             {/if}
-                            <tr>
-                                <th>Total :</th>
-                                <td class="text-right"><h6>Rp {$total_penjualan|number_format:0}</h6></td>
-                            </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4 pull-right">
-                        <div class="btn-group right-box">
-                            <a href="{base_url('report/pinjam-bendera')}"  class="btn block full-width btn-default">Kembali
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div><!-- /panel body -->
