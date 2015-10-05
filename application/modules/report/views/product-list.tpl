@@ -44,8 +44,8 @@
                                 <td>{$key->brand}</td>
                                 <td>{$key->size}</td>
                                 <td>{$key->license}</td>
-                                <td>{$key->buy_price}</td>
-	                            <td>{$key->sell_price}</td>
+                                <td class="text-right">Rp {$key->buy_price|number_format:0}</td>
+                                <td class="text-right">Rp {$key->sell_price|number_format:0}</td>
                                 <!-- <td>
                                     <div class="table-controls">
                                         <a href="{base_url('report/product-detail/')}/{$key->id_product}/{$key->id_principal}"
