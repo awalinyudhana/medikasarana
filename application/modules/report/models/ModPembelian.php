@@ -11,13 +11,13 @@ class ModPembelian extends CI_Model
         $monthData = $this->getMonthData($dateFrom = null, $dateTo = null);
 
         foreach ($this->db->get('principal')->result() as $object) {
-            $principal[] = [
-                'id_principal' => $object->id_principal,
-                'principal_name' => $object->name
-            ];
+            $data['id_principal'] =  $object->id_principal;
+            $data['principal_name'] =  $object->name;
+
             foreach ($monthData as $value) {
-                $principal[][$value['time']] = $this->getDataBuying($object->id_principal,$value['time']);
+                $data[$value['time']] = $this->getDataBuying($object->id_principal,$value['time']);
             }
+            $principal[] = $data;
         }
         return $principal;
     }
@@ -27,7 +27,7 @@ class ModPembelian extends CI_Model
                 ->where('po.date_created <=', $dateTo);
         }
         $this->db
-                ->select('CONCAT(YEAR(date_created),'-',MONTH(date_created)), SUM(po.grand_total) as time',false)
+                ->select('CONCAT(YEAR(date_created),'-',MONTH(date_created)) as time',false)
                 ->from('purchase_order po')
                 ->group_by('CONCAT_WS('-', MONTH( po.date_created ) , YEAR( po.date_created )) ');
 
