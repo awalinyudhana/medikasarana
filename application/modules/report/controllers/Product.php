@@ -25,7 +25,7 @@ class Product extends MX_Controller
         if ($this->input->post('id_principal')) {
             $data['items'] = $this->ModProduct->getItems($this->input->post('id_principal'));
         } else {
-            redirect('report/product')
+            redirect('report/product');
         }
 
         $data['principal'] = $this->db->get_where('principal',
