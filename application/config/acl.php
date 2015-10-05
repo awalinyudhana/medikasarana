@@ -487,51 +487,51 @@ $config['module_router'] =
             'title' => 'Report',
             'url' => 'icon-cart',
             'child' => [
-                [
-                    'title' => 'Penjualan',
-                    'child' => [
-                        [
-                            'title' => 'Retail',
-                            'url' => 'report/penjualan-retail',
-                            'module' => 'retail'
-                        ],
-                        [
-                            'title' => 'Penjualan Pengadaan',
-                            'url' => 'report/penjualan-pengadaan',
-                            'module' => 'sales_order'
-                        ],
-                        [
-                            'title' => 'Penjualan Tender',
-                            'url' => 'report/penjualan-tender',
-                            'module' => 'sales_order'
-                        ]
-                    ]
-                ],
-                [
-                    'title' => 'Retur Penjualan',
-                    'child' => [
-                        [
-                            'title' => 'Retur Retail',
-                            'url' => 'report/retur-penjualan-retail',
-                            'module' => 'retail'
-                        ],
-                        [
-                            'title' => 'Penjualan Pengadaan',
-                            'url' => 'report/retur-penjualan-pengadaan',
-                            'module' => 'sales_order'
-                        ],
-                        [
-                            'title' => 'Penjualan Tender',
-                            'url' => 'report/retur-penjualan-tender',
-                            'module' => 'sales_order'
-                        ]
-                    ]
-                ],
-                [
-                    'title' => 'Pembelian',
-                    'url' => 'report/pembelian',
-                    'module' => 'purchase_order'
-                ],
+                // [
+                //     'title' => 'Penjualan',
+                //     'child' => [
+                //         [
+                //             'title' => 'Retail',
+                //             'url' => 'report/penjualan-retail',
+                //             'module' => 'retail'
+                //         ],
+                //         [
+                //             'title' => 'Penjualan Pengadaan',
+                //             'url' => 'report/penjualan-pengadaan',
+                //             'module' => 'sales_order'
+                //         ],
+                //         [
+                //             'title' => 'Penjualan Tender',
+                //             'url' => 'report/penjualan-tender',
+                //             'module' => 'sales_order'
+                //         ]
+                //     ]
+                // ],
+                // [
+                //     'title' => 'Retur Penjualan',
+                //     'child' => [
+                //         [
+                //             'title' => 'Retur Retail',
+                //             'url' => 'report/retur-penjualan-retail',
+                //             'module' => 'retail'
+                //         ],
+                //         [
+                //             'title' => 'Penjualan Pengadaan',
+                //             'url' => 'report/retur-penjualan-pengadaan',
+                //             'module' => 'sales_order'
+                //         ],
+                //         [
+                //             'title' => 'Penjualan Tender',
+                //             'url' => 'report/retur-penjualan-tender',
+                //             'module' => 'sales_order'
+                //         ]
+                //     ]
+                // ],
+                // [
+                //     'title' => 'Pembelian',
+                //     'url' => 'report/pembelian',
+                //     'module' => 'purchase_order'
+                // ],
                 [
                     'title' => 'Pinjam Bendera',
                     'url' => 'report/pinjam-bendera',
