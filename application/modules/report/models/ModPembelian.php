@@ -42,7 +42,7 @@ class ModPembelian extends CI_Model
         $this->db
                 ->select('SUM(po.grand_total) as grand_total',false)
                 ->from('purchase_order po')
-                ->where('p.id_principal', $id_principal)
+                ->where('po.id_principal', $id_principal)
                 ->where('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created ))', $time)
                 ->group_by('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created )) ');
                     
