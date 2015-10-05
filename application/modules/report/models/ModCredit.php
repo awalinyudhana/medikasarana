@@ -16,7 +16,7 @@ class ModCredit extends CI_Model
 
         $this->db
                 ->from('purchase_order po')
-                ->join('principal p', 'p.id_principal = po.id_principal')
+                ->join('principal p', 'p.id_principal = po.id_principal');
                     
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

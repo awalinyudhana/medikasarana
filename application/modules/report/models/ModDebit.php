@@ -17,7 +17,7 @@ class ModDebit extends CI_Model
         $this->db
                 ->from('sales_order so')
                 ->join('customer c', 'c.id_customer = so.id_customer')
-                ->where('so.active', true);;
+                ->where('so.active', true);
                     
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
