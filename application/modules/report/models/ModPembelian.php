@@ -27,7 +27,7 @@ class ModPembelian extends CI_Model
                 ->where('po.date_created <=', $dateTo);
         }
         $this->db
-                ->select('CONCAT(YEAR(date_created),'-',MONTH(date_created)) as time',false)
+                ->select('CONCAT(YEAR(date_created),'-',MONTH(date_created)) as time')
                 ->from('purchase_order po')
                 ->group_by('CONCAT_WS('-', MONTH( po.date_created ) , YEAR( po.date_created ))');
 
