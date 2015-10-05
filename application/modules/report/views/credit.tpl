@@ -75,8 +75,8 @@
                                 </td>
                             </tr>
                             {assign var=val value=$val+1}
-                            {assign var=total value=$total_tagihan+$key->grand_total}
-                            {assign var=total value=$total_bayar+$key->paid}
+                            {assign var=total_tagihan value=$total_tagihan+$key->grand_total}
+                            {assign var=total_bayar value=$total_bayar+$key->paid}
                         {/foreach}
 
                         </tbody>
