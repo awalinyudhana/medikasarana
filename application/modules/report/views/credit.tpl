@@ -111,7 +111,7 @@
                                     Mulai "{$from} hingga {$to}" 
                                 {/if}:
                             </th>
-                            <td class="text-right">Rp {(total_tagihan-$total_bayar)|number_format:0}</td>
+                            <td class="text-right">Rp {($total_tagihan-$total_bayar)|number_format:0}</td>
                         </tr>
                         </tbody>
                     </table>
