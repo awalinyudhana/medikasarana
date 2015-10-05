@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Daftar Penjualan<small class="display-block">Daftar penjualan pinjam bendera dengan id proposal  {$id_proposal}</small>
+                        <i class="icon-coin"></i> Daftar Penjualan<small class="display-block">Daftar penjualan pinjam bendera </small>
                     </h6>
                 </div>
 
@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">
-                                <a href="{base_url('report/pinjam-bendera/detail')}/{$id_proposal}" class="btn btn-warning">Reset</a>
+                                <a href="{base_url('report/pinjam-bendera')}" class="btn btn-warning">Reset</a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
 
                         {assign var=total value=0}
                         {assign var=val value=1}
-                        {foreach $penjualan as $key }
+                        {foreach $items as $key }
 
                             <tr>
                                 <td>{$val}</td>
