@@ -243,6 +243,7 @@ $route['report/debit'] = "report/Debit";
 $route['report/opname'] = "report/Opname";
 $route['report/opname-store'] = "report/OpnameStore";
 $route['report/product'] = "report/Product";
+$route['report/product-list'] = "report/Product/items";
 $route['report/product-detail/(:num)/(:num)'] = "report/Product/detail/$1/$2";
 $route['report/retur-penjualan-retail'] = "report/ReturPenjualanRetail";
 $route['report/retur-penjualan-retail/detail/(:num)'] = "report/ReturPenjualanRetail/detail/$1";

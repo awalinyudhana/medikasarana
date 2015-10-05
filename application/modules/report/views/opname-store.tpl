@@ -40,7 +40,6 @@
                                 <th>Tanggal</th>
                                 <th>Staff</th>
                                 <th>Nama Produk</th>
-                                <th>Kategori</th>
 		                        <th>Unit</th>
 		                        <th>Nilai Satuan</th>
 		                        <th>Merek</th>
@@ -60,7 +59,6 @@
                                 <td>{$key->date}</td>
                                 <td>{$key->staff_name}</td>
                                 <td>{$key->product_name}</td>
-                                <td>{$key->category}</td>
 	                            <td>{$key->unit}</td>
 	                            <td>{$key->value}</td>
 	                            <td>{$key->brand}</td>

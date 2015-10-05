@@ -13,6 +13,19 @@ class Pembelian extends MX_Controller
     public function index()
     {
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
+            $data['pembelian'] = $this->ModPembelian->getItems($this->input->post('date_from'), $this->input->post('date_to'));
+            $data['from'] = $this->input->post('date_from');
+            $data['to'] = $this->input->post('date_to');
+        } else {
+            $data['pembelian'] = $this->ModPembelian->getItems();
+        }
+        
+        var_dump($data['pembelian']);
+    }
+
+    public function items()
+    {
+        if ($this->input->post('date_from') && $this->input->post('date_to')) {
             $data['pembelian'] = $this->ModPembelian->getPembelian($this->input->post('date_from'), $this->input->post('date_to'));
             $data['from'] = $this->input->post('date_from');
             $data['to'] = $this->input->post('date_to');
@@ -22,7 +35,7 @@ class Pembelian extends MX_Controller
         
         $data['total_pembelian'] = $this->ModPembelian->getTotalPembelian();
 
-        $this->parser->parse('pembelian.tpl', $data);
+        $this->parser->parse('pembelian-list.tpl', $data);
     }
 
     public function detail($id_purchase_order = null)

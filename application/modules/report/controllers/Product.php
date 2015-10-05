@@ -12,8 +12,26 @@ class Product extends MX_Controller
 
     public function index()
     {
-        $data['items'] = $this->ModProduct->getItems();
-        $this->parser->parse('product.tpl', $data);
+        $principal = array('' => '');
+        foreach ($this->db->get('principal')->result() as $object) {
+            $principal[$object->id_principal] = $object->name;
+        }
+        $data['principals'] = $principal;
+        $this->parser->parse("product.tpl", $data);
+    }
+
+    public function items()
+    {
+        if ($this->input->post('id_principal')) {
+            $data['items'] = $this->ModProduct->getItems($this->input->post('id_principal'));
+        } else {
+            redirect('report/product')
+        }
+
+        $data['principal'] = $this->db->get_where('principal',
+            array('id_principal' => $this->input->post('id_principal')))->row();
+
+        $this->parser->parse('product-list.tpl', $data);
     }
 
     public function detail($id_product, $id_principal)

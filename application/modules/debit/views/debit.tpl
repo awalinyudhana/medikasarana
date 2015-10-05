@@ -50,13 +50,13 @@
                     <thead>
                     <tr>
                         <th>No</th>
+                        <th>Tanggal Transaksi</th>
                         <th>No Faktur</th>
                         <th>Nama Konsumen</th>
-                        <th>Tanggal Transaksi</th>
                         <th>Jatuh Tempo</th>
                         <th>Tagihan</th>
                         <th>Terbayar</th>
-                        <th>Piutang</th>
+                        <th>Sisa Tagihan</th>
                         <th>Bayar</th>
                     </tr>
                     </thead>
@@ -67,9 +67,9 @@
                     {foreach $so as $key }
                         <tr>
                             <td>{$val}</td>
+                            <td>{$key->date}</td>
                             <td>{$key->id_sales_order}</td>
                             <td>{$key->name}</td>
-                            <td>{$key->date}</td>
                             <td>{$key->due_date}</td>
                             <td>Rp {$key->grand_total|number_format:0}</td>
                             <td>Rp {$key->paid|number_format:0}</td>

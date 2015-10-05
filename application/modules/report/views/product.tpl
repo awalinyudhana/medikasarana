@@ -2,54 +2,35 @@
 {extends file="../../../master.tpl"}
 
 {block name=content}
+    <!-- Default panel -->
+    <form action="{base_url('report/product-list')}" role="form" method="post">
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Laporan Produk</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Laporan Pembelian Produk</h6></div>
 
             <div class="panel-body">
-                <div class="datatable-tools">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Prinsipal</th>
-                                <th>Nama Produk</th>
-                                <th>Kategori</th>
-		                        <th>Unit</th>
-		                        <th>Nilai Satuan</th>
-		                        <th>Merek</th>
-                                <th>Riwayat Pembelian</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {assign var=val value=1}
-                        {foreach $items as $key }
-
-                            <tr>
-                                <td>{$val}</td>
-                                <td>{$key->principal_name}</td>
-                                <td>{$key->product_name}</td>
-                                <td>{$key->category}</td>
-	                            <td>{$key->unit}</td>
-	                            <td>{$key->value}</td>
-	                            <td>{$key->brand}</td>
-                                <td>
-                                    <div class="table-controls">
-                                        <a href="{base_url('report/product-detail/')}/{$key->id_product}/{$key->id_principal}"
-                                           class="btn btn-link btn-icon btn-xs tip" title="Detail">
-                                            <i class="icon-list"></i>
-                                        </a>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            {assign var=val value=$val+1}
-                        {/foreach}
-
-                        </tbody>
-                    </table>
+                <div class="block-inner">
+                    <h6 class="heading-hr">
+                        <i class="icon-clipboard"></i>Daftar Prinsipal <small class="display-block">Pilih pricipal</small>
+                    </h6>
                 </div>
-            </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6 {if form_error('id_principal')}has-warning{/if}">
+                            <label>Prinsipal:</label>
+                            {form_dropdown('id_principal',$principals,set_value('id_principal'),'data-placeholder="Supplier" class="select-full" tabindex="1" autofocus')}
+                            {if form_error('id_principal')}
+                                  <span class="label label-block label-danger text-left">{form_error('id_principal') }</span>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions ">
+                    <div class="col-sm-12">
+                        <input type="submit" class="btn btn-block btn-success" value="Purchase Order">
+                    </div>
+                </div>
+            </div><!-- /panel body -->
         </div><!-- /default panel -->
-
+    </form>
 {/block}
