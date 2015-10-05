@@ -7,6 +7,27 @@ class ModPinjamBendera extends CI_Model
         parent::__construct();
     }
 
+    public function getItems($type, $dateFrom = null, $dateTo = null)
+    {
+        if ($dateFrom) {
+            $this->db->where('so.date >=', $dateFrom)
+                ->where('so.date <=', $dateTo);
+        }
+        $this->db
+                ->select('so.*c.name AS customer_name, s.name AS staff_name')
+                ->from('sales_order so')
+                ->join('customer c', 'c.id_customer = so.id_customer')
+                ->join('staff s', 's.id_staff = so.id_staff')
+                ->join('proposal p', 'p.id_proposal = so.id_proposal')
+                ->where('so.active', 1)
+                ->where('p.type', $type)
+                ->order_by('so.date desc');
+                    
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+           return $query->result();
+        }
+    }
     public function getProposalList($type = 2, $dateFrom = null, $dateTo = null)
     {
         if ($dateFrom) {
