@@ -8,7 +8,7 @@ class Credit extends MX_Controller
         parent::__construct();
         $this->acl->auth('credit');
         $this->load->model('ModCredit');
-        $this->status = [0 => "pending", 1 => "terbayar"];
+        // $this->status = [0 => "pending", 1 => "terbayar"];
     }
 
     public function index()
@@ -20,7 +20,8 @@ class Credit extends MX_Controller
         } else {
             $data['items'] = $this->ModCredit->getItems();
         }
-        $data['status'] = $this->status;
+        // $data['status'] = $this->status;
         $this->parser->parse('credit.tpl', $data);
     }
+
 }

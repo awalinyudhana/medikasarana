@@ -568,7 +568,7 @@ $config['module_router'] =
                     ]
                 ],
                 [
-                    'title' => 'Product',
+                    'title' => 'Pembelian Barang',
                     'url' => 'report/product',
                     'module' => 'warehouse'
                 ],

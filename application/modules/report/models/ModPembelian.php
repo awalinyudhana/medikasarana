@@ -9,17 +9,18 @@ class ModPembelian extends CI_Model
 
     public function getItems($dateFrom = null, $dateTo = null){
        $monthData = $this->getMonthData($dateFrom = null, $dateTo = null)
-    }
 
-    public function getPricipalList(){
-        $principal = array();
+       $principal = array();
         foreach ($this->db->get('principal')->result() as $object) {
             $principal[] = [
                 'id_principal' => $object->id_principal,
                 'principal_name' => $object->name
-                'data' => $this->getDataBuying($object->id_principal)
             ];
+            foreach ($monthData as $value) {
+                $principal[][$value['time']] => $this->getDataBuying($object->id_principal,$value['time']);
+            }
         }
+        return $principal;
     }
     public function getMonthData($dateFrom = null, $dateTo = null){
         if ($dateFrom) {
@@ -38,16 +39,20 @@ class ModPembelian extends CI_Model
                     
     }
 
-    public function getDataBuying($id_principal){
+    public function getDataBuying($id_principal,$time){
         $this->db
-                ->select('po.date_created,CONCAT(YEAR(date_created),'-',MONTH(date_created)), SUM(po.grand_total)',false)
+                ->select('SUM(po.grand_total) as grand_total',false)
                 ->from('purchase_order po')
-                ->where('p.date_created', $id_principal)
+                ->where('p.id_principal', $id_principal)
+                ->where('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created ))', $time)
                 ->group_by('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created )) ');
                     
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
-           return $query->result_array();
+            $data = $query->row();
+            return $data->grand_total;
+        }else{
+            return '0';
         }
     }
 

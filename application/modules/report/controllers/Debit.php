@@ -8,7 +8,7 @@ class Debit extends MX_Controller
         parent::__construct();
         $this->acl->auth('debit');
         $this->load->model('ModDebit');
-        $this->status = [0 => "pending", 1 => "terbayar"];
+        // $this->status = [0 => "pending", 1 => "terbayar"];
     }
 
     public function index()
@@ -20,7 +20,7 @@ class Debit extends MX_Controller
         } else {
             $data['items'] = $this->ModDebit->getItems();
         }
-        $data['status'] = $this->status;
+        // $data['status'] = $this->status;
         $this->parser->parse('debit.tpl', $data);
     }
 }

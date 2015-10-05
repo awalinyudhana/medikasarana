@@ -4,14 +4,15 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Laporan Pembayaran Piutang</h6></div>
+            
+            <div class="panel-heading"><h6 class="panel-title">Daftar Penjualan</h6></div>
 
             <div class="panel-body">
-                <!-- <div class="block-inner">
+                <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Laporan Penjualan Retail <small class="display-block">Laporan Penjualan Retail</small>
+                        <i class="icon-coin"></i> Laporan Piutang <small class="display-block">Detail Penjualan</small>
                     </h6>
-                </div> -->
+                </div>
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
@@ -32,44 +33,51 @@
                 </form>
 
                 <hr>
+               
                 <div class="datatable-tools">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>No Faktur</th>
-                                <th>Principal</th>
                                 <th>Tanggal Transaksi</th>
-                                <th>Tanggal Pembayaran</th>
-                                <th>Tanggal Withdrawal</th>
-                                <th>Staff</th>
-                                <th>Jenis Pembayaran</th>
-                                <th>No Resi</th>
-                                <th>Jumlah Pembayaran</th>
+                                <th>No Faktur</th>
+                                <th>Customer</th>
+                                <!-- <th>No Invoice</th> -->
+                                <th>Tanggal Jatuh Tempo</th>
+                                <th>Total Tagihan</th>
+                                <th>Terbayar</th>
+                                <th>Sisa Tagihan</th>
                                 <th>Status Pembayaran</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                        {assign var=total value=0}
+                        {assign var=total_tagihan value=0}
+                        {assign var=total_bayar value=0}
                         {assign var=val value=1}
                         {foreach $items as $key }
 
                             <tr>
                                 <td>{$val}</td>
-                                <td>{$key->id_sales_order}</td>
-                                <td>{$key->customer_name}</td>
-                                <td>{$key->tanggal_transaksi}</td>
                                 <td>{$key->date}</td>
-                                <td>{$key->date_withdrawal}</td>
-                                <td>{$key->staff_name}</td>
-                                <td>{$key->payment_type}</td>
-                                <td>{$key->resi_number}</td>
-                                <td class="text-right">Rp {$key->amount|number_format:0}</td>
-                                <td>{$status[$key->status]}</td>
+                                <td>{$key->id_sales_order}</td>
+                                <td>{$key->name}</td>
+                                <!-- <td>{$key->invoice_number}</td> -->
+                                <td>{$key->due_date}</td>
+                                <td class="text-right">Rp {$key->grand_total|number_format:0}</td>
+                                <td class="text-right">Rp {$key->paid|number_format:0}</td>
+                                <td class="text-right">Rp {($key->grand_total-$key->paid)|number_format:0}</td>
+                                <td>
+                                    {if $key->status_paid == 0}
+                                        Belum Lunas
+                                    {else}
+                                        Lunas
+                                    {/if}
+                                </td>
                             </tr>
                             {assign var=val value=$val+1}
-                            {assign var=total value=$total+$key->amount}
+                            {assign var=total value=$total_tagihan+$key->grand_total}
+                            {assign var=total value=$total_bayar+$key->paid}
                         {/foreach}
 
                         </tbody>
@@ -79,15 +87,32 @@
                 <div class="col-sm-8">
                     <table class="table">
                         <tbody>
-                        
                         <tr>
                             <th>
-                            	Total 
-                            	{if isset($from)} 
-                            		Pembayaran Piutang Mulai "{$from} hingga {$to}" 
-                            	{/if}:
+                                Total Piutang
+                                {if isset($from)} 
+                                    Mulai "{$from} hingga {$to}" 
+                                {/if}:
                             </th>
-                            <td class="text-right">Rp {$total|number_format:0}</td>
+                            <td class="text-right">Rp {$total_tagihan|number_format:0}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Total Piutang yang telah terbayar
+                                {if isset($from)} 
+                                    Mulai "{$from} hingga {$to}" 
+                                {/if}:
+                            </th>
+                            <td class="text-right">Rp {$total_bayar|number_format:0}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Sisa Piutang yang belum terbayar
+                                {if isset($from)} 
+                                    Mulai "{$from} hingga {$to}" 
+                                {/if}:
+                            </th>
+                            <td class="text-right">Rp {(total_tagihan-$total_bayar)|number_format:0}</td>
                         </tr>
                         </tbody>
                     </table>
