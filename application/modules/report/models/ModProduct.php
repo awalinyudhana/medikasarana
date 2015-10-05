@@ -21,7 +21,7 @@ class ModProduct extends CI_Model
                 ->join('product pr', 'pr.id_product = pod.id_product')
                 ->join('product_category pc', 'pc.id_product_category = pr.id_product_category')
                 ->join('product_unit pu', 'pu.id_product_unit = pr.id_product_unit')
-                ->join('(SELECT MAX(id_price_movement) max_id, buy_price, id_product FROM product_price_movement GROUP BY  id_principal) as pm','pm.id_product = pr.id_product')
+                ->join('(SELECT MAX(id_price_movement) max_id, buy_price, id_product FROM product_price_movement GROUP BY  id_principal) as pm','pm.id_product = pr.id_product','left')
                 ->group_by('p.name, pod.id_product');
                     
         $query = $this->db->get();
