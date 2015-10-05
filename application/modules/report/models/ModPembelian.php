@@ -29,7 +29,7 @@ class ModPembelian extends CI_Model
         $this->db
                 ->select('CONCAT(YEAR(date_created),'-',MONTH(date_created)), SUM(po.grand_total) as time',false)
                 ->from('purchase_order po')
-                ->group_by('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created )) ');
+                ->group_by('CONCAT_WS('-', MONTH( po.date_created ) , YEAR( po.date_created )) ');
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

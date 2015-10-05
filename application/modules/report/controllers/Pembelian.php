@@ -17,7 +17,7 @@ class Pembelian extends MX_Controller
             $data['from'] = $this->input->post('date_from');
             $data['to'] = $this->input->post('date_to');
         } else {
-            $data['pembelian'] = $this->ModPembelian->getItems();
+            $data['pembelian'] = $this->ModPembelian->getMonthData();
         }
         
         var_dump($data['pembelian']);
