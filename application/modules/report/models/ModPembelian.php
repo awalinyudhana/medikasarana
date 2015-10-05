@@ -23,11 +23,11 @@ class ModPembelian extends CI_Model
     }
     public function getMonthData($dateFrom = null, $dateTo = null){
         if ($dateFrom) {
-            $this->db->query("SELECT CONCAT(YEAR(date_created),MONTH(date_created)) as time FROM purchase_order WHERE date_created >= $dateFrom AND date_created <= $dateTo GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
+            $query = $this->db->query("SELECT CONCAT(YEAR(date_created),MONTH(date_created)) as time FROM purchase_order WHERE date_created >= $dateFrom AND date_created <= $dateTo GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
         }else{
-            $this->db->query("SELECT id_purchase_order, CONCAT(YEAR(date_created),MONTH(date_created)) as time FROM purchase_order GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
+            $query = $this->db->query("SELECT CONCAT(YEAR(date_created),MONTH(date_created)) as time FROM purchase_order GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
         }
-        $query = $this->db->get();
+        // $query = $this->db->get();
         if ($query->num_rows() > 0) {
            return $query->result_array();
         }
