@@ -14,7 +14,7 @@ class ModPinjamBendera extends CI_Model
                 ->where('so.date <=', $dateTo);
         }
         $this->db
-                ->select('so.*c.name AS customer_name, s.name AS staff_name')
+                ->select('so.*, c.name AS customer_name, s.name AS staff_name')
                 ->from('sales_order so')
                 ->join('customer c', 'c.id_customer = so.id_customer')
                 ->join('staff s', 's.id_staff = so.id_staff')
