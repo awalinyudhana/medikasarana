@@ -23,9 +23,9 @@ class ModPembelian extends CI_Model
     }
     public function getMonthData($dateFrom = null, $dateTo = null){
         if ($dateFrom) {
-            $query = $this->db->query("SELECT CONCAT(YEAR(date_created),MONTH(date_created)) as time FROM purchase_order WHERE date_created >= $dateFrom AND date_created <= $dateTo GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
+            $query = $this->db->query("SELECT CONCAT_WS('-', MONTH(date_created), YEAR(date_created))) as time FROM purchase_order WHERE date_created >= $dateFrom AND date_created <= $dateTo GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created)) order_by time asc");
         }else{
-            $query = $this->db->query("SELECT CONCAT(YEAR(date_created),MONTH(date_created)) as time FROM purchase_order GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
+            $query = $this->db->query("SELECT CONCAT_WS('-', MONTH(date_created), YEAR(date_created))) as time FROM purchase_order GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created)) order_by time asc");
         }
         // $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -35,14 +35,18 @@ class ModPembelian extends CI_Model
     }
 
     public function getDataBuying($id_principal,$time){
-        $this->db
-                ->select('SUM(po.grand_total) as grand_total',false)
-                ->from('purchase_order po')
-                ->where('po.id_principal', $id_principal)
-                ->where('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created ))', $time)
-                ->group_by('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created )) ');
+
+
+        $query = $this->db->query("SELECT SUM(grand_total) as grand_total FROM purchase_order where id_principal = $id_principal AND CONCAT_WS('-', MONTH(date_created), YEAR(date_created)) = $time  GROUP BY CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
+
+        // $this->db
+        //         ->select('SUM(po.grand_total) as grand_total',false)
+        //         ->from('purchase_order po')
+        //         ->where('po.id_principal', $id_principal)
+        //         ->where('CONCAT( '-', MONTH( po.date_created ) , YEAR( po.date_created ))', $time)
+        //         ->group_by('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created )) ');
                     
-        $query = $this->db->get();
+        // $query = $this->db->get();
         if ($query->num_rows() > 0) {
             $data = $query->row();
             return $data->grand_total;
