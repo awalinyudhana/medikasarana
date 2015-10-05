@@ -17,7 +17,7 @@ class ModProduct extends CI_Model
                 ->join('product pr', 'pr.id_product = pod.id_product')
                 ->join('product_category pc', 'pc.id_product_category = pr.id_product_category')
                 ->join('product_unit pu', 'pu.id_product_unit = pr.id_product_unit')
-                ->join('(SELECT id_price_movement, buy_price, id_product FROM product_price_movement WHERE id_principal = $id_principal order by id_price_movement desc) as pm','pm.id_product = pr.id_product','left')
+                ->join('(SELECT id_price_movement, buy_price, id_product FROM product_price_movement WHERE id_principal = '.$id_principal.' order by id_price_movement desc) as pm','pm.id_product = pr.id_product','left')
                 ->where('p.id_principal', $id_principal)
                 ->group_by('p.name, pod.id_product');
                     
