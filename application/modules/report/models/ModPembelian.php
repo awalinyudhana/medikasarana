@@ -8,9 +8,8 @@ class ModPembelian extends CI_Model
     }
 
     public function getItems($dateFrom = null, $dateTo = null){
-       $monthData = $this->getMonthData($dateFrom = null, $dateTo = null)
+        $monthData = $this->getMonthData($dateFrom = null, $dateTo = null)
 
-       $principal = array();
         foreach ($this->db->get('principal')->result() as $object) {
             $principal[] = [
                 'id_principal' => $object->id_principal,
@@ -18,7 +17,7 @@ class ModPembelian extends CI_Model
             ];
             foreach ($monthData as $value) {
                 $principal[][$value['time']] => $this->getDataBuying($object->id_principal,$value['time']);
-            }
+         }
         }
         return $principal;
     }
