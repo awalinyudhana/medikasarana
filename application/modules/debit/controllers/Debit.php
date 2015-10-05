@@ -39,11 +39,13 @@ class Debit extends MX_Controller
 
         $grand_total = $this->db->select_sum('grand_total')
             ->where(array('so.status_paid' => false))
+            ->where('so.active', true)
             ->get('sales_order so')
             ->row();
 
         $paid = $this->db->select_sum('paid')
             ->where(array('so.status_paid' => false))
+            ->where('so.active', true)
             ->get('sales_order so')
             ->row();
 
