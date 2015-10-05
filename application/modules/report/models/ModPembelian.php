@@ -16,7 +16,7 @@ class ModPembelian extends CI_Model
                 'principal_name' => $object->name
             ];
             foreach ($monthData as $value) {
-                $principal[][$value['time']] => $this->getDataBuying($object->id_principal,$value['time']);
+                $principal[][$value['time']] = $this->getDataBuying($object->id_principal,$value['time']);
             }
         }
         return $principal;
