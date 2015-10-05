@@ -10,7 +10,7 @@ class ModProduct extends CI_Model
     public function getItems($id_principal = null)
     {
         $this->db
-        		->select('p.*, p.name as principal_name, pr.*, pr.name as product_name, pc.category, pu.unit, pu.value, SELECT')
+        		->select('p.*, p.name as principal_name, pr.*, pr.name as product_name, pc.category, pu.unit, pu.value')
                 ->from('principal p')
                 ->join('purchase_order po', 'po.id_principal = p.id_principal')
                 ->join('purchase_order_detail pod', 'pod.id_purchase_order = po.id_purchase_order')
