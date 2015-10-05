@@ -14,11 +14,11 @@ class PinjamBendera extends MX_Controller
     public function index()
     {
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
-            $data['items'] = $this->ModPinjamBendera->getProposalList(2, $this->input->post('date_from'), $this->input->post('date_to'));
+            $data['items'] = $this->ModPinjamBendera->getItems(2, $this->input->post('date_from'), $this->input->post('date_to'));
             $data['from'] = $this->input->post('date_from');
             $data['to'] = $this->input->post('date_to');
         } else {
-            $data['items'] = $this->ModPinjamBendera->getProposalList(2);
+            $data['items'] = $this->ModPinjamBendera->getItems(2);
         }
 
         $data['array_status_ppn'] = $this->status_ppn;
