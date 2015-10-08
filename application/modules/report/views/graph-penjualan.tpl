@@ -87,7 +87,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6 class="panel-title">Detail Rincian Penjualan<br>Bulan {$form_form} - {$form_to}</h6>
+                                <h6 class="panel-title">Detail Rincian Penjualan<br>Bulan {$form_from} - {$form_to}</h6>
                             </div>
                             <div class="panel-body">
                             <!-- <div class="panel-body" style="min-height:400px;"> -->
