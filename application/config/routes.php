@@ -232,7 +232,7 @@ $route['dashboard/product-expired'] = "dashboard/expiredProducts";
 
 
 $route['report/penjualan/pengadaan/month'] = "report/Penjualan/pengadaanPerBulan";
-// $route['report/penjualan'] = "report/Penjualan/graph";
+$route['report/penjualan'] = "report/Penjualan/graph";
 // $route['report/penjualan-retail'] = "report/PenjualanRetail";
 // $route['report/penjualan-retail/detail/(:num)'] = "report/PenjualanRetail/detail/$1";
 // $route['report/penjualan-pengadaan'] = "report/Penjualan/pengadaan";
