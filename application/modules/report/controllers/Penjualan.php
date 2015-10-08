@@ -220,11 +220,16 @@ class Penjualan extends MX_Controller
     }
 
     public function pengadaanPerBulan(){
-        $from = date('Y-m-01');
-        $to = date('Y-m-t');
+        if ($this->input->post('date_from') && $this->input->post('date_to')) {
+            $from = substr($this->input->post('date_from'),0,7);
+            $to = substr($this->input->post('date_to'),0,7);
+        }else{
+            $from = substr(date('Y-m-01',0,7);
+            $to = substr(date('Y-m-t',0,7);
+        }
 
-        $data['from'] = substr($from,0,7);
-        $data['to'] = substr($to,0,7);
+        $sql_from = date('Y-m-01', strtotime($from));
+        $sql_to = date('Y-m-t', strtotime($to));
 
         $date_period = $this->datePeriod($from, $to);
         $count_date_period = count($date_period);
@@ -261,6 +266,8 @@ class Penjualan extends MX_Controller
 
 
         $data['items'] = $data_penjualan_per_customer;
+        $data['from'] = $from;
+        $data['to'] = $to;
 
         var_dump($data_penjualan_per_customer);
         // $this->parser->parse('penjuala-bulann.tpl', $data);
