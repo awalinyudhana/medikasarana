@@ -81,8 +81,6 @@ class Penjualan extends MX_Controller
             }
             $data['daftar_bulan'] = "[" . substr($date_string, 0 , -1) . "]";
 
-            // $groups[] = array();
-
             $penjualan_tender_string = '';
             if ($data_penjualan_tender) {
                 foreach ($data_penjualan_tender as $v) {
@@ -185,8 +183,8 @@ class Penjualan extends MX_Controller
             $to = date('2015-09-31');*/
             $data['from'] = $from;
             $data['to'] = $to;
-            $data['form_from'] = $from;
-            $data['form_to'] = $to;
+            $data['form_from'] = substr($from,0,7);
+            $data['form_to'] = substr($to,0,7);
             $total_retail = $this->ModPenjualanRetail->getPenjualanGraph($from, $to, 1);
             $total_pl = $this->ModPenjualan->getPenjualanGraph(0, $from, $to, 1);
             $total_tender = $this->ModPenjualan->getPenjualanGraph(1, $from, $to, 1);
@@ -204,7 +202,6 @@ class Penjualan extends MX_Controller
         }
 
         $data['total_penjualan'] = $data_total_penjualan;
-        // var_dump($data_total_penjualan);
         $this->parser->parse('graph-penjualan.tpl', $data);
     }
 

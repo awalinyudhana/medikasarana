@@ -89,9 +89,12 @@
                             <div class="panel-heading">
                                 <h6 class="panel-title">Detail Rincian Penjualan<br>Bulan {$from} - {$to}</h6>
                             </div>
-                            <div class="panel-body" style="min-height:400px;">
-                                <div class="table-responsive" id="datatableexport">
-                                    <table class="table table-striped table-bordered">
+                            <div class="panel-body">
+                            <!-- <div class="panel-body" style="min-height:400px;"> -->
+                                <!-- <div class="table-responsive" id="datatableexport">
+                                    <table class="table table-striped table-bordered"> -->
+                                <div class="datatable-tools">
+                                    <table class="table">
                                         <thead>
                                             <tr>
                                                 <th>Bulan</th>
