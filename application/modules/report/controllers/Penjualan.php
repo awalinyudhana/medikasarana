@@ -223,7 +223,7 @@ class Penjualan extends MX_Controller
     {
         $min_date = date_create($min_date . '-01-01');
         $max_date = date_create($max_date . '-12-31');
-        $i = new DateInterval('P1M');
+        $i = new DateInterval('P1Y');
         $period=new DatePeriod($min_date,$i,$max_date);
 
         foreach ($period as $d){
