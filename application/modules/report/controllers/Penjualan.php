@@ -301,7 +301,7 @@ class Penjualan extends MX_Controller
         $count_date_period = count($date_period);
 
         foreach ($this->db->get('customer')->result() as $object) {
-            $data_penjualan = $this->ModPenjualan->getPenjualanCustomerMonthly($object->id_customer, 0, $sql_from, $sql_to);
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomerYear($object->id_customer, 0, $sql_from, $sql_to);
 
             $penjualan = array();
             $date_available = array();
@@ -352,7 +352,7 @@ class Penjualan extends MX_Controller
         $count_date_period = count($date_period);
 
         foreach ($this->db->get('customer')->result() as $object) {
-            $data_penjualan = $this->ModPenjualan->getPenjualanCustomerYear($object->id_customer, 1, $sql_from, $sql_to);
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomerMonthly($object->id_customer, 1, $sql_from, $sql_to);
 
             $penjualan = array();
             $date_available = array();

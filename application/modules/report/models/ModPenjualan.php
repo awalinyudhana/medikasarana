@@ -83,7 +83,7 @@ class ModPenjualan extends CI_Model
         }
 
         $this->db
-                ->select("eso.id_customer, c.name, SUM(so.grand_total) AS grand_total, YEAR(so.date) AS year", false)
+                ->select("so.id_customer, c.name, SUM(so.grand_total) AS grand_total, YEAR(so.date) AS year", false)
                 ->from('sales_order so')
                 ->join('proposal p', 'p.id_proposal = so.id_proposal')
                 ->join('customer c', 'c.id_customer = so.id_customer')
