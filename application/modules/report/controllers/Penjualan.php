@@ -212,6 +212,7 @@ class Penjualan extends MX_Controller
         $i = new DateInterval('P1M');
         $period=new DatePeriod($min_date,$i,$max_date);
 
+        $month = array();
         foreach ($period as $d){
           $month[] = $d->format('Y-m');
         }
@@ -225,12 +226,12 @@ class Penjualan extends MX_Controller
         $max_date = date_create($max_date . '-12-31');
         $i = new DateInterval('P1Y');
         $period=new DatePeriod($min_date,$i,$max_date);
-
+        $year = array();
         foreach ($period as $d){
-          $month[] = $d->format('Y');
+          $year[] = $d->format('Y');
         }
         
-        return $month;
+        return $year;
     }
 
     public function pengadaanPerBulan(){
