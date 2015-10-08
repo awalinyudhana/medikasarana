@@ -68,7 +68,7 @@ class ModPenjualan extends CI_Model
                 ->join('proposal p', 'p.id_proposal = so.id_proposal')
                 ->join('customer c', 'c.id_customer = so.id_customer')
                 ->where('so.active', 1)
-                ->where('p.type', $type)
+                // ->where('p.type', $type)
                 ->where('so.id_customer', $id_customer)
                 ->group_by('so.id_customer, YEAR(so.date), MONTH(so.date) ASC')
                 ->order_by('so.date asc');
