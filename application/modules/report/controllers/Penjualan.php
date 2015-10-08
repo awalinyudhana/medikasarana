@@ -259,7 +259,7 @@ class Penjualan extends MX_Controller
 
             $data_penjualan_per_customer[] = [
                 'id_customer' => $object->id_customer,
-                'customer_name' => $object->id_customer,
+                'customer_name' => $object->name,
                 'selling' => $selling
             ];
         }
