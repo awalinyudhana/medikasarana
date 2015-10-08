@@ -58,6 +58,8 @@
     {js('bootstrap.min.js')}
     {js('application.js')}
     {js('excellentexport.js')}
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
     {block name=head}{/block}
     <style type="text/css">
     {literal}
@@ -79,6 +81,14 @@
  
 .DTTT_button_print div{
     z-index: 5004 !important;
+}
+.ui-datepicker-month {
+    width: 80px;
+    color: #3A4B55;
+}
+.ui-datepicker-year {
+    width: 80px;
+    color: #3A4B55;
 }
     {/literal}
     </style>
