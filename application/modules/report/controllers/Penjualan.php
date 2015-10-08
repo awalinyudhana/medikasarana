@@ -242,7 +242,7 @@ class Penjualan extends MX_Controller
             $selling = array();
 
             foreach ($data_penjualan as $row) {
-                    $penjualan[$row->yyyy_mm] = $v->grand_total;
+                    $penjualan[$row->yyyy_mm] = $row->grand_total;
             }
 
             foreach ($date_period as $value) {
