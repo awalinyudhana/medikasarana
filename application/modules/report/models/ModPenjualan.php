@@ -57,10 +57,10 @@ class ModPenjualan extends CI_Model
 
     public function getPenjualanCustomer($id_customer, $type, $dateFrom = null, $dateTo = null, $current = false)
     {
-        // if ($dateFrom) {
-        //     $this->db->where('so.date >=', $dateFrom)
-        //         ->where('so.date <=', $dateTo);
-        // }
+        if ($dateFrom) {
+            $this->db->where('so.date >=', $dateFrom)
+                ->where('so.date <=', $dateTo);
+        }
 
         $this->db
                 ->select("so.id_customer, c.name, SUM(so.grand_total) AS grand_total, MONTH(so.date) AS month, YEAR(so.date) AS year, CONCAT(YEAR(so.date), '-', LPAD(MONTH(so.date), 2, '0')) AS yyyy_mm", false)
@@ -68,7 +68,7 @@ class ModPenjualan extends CI_Model
                 ->join('proposal p', 'p.id_proposal = so.id_proposal')
                 ->join('customer c', 'c.id_customer = so.id_customer')
                 ->where('so.active', 1)
-                // ->where('p.type', $type)
+                ->where('p.type', $type)
                 ->where('so.id_customer', $id_customer)
                 ->group_by('so.id_customer, YEAR(so.date), MONTH(so.date) ASC')
                 ->order_by('so.date asc');
