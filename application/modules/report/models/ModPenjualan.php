@@ -66,7 +66,7 @@ class ModPenjualan extends CI_Model
                 ->select("so.id_customer, c.name, SUM(so.grand_total) AS grand_total, MONTH(so.date) AS month, YEAR(so.date) AS year, CONCAT(YEAR(so.date), '-', LPAD(MONTH(so.date), 2, '0')) AS yyyy_mm", false)
                 ->from('sales_order so')
                 ->join('proposal p', 'p.id_proposal = so.id_proposal')
-                ->join('customer id_customer', 'c.id_customer = so.id_customer')
+                ->join('customer c', 'c.id_customer = so.id_customer')
                 ->where('so.active', 1)
                 ->where('p.type', $type)
                 ->where('so.id_customer', $id_customer)
