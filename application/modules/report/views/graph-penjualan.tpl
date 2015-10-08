@@ -18,10 +18,10 @@
                         <label>Laporan Penjualan:</label>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="from-date-report form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>
+                                <input type="text" class="from-date-report form-control" name="date_from" placeholder="From" {if isset($from)}value="{$form_from}"{/if}>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="to-date-report form-control" name="date_to" placeholder="To" {if isset($to)}value="{$to}"{/if}>
+                                <input type="text" class="to-date-report form-control" name="date_to" placeholder="To" {if isset($to)}value="{$form_to}"{/if}>
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">
