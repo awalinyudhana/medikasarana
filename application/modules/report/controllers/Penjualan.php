@@ -262,8 +262,8 @@ class Penjualan extends MX_Controller
                 'customer_name' => $object->name,
                 'selling' => $selling
             ];
-            
-        var_dump($data_penjualan);
+
+            var_dump($selling);
         }
 
 
