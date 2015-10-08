@@ -62,7 +62,7 @@
                                 					<td>{$key['customer_name']}</td>
 
 	                                                {foreach $date_period as $period }
-		                                                <th>{$key['data']}{$period}</th>
+		                                                <th>{$key['data'][$period]}</th>
 		                                            {/foreach}
                                             	</tr>
                             					{assign var=val value=$val+1}
