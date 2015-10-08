@@ -30,6 +30,31 @@ class ModPenjualan extends CI_Model
         }
     }
 
+    public function getPenjualanGraph($type, $dateFrom = null, $dateTo = null, $current = false)
+    {
+        if ($dateFrom) {
+            $this->db->where('so.date >=', $dateFrom)
+                ->where('so.date <=', $dateTo);
+        }
+
+        $this->db
+                ->select("SUM(so.grand_total) AS grand_total, MONTH(so.date) AS month, YEAR(so.date) AS year, CONCAT(YEAR(so.date), '-', LPAD(MONTH(so.date), 2, '0')) AS yyyy_mm", false)
+                ->from('sales_order so')
+                ->join('proposal p', 'p.id_proposal = so.id_proposal')
+                ->where('so.active', 1)
+                ->where('p.type', $type)
+                ->group_by('YEAR(so.date), MONTH(so.date) ASC')
+                ->order_by('so.date asc');
+                    
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            if ($current) {
+                return $query->row()->grand_total;
+            }
+           return $query->result();
+        }
+    }
+
     public function getTotalPenjualan($type)
     {
         $query = $this->db
