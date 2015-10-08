@@ -224,8 +224,8 @@ class Penjualan extends MX_Controller
             $from = substr($this->input->post('date_from'),0,7);
             $to = substr($this->input->post('date_to'),0,7);
         }else{
-            $from = substr(date('Y-m-01',0,7);
-            $to = substr(date('Y-m-t',0,7);
+            $from = substr(date('Y-m-01'),0,7);
+            $to = substr(date('Y-m-t'),0,7);
         }
 
         $sql_from = date('Y-m-01', strtotime($from));
