@@ -129,11 +129,13 @@
                                             </tr>
                                             {assign var=total value=$total+$total_retail+$total_pl+$total_tender}
                                             {/foreach}
+                                        </tbody>
+                                        <tfoot>
                                             <tr>
                                                 <td colspan="3" class="text-right">Grand Total</td>
                                                 <td>Rp {$total|number_format:0}</td>
                                             </tr>
-                                        </tbody>
+                                        </tfoot>>
                                     </table>
                                 </div>
                             </div>
