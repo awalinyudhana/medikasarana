@@ -487,6 +487,12 @@ $config['module_router'] =
             'title' => 'Report',
             'url' => 'icon-cart',
             'child' => [
+                [
+                    'title' => 'penjualan',
+                    'url' => 'report/penjualan',
+                    'module' => 'sales_order'
+                ],
+
                 // [
                 //     'title' => 'Penjualan',
                 //     'child' => [
