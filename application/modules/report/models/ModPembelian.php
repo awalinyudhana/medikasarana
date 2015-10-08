@@ -10,12 +10,12 @@ class ModPembelian extends CI_Model
     public function getPembelianPrincipalMonthly($id_principal, $dateFrom = null, $dateTo = null, $current = false)
     {
         if ($dateFrom) {
-            $this->db->where('so.date_created >=', $dateFrom)
-                ->where('so.date_created <=', $dateTo);
+            $this->db->where('po.date_created >=', $dateFrom)
+                ->where('po.date_created <=', $dateTo);
         }
 
         $this->db
-                ->select("po.id_principal, p.name, SUM(po.grand_total) AS grand_total, MONTH(so.date_created) AS month, YEAR(so.date_created) AS year, CONCAT(YEAR(so.date_created), '-', LPAD(MONTH(so.date_created), 2, '0')) AS yyyy_mm", false)
+                ->select("po.id_principal, p.name, SUM(po.grand_total) AS grand_total, MONTH(po.date_created) AS month, YEAR(po.date_created) AS year, CONCAT(YEAR(po.date_created), '-', LPAD(MONTH(po.date_created), 2, '0')) AS yyyy_mm", false)
                 ->from('purchase_order po')
                 ->join('principal p', 'p.id_principal = po.id_principal')
                 ->where('p.id_principal', $id_principal)
@@ -28,12 +28,12 @@ class ModPembelian extends CI_Model
     public function getPembelianPrincipalYear($id_principal, $dateFrom = null, $dateTo = null, $current = false)
     {
         if ($dateFrom) {
-            $this->db->where('so.date_created >=', $dateFrom)
-                ->where('so.date_created <=', $dateTo);
+            $this->db->where('po.date_created >=', $dateFrom)
+                ->where('po.date_created <=', $dateTo);
         }
 
         $this->db
-                ->select("po.id_principal, p.name, SUM(po.grand_total) AS grand_total, YEAR(so.date_created) AS year", false)
+                ->select("po.id_principal, p.name, SUM(po.grand_total) AS grand_total, YEAR(po.date_created) AS year", false)
                 ->from('purchase_order po')
                 ->join('principal p', 'p.id_principal = po.id_principal')
                 ->where('p.id_principal', $id_principal)
