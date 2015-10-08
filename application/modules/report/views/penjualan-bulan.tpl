@@ -37,7 +37,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6 class="panel-title">Detail Rincian Penjualan Tiap Customer<br>Bulan {$form_from} - {$form_to}</h6>
+                                <h6 class="panel-title">Detail Rincian Penjualan Tiap Customer<br>Bulan {$from} - {$to}</h6>
                             </div>
                             <div class="panel-body">
                             <!-- <div class="panel-body" style="min-height:400px;"> -->
@@ -50,7 +50,7 @@
                                                 <th>No</th>
                                                 <th>Nama Konsumen</th>
                                                 {foreach $date_period as $period }
-	                                                <th>Nama period</th>
+	                                                <th>{$period}</th>
 	                                            {/foreach}
                                             </tr>
                                         </thead>
