@@ -52,28 +52,35 @@
                                                 {foreach $date_period as $period }
 	                                                <th>{$period}</th>
 	                                            {/foreach}
+                                                <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+               								{assign var=total value=0}
 					                        {assign var=val value=1}
 					                        {foreach $items as $key }
 				                            	<tr>
                                 					<td>{$val}</td>
                                 					<td>{$key['customer_name']}</td>
 
+                       								{assign var=sub_total value=0}
 	                                                {foreach $date_period as $period }
-		                                                <th>{$key['data'][$period]}</th>
+                            							<td class="text-right">Rp {$key['data'][$period]|number_format:0}</td>
+                            							{assign var=sub_total value=$sub_total+$key['data'][$period]}
 		                                            {/foreach}
+                        							<td class="text-right">Rp {$sub_total|number_format:0}</td>
                                             	</tr>
-                            					{assign var=val value=$val+1}
+                            					{assign var=val value=$val+1}>
+                    							{assign var=total value=$total+$sub_total}
+                            					
                                             {/foreach}
                                         </tbody>
-                                        <!-- <tfoot>
+                                        <tfoot>
                                             <tr>
-                                                <td colspan="3" class="text-right">Grand Total</td>
+                                                <td colspan="{(2+$count_date_period)}" class="text-right">Grand Total</td>
                                                 <td>Rp {$total|number_format:0}</td>
                                             </tr>
-                                        </tfoot>> -->
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

@@ -263,6 +263,7 @@ class Penjualan extends MX_Controller
 
         $data['items'] = $data_penjualan_per_customer;
         $data['date_period'] = $date_period;
+        $data['count_date_period'] = $count_date_period;
         $data['from'] = $from;
         $data['to'] = $to;
 
