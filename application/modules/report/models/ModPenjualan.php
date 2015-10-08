@@ -70,8 +70,7 @@ class ModPenjualan extends CI_Model
                 ->where('so.active', 1)
                 ->where('p.type', $type)
                 ->where('so.id_customer', $id_customer)
-                ->group_by('so.id_customer, YEAR(so.date), MONTH(so.date) ASC')
-                ->order_by('so.date asc');
+                ->group_by('so.id_customer, YEAR(so.date), MONTH(so.date)');
                     
         $query = $this->db->get();
         return $query->result();
@@ -84,15 +83,14 @@ class ModPenjualan extends CI_Model
         }
 
         $this->db
-                ->select("so.id_customer, c.name, SUM(so.grand_total) AS grand_total, YEAR(so.date) AS year,", false)
+                ->select("eso.id_customer, c.name, SUM(so.grand_total) AS grand_total, YEAR(so.date) AS year", false)
                 ->from('sales_order so')
                 ->join('proposal p', 'p.id_proposal = so.id_proposal')
                 ->join('customer c', 'c.id_customer = so.id_customer')
                 ->where('so.active', 1)
                 ->where('p.type', $type)
                 ->where('so.id_customer', $id_customer)
-                ->group_by('so.id_customer, YEAR(so.date) ASC')
-                ->order_by('so.date asc');
+                ->group_by('so.id_customer, YEAR(so.date)');
                     
         $query = $this->db->get();
         return $query->result();
