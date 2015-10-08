@@ -57,10 +57,10 @@ class ModPenjualan extends CI_Model
 
     public function getPenjualanCustomer($id_customer, $type, $dateFrom = null, $dateTo = null, $current = false)
     {
-        if ($dateFrom) {
-            $this->db->where('so.date >=', $dateFrom)
-                ->where('so.date <=', $dateTo);
-        }
+        // if ($dateFrom) {
+        //     $this->db->where('so.date >=', $dateFrom)
+        //         ->where('so.date <=', $dateTo);
+        // }
 
         $this->db
                 ->select("so.id_customer, c.name, SUM(so.grand_total) AS grand_total, MONTH(so.date) AS month, YEAR(so.date) AS year, CONCAT(YEAR(so.date), '-', LPAD(MONTH(so.date), 2, '0')) AS yyyy_mm", false)
