@@ -7,53 +7,42 @@ class ModPembelian extends CI_Model
         parent::__construct();
     }
 
-    public function getItems($dateFrom = null, $dateTo = null){
-        $monthData = $this->getMonthData($dateFrom = null, $dateTo = null);
-
-        foreach ($this->db->get('principal')->result() as $object) {
-            $data['id_principal'] =  $object->id_principal;
-            $data['principal_name'] =  $object->name;
-
-            foreach ($monthData as $value) {
-                $data[$value['time']] = $this->getDataBuying($object->id_principal,$value['time']);
-            }
-            $principal[] = $data;
-        }
-        return $principal;
-    }
-    public function getMonthData($dateFrom = null, $dateTo = null){
+    public function getPembelianPrincipalMonthly($id_principal, $dateFrom = null, $dateTo = null, $current = false)
+    {
         if ($dateFrom) {
-            $query = $this->db->query("SELECT CONCAT_WS('-', MONTH(date_created), YEAR(date_created)) as time FROM purchase_order WHERE date_created >= $dateFrom AND date_created <= $dateTo GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
-        }else{
-            $query = $this->db->query("SELECT CONCAT_WS('-', MONTH(date_created), YEAR(date_created)) as time FROM purchase_order GROUP BY  CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
+            $this->db->where('so.date_created >=', $dateFrom)
+                ->where('so.date_created <=', $dateTo);
         }
-        // $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-           return $query->result_array();
-        }
+
+        $this->db
+                ->select("po.id_principal, p.name, SUM(po.grand_total) AS grand_total, MONTH(so.date_created) AS month, YEAR(so.date_created) AS year, CONCAT(YEAR(so.date_created), '-', LPAD(MONTH(so.date_created), 2, '0')) AS yyyy_mm", false)
+                ->from('purchase_order po')
+                ->join('principal p', 'p.id_principal = po.id_principal')
+                ->where('p.id_principal', $id_principal)
+                ->group_by('po.id_principal, YEAR(po.date_created), MONTH(po.date_created)');
                     
+        $query = $this->db->get();
+        return $query->result();
     }
 
-    public function getDataBuying($id_principal,$time){
-
-
-        $query = $this->db->query("SELECT SUM(grand_total) as grand_total FROM purchase_order where id_principal = $id_principal AND CONCAT_WS('-', MONTH(date_created), YEAR(date_created)) = $time  GROUP BY CONCAT_WS('-', MONTH(date_created), YEAR(date_created))");
-
-        // $this->db
-        //         ->select('SUM(po.grand_total) as grand_total',false)
-        //         ->from('purchase_order po')
-        //         ->where('po.id_principal', $id_principal)
-        //         ->where('CONCAT( '-', MONTH( po.date_created ) , YEAR( po.date_created ))', $time)
-        //         ->group_by('CONCAT_WS( '-', MONTH( po.date_created ) , YEAR( po.date_created )) ');
-                    
-        // $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            $data = $query->row();
-            return $data->grand_total;
-        }else{
-            return '0';
+    public function getPembelianPrincipalYear($id_principal, $dateFrom = null, $dateTo = null, $current = false)
+    {
+        if ($dateFrom) {
+            $this->db->where('so.date_created >=', $dateFrom)
+                ->where('so.date_created <=', $dateTo);
         }
+
+        $this->db
+                ->select("po.id_principal, p.name, SUM(po.grand_total) AS grand_total, YEAR(so.date_created) AS year", false)
+                ->from('purchase_order po')
+                ->join('principal p', 'p.id_principal = po.id_principal')
+                ->where('p.id_principal', $id_principal)
+                ->group_by('po.id_principal, YEAR(po.date_created)');
+                    
+        $query = $this->db->get();
+        return $query->result();
     }
+
 
     public function getPembelian($dateFrom = null, $dateTo = null)
     {

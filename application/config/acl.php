@@ -558,11 +558,21 @@ $config['module_router'] =
                 //         ]
                 //     ]
                 // ],
-                // [
-                //     'title' => 'Pembelian',
-                //     'url' => 'report/pembelian',
-                //     'module' => 'purchase_order'
-                // ],
+                [
+                    'title' => 'Pembelian',
+                    'child' => [
+                        [
+                            'title' => 'Per Bulan',
+                            'url' => 'report/pembelian/month',
+                            'module' => 'sales_order'
+                        ],
+                        [
+                            'title' => 'Per Tahun',
+                            'url' => 'report/pembelian/year',
+                            'module' => 'sales_order'
+                        ]
+                    ]
+                ],
                 [
                     'title' => 'Pinjam Bendera',
                     'url' => 'report/pinjam-bendera',

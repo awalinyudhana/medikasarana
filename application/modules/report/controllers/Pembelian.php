@@ -56,6 +56,7 @@ class Pembelian extends MX_Controller
         $i = new DateInterval('P1M');
         $period=new DatePeriod($min_date,$i,$max_date);
 
+        $month = array();
         foreach ($period as $d){
           $month[] = $d->format('Y-m');
         }
@@ -67,14 +68,14 @@ class Pembelian extends MX_Controller
     {
         $min_date = date_create($min_date . '-01-01');
         $max_date = date_create($max_date . '-12-31');
-        $i = new DateInterval('P1M');
+        $i = new DateInterval('P1Y');
         $period=new DatePeriod($min_date,$i,$max_date);
-
+        $year = array();
         foreach ($period as $d){
-          $month[] = $d->format('Y');
+          $year[] = $d->format('Y');
         }
         
-        return $month;
+        return $year;
     }
 
     public function perBulan(){
@@ -93,42 +94,42 @@ class Pembelian extends MX_Controller
         $count_date_period = count($date_period);
 
         foreach ($this->db->get('principal')->result() as $object) {
-            $data_penjualan = $this->ModPembelian->getPenjualanCustomer($object->id_customer, 0, $sql_from, $sql_to);
+            $data_pembelian = $this->ModPembelian->getPembelianPrincipalMontly($object->id_principal, $sql_from, $sql_to);
 
-            $penjualan = array();
+            $pembelian = array();
             $date_available = array();
             $detail = array();
 
-            foreach ($data_penjualan as $row) {
-                    $penjualan[$row->yyyy_mm] = $row->grand_total;
+            foreach ($data_pembelian as $row) {
+                    $pembelian[$row->yyyy_mm] = $row->grand_total;
             }
 
             foreach ($date_period as $value) {
-                if(isset($penjualan[$value])){
-                    $detail[$value]  = $penjualan[$value];
+                if(isset($pembelian[$value])){
+                    $detail[$value]  = $pembelian[$value];
                 }else{
                     $detail[$value]  = 0;
                 }
             }
 
-            $data_penjualan_per_customer[] = [
-                'id_customer' => $object->id_customer,
-                'customer_name' => $object->name,
+            $data_pembelian_per_principal[] = [
+                'id_principal' => $object->id_principal,
+                'principal_name' => $object->name,
                 'data' => $detail
             ];
         }
 
 
-        $data['items'] = $data_penjualan_per_customer;
+        $data['items'] = $data_pembelian_per_principal;
         $data['date_period'] = $date_period;
         $data['count_date_period'] = $count_date_period;
         $data['from'] = $from;
         $data['to'] = $to;
 
-        $this->parser->parse('penjualan-pengadaan-bulan.tpl', $data);
+        $this->parser->parse('pembelian-bulan.tpl', $data);
     }
 
-    public function pengadaanPerTahun(){
+    public function perTahun(){
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
             $from = substr($this->input->post('date_from'),0,4);
             $to = substr($this->input->post('date_to'),0,4);
@@ -143,39 +144,40 @@ class Pembelian extends MX_Controller
         $date_period = $this->datePeriodYear($from, $to);
         $count_date_period = count($date_period);
 
-        foreach ($this->db->get('customer')->result() as $object) {
-            $data_penjualan = $this->ModPembelian->getPenjualanCustomer($object->id_customer, 0, $sql_from, $sql_to);
+        foreach ($this->db->get('principal')->result() as $object) {
+            $data_pembelian = $this->ModPembelian->getPembelianPrincipalYear($object->id_principal, $sql_from, $sql_to);
 
-            $penjualan = array();
+            $pembelian = array();
             $date_available = array();
             $detail = array();
 
-            foreach ($data_penjualan as $row) {
-                    $penjualan[$row->yyyy_mm] = $row->grand_total;
+            foreach ($data_pembelian as $row) {
+                    $pembelian[$row->year] = $row->grand_total;
             }
 
             foreach ($date_period as $value) {
-                if(isset($penjualan[$value])){
-                    $detail[$value]  = $penjualan[$value];
+                if(isset($pembelian[$value])){
+                    $detail[$value]  = $pembelian[$value];
                 }else{
                     $detail[$value]  = 0;
                 }
             }
 
-            $data_penjualan_per_customer[] = [
-                'id_customer' => $object->id_customer,
-                'customer_name' => $object->name,
+            $data_pembelian_per_principal[] = [
+                'id_principal' => $object->id_principal,
+                'principal_name' => $object->name,
                 'data' => $detail
             ];
         }
 
 
-        $data['items'] = $data_penjualan_per_customer;
+        $data['items'] = $data_pembelian_per_principal;
         $data['date_period'] = $date_period;
         $data['count_date_period'] = $count_date_period;
         $data['from'] = $from;
         $data['to'] = $to;
 
-        $this->parser->parse('penjualan-pengadaan-tahun.tpl', $data);
+        $this->parser->parse('pembelian-tahun.tpl', $data);
     }
+
 }
