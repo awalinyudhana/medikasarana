@@ -262,6 +262,8 @@ class Penjualan extends MX_Controller
                 'customer_name' => $object->name,
                 'selling' => $selling
             ];
+            
+        var_dump($data_penjualan);
         }
 
 
@@ -269,7 +271,6 @@ class Penjualan extends MX_Controller
         $data['from'] = $from;
         $data['to'] = $to;
 
-        var_dump($data_penjualan_per_customer);
         // $this->parser->parse('penjuala-bulann.tpl', $data);
     }
 }
