@@ -249,7 +249,7 @@ class Penjualan extends MX_Controller
         $count_date_period = count($date_period);
 
         foreach ($this->db->get('customer')->result() as $object) {
-            $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 0, $sql_from, $sql_to);
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomerMonthly($object->id_customer, 0, $sql_from, $sql_to);
 
             $penjualan = array();
             $date_available = array();
@@ -300,14 +300,14 @@ class Penjualan extends MX_Controller
         $count_date_period = count($date_period);
 
         foreach ($this->db->get('customer')->result() as $object) {
-            $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 0, $sql_from, $sql_to);
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomerMonthly($object->id_customer, 0, $sql_from, $sql_to);
 
             $penjualan = array();
             $date_available = array();
             $detail = array();
 
             foreach ($data_penjualan as $row) {
-                    $penjualan[$row->yyyy_mm] = $row->grand_total;
+                    $penjualan[$row->year] = $row->grand_total;
             }
 
             foreach ($date_period as $value) {
@@ -351,7 +351,7 @@ class Penjualan extends MX_Controller
         $count_date_period = count($date_period);
 
         foreach ($this->db->get('customer')->result() as $object) {
-            $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 1, $sql_from, $sql_to);
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomerYear($object->id_customer, 1, $sql_from, $sql_to);
 
             $penjualan = array();
             $date_available = array();
@@ -402,14 +402,14 @@ class Penjualan extends MX_Controller
         $count_date_period = count($date_period);
 
         foreach ($this->db->get('customer')->result() as $object) {
-            $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 1, $sql_from, $sql_to);
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomerYear($object->id_customer, 1, $sql_from, $sql_to);
 
             $penjualan = array();
             $date_available = array();
             $detail = array();
 
             foreach ($data_penjualan as $row) {
-                    $penjualan[$row->yyyy_mm] = $row->grand_total;
+                    $penjualan[$row->year] = $row->grand_total;
             }
 
             foreach ($date_period as $value) {

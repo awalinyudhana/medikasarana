@@ -55,7 +55,7 @@ class ModPenjualan extends CI_Model
         }
     }
 
-    public function getPenjualanCustomer($id_customer, $type, $dateFrom = null, $dateTo = null, $current = false)
+    public function getPenjualanCustomerMonthly($id_customer, $type, $dateFrom = null, $dateTo = null, $current = false)
     {
         if ($dateFrom) {
             $this->db->where('so.date >=', $dateFrom)
@@ -75,7 +75,27 @@ class ModPenjualan extends CI_Model
                     
         $query = $this->db->get();
         return $query->result();
-        
+    }
+    public function getPenjualanCustomerYear($id_customer, $type, $dateFrom = null, $dateTo = null, $current = false)
+    {
+        if ($dateFrom) {
+            $this->db->where('so.date >=', $dateFrom)
+                ->where('so.date <=', $dateTo);
+        }
+
+        $this->db
+                ->select("so.id_customer, c.name, SUM(so.grand_total) AS grand_total, YEAR(so.date) AS year,", false)
+                ->from('sales_order so')
+                ->join('proposal p', 'p.id_proposal = so.id_proposal')
+                ->join('customer c', 'c.id_customer = so.id_customer')
+                ->where('so.active', 1)
+                ->where('p.type', $type)
+                ->where('so.id_customer', $id_customer)
+                ->group_by('so.id_customer, YEAR(so.date) ASC')
+                ->order_by('so.date asc');
+                    
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getTotalPenjualan($type)
