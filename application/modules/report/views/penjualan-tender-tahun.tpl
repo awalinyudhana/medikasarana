@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Laporan Penjualan Per Bulan <small class="display-block">Tender</small>
+                        <i class="icon-coin"></i> Laporan Penjualan Per Tahun <small class="display-block">Tender</small>
                     </h6>
                 </div>
 
@@ -18,14 +18,14 @@
                         <label>Laporan Penjualan:</label>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="from-date-report form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>
+                                <input type="text" class="from-year-report form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="to-date-report form-control" name="date_to" placeholder="To" {if isset($to)}value="{$to}"{/if}>
+                                <input type="text" class="to-year-report form-control" name="date_to" placeholder="To" {if isset($to)}value="{$to}"{/if}>
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">
-                                <a href="{base_url('report/penjualan/tender/month')}" class="btn btn-warning">Reset</a>
+                                <a href="{base_url('report/penjualan/tender/year')}" class="btn btn-warning">Reset</a>
                             </div>
                         </div>
                     </div>

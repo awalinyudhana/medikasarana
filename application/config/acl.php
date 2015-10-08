@@ -521,7 +521,7 @@ $config['module_router'] =
                                 ],
                                 [
                                     'title' => 'Per Tahun',
-                                    'url' => 'report/penjualan/pengadaan/year',
+                                    'url' => 'report/penjualan/tender/year',
                                     'module' => 'sales_order'
                                 ]
                             ]

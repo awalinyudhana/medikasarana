@@ -233,13 +233,16 @@ $route['dashboard/product-expired'] = "dashboard/expiredProducts";
 
 $route['report/penjualan/pengadaan/month'] = "report/Penjualan/pengadaanPerBulan";
 $route['report/penjualan/tender/month'] = "report/Penjualan/tenderPerBulan";
+$route['report/penjualan/pengadaan/year'] = "report/Penjualan/pengadaanPerTahun";
+$route['report/penjualan/tender/year'] = "report/Penjualan/tenderPerTahun";
 $route['report/penjualan'] = "report/Penjualan/graph";
+$route['report/pembelian/month'] = "report/Pembelian/perBulan";
+$route['report/pembelian/year'] = "report/Pembelian/perTahun";
 // $route['report/penjualan-retail'] = "report/PenjualanRetail";
 // $route['report/penjualan-retail/detail/(:num)'] = "report/PenjualanRetail/detail/$1";
 // $route['report/penjualan-pengadaan'] = "report/Penjualan/pengadaan";
 // $route['report/penjualan-tender'] = "report/Penjualan/tender";
 // $route['report/penjualan-detail/(:num)'] = "report/Penjualan/detail/$1";
-// $route['report/pembelian'] = "report/Pembelian";
 // $route['report/pembelian-detail/(:num)'] = "report/Pembelian/detail/$1";
 $route['report/pinjam-bendera'] = "report/PinjamBendera";
 $route['report/pinjam-bendera/detail/(:num)'] = "report/PinjamBendera/detail/$1";

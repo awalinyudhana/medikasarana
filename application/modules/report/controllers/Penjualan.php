@@ -219,6 +219,20 @@ class Penjualan extends MX_Controller
         return $month;
     }
 
+    private function datePeriodYear($min_date, $max_date)
+    {
+        $min_date = date_create($min_date . '-01-01');
+        $max_date = date_create($max_date . '-12-31');
+        $i = new DateInterval('P1M');
+        $period=new DatePeriod($min_date,$i,$max_date);
+
+        foreach ($period as $d){
+          $month[] = $d->format('Y');
+        }
+        
+        return $month;
+    }
+
     public function pengadaanPerBulan(){
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
             $from = substr($this->input->post('date_from'),0,7);
@@ -269,6 +283,58 @@ class Penjualan extends MX_Controller
 
         $this->parser->parse('penjualan-pengadaan-bulan.tpl', $data);
     }
+
+    public function pengadaanPerTahun(){
+        if ($this->input->post('date_from') && $this->input->post('date_to')) {
+            $from = substr($this->input->post('date_from'),0,4);
+            $to = substr($this->input->post('date_to'),0,4);
+        }else{
+            $from = substr(date('Y-m-01'),0,4);
+            $to = substr(date('Y-m-t'),0,4);
+        }
+
+        $sql_from = date('Y-01-01', strtotime($from));
+        $sql_to = date('Y-12-31', strtotime($to));
+
+        $date_period = $this->datePeriodYear($from, $to);
+        $count_date_period = count($date_period);
+
+        foreach ($this->db->get('customer')->result() as $object) {
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 0, $sql_from, $sql_to);
+
+            $penjualan = array();
+            $date_available = array();
+            $detail = array();
+
+            foreach ($data_penjualan as $row) {
+                    $penjualan[$row->yyyy_mm] = $row->grand_total;
+            }
+
+            foreach ($date_period as $value) {
+                if(isset($penjualan[$value])){
+                    $detail[$value]  = $penjualan[$value];
+                }else{
+                    $detail[$value]  = 0;
+                }
+            }
+
+            $data_penjualan_per_customer[] = [
+                'id_customer' => $object->id_customer,
+                'customer_name' => $object->name,
+                'data' => $detail
+            ];
+        }
+
+
+        $data['items'] = $data_penjualan_per_customer;
+        $data['date_period'] = $date_period;
+        $data['count_date_period'] = $count_date_period;
+        $data['from'] = $from;
+        $data['to'] = $to;
+
+        $this->parser->parse('penjualan-pengadaan-tahun.tpl', $data);
+    }
+
     public function tenderPerBulan(){
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
             $from = substr($this->input->post('date_from'),0,7);
@@ -318,5 +384,56 @@ class Penjualan extends MX_Controller
         $data['to'] = $to;
 
         $this->parser->parse('penjualan-tender-bulan.tpl', $data);
+    }
+
+    public function tenderPerTahun(){
+        if ($this->input->post('date_from') && $this->input->post('date_to')) {
+            $from = substr($this->input->post('date_from'),0,4);
+            $to = substr($this->input->post('date_to'),0,4);
+        }else{
+            $from = substr(date('Y-m-01'),0,4);
+            $to = substr(date('Y-m-t'),0,4);
+        }
+
+        $sql_from = date('Y-01-01', strtotime($from));
+        $sql_to = date('Y-12-31', strtotime($to));
+
+        $date_period = $this->datePeriodYear($from, $to);
+        $count_date_period = count($date_period);
+
+        foreach ($this->db->get('customer')->result() as $object) {
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 1, $sql_from, $sql_to);
+
+            $penjualan = array();
+            $date_available = array();
+            $detail = array();
+
+            foreach ($data_penjualan as $row) {
+                    $penjualan[$row->yyyy_mm] = $row->grand_total;
+            }
+
+            foreach ($date_period as $value) {
+                if(isset($penjualan[$value])){
+                    $detail[$value]  = $penjualan[$value];
+                }else{
+                    $detail[$value]  = 0;
+                }
+            }
+
+            $data_penjualan_per_customer[] = [
+                'id_customer' => $object->id_customer,
+                'customer_name' => $object->name,
+                'data' => $detail
+            ];
+        }
+
+
+        $data['items'] = $data_penjualan_per_customer;
+        $data['date_period'] = $date_period;
+        $data['count_date_period'] = $count_date_period;
+        $data['from'] = $from;
+        $data['to'] = $to;
+
+        $this->parser->parse('penjualan-tender-tahun.tpl', $data);
     }
 }
