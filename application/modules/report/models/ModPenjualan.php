@@ -74,9 +74,8 @@ class ModPenjualan extends CI_Model
                 ->order_by('so.date asc');
                     
         $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-           return $query->result();
-        }
+        return $query->result();
+        
     }
 
     public function getTotalPenjualan($type)
