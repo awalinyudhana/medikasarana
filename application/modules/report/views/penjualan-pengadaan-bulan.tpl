@@ -4,12 +4,12 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Laporan Penjualan</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Laporan Penjualan Pengadaan Langsung</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Laporan Penjualan <small class="display-block">Laporan Penjualan</small>
+                        <i class="icon-coin"></i> Laporan Penjualan Per Bulan <small class="display-block">Pengadaan Langsung</small>
                     </h6>
                 </div>
 
@@ -37,7 +37,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6 class="panel-title">Detail Rincian Penjualan Tiap Customer<br>Bulan {$from} - {$to}</h6>
+                                <h6 class="panel-title">Detail Rincian Penjualan Pengadaan Langsung Per Customer<br>Bulan {$from} - {$to}</h6>
                             </div>
                             <div class="panel-body">
                             <!-- <div class="panel-body" style="min-height:400px;"> -->
@@ -70,15 +70,14 @@
 		                                            {/foreach}
                         							<td class="text-right">Rp {$sub_total|number_format:0}</td>
                                             	</tr>
-                            					{assign var=val value=$val+1}>
+                            					{assign var=val value=$val+1}
                     							{assign var=total value=$total+$sub_total}
-                            					
                                             {/foreach}
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <td colspan="{(2+$count_date_period)}" class="text-right">Grand Total</td>
-                                                <td>Rp {$total|number_format:0}</td>
+                                                <td class="text-right">Rp {$total|number_format:0}</td>
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -511,6 +511,21 @@ $config['module_router'] =
                                 ]
                             ]
                         ],
+                        [
+                            'title' => 'Tender',
+                            'child' => [
+                                [
+                                    'title' => 'Per Bulan',
+                                    'url' => 'report/penjualan/tender/month',
+                                    'module' => 'sales_order'
+                                ],
+                                [
+                                    'title' => 'Per Tahun',
+                                    'url' => 'report/penjualan/pengadaan/year',
+                                    'module' => 'sales_order'
+                                ]
+                            ]
+                        ],
                         //         [
                         //     'title' => 'Penjualan Pengadaan',
                         //     'url' => 'report/penjualan-pengadaan',

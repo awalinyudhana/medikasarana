@@ -267,6 +267,56 @@ class Penjualan extends MX_Controller
         $data['from'] = $from;
         $data['to'] = $to;
 
-        $this->parser->parse('penjualan-bulan.tpl', $data);
+        $this->parser->parse('penjualan-pengadaan-bulan.tpl', $data);
+    }
+    public function tenderPerBulan(){
+        if ($this->input->post('date_from') && $this->input->post('date_to')) {
+            $from = substr($this->input->post('date_from'),0,7);
+            $to = substr($this->input->post('date_to'),0,7);
+        }else{
+            $from = substr(date('Y-m-01'),0,7);
+            $to = substr(date('Y-m-t'),0,7);
+        }
+
+        $sql_from = date('Y-m-01', strtotime($from));
+        $sql_to = date('Y-m-t', strtotime($to));
+
+        $date_period = $this->datePeriod($from, $to);
+        $count_date_period = count($date_period);
+
+        foreach ($this->db->get('customer')->result() as $object) {
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 1, $sql_from, $sql_to);
+
+            $penjualan = array();
+            $date_available = array();
+            $detail = array();
+
+            foreach ($data_penjualan as $row) {
+                    $penjualan[$row->yyyy_mm] = $row->grand_total;
+            }
+
+            foreach ($date_period as $value) {
+                if(isset($penjualan[$value])){
+                    $detail[$value]  = $penjualan[$value];
+                }else{
+                    $detail[$value]  = 0;
+                }
+            }
+
+            $data_penjualan_per_customer[] = [
+                'id_customer' => $object->id_customer,
+                'customer_name' => $object->name,
+                'data' => $detail
+            ];
+        }
+
+
+        $data['items'] = $data_penjualan_per_customer;
+        $data['date_period'] = $date_period;
+        $data['count_date_period'] = $count_date_period;
+        $data['from'] = $from;
+        $data['to'] = $to;
+
+        $this->parser->parse('penjualan-tender-bulan.tpl', $data);
     }
 }
