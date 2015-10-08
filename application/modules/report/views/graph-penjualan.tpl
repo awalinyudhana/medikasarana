@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">
-                                <a href="{base_url('report')}" class="btn btn-warning">Reset</a>
+                                <a href="{base_url('report/penjualan')}" class="btn btn-warning">Reset</a>
                             </div>
                         </div>
                     </div>

@@ -239,7 +239,7 @@ class Penjualan extends MX_Controller
 
             $penjualan = array();
             $date_available = array();
-            $selling = array();
+            $detail = array();
 
             foreach ($data_penjualan as $row) {
                     $penjualan[$row->yyyy_mm] = $row->grand_total;
@@ -247,11 +247,11 @@ class Penjualan extends MX_Controller
 
             foreach ($date_period as $value) {
                 if(isset($penjualan[$value])){
-                    $selling[] = [
+                    $detail[] = [
                         $value => $penjualan[$value]
                     ];
                 }else{
-                    $selling[] = [
+                    $detail[] = [
                         $value => 0
                     ];
                 }
@@ -260,17 +260,16 @@ class Penjualan extends MX_Controller
             $data_penjualan_per_customer[] = [
                 'id_customer' => $object->id_customer,
                 'customer_name' => $object->name,
-                'selling' => $selling
+                'data' => $detail
             ];
-
-            var_dump($selling);
         }
 
 
         $data['items'] = $data_penjualan_per_customer;
+        $data['date_period'] = $date_period;
         $data['from'] = $from;
         $data['to'] = $to;
 
-        // $this->parser->parse('penjuala-bulann.tpl', $data);
+        $this->parser->parse('penjualan-bulan.tpl', $data);
     }
 }
