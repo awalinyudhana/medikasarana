@@ -247,13 +247,9 @@ class Penjualan extends MX_Controller
 
             foreach ($date_period as $value) {
                 if(isset($penjualan[$value])){
-                    $detail[] = [
-                        $value => $penjualan[$value]
-                    ];
+                    $detail[$value]  = $penjualan[$value];
                 }else{
-                    $detail[] = [
-                        $value => 0
-                    ];
+                    $detail[$value]  = 0;
                 }
             }
 
