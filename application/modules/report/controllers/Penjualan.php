@@ -236,7 +236,7 @@ class Penjualan extends MX_Controller
 
         foreach ($this->db->get('customer')->result() as $object) {
             $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 0, $sql_from, $sql_to);
-            
+
             $penjualan = array();
             $date_available = array();
             $selling = array();
@@ -252,7 +252,7 @@ class Penjualan extends MX_Controller
                     ];
                 }else{
                     $selling[] = [
-                        $value => $penjualan[$value]
+                        $value => 0
                     ];
                 }
             }
