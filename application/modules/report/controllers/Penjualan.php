@@ -59,11 +59,13 @@ class Penjualan extends MX_Controller
                 'Nopember', 'Desember'];
 
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
-            $from = $this->input->post('date_from');
-            $to = $this->input->post('date_to');
+            $from = substr($this->input->post('date_from'),0,7);
+            $to = substr($this->input->post('date_to'),0,7);
 
             $data['from'] = $array_month[substr($from, -2) - 1] . ' ' . substr($from, 0, 4);
             $data['to'] = $array_month[substr($to, -2) - 1] . ' ' . substr($to, 0, 4);
+            $data['form_from'] = $from;
+            $data['form_to'] = $to;
             $sql_from = date('Y-m-01', strtotime($from));
             $sql_to = date('Y-m-t', strtotime($to));
             $data_penjualan_tender = $this->ModPenjualan->getPenjualanGraph(1, $sql_from, $sql_to);
@@ -163,8 +165,17 @@ class Penjualan extends MX_Controller
             }
             $data['penjualan_retail'] = "[" . substr($penjualan_retail_string, 0 , -1) . "]";
 
-            foreach( $groups as $m_id=>$arr ) {
-                $data_total_penjualan[] = (object) $arr;
+            if (isset($groups)) {
+                foreach( $groups as $m_id=>$arr ) {
+                    $data_total_penjualan[] = (object) $arr;
+                }
+            } else {
+                $data_total_penjualan[] = (object) array(
+                                'bulan' => $array_month[substr($from, 5, 2) - 1] . ' ' . substr($from, 0, 4),
+                                'total_retail' => 0,
+                                'total_pl' => 0,
+                                'total_tender' => 0
+                            );
             }
 
         } else {
@@ -174,6 +185,8 @@ class Penjualan extends MX_Controller
             $to = date('2015-09-31');*/
             $data['from'] = $from;
             $data['to'] = $to;
+            $data['form_from'] = $from;
+            $data['form_to'] = $to;
             $total_retail = $this->ModPenjualanRetail->getPenjualanGraph($from, $to, 1);
             $total_pl = $this->ModPenjualan->getPenjualanGraph(0, $from, $to, 1);
             $total_tender = $this->ModPenjualan->getPenjualanGraph(1, $from, $to, 1);
