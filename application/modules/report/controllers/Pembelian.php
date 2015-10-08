@@ -94,7 +94,7 @@ class Pembelian extends MX_Controller
         $count_date_period = count($date_period);
 
         foreach ($this->db->get('principal')->result() as $object) {
-            $data_pembelian = $this->ModPembelian->getPembelianPrincipalMontly($object->id_principal, $sql_from, $sql_to);
+            $data_pembelian = $this->ModPembelian->getPembelianPrincipalMonthly($object->id_principal, $sql_from, $sql_to);
 
             $pembelian = array();
             $date_available = array();
