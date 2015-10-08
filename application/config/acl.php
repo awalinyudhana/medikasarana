@@ -487,32 +487,42 @@ $config['module_router'] =
             'title' => 'Report',
             'url' => 'icon-cart',
             'child' => [
-                [
-                    'title' => 'penjualan',
-                    'url' => 'report/penjualan',
-                    'module' => 'sales_order'
-                ],
 
-                // [
-                //     'title' => 'Penjualan',
-                //     'child' => [
-                //         [
-                //             'title' => 'Retail',
-                //             'url' => 'report/penjualan-retail',
-                //             'module' => 'retail'
-                //         ],
-                //         [
-                //             'title' => 'Penjualan Pengadaan',
-                //             'url' => 'report/penjualan-pengadaan',
-                //             'module' => 'sales_order'
-                //         ],
-                //         [
-                //             'title' => 'Penjualan Tender',
-                //             'url' => 'report/penjualan-tender',
-                //             'module' => 'sales_order'
-                //         ]
-                //     ]
-                // ],
+                [
+                    'title' => 'Penjualan',
+                    'child' => [
+                        [
+                            'title' => 'Grafik',
+                            'url' => 'report/penjualan',
+                            'module' => 'sales_order'
+                        ],   
+                        [
+                            'title' => 'Pengadaan Langsung',
+                            'child' => [
+                                [
+                                    'title' => 'Per Bulan',
+                                    'url' => 'report/penjualan/pengadaan/month',
+                                    'module' => 'sales_order'
+                                ],
+                                [
+                                    'title' => 'Per Tahun',
+                                    'url' => 'report/penjualan/pengadaan/year',
+                                    'module' => 'sales_order'
+                                ]
+                            ]
+                        ],
+                        //         [
+                        //     'title' => 'Penjualan Pengadaan',
+                        //     'url' => 'report/penjualan-pengadaan',
+                        //     'module' => 'sales_order'
+                        // ],
+                        // [
+                        //     'title' => 'Penjualan Tender',
+                        //     'url' => 'report/penjualan-tender',
+                        //     'module' => 'sales_order'
+                        // ]
+                    ]
+                ],
                 // [
                 //     'title' => 'Retur Penjualan',
                 //     'child' => [

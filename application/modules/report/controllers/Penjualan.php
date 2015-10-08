@@ -10,60 +10,60 @@ class Penjualan extends MX_Controller
         $this->load->model('ModPenjualan');
         $this->proposal_type = [0 => "penjualan-pengadaan", 1 => "penjualan-tender"];
         $this->status_ppn = [0 => "Non Aktif", 1 => "Aktif"];
+
+        $this->array_month = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
+                'Nopember', 'Desember'];
     }
 
-    public function index($type = 0, $title = '')
-    {
-        if ($this->input->post('date_from') && $this->input->post('date_to')) {
-            $data['penjualan'] = $this->ModPenjualan->getPenjualan($type, $this->input->post('date_from'), $this->input->post('date_to'));
-            $data['from'] = $this->input->post('date_from');
-            $data['to'] = $this->input->post('date_to');
-        } else {
-            $data['penjualan'] = $this->ModPenjualan->getPenjualan($type);
-        }
+    // public function index($type = 0, $title = '')
+    // {
+    //     if ($this->input->post('date_from') && $this->input->post('date_to')) {
+    //         $data['penjualan'] = $this->ModPenjualan->getPenjualan($type, $this->input->post('date_from'), $this->input->post('date_to'));
+    //         $data['from'] = $this->input->post('date_from');
+    //         $data['to'] = $this->input->post('date_to');
+    //     } else {
+    //         $data['penjualan'] = $this->ModPenjualan->getPenjualan($type);
+    //     }
         
-        $data['total_penjualan'] = $this->ModPenjualan->getTotalPenjualan($type);
+    //     $data['total_penjualan'] = $this->ModPenjualan->getTotalPenjualan($type);
 
-        $data['title'] = $title;
-        $data['type'] = $type;
-        $data['array_type'] = $this->proposal_type;
-        $this->parser->parse('penjualan.tpl', $data);
-    }
+    //     $data['title'] = $title;
+    //     $data['type'] = $type;
+    //     $data['array_type'] = $this->proposal_type;
+    //     $this->parser->parse('penjualan.tpl', $data);
+    // }
 
-    public function pengadaan()
-    {
-        $this->index(0, 'Penjualan Pengadaan Langsung');
-    }
+    // public function pengadaan()
+    // {
+    //     $this->index(0, 'Penjualan Pengadaan Langsung');
+    // }
 
-    public function tender()
-    {
-        $this->index(1, 'Penjualan Tender');
-    }
+    // public function tender()
+    // {
+    //     $this->index(1, 'Penjualan Tender');
+    // }
 
-    public function detail($id_sales_order = null)
-    {
-        if (empty($id_sales_order) || !$this->ModPenjualan->checkSalesOrder($id_sales_order)) {
-            redirect('report/penjualan/index', 'refresh');
-        }
-        $data['penjualan'] = $this->ModPenjualan->getDetailPenjualan($id_sales_order);
-        $data['id_sales_order'] = $id_sales_order;
-        $data['customer_name'] = $this->ModPenjualan->getCustomerName($id_sales_order);
-        $this->parser->parse('detail-penjualan.tpl', $data);
-    }
+    // public function detail($id_sales_order = null)
+    // {
+    //     if (empty($id_sales_order) || !$this->ModPenjualan->checkSalesOrder($id_sales_order)) {
+    //         redirect('report/penjualan/index', 'refresh');
+    //     }
+    //     $data['penjualan'] = $this->ModPenjualan->getDetailPenjualan($id_sales_order);
+    //     $data['id_sales_order'] = $id_sales_order;
+    //     $data['customer_name'] = $this->ModPenjualan->getCustomerName($id_sales_order);
+    //     $this->parser->parse('detail-penjualan.tpl', $data);
+    // }
 
     public function graph()
     {
         $this->load->model('ModPenjualanRetail');
 
-        $array_month = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
-                'Nopember', 'Desember'];
-
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
             $from = substr($this->input->post('date_from'),0,7);
             $to = substr($this->input->post('date_to'),0,7);
 
-            $data['from'] = $array_month[substr($from, -2) - 1] . ' ' . substr($from, 0, 4);
-            $data['to'] = $array_month[substr($to, -2) - 1] . ' ' . substr($to, 0, 4);
+            $data['from'] = $this->array_month[substr($from, -2) - 1] . ' ' . substr($from, 0, 4);
+            $data['to'] = $this->array_month[substr($to, -2) - 1] . ' ' . substr($to, 0, 4);
             $data['form_from'] = $from;
             $data['form_to'] = $to;
             $sql_from = date('Y-m-01', strtotime($from));
@@ -77,7 +77,7 @@ class Penjualan extends MX_Controller
 
             $date_string = '';
             foreach ($date_period as $key => $value) {
-                $date_string .= "'" . $array_month[substr($value, -2) - 1] . ' ' . substr($value, 0, 4) . "',";
+                $date_string .= "'" . $this->array_month[substr($value, -2) - 1] . ' ' . substr($value, 0, 4) . "',";
             }
             $data['daftar_bulan'] = "[" . substr($date_string, 0 , -1) . "]";
 
@@ -88,7 +88,7 @@ class Penjualan extends MX_Controller
                     $tender_date_arr[] = $v->yyyy_mm;
 
                     // Return Total Penjualan
-                    $groups[$v->yyyy_mm]['bulan'] = $array_month[substr($v->yyyy_mm, 5, 2) - 1] . ' ' . substr($v->yyyy_mm, 0, 4);
+                    $groups[$v->yyyy_mm]['bulan'] = $this->array_month[substr($v->yyyy_mm, 5, 2) - 1] . ' ' . substr($v->yyyy_mm, 0, 4);
                     $groups[$v->yyyy_mm]['total_tender'] = $v->grand_total;
                 }
 
@@ -115,7 +115,7 @@ class Penjualan extends MX_Controller
                     $penjualan_pl[] = $v->grand_total;
                     $pl_date_arr[] = $v->yyyy_mm;
 
-                    $groups[$v->yyyy_mm]['bulan'] = $array_month[substr($v->yyyy_mm, 5, 2) - 1] . ' ' . substr($v->yyyy_mm, 0, 4);
+                    $groups[$v->yyyy_mm]['bulan'] = $this->array_month[substr($v->yyyy_mm, 5, 2) - 1] . ' ' . substr($v->yyyy_mm, 0, 4);
                     $groups[$v->yyyy_mm]['total_pl'] = $v->grand_total;
                 }
 
@@ -142,7 +142,7 @@ class Penjualan extends MX_Controller
                     $penjualan_retail[] = $v->grand_total;
                     $retail_date_arr[] = $v->yyyy_mm;
 
-                    $groups[$v->yyyy_mm]['bulan'] = $array_month[substr($v->yyyy_mm, 5, 2) - 1] . ' ' . substr($v->yyyy_mm, 0, 4);
+                    $groups[$v->yyyy_mm]['bulan'] = $this->array_month[substr($v->yyyy_mm, 5, 2) - 1] . ' ' . substr($v->yyyy_mm, 0, 4);
                     $groups[$v->yyyy_mm]['total_retail'] = $v->grand_total;
                 }
 
@@ -169,7 +169,7 @@ class Penjualan extends MX_Controller
                 }
             } else {
                 $data_total_penjualan[] = (object) array(
-                                'bulan' => $array_month[substr($from, 5, 2) - 1] . ' ' . substr($from, 0, 4),
+                                'bulan' => $this->array_month[substr($from, 5, 2) - 1] . ' ' . substr($from, 0, 4),
                                 'total_retail' => 0,
                                 'total_pl' => 0,
                                 'total_tender' => 0
@@ -191,10 +191,10 @@ class Penjualan extends MX_Controller
             $data['penjualan_tender'] = "[" . $total_tender . "]";
             $data['penjualan_pl'] = "[" . $total_pl . "]";
             $data['penjualan_retail'] = "[" . $total_retail . "]";
-            $data['daftar_bulan'] = "['" . $array_month[substr($from, 5, 2) - 1] . ' ' . substr($from, 0, 4) . "']";
+            $data['daftar_bulan'] = "['" . $this->array_month[substr($from, 5, 2) - 1] . ' ' . substr($from, 0, 4) . "']";
 
             $data_total_penjualan[] = (object) array(
-                                'bulan' => $array_month[substr($from, 5, 2) - 1] . ' ' . substr($from, 0, 4),
+                                'bulan' => $this->array_month[substr($from, 5, 2) - 1] . ' ' . substr($from, 0, 4),
                                 'total_retail' => $total_retail,
                                 'total_pl' => $total_pl,
                                 'total_tender' => $total_tender 
@@ -217,5 +217,52 @@ class Penjualan extends MX_Controller
         }
         
         return $month;
+    }
+
+    public function pengadaanPerBulan(){
+        $from = date('Y-m-01');
+        $to = date('Y-m-t');
+
+        $data['from'] = substr($from,0,7);
+        $data['to'] = substr($to,0,7);
+
+        $date_period = $this->datePeriod($from, $to);
+        $count_date_period = count($date_period);
+
+        foreach ($this->db->get('customer')->result() as $object) {
+            $data_penjualan = $this->ModPenjualan->getPenjualanCustomer($object->id_customer, 0, $sql_from, $sql_to);
+            
+            $penjualan = array();
+            $date_available = array();
+            $selling = array();
+
+            foreach ($data_penjualan as $row) {
+                    $penjualan[$row->yyyy_mm] = $v->grand_total;
+            }
+
+            foreach ($date_period as $value) {
+                if(isset($penjualan[$value])){
+                    $selling[] = [
+                        $value => $penjualan[$value]
+                    ];
+                }else{
+                    $selling[] = [
+                        $value => $penjualan[$value]
+                    ];
+                }
+            }
+
+            $data_penjualan_per_customer[] = [
+                'id_customer' => $object->id_customer,
+                'customer_name' => $object->id_customer
+                'selling' => $selling
+            ]
+        }
+
+
+        $data['items'] = $data_penjualan_per_customer;
+
+        var_dump($data_penjualan_per_customer);
+        // $this->parser->parse('penjuala-bulann.tpl', $data);
     }
 }
