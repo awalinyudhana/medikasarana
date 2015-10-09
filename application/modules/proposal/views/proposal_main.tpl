@@ -5,7 +5,7 @@
     <!-- Default panel -->
 
     <div class="panel panel-default">
-        <div class="panel-heading"><h6 class="panel-title">uat Proposal Penawaran Harga</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Buat Proposal Penawaran Harga</h6></div>
         <form class="form-horizontal" method="post" role="form" action="{current_url()}">
             <div class="panel-body">
                 <div class="block-inner">

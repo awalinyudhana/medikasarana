@@ -5,7 +5,7 @@
 
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Daftar informasi pembayaran piutang</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">History Pembayaran Piutang</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">

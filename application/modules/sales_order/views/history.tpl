@@ -14,7 +14,7 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">History Order Jual</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">History Nota Order Jual Lama</h6></div>
 
         <div class="panel-body">
 

@@ -9,39 +9,39 @@ $config = array(
     'po' => array(
         array(
             'field' => 'id_principal',
-            'label' => 'Principal',
+            'label' => 'Prinsipal',
             'rules' => 'required'
         ),
         array(
             'field' => 'invoice_number',
-            'label' => 'Invoice Number',
+            'label' => 'No Invoice',
             'rules' => 'trim|required'
         ),
         array(
             'field' => 'date',
-            'label' => 'Order Date',
+            'label' => 'Tanggal pembelian',
             'rules' => 'required'
         )
     ),
     'po_detail' => array(
         array(
             'field' => 'id_product',
-            'label' => 'Product',
+            'label' => 'Produk',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'qty',
-            'label' => 'QTY Number',
+            'label' => 'Jumlah',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'price',
-            'label' => 'Price',
+            'label' => 'Harga',
             'rules' => 'required|numeric'
         ),
         array(
             'field' => 'discount_total',
-            'label' => 'Discount',
+            'label' => 'Diskon',
             'rules' => 'numeric'
         ),
     ),
@@ -53,7 +53,7 @@ $config = array(
         ),
         array(
             'field' => 'discount_price',
-            'label' => 'Discount',
+            'label' => 'Diskon',
             'rules' => 'numeric'
         ),
         array(
@@ -68,57 +68,57 @@ $config = array(
         ),
         array(
             'field' => 'grand_total',
-            'label' => 'Grand Total',
+            'label' => 'Grand total',
             'rules' => 'required|numeric'
         ),
     ),
     'cs' => array(
         array(
             'field' => 'id_po',
-            'label' => 'Purchase Order Number',
+            'label' => 'No faktur pembelian',
             'rules' => 'required|integer'
         ),
     ),
     'conversion' => array(
         array(
             'field' => 'id_product',
-            'label' => 'ID Product',
+            'label' => 'ID Produk',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'qty',
-            'label' => 'QTY',
+            'label' => 'Jumlah',
             'rules' => 'required|integer'
         )
     ),
     'credit' => array(
         array(
             'field' => 'amount',
-            'label' => 'Jumlah Bayar',
+            'label' => 'Jumlah bayar',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'payment_type',
-            'label' => 'Payment Type',
+            'label' => 'Jenis Pembayaran',
             'rules' => 'trim|required'
         ),
     ),
     'debit' => array(
         array(
             'field' => 'amount',
-            'label' => 'Jumlah Bayar',
+            'label' => 'Jumlah bayar',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'payment_type',
-            'label' => 'Payment Type',
+            'label' => 'Jenis Pembayaran',
             'rules' => 'trim|required'
         ),
     ),
     'distribution' => array(
         array(
             'field' => 'id_product',
-            'label' => 'ID Product',
+            'label' => 'ID Produk',
             'rules' => 'required|integer'
         ),
         array(
@@ -130,19 +130,19 @@ $config = array(
     'product-returns' => array(
         array(
             'field' => 'id_product_store',
-            'label' => 'ID Product',
+            'label' => 'ID Produk',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'qty',
-            'label' => 'QTY',
+            'label' => 'Jumlah',
             'rules' => 'required|integer'
         )
     ),
     'pricing' => array(
         array(
             'field' => 'id_product',
-            'label' => 'ID Product',
+            'label' => 'ID Produk',
             'rules' => 'required|integer'
         ),
         array(
@@ -154,24 +154,14 @@ $config = array(
     'retail' => array(
         array(
             'field' => 'id_product_store',
-            'label' => 'Product',
+            'label' => 'Produk',
             'rules' => 'required|integer'
-        ),
-//        array(
-//            'field' => 'qty',
-//            'label' => 'QTY',
-//            'rules' => 'integer'
-//        ),
-//        array(
-//            'field' => 'discount',
-//            'label' => 'Diskon',
-//            'rules' => 'integer'
-//        )
+        )
     ),
     'retail/save' => array(
         array(
             'field' => 'bayar',
-            'label' => 'Jumlah Bayar',
+            'label' => 'Jumlah bayar',
             'rules' => 'required|integer'
         ),
         array(
@@ -190,17 +180,17 @@ $config = array(
     'opname/save' => array(
         array(
             'field' => 'id_product',
-            'label' => 'Product',
+            'label' => 'Produk',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'stock_system',
-            'label' => 'Stok System',
+            'label' => 'Stok system',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'stock_real',
-            'label' => 'Stok Fisik',
+            'label' => 'Stok fisik',
             'rules' => 'required|integer'
         ),
         array(
@@ -212,17 +202,17 @@ $config = array(
     'opname-store/save' => array(
         array(
             'field' => 'id_product_store',
-            'label' => 'Product',
+            'label' => 'Produk',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'stock_system',
-            'label' => 'Stok System',
+            'label' => 'Stok system',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'stock_real',
-            'label' => 'Stok Fisik',
+            'label' => 'Stok fisik',
             'rules' => 'required|integer'
         ),
         array(
@@ -234,22 +224,22 @@ $config = array(
     'returns' => array(
         array(
             'field' => 'qty_return',
-            'label' => 'Jumlah Retur',
+            'label' => 'Jumlah retur',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'qty',
-            'label' => 'Jumlah Retur',
+            'label' => 'Jumlah retur',
             'rules' => 'integer|is_natural_no_zero'
         ),
         array(
             'field' => 'id_product_store',
-            'label' => 'Produk ',
+            'label' => 'Produk',
             'rules' => 'integer'
         ),
         array(
             'field' => 'cashback',
-            'label' => 'Produk ',
+            'label' => 'Produk',
             'rules' => 'integer'
         ),
         array(
@@ -266,55 +256,55 @@ $config = array(
         ),
         array(
             'field' => 'type',
-            'label' => 'Jenis Proposal',
+            'label' => 'Jenis proposal',
             'rules' => 'required'
         ),
         array(
             'field' => 'status_ppn',
-            'label' => 'PPn Status',
+            'label' => 'PPn status',
             'rules' => 'required'
         )
     ),
     'proposal/detail' => array(
         array(
             'field' => 'id_product',
-            'label' => 'Product',
+            'label' => 'Produk',
             'rules' => 'required|integer'
         ),
         array(
             'field' => 'qty',
-            'label' => 'QTY Number',
+            'label' => 'Jumlah',
             'rules' => 'integer'
         ),
         array(
             'field' => 'price',
-            'label' => 'Price',
+            'label' => 'Harga',
             'rules' => 'required|numeric'
         ),
         array(
             'field' => 'discount',
-            'label' => 'Discount',
+            'label' => 'Diskon',
             'rules' => 'numeric'
         ),
     ),
     'sales_order/save' => array(
         array(
             'field' => 'due_date',
-            'label' => 'Tanggal Jatuh Tempo',
+            'label' => 'Tanggal jatuh tmpo',
             'rules' => 'required'
         )
     ),
     'delivery_order/save' => array(
         array(
             'field' => 'date_sending',
-            'label' => 'Tanggal Pengiriman',
+            'label' => 'Tanggal pengiriman',
             'rules' => 'required'
         )
     ),
     'users/edit-group' => array(
         array(
             'field' => 'name_group',
-            'label' => 'Nama Group',
+            'label' => 'Nama group',
             'rules' => 'required'
         )
     )

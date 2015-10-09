@@ -271,12 +271,6 @@
                     </div>
                 </div>
             </div>
-
-            <h6>Notes &amp; Information:</h6>
-            This invoice contains a incomplete list of items destroyed by the Federation ship Enterprise on Startdate
-            5401.6 in an unprovked attacked on a peaceful &amp; wholly scientific mission to Outpost 775.
-            The Romulan people demand immediate compensation for the loss of their Warbird, Shuttle, Cloaking Device,
-            and to a lesser extent thier troops.
         </div>
     </div>
     <!-- /new invoice template -->
