@@ -167,7 +167,7 @@ class ModDashboard extends CI_Model
     {
         $query = $this->db
                     // ->where('status_paid', 1)
-                    ->select('date_created, grand_total')
+                    ->select('date, grand_total')
                     ->from('purchase_order')
                     ->get();
 
