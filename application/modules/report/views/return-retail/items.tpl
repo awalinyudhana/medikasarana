@@ -38,7 +38,6 @@
                     </div>
                 </div>
 
-                {if $items}
                 <div class="table-responsive" id="datatableexport">
                     <table class="table table-striped table-bordered">
                         <thead>
@@ -58,11 +57,11 @@
                         {foreach $items as $key }
                             <tr>
                                 <td>{$val}</td>
-                                <td>{$key[id_retail_return]</td>
-                                <td>{$key[id_retail]</td>
-                                <td>{$key[date]</td>
+                                <td>{$key['id_retail_return']</td>
+                                <td>{$key['id_retail']</td>
+                                <td>{$key['date']</td>
                                 <td></td>
-                                <td>{$key[name]</td>
+                                <td>{$key['name']</td>
                             	<td></td>
                             	<td></td>
                             </tr>
@@ -120,8 +119,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                {/if}
             </div>
         </div><!-- /default panel -->
 
