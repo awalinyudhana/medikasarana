@@ -31,7 +31,7 @@ class ReturPenjualan extends MX_Controller
                     'id_sales_order' =>$key->id_sales_order,
                     'date' =>$key->date,
                     'customer_name' =>$key->customer_name,
-                    'staff_name' =>$key->name,
+                    'staff_name' =>$key->staff_name,
                     'value' =>$this->ModReturPenjualan->getReturnReplacedDetailItem($key->id_sales_order_return)
                 ];
             }

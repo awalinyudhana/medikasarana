@@ -54,7 +54,7 @@
                                 <td >Tanggal Transaksi : {$key['date']} </br>
                                 No Faktur Retur : {$key['id_sales_order_return']}</br>
                                 No Faktur Jual : {$key['id_sales_order']}</br>
-                                Konsumen : {$key['customer_name']}
+                                Konsumen : {$key['customer_name']}</br>
                                 Staff : {$key['staff_name']}
                                 </td>
                             </tr>
