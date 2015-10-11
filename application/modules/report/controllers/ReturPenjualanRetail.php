@@ -22,10 +22,10 @@ class ReturPenjualanRetail extends MX_Controller
         }
         
         $return = $this->ModReturPenjualanRetail->getReturPenjualan($data['from'], $data['to']);
-        $item = array();
+        $items = array();
         if($return){
             foreach ($return as $key) {
-                $item[] = [
+                $items[] = [
                     'id_retail_return' =>$key->id_retail_return,
                     'id_retail' =>$key->id_retail,
                     'date' =>$key->date,
@@ -35,7 +35,7 @@ class ReturPenjualanRetail extends MX_Controller
             }
         }
         $data['product_storage'] = $this->storageProduct();
-        $data['item'] = $item;
+        $data['items'] = $items;
         $this->parser->parse('return-retail/items.tpl', $data);
     }
 
