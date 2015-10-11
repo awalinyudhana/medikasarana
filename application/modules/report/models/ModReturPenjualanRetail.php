@@ -21,10 +21,7 @@ class ModReturPenjualanRetail extends CI_Model
             ->order_by('rr.date desc');
                     
         $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-           return $query->result();
-        }
-       return $query->free_result();
+        return $query->result();
     }
 
     /* NOT USED YET */
