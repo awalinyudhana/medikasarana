@@ -39,27 +39,22 @@
                 </div>
 
                 <div class="table-responsive" id="datatableexport">
-                    <table class="table table-striped">
-                        <thead>
+                    <table class="table">
+                       <!--  <thead>
                             <tr>
                                 <th>No</th>
                                 <th></th>
                             </tr>
-                        </thead>
+                        </thead> -->
                         <tbody>
                         {assign var=val value=1}
                         {foreach $items as $key }
                             <tr>
-                                <th>{$val}</th>
-                                <th>Tanggal Transaksi : {$key['date']}</th>
-                            </tr>
-                         	<tr>
-                                <th></th>
-                                <th>No Faktur Retur : {$key['id_retail_return']}</th>
-                            </tr>
-                         	<tr>
-                                <th></th>
-                                <th>No Faktur Retail : {$key['id_retail']}</th>
+                                <th width="3%">{$val}</th>
+                                <th>Tanggal Transaksi : {$key['date']} </br>
+                                No Faktur Retur : {$key['id_retail_return']}</br>
+                                No Faktur Retail : {$key['id_retail']}
+                                </th>
                             </tr>
                             <tr>
                             	<td colspan="2">
