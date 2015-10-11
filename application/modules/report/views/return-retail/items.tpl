@@ -76,7 +76,7 @@
 		                        <th>Keterangan</th>
 		                    </tr>
 		                    	{assign var=no value=1}
-			                    {foreach $key[value] as $return }
+			                    {foreach $key['value'] as $return }
 			                        <tr>
 			                            <td rowspan="2">{$no} </td>
 			                            <td>{$return['name']}</td>
