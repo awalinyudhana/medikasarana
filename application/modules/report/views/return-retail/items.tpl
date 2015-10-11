@@ -105,7 +105,7 @@
 			                                <td colspan="4"></td>
 			                            {/if}
 			                            <td>Rp
-			                                {if $return['cashback']
+			                                {if $return['cashback']}
 												{$return['cashback']|number_format:0}
 			                                {else}
 			                                    {0|number_format:0}
