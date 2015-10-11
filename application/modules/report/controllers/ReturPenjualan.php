@@ -22,7 +22,7 @@ class ReturPenjualan extends MX_Controller
             $data['to'] = substr(date('Y-m-t'),0,7);
         }
         
-        $return = $this->ModReturPenjualanRetail->getItems($data['from'], $data['to']);
+        $return = $this->ModReturPenjualan->getItems($data['from'], $data['to']);
         $items = array();
         if($return){
             foreach ($return as $key) {
@@ -32,7 +32,7 @@ class ReturPenjualan extends MX_Controller
                     'date' =>$key->date,
                     'customer_name' =>$key->customer_name,
                     'staff_name' =>$key->name,
-                    'value' =>$this->ModReturPenjualanRetail->getReturnReplacedDetailItem($key->id_sales_order_return)
+                    'value' =>$this->ModReturPenjualan->getReturnReplacedDetailItem($key->id_sales_order_return)
                 ];
             }
         }
