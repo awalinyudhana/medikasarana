@@ -47,7 +47,6 @@
                         <tbody>
                         {assign var=val value=1}
                         {foreach $retur_penjualan as $key }
-
                             <tr>
                                 <td>{$val}</td>
                                 <td>{$key->id_retail_return}</td>
