@@ -194,7 +194,7 @@ class ModDashboard extends CI_Model
     public function upcomingDebit()
     {
         // $where = "((SELECT DATEDIFF(so.`due_date`, '$this->curDate') AS days) < 14) AND (so.`due_date` > '$this->curDate') AND (so.`status_paid` = 0)";
-        $where = "(SELECT DATEDIFF(so.`due_date`, '$this->curDate') AS days) < 14 AND so.`status_paid` = 0";
+        $where = "(SELECT DATEDIFF(so.`due_date`, '$this->curDate') AS days) < 14 AND so.`status_paid` = 0 AND so.active = 1";
         $so = $this->db
             ->from('sales_order so')
             ->join('customer c', 'c.id_customer = so.id_customer')

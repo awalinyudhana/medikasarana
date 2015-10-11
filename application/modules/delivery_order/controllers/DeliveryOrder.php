@@ -102,7 +102,7 @@ class DeliveryOrder extends MX_Controller
         $undelivered = $so_detail->qty - $so_detail->delivered;
 
         if($qty > $undelivered){
-            $this->session->set_flashdata('error', 'Maksimal jumlah pengiriman sesuai pesanan : '. $undelivered .'');
+            $this->session->set_flashdata('error', 'Maksimal jumlah pengiriman sesuai pesanan : '. $undelivered );
         }else{
             if($this->cache['detail']['value'][$id_sales_order_detail]['stock'] > $qty){
                 $this->cart->field_updateable(['qty_delivered']);

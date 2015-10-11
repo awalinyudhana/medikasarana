@@ -5,13 +5,13 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Product Conversion</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Konversi Produk</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Product Conversion
-                    <small class="display-block">Informasi umum tentang proses purchasing</small>
+                    <i class="icon-clipboard"></i> Konversi Produk
+                    <small class="display-block">Proses konversi satuan produk</small>
                 </h6>
             </div>
             <!-- Callout -->

@@ -4,14 +4,14 @@
 {block name=content}
     <!-- Default panel -->
     <div class="panel panel-default">
-        <div class="panel-heading"><h6 class="panel-title">pricing</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Pricing Produk Retail</h6></div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">
                     <div class="block-inner">
                         <h6 class="heading-hr">
-                            <i class="icon-clipboard"></i> pricing
-                            <small class="display-block">Informasi umum tentang proses pricing</small>
+                            <i class="icon-clipboard"></i> Pricing Produk Retail
+                            <small class="display-block">Proses input harga produk retail</small>
                         </h6>
                     </div>
 

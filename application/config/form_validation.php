@@ -251,7 +251,7 @@ $config = array(
     'proposal' => array(
         array(
             'field' => 'id_customer',
-            'label' => 'Customer',
+            'label' => 'Konsumen',
             'rules' => 'required'
         ),
         array(

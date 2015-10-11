@@ -162,11 +162,11 @@ class Dashboard extends MX_Controller
         $crud->where($where)
             ->set_table('product')
             ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
-            ->display_as('id_product_category', 'Product Category')
-            ->display_as('id_product_unit', 'Product Satuan')
-            ->display_as('date_expired', 'Date Expired')
+            ->display_as('id_product_category', 'Kategory Produk')
+            ->display_as('id_product_unit', 'Produk Satuan')
+            ->display_as('date_expired', 'Produk Kadaluarsa')
             ->display_as('license', 'AKL/AKD')
-            ->display_as('minimum_stock', 'Minimum Stock')
+            ->display_as('minimum_stock', 'Stock Minimum')
             ->display_as('value', 'Nilai Satuan')
             ->callback_column('sell_price', array($this, 'currencyFormat'))
             ->set_relation('id_product_category', 'product_category', 'category')
@@ -176,7 +176,7 @@ class Dashboard extends MX_Controller
             ->unset_edit()
             ->unset_delete();
 
-        $extra = 'Informasi Produk Yang Melebihi Batasan Minimum Stock';
+        $extra = 'Informasi Produk Yang Melebihi Batasan Stock Minimum';
         $output = $crud->render($extra);
         
         $this->render($output);
@@ -186,15 +186,15 @@ class Dashboard extends MX_Controller
     {
         $crud = new grocery_CRUD();
         
-        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 14 AND product.`date_expired` > '$this->curDate'";
+        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30 AND product.`date_expired` > '$this->curDate'";
         $crud->where($where)
                 ->order_by('date_expired', 'asc')
                 ->set_table('product')
                 ->columns('barcode', 'name', 'id_product_category', 'id_product_unit', 'brand', 'sell_price', 'date_expired', 'size', 'license', 'stock', 'minimum_stock')
-                ->display_as('id_product_category', 'Product Category')
-                ->display_as('id_product_unit', 'Product Unit')
-                ->display_as('date_expired', 'Date Expired')
-                ->display_as('minimum_stock', 'Minimum Stock')
+                ->display_as('id_product_category', 'Kategory Produk')
+                ->display_as('id_product_unit', 'Produk Satuan')
+                ->display_as('date_expired', 'Produk Kadaluarsa')
+                ->display_as('minimum_stock', 'Stock Minimum')
                 ->callback_column('sell_price', array($this, 'currencyFormat'))
                 ->set_relation('id_product_category', 'product_category', 'category')
                 ->set_relation('id_product_unit', 'product_unit', 'unit')
@@ -270,10 +270,10 @@ class Dashboard extends MX_Controller
     //     $this->render($output);
     // }
 
-    // public function currencyFormat($value, $row)
-    // {
-    //     return "Rp " . number_format($value);
-    // }
+    public function currencyFormat($value, $row)
+    {
+        return "Rp " . number_format($value);
+    }
 
     // public function getBalance($value, $row)
     // {

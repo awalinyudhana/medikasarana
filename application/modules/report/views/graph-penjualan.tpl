@@ -4,18 +4,18 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Laporan Penjualan</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Grafik Penjualan</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Laporan Penjualan <small class="display-block">Laporan Penjualan</small>
+                        <i class="icon-coin"></i> Grafik Penjualan <small class="display-block">Informasi Data Grafik Penjualan PT. Sarana Medika Sejahtera</small>
                     </h6>
                 </div>
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Laporan Penjualan:</label>
+                        <label>Tanggal Transaksi Penjualan :</label>
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" class="from-date-report form-control" name="date_from" placeholder="From" {if isset($form_from)}value="{$form_from}"{/if}>
@@ -37,7 +37,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6 class="panel-title"><i class="icon-calendar2"></i> Laporan Penjualan {$form_from} - {$form_to}</h6>
+                                <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan {$form_from} - {$form_to}</h6>
                             </div>
                             <div class="panel-body" style="min-height:400px;">
                                 <div class="graph-standard" id="grafik_penjualan" style="height:100%; width:100%;"></div>
@@ -53,7 +53,7 @@
                                 },
 
                                 title: {
-                                    text: 'Laporan Penjualan<br>PT. Sarana Medika Sejahtera<br>{$form_from} - {$form_to}'
+                                    text: 'Laporan Penjualan <br> PT. Sarana Medika Sejahtera ({$form_from}) - ({$form_to})'
                                 },
 
                                 xAxis: {

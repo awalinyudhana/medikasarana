@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li class="{if $creditBGCount == 0}bg-success{else}bg-danger{/if}">
-                <a href="{base_url('dashboard/credit')}">
+                <a href="{base_url('dashboard/credit-cek')}">
                     <div class="page-stats-showcase">
                         <span>Hutang Cek BG</span>
                         <h2>{$creditBGCount} <br/> Rp {$creditBGSum|number_format:0}</h2>
@@ -55,7 +55,7 @@
                 </a>
             </li>
             <li class="{if $debitBGCount == 0}bg-success{else}bg-danger{/if}">
-                <a href="{base_url('dashboard/debit')}">
+                <a href="{base_url('dashboard/debit-cek')}">
                     <div class="page-stats-showcase">
                         <span>Piutang Cek BG</span>
                         <h2>{$debitBGCount} <br/> Rp {$debitBGSum|number_format:0}</h2>

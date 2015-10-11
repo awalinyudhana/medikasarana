@@ -42,14 +42,14 @@ $config['login_landing_page'] = 'dashboard';
 $config['login_message'] = 'Success! You have been logged in.';
 
 // Set the flash message for logging a user out, NULL for no flashdata message
-$config['failed_login_message'] = 'Warning! Incorrect username or password.';
+$config['failed_login_message'] = 'Nama dan kata sandi yang anda masukkan salah';
 
 // Set the default landing page for users that logout
 // string or NULL, null will be the site main page
 $config['logout_landing_page'] = 'login';
 
 // Set the flash message for logging a user out, NULL for no flashdata message
-$config['logout_message'] = 'Success! You have been logged out.';
+$config['logout_message'] = 'Anda telah berhasil keluar';
 
 // Set the flash message for logging a user out, NULL for no flashdata message
 $config['module_auth_message'] = 'please login to access this module.';
@@ -84,7 +84,7 @@ $config['module_router'] =
     [
         [
             'title' => 'Dashboard',
-            'url' => 'icon-home',
+            'icon' => 'icon-dashboard',
             'child' => [
                 [
                     'title' => 'Dashboard',
@@ -92,6 +92,7 @@ $config['module_router'] =
                     'module' => ''
                 ], [
                     'title' => 'Grafik',
+                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Grafik Pembelian',
@@ -111,6 +112,7 @@ $config['module_router'] =
                     ]
                 ], [
                     'title' => 'Hutang',
+                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Daftar Hutang',
@@ -124,6 +126,7 @@ $config['module_router'] =
                     ]
                 ], [
                     'title' => 'Piutang',
+                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Daftar Piutang',
@@ -137,6 +140,7 @@ $config['module_router'] =
                     ]
                 ],[
                     'title' => 'Barang',
+                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Minimum Stok',
@@ -157,6 +161,7 @@ $config['module_router'] =
             'child' => [
                 [
                     'title' => 'Pegawai',
+                    'icon' => 'icon-users',
                     'child' => [
                         [
                             'title' => 'Daftar Pegawai',
@@ -174,18 +179,21 @@ $config['module_router'] =
                     'module' => 'store'
                 ], [
                     'title' => 'Gudang',
-                    'child' => [[
-                        'title' => 'Gudang',
-                        'url' => 'warehouse',
-                        'module' => 'warehouse'
-                    ], [
-                        'title' => 'Rak',
-                        'url' => 'warehouse/rack',
-                        'module' => 'warehouse'
-                    ]
+                    'icon' => 'icon-home',
+                    'child' => [
+                        [
+                            'title' => 'Gudang',
+                            'url' => 'warehouse',
+                            'module' => 'warehouse'
+                        ], [
+                            'title' => 'Rak',
+                            'url' => 'warehouse/rack',
+                            'module' => 'warehouse'
+                        ]
                     ]
                 ], [
                     'title' => 'Prinsipal',
+                    'icon' => 'icon-people',
                     'child' => [
                         [
                             'title' => 'Daftar Prinsipal',
@@ -203,6 +211,7 @@ $config['module_router'] =
                     'module' => 'customer'
                 ], [
                     'title' => 'Produk',
+                    'icon' => 'icon-barcode',
                     'child' => [
                         [
                             'title' => "Daftar Produk",
@@ -228,6 +237,7 @@ $config['module_router'] =
         ],
         [
             'title' => 'Produk',
+            'icon' => 'icon-barcode',
             'child' => [
                 [
                     'title' => "Opname Gudang",
@@ -269,11 +279,6 @@ $config['module_router'] =
                     'url' => 'purchase-order',
                     'module' => 'purchase_order'
                 ], 
-                // [
-                //     'title' => 'Invoice',
-                //     'url' => 'purchase-order/invoice',
-                //     'module' => 'purchase_order'
-                // ], 
                 [
                     'title' => 'History',
                     'url' => 'purchase-order/history',
@@ -293,6 +298,7 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Daftar Proposal',
+                    'icon' => 'icon-list2',
                     'child' => [
                         [
                             'title' => "Tender",
@@ -328,17 +334,13 @@ $config['module_router'] =
             'child' => [
                 [
                     'title' => 'Transaksi',
+                    'icon' => 'icon-list2',
                     'child' => [
                         [
                             'title' => "Order Jual",
                             'url' => 'sales-order/search',
                             'module' => 'sales_order'
                         ],
-                        // [
-                        //     'title' => 'Invoice',
-                        //     'url' => 'sales-order/invoice',
-                        //     'module' => 'proposal'
-                        // ],
                         [
                             'title' => 'History',
                             'url' => 'sales-order/history',
@@ -348,17 +350,13 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Retur Jual',
+                    'icon' => 'icon-list2',
                     'child' => [
                         [
                             'title' => "Retur Jual",
                             'url' => 'sales-order/returns',
                             'module' => 'sales_order'
                         ],
-                        // [
-                        //     'title' => 'Invoice Return',
-                        //     'url' => 'sales-order/returns/invoice',
-                        //     'module' => 'proposal'
-                        // ],
                         [
                             'title' => 'History',
                             'url' => 'sales-order/returns/history',
@@ -368,6 +366,7 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Faktur',
+                    'icon' => 'icon-link',
                     'child' => [
                         [
                             'title' => "Gabung Faktur",
@@ -392,7 +391,7 @@ $config['module_router'] =
         ],
         [
             'title' => 'Order Kirim',
-            'icon' => 'icon-book2',
+            'icon' => 'icon-cube2',
             'child' => [
                 [
                     'title' => 'Order Kirim',
@@ -408,7 +407,7 @@ $config['module_router'] =
         ],
         [
             'title' => 'Hutang',
-            'icon' => 'icon-book2',
+            'icon' => 'icon-credit',
             'child' => [
                 [
                     'title' => "Daftar Hutang",
@@ -425,7 +424,7 @@ $config['module_router'] =
         ],
         [
             'title' => 'Piutang',
-            'icon' => 'icon-book2',
+            'icon' => 'icon-credit',
             'child' => [
                 [
                     'title' => "Daftar Piutang",
@@ -442,18 +441,13 @@ $config['module_router'] =
         ],
         [
             'title' => "Retail",
-            'icon' => 'icon-cart',
+            'icon' => 'icon-contract',
             'child' => [
                 [
                     'title' => 'Retail',
                     'url' => 'retail',
                     'module' => 'retail'
                 ],
-                // [
-                //     'title' => 'Invoice',
-                //     'url' => 'retail/invoice',
-                //     'module' => 'retail'
-                // ],
                 [
                     'title' => 'History',
                     'url' => 'retail/history',
@@ -463,7 +457,7 @@ $config['module_router'] =
         ],
         [
             'title' => "Retur Retail",
-            'icon' => 'icon-cart',
+            'icon' => 'icon-contract',
             'child' => [
                
                 [
@@ -471,11 +465,6 @@ $config['module_router'] =
                     'url' => 'retail/returns',
                     'module' => 'retail'
                 ],
-                // [
-                //     'title' => 'Invoice',
-                //     'url' => 'retail/returns/invoice',
-                //     'module' => 'retail'
-                // ],
                 [
                     'title' => 'History',
                     'url' => 'retail/returns/history',
@@ -484,28 +473,29 @@ $config['module_router'] =
             ]
         ],
         [
-            'title' => 'Report',
-            'url' => 'icon-cart',
+            'title' => 'Laporan',
+            'icon' => 'icon-calendar',
             'child' => [
 
                 [
                     'title' => 'Penjualan',
                     'child' => [
                         [
-                            'title' => 'Grafik',
+                            'title' => 'Grafik Penjualan',
                             'url' => 'report/penjualan',
                             'module' => 'sales_order'
                         ],   
                         [
                             'title' => 'Pengadaan Langsung',
+                            'icon' => 'icon-list',
                             'child' => [
                                 [
-                                    'title' => 'Per Bulan',
+                                    'title' => 'Penjualan Per Konsumen (Bulan)',
                                     'url' => 'report/penjualan/pengadaan/month',
                                     'module' => 'sales_order'
                                 ],
                                 [
-                                    'title' => 'Per Tahun',
+                                    'title' => 'Penjualan Per Konsumen (Tahun)',
                                     'url' => 'report/penjualan/pengadaan/year',
                                     'module' => 'sales_order'
                                 ]
@@ -513,81 +503,74 @@ $config['module_router'] =
                         ],
                         [
                             'title' => 'Tender',
+                            'icon' => 'icon-list',
                             'child' => [
                                 [
-                                    'title' => 'Per Bulan',
+                                    'title' => 'Penjualan Per Konsumen (Bulan)',
                                     'url' => 'report/penjualan/tender/month',
                                     'module' => 'sales_order'
                                 ],
                                 [
-                                    'title' => 'Per Tahun',
+                                    'title' => 'Penjualan Per Konsumen (Tahun)',
                                     'url' => 'report/penjualan/tender/year',
                                     'module' => 'sales_order'
                                 ]
                             ]
-                        ],
-                        //         [
-                        //     'title' => 'Penjualan Pengadaan',
-                        //     'url' => 'report/penjualan-pengadaan',
-                        //     'module' => 'sales_order'
-                        // ],
-                        // [
-                        //     'title' => 'Penjualan Tender',
-                        //     'url' => 'report/penjualan-tender',
-                        //     'module' => 'sales_order'
-                        // ]
+                        ]
                     ]
                 ],
-                // [
-                //     'title' => 'Retur Penjualan',
-                //     'child' => [
-                //         [
-                //             'title' => 'Retur Retail',
-                //             'url' => 'report/retur-penjualan-retail',
-                //             'module' => 'retail'
-                //         ],
-                //         [
-                //             'title' => 'Penjualan Pengadaan',
-                //             'url' => 'report/retur-penjualan-pengadaan',
-                //             'module' => 'sales_order'
-                //         ],
-                //         [
-                //             'title' => 'Penjualan Tender',
-                //             'url' => 'report/retur-penjualan-tender',
-                //             'module' => 'sales_order'
-                //         ]
-                //     ]
-                // ],
                 [
-                    'title' => 'Pembelian',
+                    'title' => 'Retur Penjualan',
                     'child' => [
                         [
-                            'title' => 'Per Bulan',
+                            'title' => 'Retur Retail',
+                            'url' => 'report/retur-penjualan-retail',
+                            'module' => 'retail'
+                        ],
+                        [
+                            'title' => 'Penjualan Pengadaan',
+                            'url' => 'report/retur-penjualan-pengadaan',
+                            'module' => 'sales_order'
+                        ],
+                        [
+                            'title' => 'Penjualan Tender',
+                            'url' => 'report/retur-penjualan-tender',
+                            'module' => 'sales_order'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'Pembelian Produk',
+                    'icon' => 'icon-list',
+                    'child' => [
+                        [
+                            'title' => 'Pembelian Per Supplier (Bulan)',
                             'url' => 'report/pembelian/month',
                             'module' => 'sales_order'
                         ],
                         [
-                            'title' => 'Per Tahun',
+                            'title' => 'Pembelian Per Supplier (Tahun)',
                             'url' => 'report/pembelian/year',
                             'module' => 'sales_order'
                         ]
                     ]
                 ],
                 [
-                    'title' => 'Pinjam Bendera',
+                    'title' => 'Detail Transaksi Pinjam Bendera',
                     'url' => 'report/pinjam-bendera',
                     'module' => 'proposal'
                 ],
                 [
                     'title' => 'Keuangan',
+                    'icon' => 'icon-credit',
                     'child' => [
                         [
-                            'title' => 'Pembayaran Hutang',
+                            'title' => 'Hutang',
                             'url' => 'report/credit',
                             'module' => 'credit'
                         ],
                         [
-                            'title' => 'Pembayaran Piutang',
+                            'title' => 'Piutang',
                             'url' => 'report/debit',
                             'module' => 'debit'
                         ]
@@ -595,21 +578,22 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Opname Produk',
+                    'icon' => 'icon-barcode',
                     'child' => [
                         [
-                            'title' => 'Gudang',
+                            'title' => 'Opname Produk Gudang',
                             'url' => 'report/opname',
                             'module' => 'product_opname'
                         ],
                         [
-                            'title' => 'Toko',
+                            'title' => 'Opname Produk Toko',
                             'url' => 'report/opname-store',
                             'module' => 'product_opname_store'
                         ]
                     ]
                 ],
                 [
-                    'title' => 'Pembelian Barang',
+                    'title' => 'Pembelian Per Supplier (Produk)',
                     'url' => 'report/product',
                     'module' => 'warehouse'
                 ],

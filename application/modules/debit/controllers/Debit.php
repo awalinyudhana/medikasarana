@@ -115,7 +115,7 @@ class Debit extends MX_Controller
         //                    ->where('id_sales_order' , $id_sales_order)
         //                    ->set('status_extract',0)
         //                    ->update('sales_order');
-                        $this->session->set_flashdata('success', 'insert data berhasil');
+                        $this->session->set_flashdata('success', 'Data berhasil disimpan');
                         redirect('debit');
 
                     }

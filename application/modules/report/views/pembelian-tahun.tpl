@@ -9,13 +9,13 @@
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Laporan Pembelian Per Tahun <small class="display-block">Purchase Order</small>
+                        <i class="icon-coin"></i>Ringkasan informasi pembelian per tahun <small class="display-block">Order Beli</small>
                     </h6>
                 </div>
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Laporan Pembelian:</label>
+                        <label>Tanggal Transaksi Pembelian :</label>
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" class="from-year-report form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>

@@ -32,14 +32,14 @@
                     {/if}
                 {/if}
                 <div class="form-group has-feedback">
-                    <label>Username</label>
-                    <input type="text" class="form-control" placeholder="username" name="username">
+                    <label>Nama Pengguna</label>
+                    <input type="text" class="form-control" placeholder="Nama Pengguna" name="username">
                     <i class="icon-users form-control-feedback"></i>
                 </div>
 
                 <div class="form-group has-feedback">
-                    <label>Password</label>
-                    <input type="password" class="form-control" placeholder="password" name="password">
+                    <label>Kata Sandi</label>
+                    <input type="password" class="form-control" placeholder="Kata Sandi" name="password">
                     <i class="icon-lock form-control-feedback"></i>
                 </div>
 
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="col-xs-6">
-                        <button type="submit" class="btn btn-warning pull-right"><i class="icon-unlocked"></i> Login
+                        <button type="submit" class="btn btn-warning pull-right"><i class="icon-unlocked"></i> Masuk
                         </button>
                     </div>
                 </div>

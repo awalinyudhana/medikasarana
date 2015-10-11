@@ -108,7 +108,7 @@ class Credit extends MX_Controller
                         );
 
                         $this->db->insert('credit', $data_insert);
-                        $this->session->set_flashdata('success', 'insert data berhasil');
+                        $this->session->set_flashdata('success', 'Data berhasil disimpan');
                         redirect('credit');
                     }
                     else{
