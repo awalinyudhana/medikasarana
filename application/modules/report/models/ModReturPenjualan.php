@@ -29,6 +29,28 @@ class ModReturPenjualan extends CI_Model
            return $query->result();
         }
     }
+    public function getItems($dateFrom = null, $dateTo = null)
+    {
+        if ($dateFrom && $dateTo) {
+            $this->db->where('sor.date >=', $dateFrom)
+                ->where('sor.date <=', $dateTo);
+        }
+
+        $this->db
+            ->select("sor.*, st.name as staff_name, c.name as customer_name", FALSE)
+            ->from('sales_order_return sor')
+            ->join('staff st', 'st.id_staff = sor.id_staff')
+            ->join('sales_order so', 'so.id_sales_order = sor.id_sales_order')
+            ->join('customer c', 'c.id_customer = so.id_customer')
+            // ->join('proposal p', 'p.id_proposal = so.id_proposal')
+            // ->where('p.type', $type)
+            ->order_by('sor.date desc');
+                    
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+           return $query->result();
+        }
+    }
 
     /* NOT USED YET */
     public function getTotalReturPenjualan()

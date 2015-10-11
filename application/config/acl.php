@@ -512,14 +512,14 @@ $config['module_router'] =
                             'url' => 'report/retur-penjualan-retail',
                             'module' => 'retail'
                         ],
+                        // [
+                        //     'title' => 'Penjualan Pengadaan',
+                        //     'url' => 'report/retur-penjualan-pengadaan',
+                        //     'module' => 'sales_order'
+                        // ],
                         [
-                            'title' => 'Penjualan Pengadaan',
-                            'url' => 'report/retur-penjualan-pengadaan',
-                            'module' => 'sales_order'
-                        ],
-                        [
-                            'title' => 'Penjualan Tender',
-                            'url' => 'report/retur-penjualan-tender',
+                            'title' => 'Penjualan',
+                            'url' => 'report/retur-penjualan',
                             'module' => 'sales_order'
                         ]
                     ]

@@ -14,11 +14,11 @@ class ReturPenjualanRetail extends MX_Controller
     public function index()
     {
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
-            $data['from'] = $this->input->post('date_from');
-            $data['to'] = $this->input->post('date_to');
+            $data['from'] = substr($this->input->post('date_from'),0,7);
+            $data['to'] = substr($this->input->post('date_to'),0,7);
         } else {
-            $data['from'] =  date('Y-m-01');
-            $data['to'] = date('Y-m-t');
+            $data['from'] =  substr(date('Y-m-01'),0,7);
+            $data['to'] = substr(date('Y-m-t'),0,7);
         }
         
         $return = $this->ModReturPenjualanRetail->getReturPenjualan($data['from'], $data['to']);
@@ -36,7 +36,7 @@ class ReturPenjualanRetail extends MX_Controller
         }
         $data['product_storage'] = $this->storageProduct();
         $data['items'] = $items;
-        $this->parser->parse('return-retail/items.tpl', $data);
+        $this->parser->parse('return/retail.tpl', $data);
     }
 
     // public function index()

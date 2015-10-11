@@ -255,7 +255,8 @@ $route['report/product-list'] = "report/Product/items";
 $route['report/product-detail/(:num)/(:num)'] = "report/Product/detail/$1/$2";
 
 $route['report/retur-penjualan-retail'] = "report/ReturPenjualanRetail";
-$route['report/retur-penjualan-retail/detail/(:num)'] = "report/ReturPenjualanRetail/detail/$1";
-$route['report/retur-penjualan-pengadaan'] = "report/ReturPenjualan/pengadaan";
-$route['report/retur-penjualan-tender'] = "report/ReturPenjualan/tender";
-$route['report/retur-penjualan-detail/(:num)'] = "report/ReturPenjualan/detail/$1";
+$route['report/retur-penjualan-penjualan'] = "report/ReturPenjualan";
+// $route['report/retur-penjualan-retail/detail/(:num)'] = "report/ReturPenjualanRetail/detail/$1";
+// $route['report/retur-penjualan-pengadaan'] = "report/ReturPenjualan/pengadaan";
+// $route['report/retur-penjualan-tender'] = "report/ReturPenjualan/tender";
+// $route['report/retur-penjualan-detail/(:num)'] = "report/ReturPenjualan/detail/$1";
