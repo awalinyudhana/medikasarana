@@ -57,11 +57,11 @@
                         {foreach $items as $key }
                             <tr>
                                 <td>{$val}</td>
-                                <td>{$key['id_retail_return']</td>
-                                <td>{$key['id_retail']</td>
-                                <td>{$key['date']</td>
+                                <td>{$key['id_retail_return']}</td>
+                                <td>{$key['id_retail']}</td>
+                                <td>{$key['date']}</td>
                                 <td></td>
-                                <td>{$key['name']</td>
+                                <td>{$key['name']}</td>
                             	<td></td>
                             	<td></td>
                             </tr>
