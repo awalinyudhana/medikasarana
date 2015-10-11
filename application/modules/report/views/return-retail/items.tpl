@@ -34,7 +34,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-4 col-md-offset-8" style="text-align: right;margin-bottom: 10px;">
-                        <a class="btn btn-warning" download="detail-retur-penjualan-retail-{$id_retail_return}.xls" href="#" onclick="return ExcellentExport.excel(this, 'datatableexport', 'Detail Retur Penjualan Retail {$id_retail_return}');">Export to Excel</a>
+                        <a class="btn btn-warning" download="laporan-retur-penjualan-retail-periode-{$from}-{$to}.xls" href="#" onclick="return ExcellentExport.excel(this, 'datatableexport', 'Laporan Retur Penjualan Retail Periode {$from} - {$to}');">Export to Excel</a>
                     </div>
                 </div>
 
@@ -75,6 +75,45 @@
 		                        <th>Kembali</th>
 		                        <th>Keterangan</th>
 		                    </tr>
+		                    {assign var=no value=1}
+			                    {foreach $key['value'] as $return }
+			                        <tr>
+			                            <td rowspan="2">{$no} </td>
+			                            <td>{$return['name']}</td>
+			                            <td>{$return['brand']}</td>
+			                            <td style="width:100px;">{$return['unit']} ( {$return['value']} )</td>
+			                            <td>{$return['qty_return']}</td>
+			                            <td></td>
+			                            <td rowspan="2">{$return['reason']}</td>
+			                        </tr>
+			                        <tr>
+			                            {if $return['id_product_cache']}
+			                                <td>
+			                                	{$product_storage[$return['id_product_cache']]['name']}
+			                                </td>
+			                                <td>
+			                                	{$product_storage[$return['id_product_cache']]['brand']}
+		                                	</td>
+			                                <td>
+			                                    {$product_storage[$return['id_product_cache']]['unit']}
+			                                    ( {$product_storage[$return['id_product_cache']]['value']} )
+		                                    </td>
+			                                <td>
+			                                	{$return['qty']}
+			                                </td>
+			                            {else}
+			                                <td colspan="4"></td>
+			                            {/if}
+			                            <td>Rp
+			                                {if $return['cashback']
+												{$return['cashback']|number_format:0}
+			                                {else}
+			                                    {0|number_format:0}
+			                                {/if}
+			                            </td>
+			                        </tr>
+			                        {assign var=no value=$no+1}
+			                    {/foreach}
                             {assign var=val value=$val+1}
                         {/foreach}
                         </tbody>
