@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">
-                                <a href="{base_url('report/retur-')}/{$array_type[$type]}" class="btn btn-warning">Reset</a>
+                                <a href="{base_url('report/retur-penjualan-retail')}\" class="btn btn-warning">Reset</a>
                             </div>
                         </div>
                     </div>
