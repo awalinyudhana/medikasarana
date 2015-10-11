@@ -24,7 +24,6 @@ class ModReturPenjualanRetail extends CI_Model
         if ($query->num_rows() > 0) {
            return $query->result();
         }
-       return $query->free_result();
     }
 
     /* NOT USED YET */

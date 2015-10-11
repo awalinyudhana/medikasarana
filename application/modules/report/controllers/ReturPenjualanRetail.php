@@ -23,16 +23,19 @@ class ReturPenjualanRetail extends MX_Controller
         
         $return = $this->ModReturPenjualanRetail->getReturPenjualan($data['from'], $data['to']);
         $item = array();
-        foreach ($return as $key) {
-            $item[] = [
-                'id_retail_return' =>$key->id_retail_return,
-                'id_retail' =>$key->id_retail,
-                'date' =>$key->date,
-                'name' =>$key->name,
-                'value' =>$this->ModelRetailReturn->getReturnReplacedDetailItem($key->id_retail_return)
-            ];
+        if($return){
+            foreach ($return as $key) {
+                $item[] = [
+                    'id_retail_return' =>$key->id_retail_return,
+                    'id_retail' =>$key->id_retail,
+                    'date' =>$key->date,
+                    'name' =>$key->name,
+                    'value' =>$this->ModelRetailReturn->getReturnReplacedDetailItem($key->id_retail_return)
+                ];
+            }
         }
         $data['product_storage'] = $this->storageProduct();
+        $data['item'] = $item;
         $this->parser->parse('return-retail/items.tpl', $data);
     }
 
