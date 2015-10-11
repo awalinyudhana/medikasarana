@@ -21,7 +21,7 @@ class ReturPenjualanRetail extends MX_Controller
             $data['to'] = date('Y-m-t');
         }
         
-        $return = $this->ModReturPenjualanRetail->getReturPenjualan( $data['from'],  $data['to']);
+        $return = $this->ModReturPenjualanRetail->getReturPenjualan($data['from'], $data['to']);
 
         foreach ($return as $key) {
             $item[] = [
