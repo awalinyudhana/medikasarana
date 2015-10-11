@@ -1,5 +1,5 @@
 {* Extend our master template *}
-{extends file="../../../master.tpl"}
+{extends file="../../../../master.tpl"}
 
 {block name=content}
         <div class="panel panel-default">

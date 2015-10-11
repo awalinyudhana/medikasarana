@@ -20,9 +20,8 @@ class ReturPenjualanRetail extends MX_Controller
             $data['from'] =  date('Y-m-01');
             $data['to'] = date('Y-m-t');
         }
-        $data['retur_penjualan'] = $this->ModReturPenjualanRetail->getReturPenjualan( $data['from'],  $data['to']);
         
-        $return = $this->ModReturPenjualanRetail->getTotalReturPenjualan();
+        $return = $this->ModReturPenjualanRetail->getReturPenjualan( $data['from'],  $data['to']);
 
         foreach ($return as $key) {
             $item[] = [
