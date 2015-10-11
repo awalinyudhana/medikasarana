@@ -22,7 +22,7 @@ class ReturPenjualanRetail extends MX_Controller
         }
         
         $return = $this->ModReturPenjualanRetail->getReturPenjualan($data['from'], $data['to']);
-        // $items = array();
+        $items = array();
         if($return){
             foreach ($return as $key) {
                 $items[] = [
