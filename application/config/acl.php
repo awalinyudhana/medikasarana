@@ -92,7 +92,6 @@ $config['module_router'] =
                     'module' => ''
                 ], [
                     'title' => 'Grafik',
-                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Grafik Pembelian',
@@ -112,7 +111,6 @@ $config['module_router'] =
                     ]
                 ], [
                     'title' => 'Hutang',
-                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Daftar Hutang',
@@ -126,7 +124,6 @@ $config['module_router'] =
                     ]
                 ], [
                     'title' => 'Piutang',
-                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Daftar Piutang',
@@ -140,7 +137,6 @@ $config['module_router'] =
                     ]
                 ],[
                     'title' => 'Barang',
-                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Minimum Stok',
@@ -161,7 +157,6 @@ $config['module_router'] =
             'child' => [
                 [
                     'title' => 'Pegawai',
-                    'icon' => 'icon-users',
                     'child' => [
                         [
                             'title' => 'Daftar Pegawai',
@@ -179,7 +174,6 @@ $config['module_router'] =
                     'module' => 'store'
                 ], [
                     'title' => 'Gudang',
-                    'icon' => 'icon-home',
                     'child' => [
                         [
                             'title' => 'Gudang',
@@ -193,7 +187,6 @@ $config['module_router'] =
                     ]
                 ], [
                     'title' => 'Prinsipal',
-                    'icon' => 'icon-people',
                     'child' => [
                         [
                             'title' => 'Daftar Prinsipal',
@@ -211,7 +204,6 @@ $config['module_router'] =
                     'module' => 'customer'
                 ], [
                     'title' => 'Produk',
-                    'icon' => 'icon-barcode',
                     'child' => [
                         [
                             'title' => "Daftar Produk",
@@ -298,7 +290,6 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Daftar Proposal',
-                    'icon' => 'icon-list2',
                     'child' => [
                         [
                             'title' => "Tender",
@@ -334,7 +325,6 @@ $config['module_router'] =
             'child' => [
                 [
                     'title' => 'Transaksi',
-                    'icon' => 'icon-list2',
                     'child' => [
                         [
                             'title' => "Order Jual",
@@ -350,7 +340,6 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Retur Jual',
-                    'icon' => 'icon-list2',
                     'child' => [
                         [
                             'title' => "Retur Jual",
@@ -366,7 +355,6 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Faktur',
-                    'icon' => 'icon-link',
                     'child' => [
                         [
                             'title' => "Gabung Faktur",
@@ -476,7 +464,6 @@ $config['module_router'] =
             'title' => 'Laporan',
             'icon' => 'icon-calendar',
             'child' => [
-
                 [
                     'title' => 'Penjualan',
                     'child' => [
@@ -487,7 +474,6 @@ $config['module_router'] =
                         ],   
                         [
                             'title' => 'Pengadaan Langsung',
-                            'icon' => 'icon-list',
                             'child' => [
                                 [
                                     'title' => 'Penjualan Per Konsumen (Bulan)',
@@ -503,7 +489,6 @@ $config['module_router'] =
                         ],
                         [
                             'title' => 'Tender',
-                            'icon' => 'icon-list',
                             'child' => [
                                 [
                                     'title' => 'Penjualan Per Konsumen (Bulan)',
@@ -541,7 +526,6 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Pembelian Produk',
-                    'icon' => 'icon-list',
                     'child' => [
                         [
                             'title' => 'Pembelian Per Supplier (Bulan)',
@@ -562,7 +546,6 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Keuangan',
-                    'icon' => 'icon-credit',
                     'child' => [
                         [
                             'title' => 'Hutang',
@@ -578,7 +561,6 @@ $config['module_router'] =
                 ],
                 [
                     'title' => 'Opname Produk',
-                    'icon' => 'icon-barcode',
                     'child' => [
                         [
                             'title' => 'Opname Produk Gudang',
