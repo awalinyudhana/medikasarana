@@ -50,8 +50,8 @@
                         {assign var=val value=1}
                         {foreach $items as $key }
                             <tr>
-                                <td width="3%">{$val}</td>
-                                <td colspan="7">Tanggal Transaksi : {$key['date']} </br>
+                                <td >{$val}</td>
+                                <td >Tanggal Transaksi : {$key['date']} </br>
                                 No Faktur Retur : {$key['id_retail_return']}</br>
                                 No Faktur Retail : {$key['id_retail']}
                                 </td>
