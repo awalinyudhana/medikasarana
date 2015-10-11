@@ -57,7 +57,8 @@
                                 </td>
                             </tr>
                             <tr>
-                            	<td colspan="2">
+                            	<td>&nbsp;</td>
+                            	<td>
 	                    			<table class="table table-striped table-bordered">
 				                        <thead>
 				                            <tr>
