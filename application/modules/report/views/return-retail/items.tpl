@@ -38,6 +38,7 @@
                     </div>
                 </div>
 
+                {if $items}
                 <div class="table-responsive" id="datatableexport">
                     <table class="table table-striped table-bordered">
                         <thead>
@@ -119,6 +120,8 @@
                         </tbody>
                     </table>
                 </div>
+
+                {/if}
             </div>
         </div><!-- /default panel -->
 
