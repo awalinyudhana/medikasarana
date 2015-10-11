@@ -50,11 +50,11 @@
                         {assign var=val value=1}
                         {foreach $items as $key }
                             <tr>
-                                <th width="3%">{$val}</th>
-                                <th>Tanggal Transaksi : {$key['date']} </br>
+                                <td width="3%">{$val}</td>
+                                <td colspan="7">Tanggal Transaksi : {$key['date']} </br>
                                 No Faktur Retur : {$key['id_retail_return']}</br>
                                 No Faktur Retail : {$key['id_retail']}
-                                </th>
+                                </td>
                             </tr>
                             <tr>
                             	<td colspan="2">
@@ -62,6 +62,7 @@
 				                        <thead>
 				                            <tr>
 						                        <th>No</th>
+						                        <th>Barcode</th>
 						                        <th>Nama Produk</th>
 						                        <th>Merek</th>
 						                        <th>Satuan / Isi</th>
@@ -76,6 +77,7 @@
 						                        <tr>
 						                            <td rowspan="2">{$no} </td>
 						                            <td>{$return['name']}</td>
+						                            <td>{$return['barcode']}</td>
 						                            <td>{$return['brand']}</td>
 						                            <td style="width:100px;">{$return['unit']} ( {$return['value']} )</td>
 						                            <td>{$return['qty_return']}</td>
@@ -88,6 +90,9 @@
 						                                	{$product_storage[$return['id_product_cache']]['name']}
 						                                </td>
 						                                <td>
+						                                	{$product_storage[$return['id_product_cache']]['barcode']}
+						                                </td>
+						                                <td>
 						                                	{$product_storage[$return['id_product_cache']]['brand']}
 					                                	</td>
 						                                <td>
@@ -98,7 +103,7 @@
 						                                	{$return['qty']}
 						                                </td>
 						                            {else}
-						                                <td colspan="4"></td>
+						                                <td colspan="5"></td>
 						                            {/if}
 						                            <td>Rp
 						                                {if $return['cashback']}
