@@ -106,7 +106,7 @@
                         </tr>
                         <tr>
                             <th>
-                                Sisa Hutang yang belum terbayar Mulai 
+                                Sisa Hutang yang belum terbayar 
                                 {if isset($from)}
                                     Mulai "{$from} hingga {$to}" 
                                 {/if}:
