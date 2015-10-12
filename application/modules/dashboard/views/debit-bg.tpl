@@ -49,7 +49,7 @@
                                         <i class="icon-picassa"></i>
                                     </a>
                                     {if $key->status == "0"}
-                                        <a href="{base_url('debit/paid')}/{$key->id_credit}"
+                                        <a href="{base_url('debit/paid')}/{$key->id_debit}"
                                            class="btn btn-link btn-icon btn-xs tip" title="Ubah Status">
                                             <i class="icon-coin"></i>
                                         </a>
