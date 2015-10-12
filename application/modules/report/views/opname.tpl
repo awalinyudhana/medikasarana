@@ -15,7 +15,7 @@
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Opname Gudang:</label>
+                        <label>Tanggal Opname Gudang : </label>
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" class="from-date form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>

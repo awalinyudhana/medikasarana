@@ -4,18 +4,18 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Daftar Pembelian</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Laporan Pembayaran Hutang</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Laporan Hutang <small class="display-block">Detail Pembelian</small>
+                        <i class="icon-coin"></i>Laporan Transaksi Pembayaran Hutang <small class="display-block">Ringkasan informasi transaksi pembayaran hutang</small>
                     </h6>
                 </div>
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Pembayaran Hutang:</label>
+                        <label>Tanggal Transaksi Pembelian : </label>
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" class="from-date form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>
@@ -88,8 +88,8 @@
                         <tbody>
                         <tr>
                             <th>
-                                Total Hutang
-                                {if isset($from)} 
+                                Total Hutang 
+                                {if isset($from)}
                                     Mulai "{$from} hingga {$to}" 
                                 {/if}:
                             </th>
@@ -97,17 +97,17 @@
                         </tr>
                         <tr>
                             <th>
-                                Total Tagihan yang telah terbayar
-                                {if isset($from)} 
-                                    Mulai "{$from} hingga {$to}" 
+                                Total Hutang 
+                                {if isset($from)}
+                                    yang telah terbayar Mulai "{$from} hingga {$to}" 
                                 {/if}:
                             </th>
                             <td class="text-right">Rp {$total_bayar|number_format:0}</td>
                         </tr>
                         <tr>
                             <th>
-                                Sisa Tagihan
-                                {if isset($from)} 
+                                Sisa Hutang yang belum terbayar Mulai 
+                                {if isset($from)}
                                     Mulai "{$from} hingga {$to}" 
                                 {/if}:
                             </th>

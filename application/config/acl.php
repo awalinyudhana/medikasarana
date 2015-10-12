@@ -536,6 +536,11 @@ $config['module_router'] =
                             'title' => 'Pembelian Per Supplier (Tahun)',
                             'url' => 'report/pembelian/year',
                             'module' => 'sales_order'
+                        ],
+                        [
+                            'title' => 'Pembelian Per Supplier (Produk)',
+                            'url' => 'report/product',
+                            'module' => 'warehouse'
                         ]
                     ]
                 ],
@@ -573,13 +578,7 @@ $config['module_router'] =
                             'module' => 'product_opname_store'
                         ]
                     ]
-                ],
-                [
-                    'title' => 'Pembelian Per Supplier (Produk)',
-                    'url' => 'report/product',
-                    'module' => 'warehouse'
-                ],
+                ]
             ]
-        ]   
-                 
+        ]               
     ];

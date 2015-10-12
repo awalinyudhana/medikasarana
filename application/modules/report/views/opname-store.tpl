@@ -4,7 +4,7 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Laporan Opname Gudang</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Laporan Opname Toko</h6></div>
 
             <div class="panel-body">
                 <!-- <div class="block-inner">
@@ -15,7 +15,7 @@
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Opname Gudang:</label>
+                        <label>Tanggal Opname Toko : </label>
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" class="from-date form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>

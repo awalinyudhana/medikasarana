@@ -4,12 +4,12 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Laporan Produk</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Detail Laporan Pembelian</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-clipboard"></i>Laporan Pembelian Barang {$principal->name} <small class="display-block">*Harga pembelian sesuai dengan harga pembelian terakhir</small>
+                        <i class="icon-clipboard"></i>Laporan Pembelian Barang : {$principal->name} <small class="display-block">*Harga pembelian sesuai dengan harga pembelian terakhir</small>
                     </h6>
                 </div>
                 <div class="datatable-tools">

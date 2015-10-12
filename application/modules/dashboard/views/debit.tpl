@@ -3,12 +3,12 @@
 
 {block name=content}
     <div class="panel panel-default">
-        <div class="panel-heading"><h6 class="panel-title">Informasi Daftar Piutang</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Informasi Daftar Piutang < 14 Hari</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-coin"></i> Informasi Piutang
+                    <i class="icon-coin"></i> Informasi Daftar Piutang
                     <small class="display-block">Daftar Piutang yang akan jatuh tempo</small>
                 </h6>
             </div>

@@ -9,13 +9,13 @@
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Daftar Penjualan<small class="display-block">Daftar penjualan pinjam bendera </small>
+                        <i class="icon-coin"></i> Laporan Transaksi Pinjam Bendera<small class="display-block">Ringkasan informasi transaksi pinjam bendera </small>
                     </h6>
                 </div>
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Daftar Penjualan</label>
+                        <label>Tanggal Transaksi Pinjam Bendera : </label>
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" class="from-date form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>

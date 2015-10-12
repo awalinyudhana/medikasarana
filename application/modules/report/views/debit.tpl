@@ -5,18 +5,18 @@
         <div class="panel panel-default">
 
             
-            <div class="panel-heading"><h6 class="panel-title">Daftar Penjualan</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Laporan Pembayaran Piutang</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">
                     <h6 class="heading-hr">
-                        <i class="icon-coin"></i> Laporan Piutang <small class="display-block">Detail Penjualan</small>
+                        <i class="icon-coin"></i>Laporan Transaksi Pembayaran Piutang<small class="display-block">Ringkasan informasi transaksi pembayaran piutang</small>
                     </h6>
                 </div>
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Pembayaran Piutang:</label>
+                        <label>Tanggal Transaksi Penjualan : </label>
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" class="from-date form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>

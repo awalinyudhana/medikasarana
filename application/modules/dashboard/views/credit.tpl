@@ -4,7 +4,7 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Informasi Daftar Hutang</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Informasi Daftar Hutang < 14 Hari</h6></div>
 
             <div class="panel-body">
                 <div class="block-inner">

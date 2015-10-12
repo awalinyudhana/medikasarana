@@ -13,7 +13,7 @@
             <li class="{if $minimumStock == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/product-stock')}">
                     <div class="page-stats-showcase">
-                        <span>Minimum Stock</span>
+                        <span>Stok Minimal</span>
                         <h2>{$minimumStock}</h2>
                     </div>
                 </a>
@@ -21,7 +21,7 @@
             <li class="{if $expiredProducts == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/product-expired')}">
                     <div class="page-stats-showcase">
-                        <span>Expired Products</span>
+                        <span>Produk Kadaluarsa < 30H</span>
                         <h2>{$expiredProducts}</h2>
                     </div>
                 </a>
@@ -31,7 +31,7 @@
             <li class="{if $creditCount == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/credit')}">
                     <div class="page-stats-showcase">
-                        <span>Tagihan Hutang</span>
+                        <span>Tagihan Hutang < 14H</span>
                         <h2>{$creditCount} <br/> Rp {$creditSum|number_format:0}</h2>
                     </div>
                 </a>
@@ -39,7 +39,7 @@
             <li class="{if $creditBGCount == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/credit-cek')}">
                     <div class="page-stats-showcase">
-                        <span>Hutang Cek BG</span>
+                        <span>Hutang Cek BG < 14H</span>
                         <h2>{$creditBGCount} <br/> Rp {$creditBGSum|number_format:0}</h2>
                     </div>
                 </a>
@@ -49,7 +49,7 @@
             <li class="{if $debitCount == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/debit')}">
                     <div class="page-stats-showcase">
-                        <span>Tagihan Piutang</span>
+                        <span>Tagihan Piutang < 14H</span>
                         <h2>{$debitCount} <br/> Rp {$debitSum|number_format:0}</h2>
                     </div>
                 </a>
@@ -57,7 +57,7 @@
             <li class="{if $debitBGCount == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/debit-cek')}">
                     <div class="page-stats-showcase">
-                        <span>Piutang Cek BG</span>
+                        <span>Piutang Cek BG < 14H</span>
                         <h2>{$debitBGCount} <br/> Rp {$debitBGSum|number_format:0}</h2>
                     </div>
                 </a>

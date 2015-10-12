@@ -5,12 +5,12 @@
 
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">Daftar Order Jual</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Daftar Order Kirim</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i>Daftar Order Jual
+                    <i class="icon-clipboard"></i>Daftar Order Kirim
                     <small class="display-block">Daftar nota order jual yang belum dikirim</small>
                 </h6>
             </div>
