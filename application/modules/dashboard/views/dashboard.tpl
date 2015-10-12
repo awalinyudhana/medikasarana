@@ -73,7 +73,7 @@
                         <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan</h6>
                     </div>
                     <div class="panel-body" style="min-height:400px;">
-                        <div class="graph-standard" id="grafik_penjualan"></div>
+                        <div class="graph-standard" style="height:100%; width:100%;" id="grafik_penjualan"></div>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                         <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Pembelian</h6>
                     </div>
                     <div class="panel-body" style="min-height:400px;">
-                        <div class="graph-standard" id="grafik_pembelian"></div>
+                        <div class="graph-standard" style="height:100%; width:100%;" id="grafik_pembelian"></div>
                     </div>
                 </div>
             </div>
@@ -259,7 +259,7 @@
                         <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan Retail</h6>
                     </div>
                     <div class="panel-body" style="min-height:400px;">
-                        <div class="graph-standard" id="grafik_penjualan_retail"></div>
+                        <div class="graph-standard" style="height:100%; width:100%;" id="grafik_penjualan_retail"></div>
                     </div>
                 </div>
             </div>
