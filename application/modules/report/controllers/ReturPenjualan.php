@@ -16,7 +16,7 @@ class ReturPenjualan extends MX_Controller
     {
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
             $data['from'] = $this->input->post('date_from');
-            $data['to'] = $this->input->post('date_from');
+            $data['to'] = $this->input->post('date_to');
         } else {
             $data['from'] =  date('Y-m-01');
             $data['to'] = date('Y-m-t');
