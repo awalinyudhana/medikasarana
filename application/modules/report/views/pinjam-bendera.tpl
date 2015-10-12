@@ -42,7 +42,7 @@
                                 <th>Customer</th>
                                 <!-- <th>Nama Staff</th> -->
                                 <th>Tanggal Transaksi</th>
-                                <<!-- th>Jatuh Tempo</th>
+                                <!--< th>Jatuh Tempo</th>
                                 <th>Total</th>
                                 <th>DPP</th>
                                 <th>PPN</th>
