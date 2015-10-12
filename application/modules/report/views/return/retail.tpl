@@ -18,10 +18,10 @@
                         <label>Tanggal Transaksi Retur :</label>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="from-date-report form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>
+                                <input type="text" class="from-date form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="from-date-report form-control" name="date_to" placeholder="To" {if isset($to)}value="{$to}"{/if}>
+                                <input type="text" class="to-date form-control" name="date_to" placeholder="To" {if isset($to)}value="{$to}"{/if}>
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">

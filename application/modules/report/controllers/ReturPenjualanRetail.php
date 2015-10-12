@@ -14,13 +14,12 @@ class ReturPenjualanRetail extends MX_Controller
     public function index()
     {
         if ($this->input->post('date_from') && $this->input->post('date_to')) {
-            $data['from'] = substr($this->input->post('date_from'),0,7);
-            $data['to'] = substr($this->input->post('date_to'),0,7);
+            $data['from'] = $this->input->post('date_from');
+            $data['to'] = $this->input->post('date_from');
         } else {
-            $data['from'] =  substr(date('Y-m-01'),0,7);
-            $data['to'] = substr(date('Y-m-t'),0,7);
+            $data['from'] =  date('Y-m-01');
+            $data['to'] = date('Y-m-t');
         }
-        
         $return = $this->ModReturPenjualanRetail->getReturPenjualan($data['from'], $data['to']);
         $items = array();
         if($return){
