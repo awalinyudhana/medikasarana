@@ -709,7 +709,6 @@ $(function() {
       changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
-        dateFormat: 'yy-mm-dd',
         onClose: function(dateText, inst) { 
         	$( ".from-date" ).datepicker( "option", "minDate", selectedDate );
         }
@@ -718,9 +717,8 @@ $(function() {
       changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
-        dateFormat: 'yy-mm-dd',
         onClose: function(dateText, inst) { 
-        	$( ".to-date" ).datepicker( "option", "minDate", selectedDate );
+        	$( ".to-date" ).datepicker( "option", "maxDate", selectedDate );
         }
     });
 
