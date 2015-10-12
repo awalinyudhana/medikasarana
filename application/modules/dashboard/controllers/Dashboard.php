@@ -186,7 +186,7 @@ class Dashboard extends MX_Controller
     {
         $crud = new grocery_CRUD();
         
-        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30 AND product.`date_expired` > '$this->curDate'";
+        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30";
         $crud->where($where)
                 ->order_by('date_expired', 'asc')
                 ->set_table('product')
