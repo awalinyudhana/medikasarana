@@ -28,7 +28,7 @@ class Credit extends MX_Controller
         //     $data['items'] = $this->ModCredit->getItems();
         // }
 
-        $data['items'] = $this->ModCredit->getItems($data['from'], $data['to']));
+        $data['items'] = $this->ModCredit->getItems($data['from'], $data['to']);
         // $data['status'] = $this->status;
         $this->parser->parse('credit.tpl', $data);
     }
