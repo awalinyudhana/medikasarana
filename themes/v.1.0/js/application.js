@@ -711,10 +711,7 @@ $(function() {
         showButtonPanel: true,
         dateFormat: 'yy-mm-dd',
         onClose: function(dateText, inst) { 
-            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            var day = $("#ui-datepicker-div .ui-datepicker-day :selected").val();
-            $(this).datepicker('setDate', new Date(year, month, day));
+        	$( ".from-date" ).datepicker( "option", "minDate", selectedDate );
         }
     });
     $( ".to-date" ).datepicker({
@@ -723,10 +720,7 @@ $(function() {
         showButtonPanel: true,
         dateFormat: 'yy-mm-dd',
         onClose: function(dateText, inst) { 
-            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            var day = $("#ui-datepicker-div .ui-datepicker-day :selected").val();
-            $(this).datepicker('setDate', new Date(year, month, day));
+        	$( ".to-date" ).datepicker( "option", "minDate", selectedDate );
         }
     });
 
