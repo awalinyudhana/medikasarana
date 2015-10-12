@@ -95,7 +95,7 @@
                             <tbody>
                             {if isset($from)}
                             <tr>
-                                <th>Total {$title} Mulai "{$from} hingga {$to}":</th>
+                                <th>Total Laporan Pinjam Bendera Mulai "{$from} hingga {$to}":</th>
                                 <td class="text-right">Rp {$total|number_format:0}</td>
                             </tr>
                             {/if}
