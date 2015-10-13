@@ -697,6 +697,7 @@ $(function() {
 	    showButtonPanel: true,
 	    onClose: function(dateText, inst) { 
 	    	$( ".from-date" ).datepicker( "option", "minDate", selectedDate );
+	    }
     });
 
     // $( ".from-date" ).datepicker({
