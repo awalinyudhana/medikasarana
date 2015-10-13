@@ -53,7 +53,7 @@
                                 },
 
                                 title: {
-                                    text: 'Laporan Penjualan <br> PT. Sarana Medika Sejahtera ({$from}) - ({$to})'
+                                    text: 'Laporan Penjualan <br> PT. Sarana Medika Sejahtera <br> {$from} - {$to}'
                                 },
 
                                 xAxis: {
