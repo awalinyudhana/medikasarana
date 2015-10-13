@@ -21,7 +21,7 @@ class ModDashboard extends CI_Model
     public function getExpiredProducts()
     {
         // $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30 AND product.`date_expired` > '$this->curDate'";
-        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30 AND product.`date_expired` > '$this->curDate'";
+        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30";
         $this->db->where($where);
         $this->db->from('product');
         return $this->db->count_all_results();
