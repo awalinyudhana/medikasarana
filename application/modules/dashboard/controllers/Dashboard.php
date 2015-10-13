@@ -176,7 +176,7 @@ class Dashboard extends MX_Controller
             ->unset_edit()
             ->unset_delete();
 
-        $extra = 'Informasi Produk Yang Melebihi Batasan Stock Minimum';
+        $extra = 'Informasi Stok Produk yang Akan Habis';
         $output = $crud->render($extra);
         
         $this->render($output);
@@ -204,7 +204,7 @@ class Dashboard extends MX_Controller
                 ->unset_read()
                 ->unset_edit()
                 ->unset_delete();
-        $extra = 'Informasi Produk Yang Akan Expired';
+        $extra = 'Informasi Produk yang Akan Kadaluarsa';
         $output = $crud->render($extra);
         
         $this->render($output);

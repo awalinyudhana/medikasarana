@@ -143,7 +143,7 @@ $config['module_router'] =
                             'url' => 'dashboard/product-stock',
                             'module' => 'product'
                         ], [
-                            'title' => 'Expired',
+                            'title' => 'Kadaluwarsa',
                             'url' => 'dashboard/product-expired',
                             'module' => 'product'
                         ]

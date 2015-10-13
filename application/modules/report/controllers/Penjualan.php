@@ -181,10 +181,10 @@ class Penjualan extends MX_Controller
             $to = date('Y-m-t');
             /*$from = date('2015-09-01');
             $to = date('2015-09-31');*/
-            $data['from'] = $from;
-            $data['to'] = $to;
             $data['form_from'] = substr($from,0,7);
             $data['form_to'] = substr($to,0,7);
+            $data['from'] = $this->array_month[substr($data['form_from'], -2) - 1] . ' ' . substr($from, 0, 4);
+            $data['to'] = $this->array_month[substr($data['form_to'], -2) - 1] . ' ' . substr($to, 0, 4);
             $total_retail = $this->ModPenjualanRetail->getPenjualanGraph($from, $to, 1);
             $total_pl = $this->ModPenjualan->getPenjualanGraph(0, $from, $to, 1);
             $total_tender = $this->ModPenjualan->getPenjualanGraph(1, $from, $to, 1);
@@ -279,8 +279,12 @@ class Penjualan extends MX_Controller
         $data['items'] = $data_penjualan_per_customer;
         $data['date_period'] = $date_period;
         $data['count_date_period'] = $count_date_period;
-        $data['from'] = $from;
-        $data['to'] = $to;
+        $data['form_from'] = $from;
+        $data['form_to'] = $to;
+        $data['from'] = $this->array_month[substr($from, -2) - 1] . ' ' . substr($from, 0, 4);
+        $data['to'] = $this->array_month[substr($to, -2) - 1] . ' ' . substr($to, 0, 4);
+        // $data['from'] = $from;
+        // $data['to'] = $to;
 
         $this->parser->parse('penjualan-pengadaan-bulan.tpl', $data);
     }
@@ -330,8 +334,10 @@ class Penjualan extends MX_Controller
         $data['items'] = $data_penjualan_per_customer;
         $data['date_period'] = $date_period;
         $data['count_date_period'] = $count_date_period;
-        $data['from'] = $from;
-        $data['to'] = $to;
+        // $data['from'] = $from;
+        // $data['to'] = $to;
+        $data['form_from'] = $from;
+        $data['form_to'] = $to;
 
         $this->parser->parse('penjualan-pengadaan-tahun.tpl', $data);
     }
@@ -381,8 +387,13 @@ class Penjualan extends MX_Controller
         $data['items'] = $data_penjualan_per_customer;
         $data['date_period'] = $date_period;
         $data['count_date_period'] = $count_date_period;
-        $data['from'] = $from;
-        $data['to'] = $to;
+        // $data['from'] = $from;
+        // $data['to'] = $to;
+        
+        $data['form_from'] = $from;
+        $data['form_to'] = $to;
+        $data['from'] = $this->array_month[substr($from, -2) - 1] . ' ' . substr($from, 0, 4);
+        $data['to'] = $this->array_month[substr($to, -2) - 1] . ' ' . substr($to, 0, 4);
 
         $this->parser->parse('penjualan-tender-bulan.tpl', $data);
     }
@@ -432,8 +443,10 @@ class Penjualan extends MX_Controller
         $data['items'] = $data_penjualan_per_customer;
         $data['date_period'] = $date_period;
         $data['count_date_period'] = $count_date_period;
-        $data['from'] = $from;
-        $data['to'] = $to;
+        // $data['from'] = $from;
+        // $data['to'] = $to;
+        $data['form_from'] = $from;
+        $data['form_to'] = $to;
 
         $this->parser->parse('penjualan-tender-tahun.tpl', $data);
     }

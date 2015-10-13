@@ -18,10 +18,10 @@
                         <label>Tanggal Transaksi Tender :</label>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="from-date-report form-control" name="date_from" placeholder="From" {if isset($from)}value="{$from}"{/if}>
+                                <input type="text" class="from-date-report form-control" name="date_from" placeholder="From" {if isset($form_from)} value="{$form_from}"{/if}>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="to-date-report form-control" name="date_to" placeholder="To" {if isset($to)}value="{$to}"{/if}>
+                                <input type="text" class="to-date-report form-control" name="date_to" placeholder="To" {if isset($form_to)} value="{$form_to}"{/if}>
                             </div>
                             <div class="col-md-4">
                                 <input type="submit" value="Pilih" class="btn btn-success">
@@ -37,7 +37,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6 class="panel-title">Detail Rincian Penjualan Pengadaan Langsung Per Konsumen<br>Bulan {$from} - {$to}</h6>
+                                <h6 class="panel-title">Detail Rincian Penjualan Tender Per Konsumen<br> Bulan {$from} - {$to}</h6>
                             </div>
                             <div class="panel-body">
                             <!-- <div class="panel-body" style="min-height:400px;"> -->

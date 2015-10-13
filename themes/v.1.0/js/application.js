@@ -685,11 +685,18 @@ $(function() {
       numberOfMonths: 3
     });
 
+    // $( ".datepicker-trigger" ).datepicker({
+    //   showOn: "button",
+    //   buttonImage: "http://dhbvn.org.in/RapdrpTheme-theme/images/datepicker1.png",
+    //   buttonImageOnly: true,
+    //   showOtherMonths: true
+    // });
     $( ".datepicker-trigger" ).datepicker({
-      showOn: "button",
-      buttonImage: "http://dhbvn.org.in/RapdrpTheme-theme/images/datepicker1.png",
-      buttonImageOnly: true,
-      showOtherMonths: true
+	  	changeMonth: true,
+	    changeYear: true,
+	    showButtonPanel: true,
+	    onClose: function(dateText, inst) { 
+	    	$( ".from-date" ).datepicker( "option", "minDate", selectedDate );
     });
 
     // $( ".from-date" ).datepicker({
@@ -706,15 +713,15 @@ $(function() {
     // });
     
     $( ".from-date" ).datepicker({
-      changeMonth: true,
-        changeYear: true,
-        showButtonPanel: true,
-        onClose: function(dateText, inst) { 
-        	$( ".from-date" ).datepicker( "option", "minDate", selectedDate );
-        }
+	  	changeMonth: true,
+	    changeYear: true,
+	    showButtonPanel: true,
+	    onClose: function(dateText, inst) { 
+	    	$( ".from-date" ).datepicker( "option", "minDate", selectedDate );
+	    }
     });
     $( ".to-date" ).datepicker({
-      changeMonth: true,
+      	changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
         onClose: function(dateText, inst) { 

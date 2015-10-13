@@ -37,7 +37,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan {$form_from} - {$form_to}</h6>
+                                <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan {$from} - {$to}</h6>
                             </div>
                             <div class="panel-body" style="min-height:400px;">
                                 <div class="graph-standard" id="grafik_penjualan" style="height:100%; width:100%;"></div>
@@ -53,7 +53,7 @@
                                 },
 
                                 title: {
-                                    text: 'Laporan Penjualan <br> PT. Sarana Medika Sejahtera ({$form_from}) - ({$form_to})'
+                                    text: 'Laporan Penjualan <br> PT. Sarana Medika Sejahtera ({$from}) - ({$to})'
                                 },
 
                                 xAxis: {
@@ -87,7 +87,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h6 class="panel-title">Detail Rincian Penjualan<br>Bulan {$form_from} - {$form_to}</h6>
+                                <h6 class="panel-title">Detail Rincian Penjualan<br>Bulan {$from} - {$to}</h6>
                             </div>
                             <div class="panel-body">
                             <!-- <div class="panel-body" style="min-height:400px;"> -->
@@ -135,7 +135,7 @@
                                                 <td colspan="3" class="text-right">Grand Total</td>
                                                 <td>Rp {$total|number_format:0}</td>
                                             </tr>
-                                        </tfoot>>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
