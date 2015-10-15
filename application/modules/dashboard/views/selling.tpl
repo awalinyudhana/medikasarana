@@ -9,7 +9,7 @@
                     <h6 class="panel-title"><i class="icon-calendar2"></i> Grafik Penjualan</h6>
                 </div>
                 <div class="panel-body" style="min-height:400px;">
-                    <div class="graph-standard" id="grafik_penjualan"></div>
+                    <div class="graph-standard" id="grafik_penjualan" style="height:100%; width:100%;"></div>
                 </div>
             </div>
         </div>
