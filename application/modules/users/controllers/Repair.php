@@ -30,12 +30,12 @@ class Repair extends MX_Controller
                         }
                     )
                 ), array(
-                    'email_callable' => 'The {field} field not match'
+                    'email_callable' => '{field} tidak cocok'
                 )
             );
             if ($this->form_validation->run() === TRUE) {
                 $this->doResetPassword($this->input->post('email'));
-                $this->session->set_flashdata('message', array('class' => 'success', 'msg' => 'please check your email'));
+                $this->session->set_flashdata('message', array('class' => 'success', 'msg' => 'Silahkan cek email anda'));
             } else {
                 $msg = validation_errors('<p>', '</p>');
                 $this->session->set_flashdata('message', array('class' => 'error', 'msg' => $msg));
@@ -61,7 +61,10 @@ class Repair extends MX_Controller
         $password = $this->randomPassword();
         $this->db
             ->where('email', $str)
-            ->update('staff', ['password' => $this->acl->hash_password($password)]);
+            ->update('staff', [
+                'password' => $this->acl->hash_password($password),
+                'plain_password' => $password
+                ]);
 
         $this->sendEmail($password);
     }
