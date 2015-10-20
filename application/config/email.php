@@ -1,10 +1,11 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-$config['protocol'] = 'sendmail';
-$config['mailpath'] = '/usr/sbin/sendmail';
+$config['protocol'] = 'smtp';
+$config['smtp_host'] = 'ssl://smtp.gmail.com'; //change this
+$config['smtp_port'] = '465';
+$config['smtp_user'] = 'georgeandbanana@gmail.com'; //change this
+$config['smtp_pass'] = 'yummybanana'; //change this
+$config['mailtype'] = 'html';
 $config['charset'] = 'iso-8859-1';
 $config['wordwrap'] = TRUE;
-$config['smtp_host'] = 'smtp.mandrillapp.com';
-$config['smtp_user'] = 'otoy.destroyed@gmail.com';
-$config['smtp_pass'] = 'RkkrufAQZJfb9na0uMXnEg';
-$config['smtp_port'] = 587;
+$config['newline'] = "\r\n"; //use double quotes to comply with RFC 822 standard

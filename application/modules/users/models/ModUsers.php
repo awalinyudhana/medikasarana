@@ -88,4 +88,35 @@ class ModUsers extends CI_Model
         }
         return '';
     }
+
+    public function getStaffEmail($id_staff)
+    {
+        $this->db->where('id_staff', $id_staff);
+        $result = $this->db->get('staff');
+        if ($result->num_rows() > 0)
+        {
+           $row = $result->row(); 
+
+           return $row->email;
+        }
+        return '';
+    }
+
+    public function updateProfile($id_staff, $data)
+    {
+        $this->db->where('id_staff', $id_staff);
+        $this->db->update('staff', $data);
+    }
+
+    public function checkOldPassword($id_staff, $hashed_password)
+    {
+        $this->db->where('id_staff', $id_staff);
+        $this->db->where('password', $hashed_password);
+        $result = $this->db->get('staff');
+        if ($result->num_rows() > 0)
+        {
+           return true;
+        }
+        return false;
+    }
 }

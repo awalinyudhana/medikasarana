@@ -307,6 +307,28 @@ $config = array(
             'label' => 'Nama group',
             'rules' => 'required'
         )
+    ),
+    'users/update-profile' => array(
+        array(
+            'field' => 'username',
+            'label' => 'Username',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'old_password',
+            'label' => 'Password Lama',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'password',
+            'label' => 'Password baru',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'password_confirmation',
+            'label' => 'Password Confirmation',
+            'rules' => 'trim|required|matches[password]'
+        )
     )
 
 );
