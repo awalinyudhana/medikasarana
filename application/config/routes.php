@@ -260,3 +260,5 @@ $route['report/retur-penjualan'] = "report/ReturPenjualan";
 // $route['report/retur-penjualan-pengadaan'] = "report/ReturPenjualan/pengadaan";
 // $route['report/retur-penjualan-tender'] = "report/ReturPenjualan/tender";
 // $route['report/retur-penjualan-detail/(:num)'] = "report/ReturPenjualan/detail/$1";
+
+$route['users/update-profile'] = "users/UpdateProfile";

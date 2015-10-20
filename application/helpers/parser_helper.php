@@ -136,3 +136,17 @@ if ( ! function_exists('flashdata') )
         return $CI->session->flashdata($name);
     }
 }
+
+/**
+ * Form Error
+ *
+ * A helper function for getting the erroring form
+ * in a web friendly format.
+ *
+ * @param string $field
+ * @error field
+ */
+function f_error($field)
+{
+    return form_error($field, '<span class="help-block" style="color: #FF1E00;">','</span>');
+}

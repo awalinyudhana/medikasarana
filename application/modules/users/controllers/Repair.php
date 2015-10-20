@@ -66,7 +66,7 @@ class Repair extends MX_Controller
                 'plain_password' => $password
                 ]);
 
-        $this->sendEmail($password);
+        $this->sendEmail($str, $password);
     }
 
     private function randomPassword()
@@ -81,8 +81,14 @@ class Repair extends MX_Controller
         return implode($pass); //turn the array into a string
     }
 
-    private function sendEmail($str)
+    private function sendEmail($to, $password)
     {
-
+        $this->load->library('email'); // load email library
+        $this->email->from('medikasarana@gmail.com', 'Medika Sarana');
+        $this->email->to($to);
+        $this->email->subject('Perubahan Password');
+        $this->email->message('Permintaan password baru anda telah selesai. Password baru anda: ' . $password);
+        if (!$this->email->send())
+            echo "There is error in sending mail!";
     }
 }
