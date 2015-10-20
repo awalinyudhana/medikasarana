@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">Username:</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" name="username" placeholder="Username" value="{userdata('name')|lower}">
+                        <input type="text" class="form-control" name="username" placeholder="Username" value="{userdata('username')|lower}">
                         {f_error('username')}
                     </div>
                 </div>
