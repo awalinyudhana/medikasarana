@@ -70,9 +70,10 @@
                                 <td>{$key['size']}</td>
                                 <td width="120px"> Rp {$key['sell_price']|number_format:0}</td>
                                 <td width="90px" class="{if $key['stock'] < $key['qty']}has-warning{/if}">
+                                    {$key['qty']}
                                     <input type="hidden" name="id_product[]" value="{$key['id_product']}">
-                                    <input type="number" name="qty[]" value="{set_value('qty',$key['qty'])}"
-                                           class="form-control"
+                                    <input type="hidden" name="qty[]" value="{set_value('qty',$key['qty'])}"
+                                           class="form-control">
                                 </td>
                                 <td>
                                     <div class="table-controls">
@@ -90,11 +91,9 @@
                 <br>
                 <div class="form-group">
                     <div class="form-actions text-right">
-                        <button type="submit" name="save" value="Save" class="btn btn-success"><i
-                                    class="icon-checkmark">
-                            </i> Process
+                        <a href="{base_url('product-distribution/reset')}" class="btn btn-block btn-danger"><i class="icon-eject"></i> Cancel</a>
+                        <button type="submit" name="save" value="Save" class="btn btn-success"><i class="icon-checkmark"></i> Process
                         </button>
-                        {*<button type="button" name="print" class="btn btn-default"><i class="icon-print2"></i> Print</button>*}
                     </div>
                 </div>
             </form>

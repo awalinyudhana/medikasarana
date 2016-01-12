@@ -32,6 +32,12 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th>Date Expired</th>
+                                    <td class="text-right">
+                                        {$product->date_expired} 
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th>Stok System:</th>
                                     <td class="text-right">{$product->stock_retail}</td>
                                 </tr>
@@ -98,14 +104,27 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-actions">
-                                            <input type="submit" class="btn btn-block btn-success" value="Submit">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-4 col-lg-push-1 control-label">Expired Date: </label>
 
+                                        <div class="col-md-4
+                                        col-lg-push-3  {if form_error('expired_date')}has-warning{/if}">
+                                           {form_input('expired_date', set_value('expired_date',$product->date_expired), 'class="datepicker-trigger form-control" data-mask="9999-99-99" placeholder"YYYY-MM-dd"')}
                                         </div>
                                     </div>
-
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-actions">
+                                            <a href="{base_url('stock-opname/store')}" class="btn btn-block btn-danger">Cancel</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-actions">
+                                            <input type="submit" class="btn btn-block btn-success" value="Submit">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

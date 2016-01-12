@@ -45,6 +45,10 @@ class Opname extends MX_Controller
                 );
 
                 $this->db->insert('opname',$data_value);
+                if($this->input->post('expired_date') != null){
+                    $this->db->where('id_product',$this->input->post('id_product'))
+                        ->update('product',['expired_date'=>$this->input->post('expired_date')]);
+                }
                 $this->session->set_flashdata('success','Input data berhasil');
 
                 redirect('stock-opname');

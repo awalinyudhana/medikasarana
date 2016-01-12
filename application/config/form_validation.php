@@ -32,7 +32,7 @@ $config = array(
         array(
             'field' => 'qty',
             'label' => 'Jumlah',
-            'rules' => 'required|integer'
+            'rules' => 'required|is_natural_no_zero'
         ),
         array(
             'field' => 'price',
@@ -88,7 +88,7 @@ $config = array(
         array(
             'field' => 'qty',
             'label' => 'Jumlah',
-            'rules' => 'required|integer'
+            'rules' => 'required|is_natural_no_zero'
         )
     ),
     'credit' => array(
@@ -124,7 +124,7 @@ $config = array(
         array(
             'field' => 'qty',
             'label' => 'QTY',
-            'rules' => 'required|integer'
+            'rules' => 'required|is_natural_no_zero'
         )
     ),
     'product-returns' => array(
@@ -136,7 +136,7 @@ $config = array(
         array(
             'field' => 'qty',
             'label' => 'Jumlah',
-            'rules' => 'required|integer'
+            'rules' => 'required|is_natural_no_zero'
         )
     ),
     'pricing' => array(
@@ -225,7 +225,7 @@ $config = array(
         array(
             'field' => 'qty_return',
             'label' => 'Jumlah retur',
-            'rules' => 'required|integer'
+            'rules' => 'required|is_natural_no_zero'
         ),
         array(
             'field' => 'qty',
@@ -274,7 +274,7 @@ $config = array(
         array(
             'field' => 'qty',
             'label' => 'Jumlah',
-            'rules' => 'integer'
+            'rules' => 'is_natural_no_zero'
         ),
         array(
             'field' => 'price',

@@ -20,14 +20,15 @@ class Customer extends MX_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_table('customer')
-            ->columns('name', 'owner', 'npwp', 'address', 'zipcode', 'city', 'state', 'country', 'plafond', 'telp1', 'telp2')
+            ->columns('name','alias_name', 'owner', 'npwp', 'address', 'zipcode', 'city', 'state', 'country', 'plafond', 'telp1', 'telp2')
             ->display_as('npwp', 'NPWP')
+            ->display_as('alias_name', 'Nama Lain')
             ->display_as('zipcode', 'Zip Code')
             ->callback_column('plafond', array($this, 'currencyFormat'))
             ->display_as('telp1', 'Telp 1')
             ->display_as('telp2', 'Telp 2')
             ->display_as('owner', 'Direktur')
-            ->fields('name', 'owner', 'npwp', 'address', 'zipcode', 'city', 'state', 'country', 'plafond', 'telp1', 'telp2')
+            ->fields('name','alias_name', 'owner', 'npwp', 'address', 'zipcode', 'city', 'state', 'country', 'plafond', 'telp1', 'telp2')
             ->required_fields('name', 'address', 'city', 'state', 'country', 'plafond', 'telp1')
             ->unset_read();
         $output = $crud->render();

@@ -143,4 +143,9 @@ class Returns extends MX_Controller
         $this->parser->parse("checkout.tpl", $data);
     }
 
+    public function reset()
+    {
+        if(!$this->cart->delete_record())
+        redirect('product-returns');
+    }
 }

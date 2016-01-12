@@ -148,6 +148,8 @@
                     <td width="35%" align="left" valign="top">
                         Kepada Yth.
                         </br>
+                        {$so->alias_name}
+                        </br>
                         {$so->name}
                         </br>
                         {$so->address} - {$so->zipcode}

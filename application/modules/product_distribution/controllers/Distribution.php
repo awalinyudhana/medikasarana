@@ -48,7 +48,6 @@ class Distribution extends MX_Controller
         $data['cache'] = $cache;
         $data['items'] = $items;
         $data['product_storage'] = $product_storage;
-//        var_dump($product_storage);
 
         $this->parser->parse("distribution.tpl", $data);
     }
@@ -142,6 +141,12 @@ class Distribution extends MX_Controller
             ->get()->result();
         $data['items'] = $items;
         $this->parser->parse("checkout.tpl", $data);
+    }
+
+    public function reset()
+    {
+        if(!$this->cart->delete_record())
+        redirect('product-distribution');
     }
 
 }

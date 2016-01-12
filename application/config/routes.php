@@ -86,12 +86,14 @@ $route['product-distribution'] = "product_distribution/Distribution";
 $route['product-distribution/detail/add'] = "product_distribution/Distribution/add";
 $route['product-distribution/detail/delete/(:num)'] = "product_distribution/Distribution/delete/$1";
 $route['product-distribution/save'] = "product_distribution/Distribution/save";
+$route['product-distribution/reset'] = "product_distribution/Distribution/reset";
 $route['product-distribution/checkout/(:num)'] = "product_distribution/Distribution/checkout/$1";
 
 $route['product-returns'] = "product_return/Returns";
 $route['product-returns/detail/add'] = "product_return/Returns/add";
 $route['product-returns/detail/delete/(:num)'] = "product_return/Returns/delete/$1";
 $route['product-returns/save'] = "product_return/Returns/save";
+$route['product-returns/reset'] = "product_return/Returns/reset";
 $route['product-returns/checkout/(:num)'] = "product_return/Returns/checkout/$1";
 
 $route['pricing'] = "pricing";
