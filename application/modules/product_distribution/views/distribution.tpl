@@ -81,7 +81,7 @@
                                 <td>
                                     <div class="table-controls">
                                         <a class="btn btn-link btn-icon btn-xs tip" title="Update Qty" onclick="updateQty({$key['id_product']},
-                                               '{base_url('id_product/update')}')"><i class="icon-pencil3"></i></a>
+                                               '{base_url('product-distribution/update')}')"><i class="icon-pencil3"></i></a>
                                         <a href="{base_url('product-distribution/detail/delete')}/{$key['id_product']}"
                                            class="btn btn-link btn-icon btn-xs tip" title="Hapus Data">
                                             <i class="icon-remove3"></i></a>
