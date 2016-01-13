@@ -78,9 +78,24 @@ class Returns extends MX_Controller
         }
         redirect('product-returns');
     }
-    
+
     public function updateItem($id_product_store, $qty)
     {
+        if($id_product_store > 0){
+            if ($this->model_product->checkStock($id_product_store,$qty) == TRUE) 
+            {
+                if (!$this->cart->update_item($id_product_store, ['qty' => $qty]))
+                    $this->session->set_flashdata('error', $this->cart->getError());
+            }else{
+                $this->session->set_flashdata('error', "Stok tidak cukup");
+            }
+        }else{
+            $this->session->set_flashdata('error', "Qty harus lebih dari 0");
+        }
+
+        redirect('product-returns');
+
+
         if (!$this->cart->update_item($id_product_store, ['qty' => $qty]))
             $this->session->set_flashdata('error', $this->cart->getError());
         redirect('product-returns');

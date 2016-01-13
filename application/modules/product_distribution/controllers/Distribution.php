@@ -80,8 +80,18 @@ class Distribution extends MX_Controller
     }
     public function updateItem($id_product, $qty)
     {
-        if (!$this->cart->update_item($id_product, ['qty' => $qty]))
-            $this->session->set_flashdata('error', $this->cart->getError());
+        if($id_product > 0){
+            if ($this->ModProduct->checkStock($id_product,$qty) == TRUE) 
+            {
+                if (!$this->cart->update_item($id_product, ['qty' => $qty]))
+                    $this->session->set_flashdata('error', $this->cart->getError());
+            }else{
+                $this->session->set_flashdata('error', "Stok tidak cukup");
+            }
+        }else{
+            $this->session->set_flashdata('error', "Qty harus lebih dari 0");
+        }
+
         redirect('product-distribution');
     }
 
