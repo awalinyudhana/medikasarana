@@ -78,6 +78,12 @@ class Distribution extends MX_Controller
         }
         redirect('product-distribution');
     }
+    public function updateItem($id_product, $qty)
+    {
+        if (!$this->cart->update_item($id_product, ['qty' => $qty]))
+            $this->session->set_flashdata('error', $this->cart->getError());
+        redirect('product-distribution');
+    }
 
     public function delete($id_product)
     {

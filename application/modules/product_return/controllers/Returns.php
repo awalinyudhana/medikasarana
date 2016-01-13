@@ -78,6 +78,13 @@ class Returns extends MX_Controller
         }
         redirect('product-returns');
     }
+    
+    public function updateItem($id_product_store, $qty)
+    {
+        if (!$this->cart->update_item($id_product_store, ['qty' => $qty]))
+            $this->session->set_flashdata('error', $this->cart->getError());
+        redirect('product-returns');
+    }
 
     public function delete($id_product)
     {

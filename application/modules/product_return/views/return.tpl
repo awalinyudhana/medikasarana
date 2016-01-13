@@ -70,13 +70,20 @@
                                 <td>{$key['size']}</td>
                                 <td width="120px"> Rp {$key['sell_price']|number_format:0}</td>
                                 <td width="90px" class="{if $key['store_stock'] < $key['qty']}has-warning{/if}">
-                                    {$key['qty']}
+                                    
                                     <input type="hidden" name="id_product_store[]" value="{$key['id_product_store']}">
-                                    <input type="hidden" name="qty[]" value="{set_value('qty',$key['qty'])}"
-                                           class="form-control">
+                                    <!-- <input type="hidden" name="qty[]" value="{set_value('qty',$key['qty'])}"
+                                           class="form-control"> -->
+
+                                    <input type="number" name="qty[]" id="qty-{$key['id_product_store']}" value="{$key['qty']}"
+                                           class="form-control" onkeypress="qtyKeyPress({$key['id_product_store']},
+                                            '{base_url('product-returns/update')}',event)">
                                 </td>
                                 <td>
                                     <div class="table-controls">
+                                        <a class="btn btn-link btn-icon btn-xs tip" title="Update Qty" onclick="updateQty({$key['id_product_store']},
+                                               '{base_url('id_product_store/update')}')"><i class="icon-pencil3"></i></a>
+                                               
                                         <a href="{base_url('product-returns/detail/delete')}/{$key['id_product_store']}"
                                            class="btn btn-link btn-icon btn-xs tip" title="Hapus Data">
                                             <i class="icon-remove3"></i></a>
