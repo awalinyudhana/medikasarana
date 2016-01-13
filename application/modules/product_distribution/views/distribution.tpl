@@ -91,7 +91,7 @@
                 <br>
                 <div class="form-group">
                     <div class="form-actions text-right">
-                        <a href="{base_url('product-distribution/reset')}" class="btn btn-block btn-danger"><i class="icon-eject"></i> Cancel</a>
+                        <a href="{base_url('product-distribution/reset')}" class="btn btn-danger"><i class="icon-eject"></i> Cancel</a>
                         <button type="submit" name="save" value="Save" class="btn btn-success"><i class="icon-checkmark"></i> Process
                         </button>
                     </div>
