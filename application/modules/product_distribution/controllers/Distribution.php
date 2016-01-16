@@ -122,7 +122,7 @@ class Distribution extends MX_Controller
                         redirect('product-distribution');
                     }
                 } else {
-                    $this->session->set_flashdata('error', "Input data error");
+                    $this->session->set_flashdata('error', "Stok tidak tersedia");
                     redirect('product-distribution');
                 }
                 $i++;

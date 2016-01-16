@@ -52,7 +52,7 @@ $config['logout_landing_page'] = 'login';
 $config['logout_message'] = 'Anda telah berhasil keluar';
 
 // Set the flash message for logging a user out, NULL for no flashdata message
-$config['module_auth_message'] = 'please login to access this module.';
+$config['module_auth_message'] = 'silakan login untuk mengakses halaman ini.';
 
 //
 $config['module_list'] = [

@@ -185,7 +185,7 @@ $config = array(
         ),
         array(
             'field' => 'stock_system',
-            'label' => 'Stok system',
+            'label' => 'Stok tersedia',
             'rules' => 'required|integer'
         ),
         array(
@@ -207,7 +207,7 @@ $config = array(
         ),
         array(
             'field' => 'stock_system',
-            'label' => 'Stok system',
+            'label' => 'Stok tersedia',
             'rules' => 'required|integer'
         ),
         array(

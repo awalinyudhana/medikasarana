@@ -38,7 +38,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Stok System:</th>
+                                    <th>Stok Tersedia:</th>
                                     <td class="text-right">{$product->stock}</td>
                                 </tr>
                                 </tbody>

@@ -43,8 +43,8 @@
 		                        <th>Unit</th>
 		                        <th>Nilai Satuan</th>
 		                        <th>Merek</th>
-                                <th>Stok System</th>
-                                <th>Stok Real</th>
+                                <th>Stok Tersedia</th>
+                                <th>Stok Fisik</th>
                                 <th>Perbedaan</th>
                                 <th>Stok Sekarang</th>
                                 <th>Keterangan</th>

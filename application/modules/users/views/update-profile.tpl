@@ -4,7 +4,7 @@
 {block name=content}
     <!-- Default panel -->
     <div class="panel panel-default">
-        <div class="panel-heading"><h6 class="panel-title">User Update Profile</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Ubah Data Pengguna</h6></div>
         <div class="panel-body">
             <form action="{current_url()}" method="post" role="form" class="form-horizontal">
                 <div class="form-group">

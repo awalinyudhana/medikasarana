@@ -122,7 +122,7 @@
                 <i class="icon-settings pull-right"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-right icons-right">
-                <li><a href="{base_url('users/update-profile')}"><i class="icon-users"></i> Update Profile</a></li>
+                <li><a href="{base_url('users/update-profile')}"><i class="icon-users"></i> Ubah Data Pengguna</a></li>
                 <li><a href="{base_url('login/logout')}"><i class="icon-exit"></i> Keluar</a></li>
             </ul>
         </li>
