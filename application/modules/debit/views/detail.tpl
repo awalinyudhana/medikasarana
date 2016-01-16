@@ -148,7 +148,9 @@
                     <td width="35%" align="left" valign="top">
                         Kepada Yth.
                         </br>
-                        {$so->alias_name}
+                        {$so->alias_name1}
+                        </br>
+                        {$so->alias_name2}
                         </br>
                         {$so->name}
                         </br>

@@ -234,7 +234,9 @@
                     <td width="35%" align="left" valign="top">
                         Kepada Yth.
                         </br>
-                        {$master->alias_name}
+                        {$master->alias_name1}
+                        </br>
+                        {$master->alias_name2}
                         </br>
                         {$master->customer_name}
                         </br>

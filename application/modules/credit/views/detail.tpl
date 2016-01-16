@@ -152,7 +152,9 @@
                     <td width="35%" align="left" valign="top">
                         Kepada Yth.
                         </br>
-                        {$po->alias_name}
+                        {$po->alias_name1}
+                        </br>
+                        {$po->alias_name2}
                         </br>
                         {$po->name}
                         </br>
