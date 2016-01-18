@@ -18,6 +18,7 @@ class Invoice extends MX_Controller
         parent::__construct();
         $this->acl->auth("purchase_order");
         $this->load->model('ModelPurchaseOrder','model_purchase_order');
+        $this->status_ppn = [0 => "non aktif", 1 => "aktif"];
     }
 
     public function index(){
@@ -40,6 +41,7 @@ class Invoice extends MX_Controller
         $data['principal'] = $this->db->get_where('principal', array('id_principal' => $data_po->id_principal))->row();
         $data['staff'] = $this->db->get_where('staff', array('id_staff' => $data_po->id_staff))->row();
         $data['pod'] = $this->model_purchase_order->getDataPOD($id_po);
+        $data['status_ppn'] = $this->status_ppn[$data_po->status_ppn];
         $this->parser->parse("invoice.tpl",$data);
 
     }

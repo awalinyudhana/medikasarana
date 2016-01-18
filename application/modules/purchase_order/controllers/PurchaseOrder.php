@@ -26,6 +26,7 @@ class PurchaseOrder extends MX_Controller
                 'foreign_table' => 'purchase_order_detail'
             ));
         $this->cache = $this->cart->array_cache();
+        $this->status_ppn = [0 => "non aktif", 1 => "aktif"];
     }
 
     public function index()
@@ -41,6 +42,7 @@ class PurchaseOrder extends MX_Controller
                     'invoice_number' => $this->input->post('invoice_number'),
                     'id_principal' => $this->input->post('id_principal'),
                     'id_staff' => $this->id_staff,
+                    'status_ppn' => $this->input->post('status_ppn'),
                     'date' => $this->input->post('date'),
                     'due_date' => $this->input->post('due_date')
 
@@ -96,6 +98,7 @@ class PurchaseOrder extends MX_Controller
         $data['principal'] = $this->db->get_where('principal',
             array('id_principal' => $cache['value']['id_principal']))->row();
         $data['cache'] = $cache;
+        $data['status_ppn'] = $this->status_ppn[$this->cache['value']['status_ppn']];
         $data['product_storage'] = $product_storage;
 
         $this->parser->parse("po_detail.tpl", $data);
@@ -160,6 +163,7 @@ class PurchaseOrder extends MX_Controller
                             'total' => $this->input->post('total'),
                             'discount_price' => $this->input->post('discount_price'),
                             'dpp' => $this->input->post('dpp'),
+                            'status_ppn' => $this->cache['value']['status_ppn'],
                             'ppn' => $this->input->post('ppn'),
                             'grand_total' => $this->input->post('grand_total'),
                             'file' => $scan

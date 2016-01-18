@@ -40,6 +40,7 @@
                 <div class="col-sm-4">
                     <ul class="invoice-details">
                         <li>No Faktur <strong class="text-danger"># {$po->id_purchase_order}</strong></li>
+                        <li>PPn status # <strong class="text-info">{$status_ppn}</strong></li>
                         <li>Staff: <strong>{$staff->name} </strong></li>
                         <li>Tanggal Nota Transaksi: <strong>{$po->date} </strong></li>
                         <li>Jatuh Tempo Pembayaran: <strong>{$po->due_date}</strong></li>

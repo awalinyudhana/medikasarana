@@ -41,6 +41,7 @@
                                 <th>No Invoice</th>
                                 <th>Principal</th>
                                 <th>Nama Staff</th>
+                                <th>Status PPn</th>
                                 <th>Tanggal Transaksi</th>
                                 <th>Jatuh Tempo</th>
                                 <th>Total</th>
@@ -63,6 +64,7 @@
                                 <td>{$key->invoice_number}</td>
                                 <td>{$key->principal_name}</td>
                                 <td>{$key->staff_name}</td>
+                                <td>{if $key->status_ppn = 1} Aktif {else} Tidak Aktif {/if}</td>
                                 <td>{$key->date_created}</td>
                                 <td>{$key->due_date}</td>
                                 <td class="text-right">Rp {$key->total|number_format:0}</td>

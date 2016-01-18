@@ -21,6 +21,11 @@ $config = array(
             'field' => 'date',
             'label' => 'Tanggal pembelian',
             'rules' => 'required'
+        ),
+        array(
+            'field' => 'status_ppn',
+            'label' => 'PPn status',
+            'rules' => 'required'
         )
     ),
     'po_detail' => array(

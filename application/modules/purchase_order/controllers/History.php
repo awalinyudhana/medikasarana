@@ -20,14 +20,16 @@ class History extends MX_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_table('purchase_order')
-            ->columns('id_purchase_order', 'id_principal', 'id_staff', 'date', 'due_date', 'dpp', 'ppn', 'discount_price', 'grand_total')
+            ->columns('id_purchase_order', 'id_principal', 'id_staff', 'status_ppn', 'date', 'due_date', 'dpp', 'ppn', 'discount_price', 'grand_total')
             ->display_as('id_purchase_order', 'No Faktur')
+            ->display_as('status_ppn', 'Status PPn')
             ->display_as('id_principal', 'Principal')
             ->display_as('id_staff', 'Staff')
             ->display_as('date', 'Tanggal Transaksi')
             ->display_as('due_date', 'Jatuh Tempo')
             ->display_as('discount_price', 'Discount')
             ->display_as('grand_total', 'Grand Total')
+            ->callback_column('status_ppn',array($this,'_callback_status_ppn'))
             ->callback_column('dpp', array($this, 'currencyFormat'))
             ->callback_column('ppn', array($this, 'currencyFormat'))
             ->callback_column('discount_price', array($this, 'currencyFormat'))
@@ -59,4 +61,14 @@ class History extends MX_Controller
     {
         return site_url('purchase-order/invoice/' . $primary_key);
     }
+    
+    public function _callback_status_ppn($value, $row)
+    {
+        if($row->status_ppn == 0){
+            return "Tidak Aktif";
+        }else{
+            return "Aktif";
+        }
+    }
+
 }
