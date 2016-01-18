@@ -274,7 +274,7 @@
                                 </tr>
                                 <tr>
                                     {assign var=dpp value=0}
-                                    {assign var=dpp value=$total - $total_discount}
+                                    {assign var=dpp value=$total}
                                     <th>DPP:</th>
                                     <td class="text-right">
                                         <span id="sum-discount_price-text">
@@ -294,7 +294,7 @@
                                 </tr>
                                 <tr>
                                     {assign var=grand_total value=0}
-                                    {assign var=grand_total value=$dpp + $ppn}
+                                    {assign var=grand_total value=$dpp + $ppn - $total_discount}
                                     <th>Grand Total:</th>
 
                                     <td class="text-right">
