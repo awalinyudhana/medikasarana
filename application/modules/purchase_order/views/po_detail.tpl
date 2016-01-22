@@ -272,7 +272,7 @@
                                 {assign var=dpp value=0}
                                 {assign var=ppn value=0}
 
-				{if $status_ppn = 1}
+				{if $cache['value']['status_ppn'] = 1}
                                 	{assign var=dpp value=$total-$total_discount}
                                    	{assign var=ppn value=$dpp * 0.1}
 
