@@ -270,9 +270,10 @@
 
                                 {assign var=dpp value=0}
                                 {assign var=ppn value=0}
+                                {assign var=grand_total value=0}
 
+                                {assign var=dpp value=$total-$total_discount}
 				                {if $cache['value']['status_ppn'] == 1}
-                                	{assign var=dpp value=$total-$total_discount}
                                    	{assign var=ppn value=$dpp * 0.1}
                                 	<tr>
                                  		<th>DPP:</th>
@@ -296,7 +297,6 @@
                                     <input type="hidden" name="ppn" value="{$ppn}">
 				                {/if}
                                 <tr>
-                                    {assign var=grand_total value=0}
                                     {assign var=grand_total value=$total - $total_discount + $ppn}
                                     <th>Grand Total:</th>
 

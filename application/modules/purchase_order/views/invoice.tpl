@@ -59,10 +59,10 @@
                         <th>Merk</th>
                         <th>Satuan</th>
                         <th>Qty</th>
-                        <th>Harga</th>
-                        <th>Total</th>
-                        <th>Diskon</th>
-                        {*<th>Subtotal</th>*}
+                        <th style="width:100px;">Harga</th>
+                        <th style="width:100px;">Total</th>
+                        <th style="width:100px;">Diskon</th>
+                        <th style="width:100px;">Total Diskon</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -76,13 +76,12 @@
                             <td>{$key['brand']}</td>
                             <td style="width:100px;">{$key['unit']} ( {$key['value']} )</td>
                             <td>{$key['qty']}</td>
-                            <td style="width:130px;" class="text-right">Rp {$key['price']|number_format:0}</td>
-                            <td style="width:130px;" class="text-right">
+                            <td class="text-right">Rp {$key['price']|number_format:0}</td>
+                            <td class="text-right">
                                 Rp {($key['qty'] * $key['price'])|number_format:0}</td>
-                            <td style="width:130px;" class="text-right">Rp {$key['discount_total']|number_format:0}</td>
-                            {*<td style="width:130px;" class="text-right">*}
-                                {*Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}*}
-                            {*</td>*}
+                            <td class="text-right">Rp {$key['discount_total'] / $key['qty']|number_format:0}</td>
+                            <td class="text-right">Rp {$key['discount_total']|number_format:0}</td>
+
                         </tr>
                         {assign var=val value=$val+1}
                         {assign var=total value=$total+($key['qty'] * $key['price'] - $key['discount_total'])}
@@ -107,14 +106,16 @@
                             <th>Diskon Total:</th>
                             <td class="text-right">Rp {$po->discount_price|number_format:0}</td>
                         </tr>
-                        <tr>
-                            <th>DPP:</th>
-                            <td class="text-right">Rp {$po->dpp|number_format:0}</td>
-                        </tr>
-                        <tr>
-                            <th>PPN:</th>
-                            <td class="text-right">Rp {$po->ppn|number_format:0}</td>
-                        </tr>
+                        {if $po->status_ppn == 1}
+                            <tr>
+                                <th>DPP:</th>
+                                <td class="text-right">Rp {$po->dpp|number_format:0}</td>
+                            </tr>
+                            <tr>
+                                <th>PPN:</th>
+                                <td class="text-right">Rp {$po->ppn|number_format:0}</td>
+                            </tr>
+                        {/if}
                         <tr>
                             <th>Grand Total:</th>
                             <td class="text-right">Rp {$po->grand_total|number_format:0}</td>

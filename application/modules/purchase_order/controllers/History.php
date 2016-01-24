@@ -20,7 +20,7 @@ class History extends MX_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_table('purchase_order')
-            ->columns('id_purchase_order', 'id_principal', 'id_staff', 'status_ppn', 'date', 'due_date', 'dpp', 'ppn', 'discount_price', 'grand_total')
+            ->columns('id_purchase_order', 'id_principal', 'id_staff', 'status_ppn', 'date', 'due_date', 'total','dpp', 'ppn', 'discount_price', 'grand_total')
             ->display_as('id_purchase_order', 'No Faktur')
             ->display_as('status_ppn', 'Status PPn')
             ->display_as('id_principal', 'Principal')
@@ -30,6 +30,7 @@ class History extends MX_Controller
             ->display_as('discount_price', 'Discount')
             ->display_as('grand_total', 'Grand Total')
             ->callback_column('status_ppn',array($this,'_callback_status_ppn'))
+            ->callback_column('total', array($this, 'currencyFormat'))
             ->callback_column('dpp', array($this, 'currencyFormat'))
             ->callback_column('ppn', array($this, 'currencyFormat'))
             ->callback_column('discount_price', array($this, 'currencyFormat'))
