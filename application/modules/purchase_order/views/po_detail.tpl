@@ -217,7 +217,7 @@
                                     Rp {($key['qty'] * $key['price'])|number_format:0}
                                 </td>
                                 <td style="width:130px;" class="text-right">
-                                    Rp {$key['discount_total'])|number_format:0}
+                                    Rp {$key['discount_total']|number_format:0}
                                 </td>
                                 <td style="width:130px;" class="text-right">
                                     Rp {($key['qty'] * $key['discount_total'])|number_format:0}
