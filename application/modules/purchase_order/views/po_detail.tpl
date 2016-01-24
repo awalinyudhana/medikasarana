@@ -256,22 +256,13 @@
                             <h6>Summary:</h6>
                             <table class="table">
                                 <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <th>Total:</th>
                                     <td class="text-right">
                                         <span id="sum-total-text"><strong>Rp {$total|number_format:0}</strong> </span>
                                     </td>
                                     <input type="hidden" name="total" value="{$total}">
-                                </tr>
-                                <tr>
-                                    <th>Diskon:</th>
-
-                                    <td class="text-right">
-                                        <span id="sum-discount_price-text">
-                                            <strong>Rp {$total_discount|number_format:0}</strong> </span>
-                                    </td>
-                                    <input type="hidden" name="discount_price" value="{$total_discount}">
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     {assign var=dpp value=0}
                                     {assign var=dpp value=$total}
@@ -291,6 +282,15 @@
                                             <strong>Rp {$ppn|number_format:0}</strong> </span>
                                     </td>
                                     <input type="hidden" name="ppn" value="{$ppn}">
+                                </tr>
+                                <tr>
+                                    <th>Diskon Total:</th>
+
+                                    <td class="text-right">
+                                        <span id="sum-discount_price-text">
+                                            <strong>Rp {$total_discount|number_format:0}</strong> </span>
+                                    </td>
+                                    <input type="hidden" name="discount_price" value="{$total_discount}">
                                 </tr>
                                 <tr>
                                     {assign var=grand_total value=0}
