@@ -185,11 +185,11 @@
                             <th>Nama Produk</th>
                             <th>Merek</th>
                             <th>Satuan / isi</th>
-                            <th>Qty</th>
-                            <th>Harga</th>
-                            <th>Total</th>
-                            <th>Diskon</th>
-                            <th>Total Diskon</th>
+                            <th style="width:90px;">Qty</th>
+                            <th style="width:100px;">Harga</th>
+                            <th style="width:100px;">Total</th>
+                            <th style="width:100px;">Diskon</th>
+                            <th style="width:100px;">Total Diskon</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -204,25 +204,25 @@
                                 <td>{$key['name']}</td>
                                 <td>{$key['brand']}</td>
                                 <td>{$key['unit']} / {$key['value']}</td>
-                                <td style="width:100px;">
+                                <td>
                                     <input type="number" id="qty-{$key['id_product']}" value="{$key['qty']}"
                                            class="form-control tip" title="enter untuk update qty"
                                            onkeypress="qtyKeyPress({$key['id_product']},
                                                    '{base_url('purchase-order/detail/update')}', event)">
                                 </td>
-                                <td style="width:130px;" class="text-right">
+                                <td class="text-right">
                                     Rp {$key['price']|number_format:0}
                                 </td>
-                                <td style="width:130px;" class="text-right">
+                                <td class="text-right">
                                     Rp {($key['qty'] * $key['price'])|number_format:0}
                                 </td>
-                                <td style="width:130px;" class="text-right">
+                                <td class="text-right">
                                     Rp {$key['discount_total']|number_format:0}
                                 </td>
-                                <td style="width:130px;" class="text-right">
+                                <td class="text-right">
                                     Rp {($key['qty'] * $key['discount_total'])|number_format:0}
                                 </td>
-                                <td style="width:90px;">
+                                <td style="width:80px;">
 
                                     <div class="table-controls">
                                         <a class="btn btn-link btn-icon btn-xs tip" title="Update Qty"
