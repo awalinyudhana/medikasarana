@@ -1,4 +1,4 @@
-{* Extend our master template *}
+﻿{* Extend our master template *}
 {extends file="../../../master.tpl"}
 
 {block name=content}
@@ -189,7 +189,7 @@
                             <th>Harga</th>
                             <th>Total</th>
                             <th>Diskon</th>
-                            {*<th>Subtotal</th>*}
+                            <th>Total Diskon</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -217,11 +217,11 @@
                                     Rp {($key['qty'] * $key['price'])|number_format:0}
                                 </td>
                                 <td style="width:130px;" class="text-right">
+                                    Rp {$key['discount_total'])|number_format:0}
+                                </td>
+                                <td style="width:130px;" class="text-right">
                                     Rp {($key['qty'] * $key['discount_total'])|number_format:0}
                                 </td>
-                                {*<td style="width:130px;" class="text-right">*}
-                                    {*Rp {($key['qty'] * $key['price'] - $key['discount_total'])|number_format:0}*}
-                                {*</td>*}
                                 <td style="width:90px;">
 
                                     <div class="table-controls">
@@ -237,11 +237,7 @@
                                 </td>
                             </tr>
                             {assign var=val value=$val+1}
-                            {if $cache['value']['status_ppn']==0}
-                                {assign var=total value=$total+($key['qty'] * $key['price'])}
-                            {else}
-                                {assign var=total value=$total+($key['qty'] * $key['price'] / 1.1)}
-                            {/if}
+                            {assign var=total value=$total+($key['qty'] * $key['price'])}
                             {assign var=total_discount value=$total_discount+($key['qty'] * $key['discount_total'])}
 
                         {/foreach}
@@ -256,35 +252,14 @@
                             <h6>Summary:</h6>
                             <table class="table">
                                 <tbody>
-                                <!-- <tr>
                                     <th>Total:</th>
                                     <td class="text-right">
                                         <span id="sum-total-text"><strong>Rp {$total|number_format:0}</strong> </span>
                                     </td>
                                     <input type="hidden" name="total" value="{$total}">
-                                </tr> -->
+                                </tr> 
                                 <tr>
-                                    {assign var=dpp value=0}
-                                    {assign var=dpp value=$total}
-                                    <th>DPP:</th>
-                                    <td class="text-right">
-                                        <span id="sum-discount_price-text">
-                                            <strong>Rp {$dpp|number_format:0}</strong> </span>
-                                    </td>
-                                    <input type="hidden" name="dpp" value="{$dpp}">
-                                </tr>
-                                <tr>
-                                    {assign var=ppn value=0}
-                                    {assign var=ppn value=$dpp * 0.1}
-                                    <th>PPN:</th>
-                                    <td class="text-right">
-                                        <span id="sum-discount_price-text">
-                                            <strong>Rp {$ppn|number_format:0}</strong> </span>
-                                    </td>
-                                    <input type="hidden" name="ppn" value="{$ppn}">
-                                </tr>
-                                <tr>
-                                    <th>Diskon Total:</th>
+                                    <th>Diskon:</th>
 
                                     <td class="text-right">
                                         <span id="sum-discount_price-text">
@@ -292,9 +267,37 @@
                                     </td>
                                     <input type="hidden" name="discount_price" value="{$total_discount}">
                                 </tr>
+
+                                {assign var=dpp value=0}
+                                {assign var=ppn value=0}
+
+				                {if $cache['value']['status_ppn'] == 1}
+                                	{assign var=dpp value=$total-$total_discount}
+                                   	{assign var=ppn value=$dpp * 0.1}
+                                	<tr>
+                                 		<th>DPP:</th>
+                                    		<td class="text-right">
+                                        		<span id="sum-discount_price-text">
+                                            		<strong>Rp {$dpp|number_format:0}</strong> </span>
+                                    		</td>
+                                    		<input type="hidden" name="dpp" value="{$dpp}">
+                                	</tr>
+
+                                	<tr>
+                                   		<th>PPN:</th>
+                                    		<td class="text-right">
+                                        		<span id="sum-discount_price-text">
+                                            <strong>Rp {$ppn|number_format:0}</strong> </span>
+                                    		</td>
+                                    		<input type="hidden" name="ppn" value="{$ppn}">
+                                	</tr>
+				                {else}
+                                    <input type="hidden" name="dpp" value="{$dpp}">
+                                    <input type="hidden" name="ppn" value="{$ppn}">
+				                {/if}
                                 <tr>
                                     {assign var=grand_total value=0}
-                                    {assign var=grand_total value=$dpp + $ppn - $total_discount}
+                                    {assign var=grand_total value=$total - $total_discount + $ppn}
                                     <th>Grand Total:</th>
 
                                     <td class="text-right">
