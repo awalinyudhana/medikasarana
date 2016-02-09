@@ -341,9 +341,12 @@ Class CI_Cart
         $file = APPPATH . 'cache/' . $this->cache_path . '/' . $this->cache_file;
 
         if(file_exists($file)) {
-            unlink($file);
+            if(!unlink($file)){
+                return false;
+            }
         }
-        sleep(4);
+        sleep(3);
+        return true;
     }
 
     public function delete_record()

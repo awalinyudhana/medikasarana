@@ -204,10 +204,13 @@ class Proposal extends MX_Controller
 
     public function editProposal($id_proposal)
     {
-        $this->cart->delete_record();
+        if(!$this->cart->delete_record()){
+            redirect('proposal/detail/'.$id_proposal);
+            return false
+        }
 
         if ($this->cart->primary_data_exists()) {
-            redirect('proposal');
+            redirect('proposal/detail/'.$id_proposal);
             return false;
         }
 
