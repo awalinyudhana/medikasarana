@@ -206,7 +206,7 @@ class Proposal extends MX_Controller
     {
         if(!$this->cart->delete_record()){
             redirect('proposal/detail/'.$id_proposal);
-            return false
+            return false;
         }
 
         if ($this->cart->primary_data_exists()) {
