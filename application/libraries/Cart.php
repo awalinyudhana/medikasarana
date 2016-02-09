@@ -340,12 +340,9 @@ Class CI_Cart
     {
         $file = APPPATH . 'cache/' . $this->cache_path . '/' . $this->cache_file;
 
-        if (file_exists($file)) {
-            if(!unlink($file)){
-                return false;
-            }
+        for(file_exists($file)) {
+            unlink($file);
         }
-        sleep(2);
         return true;
     }
 
