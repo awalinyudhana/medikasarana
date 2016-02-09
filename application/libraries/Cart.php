@@ -341,10 +341,9 @@ Class CI_Cart
         $file = APPPATH . 'cache/' . $this->cache_path . '/' . $this->cache_file;
 
         if(file_exists($file)) {
-            rename($file, APPPATH . 'cache/' . $this->cache_path . '/temp');
-            unlink($file, APPPATH . 'cache/' . $this->cache_path . '/temp');
-
+            unlink($file);
         }
+        sleep(4);
     }
 
     public function delete_record()
