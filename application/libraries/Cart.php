@@ -345,6 +345,7 @@ Class CI_Cart
                 return false;
             }
         }
+        sleep(2);
         return true;
     }
 
