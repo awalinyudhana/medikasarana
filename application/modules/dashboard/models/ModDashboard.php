@@ -23,7 +23,7 @@ class ModDashboard extends CI_Model
         $where = "product_store.`stock` < product.`minimum_stock`";
         $this->db->where($where);
         $this->db->from('product_store');
-        $this->db->join('product','product = id_product_store = product_store.id_product', 'left');
+        $this->db->join('product','product.id_product = product_store.id_product', 'left');
         return $this->db->count_all_results();
     }
 
@@ -40,7 +40,7 @@ class ModDashboard extends CI_Model
         $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30";
         $this->db->where($where);
         $this->db->from('product_store');
-        $this->db->join('product','product = id_product_store = product_store.id_product', 'left');
+        $this->db->join('product','product.id_product = product_store.id_product', 'left');
         return $this->db->count_all_results();
     }
 
