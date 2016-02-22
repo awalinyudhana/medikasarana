@@ -18,18 +18,58 @@ class ModDashboard extends CI_Model
         return $this->db->count_all_results();
     }
 
+    public function getMinimumStockStore()
+    {
+        $where = "product_store.`stock` < product.`minimum_stock`";
+        $this->db->where($where);
+        $this->db->from('product_store');
+        $this->db->join('product','product = id_product_store = product_store.id_product', 'left');
+        return $this->db->count_all_results();
+    }
+
     public function getExpiredProducts()
     {
-        // $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30 AND product.`date_expired` > '$this->curDate'";
         $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30";
         $this->db->where($where);
         $this->db->from('product');
         return $this->db->count_all_results();
     }
 
+    public function getExpiredProductsStore()
+    {
+        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30";
+        $this->db->where($where);
+        $this->db->from('product_store');
+        $this->db->join('product','product = id_product_store = product_store.id_product', 'left');
+        return $this->db->count_all_results();
+    }
+
+    public function getMinimumStockStoreData()
+    {
+        $where = "product_store.`stock` < product.`minimum_stock`";
+        $this->db->select('*, ps.stock as stock_retail');
+        $this->db->from('product_store ps');
+        $this->db->join('product p', 'p.id_product = ps.id_product', 'left');
+        $this->db->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit','left');
+        $this->db->join('product_category pc', 'pc.id_product_category = p.id_product_category','left');
+        $this->db->where($where);
+        return $this->db->get()->result();
+    }
+
+    public function getExpiredProductsStoreData()
+    {
+        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30";
+        $this->db->select('*, ps.stock as stock_retail');
+        $this->db->from('product_store ps');
+        $this->db->join('product p', 'p.id_product = ps.id_product', 'left');
+        $this->db->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit','left');
+        $this->db->join('product_category pc', 'pc.id_product_category = p.id_product_category','left');
+        $this->db->where($where);
+        return $this->db->get()->result();
+    }
+
     public function getCreditData()
     {
-        // $where = "((SELECT DATEDIFF(purchase_order.`due_date`, '$this->curDate') AS days) < 14) AND (purchase_order.`due_date` > '$this->curDate') AND (purchase_order.`status_paid` = 0)";
         $where = "(SELECT DATEDIFF(purchase_order.`due_date`, '$this->curDate') AS days) < 14 AND purchase_order.`status_paid` = 0";
         $this->db->where($where);
         $this->db->from('purchase_order');
@@ -49,11 +89,8 @@ class ModDashboard extends CI_Model
 
     public function getCreditBGData()
     {
-
-
         $where = "(SELECT DATEDIFF(credit.date_withdrawal, '$this->curDate') AS days) < 14";
         $query = $this->db->from('credit')
-            // ->join('purchase_order', 'purchase_order.id_purchase_order = credit.id_purchase_order')
             ->where('credit.payment_type', 'bg')
             ->where('credit.status', 0)
             ->where($where)

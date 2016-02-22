@@ -11,7 +11,7 @@
     <ul class="page-stats list-justified">
         {if "product"|in_array:$roles}
             <li class="{if $minimumStock == 0}bg-success{else}bg-danger{/if}">
-                <a href="{base_url('dashboard/product-stock')}">
+                <a href="{base_url('dashboard/minimumStock')}">
                     <div class="page-stats-showcase">
                         <span>Stok Minimal</span>
                         <h2>{$minimumStock}</h2>
@@ -19,10 +19,26 @@
                 </a>
             </li>
             <li class="{if $expiredProducts == 0}bg-success{else}bg-danger{/if}">
-                <a href="{base_url('dashboard/product-expired')}">
+                <a href="{base_url('dashboard/expiredProducts')}">
                     <div class="page-stats-showcase">
                         <span>Produk Kadaluarsa < 30H</span>
                         <h2>{$expiredProducts}</h2>
+                    </div>
+                </a>
+            </li>}
+            <li class="{if $minimumStockStore == 0}bg-success{else}bg-danger{/if}">
+                <a href="{base_url('dashboard/minimumStockStore')}">
+                    <div class="page-stats-showcase">
+                        <span>Stok Minimal Toko</span>
+                        <h2>{$minimumStockStore}</h2>
+                    </div>
+                </a>
+            </li>
+            <li class="{if $expiredProductsStore == 0}bg-success{else}bg-danger{/if}">
+                <a href="{base_url('dashboard/expiredProductsStore')}">
+                    <div class="page-stats-showcase">
+                        <span>Produk Kadaluarsa Toko< 30H</span>
+                        <h2>{$expiredProductsStore}</h2>
                     </div>
                 </a>
             </li>

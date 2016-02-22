@@ -84,7 +84,7 @@ $config['module_router'] =
     [
         [
             'title' => 'Dashboard',
-            'icon' => 'icon-dashboard',
+            'icon' => 'icon-home',
             'child' => [
                 [
                     'title' => 'Dashboard',
@@ -140,11 +140,20 @@ $config['module_router'] =
                     'child' => [
                         [
                             'title' => 'Minimum Stok',
-                            'url' => 'dashboard/product-stock',
+                            'url' => 'dashboard/minimumStock',
                             'module' => 'product'
                         ], [
                             'title' => 'Kadaluwarsa',
-                            'url' => 'dashboard/product-expired',
+                            'url' => 'dashboard/expiredProducts',
+                            'module' => 'product'
+                        ],
+                        [
+                            'title' => 'Minimum Stok Toko',
+                            'url' => 'dashboard/minimumStockStore',
+                            'module' => 'product'
+                        ], [
+                            'title' => 'Kadaluwarsa Produk Toko',
+                            'url' => 'dashboard/expiredProductsStore',
                             'module' => 'product'
                         ]
                     ]
