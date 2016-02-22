@@ -25,10 +25,8 @@
                         <th>Unit</th>
                         <th>Nilai Satuan</th>
                         <th>Brand</th>
-                        <th>Harga Jual</th>
                         <th>Tgl Expired</th>
                         <th>Ukuran</th>
-                        <th>AKL/AKD</th>
                         <th>Stok</th>
                     </tr>
                     </thead>
@@ -43,10 +41,8 @@
                             <td>{$key->unit}</td>
                             <td>{$key->value}</td>
                             <td>{$key->brand}</td>
-                            <td>Rp {$key->sell_price|number_format:0}</td>
                             <td>{$key->date_expired}</td>
                             <td>{$key->size}</td>
-                            <td>{$key->license}</td>
                             <td>{$key->stock_retail}</td>
                         </tr>
                         {assign var=val value=$val+1}
