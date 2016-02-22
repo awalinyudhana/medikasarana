@@ -25,7 +25,7 @@
                         <h2>{$expiredProducts}</h2>
                     </div>
                 </a>
-            </li>}
+            </li>
             <li class="{if $minimumStockStore == 0}bg-success{else}bg-danger{/if}">
                 <a href="{base_url('dashboard/minimumStockStore')}">
                     <div class="page-stats-showcase">

@@ -46,7 +46,7 @@ class ModDashboard extends CI_Model
 
     public function getMinimumStockStoreData()
     {
-        $where = "product_store.`stock` < product.`minimum_stock`";
+        $where = "ps.`stock` < p.`minimum_stock`";
         $this->db->select('*, ps.stock as stock_retail');
         $this->db->from('product_store ps');
         $this->db->join('product p', 'p.id_product = ps.id_product', 'left');
@@ -58,7 +58,7 @@ class ModDashboard extends CI_Model
 
     public function getExpiredProductsStoreData()
     {
-        $where = "(SELECT DATEDIFF(product.`date_expired`, '$this->curDate') AS days) < 30";
+        $where = "(SELECT DATEDIFF(p.`date_expired`, '$this->curDate') AS days) < 30";
         $this->db->select('*, ps.stock as stock_retail');
         $this->db->from('product_store ps');
         $this->db->join('product p', 'p.id_product = ps.id_product', 'left');

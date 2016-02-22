@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/dashboard/models/ModDashboard.php" afterPath="$PROJECT_DIR$/application/modules/dashboard/models/ModDashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/dashboard/views/dashboard.tpl" afterPath="$PROJECT_DIR$/application/modules/dashboard/views/dashboard.tpl" />
     </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModDashboard.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModDashboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/dashboard/models/ModDashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5717439">
+            <state vertical-scroll-proportion="10.791667">
               <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
               <folding />
             </state>
@@ -102,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.tpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.tpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/dashboard/views/dashboard.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.25">
-              <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.33112583">
+              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -143,6 +143,8 @@
       <command text="git config --global user.name" />
       <command text="git config --global user.email" />
       <command text="git config --global user.email &quot;otoy.destroyed@gmail.com&quot;" />
+      <command text="git push origin master" />
+      <command text="git commit -am &quot;add ed and stok&quot;" />
       <command text="git push origin master" />
     </commandsHistory>
   </component>
@@ -200,12 +202,12 @@
         <option value="$PROJECT_DIR$/application/modules/proposal/controllers/Listing.php" />
         <option value="$PROJECT_DIR$/application/modules/proposal/views/proposal_list.tpl" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/modules/dashboard/views/dashboard.tpl" />
         <option value="$PROJECT_DIR$/application/modules/dashboard/controllers/Dashboard.php" />
         <option value="$PROJECT_DIR$/application/modules/dashboard/views/store-stock.tpl" />
         <option value="$PROJECT_DIR$/application/modules/dashboard/views/store-ed.tpl" />
         <option value="$PROJECT_DIR$/application/config/acl.php" />
         <option value="$PROJECT_DIR$/application/modules/dashboard/models/ModDashboard.php" />
+        <option value="$PROJECT_DIR$/application/modules/dashboard/views/dashboard.tpl" />
       </list>
     </option>
   </component>
@@ -899,22 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/dashboard/views/dashboard.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/dashboard/views/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/dashboard/views/store-stock.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.5">
@@ -957,8 +943,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/dashboard/models/ModDashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5717439">
+        <state vertical-scroll-proportion="10.791667">
           <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/dashboard/views/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/dashboard/views/dashboard.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33112583">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
           <folding />
         </state>
       </provider>
