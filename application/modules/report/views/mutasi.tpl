@@ -73,3 +73,19 @@
         </div><!-- /default panel -->
 
 {/block}
+
+
+ELSEIF REPLACE(LOWER(TRIM(_note)),' ','') = "salesorderreturnreplaced
+" THEN
+SELECT c.name INTO _name
+FROM sale_order_retun sor
+JOIN sales_order so ON so.id_sales_order = sor.id_sales_order
+JOIN customer c ON c.id_customer = so.id_customer
+WHERE sor.id_sales_order_return = _id;
+ELSEIF REPLACE(LOWER(TRIM(_note)),' ','') = "salesorderreturnreplacer
+" THEN
+SELECT c.name INTO _name
+FROM sale_order_retun sor
+JOIN sales_order so ON so.id_sales_order = sor.id_sales_order
+JOIN customer c ON c.id_customer = so.id_customer
+WHERE sor.id_sales_order_return = _id;
