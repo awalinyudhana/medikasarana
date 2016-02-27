@@ -43,7 +43,7 @@
 		                        <th>Unit</th>
 		                        <th>Nilai Satuan</th>
 		                        <th>Merek</th>
-                                <th>Stok Sekarang</th>
+                                <th>Jumlah</th>
                                 <th>Keterangan</th>
                             </tr>
                         </thead>
@@ -55,13 +55,13 @@
                                 <td>{$val}</td>
                                 <td>{$key->datetime}</td>
                                 <td>{$key->type}</td>
-                                <td>{$key->referral}</td>
+                                <td>{$key->name}</td>
                                 <td>{$key->product_name}</td>
 	                            <td>{$key->unit}</td>
 	                            <td>{$key->value}</td>
 	                            <td>{$key->brand}</td
                                 <td>{$key->qty}</td>
-                                <td>{$key->note}</td>
+                                <td>{$key->mutasi_note}</td>
                             </tr>
                             {assign var=val value=$val+1}
                         {/foreach}
