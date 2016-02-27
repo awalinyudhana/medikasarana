@@ -15,7 +15,8 @@ class ModMutasi extends CI_Model
         }
 
         $this->db
-                ->select('pm.*, pu.*, pc.*,p.*, p.name AS product_name, pm.referral as name, pm.qty as mutasi_qty, pm.note as mutasi_note')
+                ->select('pm.*, pu.*, pc.*,p.*, p.name AS product_name, getNameMutasi(pm.referral,pm.note)
+                 , pm.qty as mutasi_qty, pm.note as mutasi_note', FALSE)
                 ->from('product_movement pm')
                 ->join('product p', 'p.id_product = pm.id_product')
                 ->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit')
