@@ -61,7 +61,7 @@
 	                            <td>{$key->value}</td>
 	                            <td>{$key->brand}</td
                                 <td>{$key->qty}</td>
-                                <td>{$key->opname_note}</td>
+                                <td>{$key->note}</td>
                             </tr>
                             {assign var=val value=$val+1}
                         {/foreach}
