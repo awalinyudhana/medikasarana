@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="" />
+    <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -35,8 +37,8 @@
       <file leaf-file-name="Mutasi.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/report/controllers/Mutasi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5629139">
-              <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.66225165">
+              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -141,6 +143,8 @@
       <command text="git commit -am &quot;add ed and stok&quot;" />
       <command text="git push origin master" />
       <command text="git status" />
+      <command text="git commit -am &quot;mutasi&quot;" />
+      <command text="git push origin master" />
       <command text="git commit -am &quot;mutasi&quot;" />
       <command text="git push origin master" />
     </commandsHistory>
@@ -898,8 +902,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/report/controllers/Mutasi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5629139">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.66225165">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
           <folding />
         </state>
       </provider>
