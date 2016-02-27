@@ -55,7 +55,7 @@
                                 <td>{$val}</td>
                                 <td>{$key->datetime}</td>
                                 <td>{$key->type}</td>
-                                <td>{$key->name}</td>
+                                <td>{$key->mutasi_name}</td>
                                 <td>{$key->product_name}</td>
 	                            <td>{$key->unit}</td>
 	                            <td>{$key->value}</td>
