@@ -4,7 +4,7 @@
 {block name=content}
         <div class="panel panel-default">
 
-            <div class="panel-heading"><h6 class="panel-title">Laporan Mutasi Barang Gudang</h6></div>
+            <div class="panel-heading"><h6 class="panel-title">Laporan Mutasi Produk Gudang</h6></div>
 
             <div class="panel-body">
                 <!-- <div class="block-inner">
@@ -15,7 +15,7 @@
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Tanggal Opname Gudang : </label>
+                        <label>Tanggal Mutasi Produk Gudang : </label>
                         <div class="row">
                             <div class="col-md-4">
                                 <input type="text" class="from-date form-control" name="date_from" placeholder="Tanggal Mutasi" {if isset($from)}value="{$from}"{/if}>
@@ -73,19 +73,3 @@
         </div><!-- /default panel -->
 
 {/block}
-
-
-ELSEIF REPLACE(LOWER(TRIM(_note)),' ','') = "salesorderreturnreplaced
-" THEN
-SELECT c.name INTO _name
-FROM sale_order_retun sor
-JOIN sales_order so ON so.id_sales_order = sor.id_sales_order
-JOIN customer c ON c.id_customer = so.id_customer
-WHERE sor.id_sales_order_return = _id;
-ELSEIF REPLACE(LOWER(TRIM(_note)),' ','') = "salesorderreturnreplacer
-" THEN
-SELECT c.name INTO _name
-FROM sale_order_retun sor
-JOIN sales_order so ON so.id_sales_order = sor.id_sales_order
-JOIN customer c ON c.id_customer = so.id_customer
-WHERE sor.id_sales_order_return = _id;
