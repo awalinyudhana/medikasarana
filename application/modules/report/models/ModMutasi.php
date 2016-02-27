@@ -11,7 +11,7 @@ class ModMutasi extends CI_Model
     {
         if ($dateFrom) {
             $this->db->where('pm.datetime >=', $dateFrom)
-                ->where('pm.datetime <=', $dateFrom);
+                ->where('pm.datetime <=', date('Y-m-d', strtotime($dateFrom. ' + 1 days')));
         }
 
         $this->db
