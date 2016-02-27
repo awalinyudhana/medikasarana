@@ -18,7 +18,7 @@ class Mutasi extends MX_Controller
             $data['from'] = date('Y-m-d');
         }
 
-        $data['items'] = $this->ModOpname->getItems($data['from']);
+        $data['items'] = $this->ModMutasi->getItems($data['from']);
         $this->parser->parse('opname.tpl', $data);
     }
 }
