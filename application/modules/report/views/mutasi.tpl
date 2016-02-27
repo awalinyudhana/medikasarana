@@ -59,9 +59,8 @@
                                 <td>{$key->product_name}</td>
 	                            <td>{$key->unit}</td>
 	                            <td>{$key->value}</td>
-	                            <td>{$key->brand}</td
+	                            <td>{$key->brand}</td>
                                 <td>{$key->mutasi_qty}</td>
-                                <td>{$key->mutasi_note}</td>
                                 <td>{$key->mutasi_note}</td>
                             </tr>
                             {assign var=val value=$val+1}
