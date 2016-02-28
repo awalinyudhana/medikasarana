@@ -169,6 +169,7 @@
                         <th>Nama Produk</th>
                         <th>Merek</th>
                         <th>Satuan / isi</th>
+                        <th>Stok</th>
                         <th width="100px">Qty</th>
                         <th>Harga</th>
                         <th>Diskon</th>
@@ -190,6 +191,7 @@
                             <td>{$key['name']}</td>
                             <td>{$key['brand']}</td>
                             <td>{$key['unit']} / {$key['value']}</td>
+                            <td>{$key['stock']}</td>
                             <td>
                                 {if $cache['value']['type'] == 0}
                                     <input type="number" id="qty-{$key['id_product']}" value="{$key['qty']}"
