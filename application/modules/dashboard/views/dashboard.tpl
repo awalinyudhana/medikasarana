@@ -82,7 +82,7 @@
     </ul>
 
     <div class="row">
-        {if "purchase_order"|in_array:$roles}
+        {if "sales_order"|in_array:$roles}
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -147,7 +147,7 @@
                 });
             </script>
         {/if}
-        {if "sales_order"|in_array:$roles}
+        {if "purchase_order"|in_array:$roles}
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
