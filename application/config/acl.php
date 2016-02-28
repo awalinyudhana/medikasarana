@@ -595,6 +595,11 @@ $config['module_router'] =
                             'title' => 'Mutasi Produk Gudang',
                             'url' => 'report/mutasi',
                             'module' => 'product_opname'
+                        ],
+                        [
+                            'title' => 'Mutasi Produk Toko',
+                            'url' => 'report/mutasi-store',
+                            'module' => 'product_opname_store'
                         ]
                     ]
                 ]

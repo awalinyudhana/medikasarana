@@ -257,6 +257,8 @@ $route['report/opname-store'] = "report/OpnameStore";
 $route['report/product'] = "report/Product";
 $route['report/product-list'] = "report/Product/items";
 $route['report/product-detail/(:num)/(:num)'] = "report/Product/detail/$1/$2";
+$route['report/mutasi'] = "report/Mutasi";
+$route['report/mutasi-store'] = "report/MutasiStore";
 
 $route['report/retur-penjualan-retail'] = "report/ReturPenjualanRetail";
 $route['report/retur-penjualan'] = "report/ReturPenjualan";
