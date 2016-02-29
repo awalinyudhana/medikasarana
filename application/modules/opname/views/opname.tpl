@@ -29,7 +29,7 @@
                             <thead>
                             <tr>
                                 <th>Barcode</th>
-                                <th>NamA Produk</th>
+                                <th>Nama Produk</th>
                                 <th>Kategori Produk</th>
                                 <th>Satuan</th>
                                 <th>Isi</th>

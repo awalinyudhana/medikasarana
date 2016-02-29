@@ -28,7 +28,7 @@
                     <table class="table table-striped ">
                         <tbody>
                         <tr>
-                            <th>No. Faktur Beli</th>
+                            <th>No Faktur Beli</th>
                             <td class="text-right">{$po->id_purchase_order}</td>
                             <th>Tagihan</th>
                             <td class="text-right">Rp {$po->grand_total|number_format:0}</td>

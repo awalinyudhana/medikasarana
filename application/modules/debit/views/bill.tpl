@@ -36,7 +36,7 @@
                             <td class="text-right text-danger">{$so->date}</td>
                         </tr>
                         <tr>
-                            <th>Konsumen</th>
+                            <th>Nama Konsumen</th>
                             <td class="text-right">{$so->name}</td>
                             <th>Belum Terbayar</th>
                             <td class="text-right">Rp {($so->grand_total - $so->paid)|number_format:0}</td>
