@@ -59,16 +59,16 @@
                                            onclick="return confirm('Proposal {$key->id_proposal} telah di terima oleh {$key->customer_name}')">
                                             Ganti status
                                         </a>
-                                        {if $key->type == 0}
-                                            <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
-                                               class="button btn btn-default ">
-                                                Ubah
-                                            </a>
-                                        {/if}
                                     {else}
                                         <a href="{base_url('sales-order/')}/{$key->id_proposal}"
                                            class="button btn btn-success ">
                                             Sales Order
+                                        </a>
+                                    {/if}
+                                    {if $key->type == 0}
+                                        <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
+                                           class="button btn btn-default ">
+                                            Ubah
                                         </a>
                                     {/if}
                                     <a href="{base_url('proposal/usang')}/{$key->id_proposal}"
