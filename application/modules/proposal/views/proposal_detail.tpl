@@ -302,7 +302,7 @@
                                     <th>Merek</th>
                                     <th>Ukuran</th>
                                     <th>Satuan</th>
-                                    <th>Isi</th
+                                    <th>Isi</th>
                                     <th>Harga Jual</th>
                                     <th>Stok Gudang</th>
                                     <th>Pilihan</th>
