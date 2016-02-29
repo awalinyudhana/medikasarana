@@ -100,7 +100,7 @@ class ModelRetailReturn extends CI_Model
 
     public function getDataReturn($id_return){
         return $this->db
-            ->select('*, staff.name as staff_name, store.name as store_name')
+            ->select('*, staff.name as staff_name, store.name as store_name, retail_return.date as date_return')
             ->from('retail_return')
             ->join('retail','retail.id_retail = retail_return.id_retail')
             ->join('staff', 'staff.id_staff = retail_return.id_staff')

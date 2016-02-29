@@ -21,10 +21,10 @@ class History extends MX_Controller
 
         $crud->set_table('retail_return')
             ->columns('id_retail_return', 'date', 'id_staff', 'id_retail')
-            ->display_as('id_retail', 'No Faktur')
+            ->display_as('id_retail_return', 'No Nota Return')
+            ->display_as('id_retail', 'No Nota Retail')
             ->display_as('id_staff', 'Staff')
             ->display_as('date', 'Tanggal Transaksi')
-            ->display_as('id_retail_return', 'No Faktur Retur')
             ->set_relation('id_staff', 'staff', 'name')
             ->add_action('Detail', '', '', 'read-icon', array($this, 'checkout'))
             ->unset_read()

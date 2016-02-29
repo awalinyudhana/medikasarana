@@ -6,7 +6,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Order Jual Cheockout</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -33,10 +33,10 @@
 
                 <div class="col-sm-3 pull-right">
                     <ul>
-                        <li>No Faktur Baru # <strong class="text-danger pull-right">{$master->id_sales_order}</strong>
+                        <li>No Faktur Jual Baru # <strong class="text-danger pull-right">{$master->id_sales_order}</strong>
                         </li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Tanggal Faktur Jual <strong class="pull-right">{$master->date}</strong></li>
                         <li>Jatuh Tempo : <strong class="pull-right">{$master->due_date}</strong></li>
                     </ul>
                 </div>
@@ -50,13 +50,13 @@
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan / isi</th>
-                        <th width="100px">Qty</th>
-                        <th>Harga</th>
+                        <th>Satuan / Isi</th>
+                        <th width="100px">Jumlah</th>
+                        <th>Harga Jual</th>
                         <th>Diskon</th>
                         <!-- join faktur -->
                         <th>Subtotal</th>
-                        <th>Ppn</th>
+                        <th>PPN</th>
                         <th>Total</th>
                     </tr>
                     </thead>
@@ -107,11 +107,11 @@
             <div class="row invoice-payment">
 
                 <div class="col-sm-4 pull-right">
-                    <h6>Summary:</h6>
+                    <h6>Ringkasan :</h6>
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>DPP:</th>
+                            <th>DPP :</th>
                             <td class="text-right">Rp
                                 <span id="sum-dpp-text"><strong>{$total_first|number_format:0}</strong> </span>
                             </td>
@@ -119,14 +119,14 @@
                         <tr>
                             <th>
                                 <label class="radio">
-                                    PPN 10 %
+                                    PPN 10 :
                                 </label>
                             </th>
                             <td class="text-right">Rp <span
                                         id="sum-ppn-text">{$ppn_total_first|number_format:0}</span></td>
                         </tr>
                         <tr>
-                            <th>Total:</th>
+                            <th>Grand Total :</th>
                             <td class="text-right text-danger">
                                 <h6>Rp <span
                                             id="sum-grand_total-text">{($total_first+$ppn_total_first)|number_format:0} </span>
@@ -155,11 +155,11 @@
 
                 <div class="col-sm-3 pull-right">
                     <ul>
-                        <li>No Faktur Baru # <strong class="text-danger pull-right">{$master_second->id_sales_order}</strong>
+                        <li>No Faktur Jual Baru # <strong class="text-danger pull-right">{$master_second->id_sales_order}</strong>
                         </li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
-                        <li>Jatuh Tempo : <strong class="pull-right">{$master->due_date}</strong></li>
+                        <li>Tanggal Faktur Jual <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Jatuh Tempo <strong class="pull-right">{$master->due_date}</strong></li>
                     </ul>
                 </div>
             </div>
@@ -171,11 +171,11 @@
                         <th>Nama Produk</th>
                         <th>Merek</th>
                         <th>Satuan / isi</th>
-                        <th width="100px">Qty</th>
-                        <th>Harga</th>
+                        <th width="100px">Jumlah</th>
+                        <th>Harga Jual</th>
                         <th>Diskon</th>
                             <th>Subtotal</th>
-                            <th>Ppn</th>
+                            <th>PPN</th>
                         <th>Total</th>
                     </tr>
                     </thead>
@@ -225,11 +225,11 @@
             </div>
             <div class="row invoice-payment">
                 <div class="col-sm-4 pull-right">
-                    <h6>Summary:</h6>
+                    <h6>Ringkasan :</h6>
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>DPP:</th>
+                            <th>DPP :</th>
                             <td class="text-right">Rp
                                 <span id="sum-dpp-text"><strong>{$total_second|number_format:0}</strong> </span>
                             </td>
@@ -237,14 +237,14 @@
                         <tr>
                             <th>
                                 <label class="radio">
-                                    PPN 10 %
+                                    PPN 10 :
                                 </label>
                             </th>
                             <td class="text-right">Rp <span
                                         id="sum-ppn-text">{$ppn_total_second|number_format:0}</span></td>
                         </tr>
                         <tr>
-                            <th>Total:</th>
+                            <th>Grand Total :</th>
                             <td class="text-right text-danger">
                                 <h6>Rp <span
                                             id="sum-grand_total-text">{($total_second+$ppn_total_second)|number_format:0} </span>
@@ -266,7 +266,7 @@
                 <div class="col-sm-4">
                     <div class="btn-group pull-right">
                         <a href="{base_url('extract')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> Pisah Faktur baru</a>
+                            <i class="icon-box-add"></i> Pisah Faktur Baru</a>
                         <!-- <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button> -->
                     </div>
                 </div>

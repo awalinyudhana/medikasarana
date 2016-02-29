@@ -24,12 +24,12 @@
 
                 <div class="col-sm-3 pull-right">
                     <ul>
-                        <li>No Faktur # <strong class="text-danger pull-right">{$master->id_sales_order}</strong></li>
+                        <li>No Faktur Jual # <strong class="text-danger pull-right">{$master->id_sales_order}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Tanggal Faktur Jual : <strong class="pull-right">{$master->date}</strong></li>
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('sales-order/returns/delete')}" class=" button btn btn-danger">
-                                <i class="icon-eject"></i>Ganti No Nota</a>
+                                <i class="icon-eject"></i>Ganti No Faktur Lain</a>
                         </li>
                     </ul>
                 </div>
@@ -46,13 +46,13 @@
                         <th>Nama Produk</th>
                         <th>Merek</th>
                         <th>Satuan</th>
-                        <th>Qty</th>
-                        <th>Retur</th>
+                        <th>Jumlah</th>
                         <th>Terkirim</th>
-                        <th>Harga</th>
-                        <th>Diskon Harga</th>
+                        <th>Retur</th>
+                        <th>Harga Jual</th>
+                        <th>Diskon</th>
                         <th>Subtotal</th>
-                        <th>Action</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -65,6 +65,7 @@
                             <td>{$key['brand']}</td>
                             <td style="width:100px;">{$key['unit']} ( {$key['value']} )</td>
                             <td>{$key['qty']}</td>
+                            <td>{$key['delivered']}</td>
                             <td>
                                 {if !empty($key['qty_return'])}
                                     {$key['return'] + $key['qty_return']}
@@ -72,7 +73,6 @@
                                     {$key['return']}
                                 {/if}
                             </td>
-                            <td>{$key['delivered']}</td>
                             <td style="width:130px;" class="text-right">Rp {$key['price']|number_format:0}</td>
                             <td style="width:130px;" class="text-right">Rp {$key['discount']|number_format:0}</td>
                             <td style="width:130px;" class="text-right">
@@ -105,9 +105,9 @@
                             <th>Barcode</th>
                             <th>Nama Produk</th>
                             <th>Merek</th>
-                            <th>Satuan</th>
-                            <th>Qty</th>
-                            <th>Cashback</th>
+                            <th>Satuan / Isi</th>
+                            <th>Kembali Barang</th>
+                            <th>Kembali Uang</th>
                             <th>Keterangan</th>
                         </tr>
                         </thead>
@@ -160,7 +160,7 @@
                                 <div class="form-actions text-right">
                                     <button type="submit" name="save" value="Save" class="btn btn-success"><i
                                                 class="icon-checkmark">
-                                        </i> Process
+                                        </i> Simpan
                                     </button>
                                 </div>
                             </div>

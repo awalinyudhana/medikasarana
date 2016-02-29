@@ -31,14 +31,14 @@
                             <thead>
                             <tr>
                                 <th>Barcode</th>
-                                <th>Name</th>
-                                <th>Kategory</th>
-                                <th>Satuan</th>
-                                <th>Isi</th>
+                                <th>Nama Produk</th>
+                                <th>Kategori Produk</th>
                                 <th>Merek</th>
                                 <th>Ukuran</th>
+                                <th>Satuan</th>
+                                <th>Isi</th>
                                 <th>Harga Jual</th>
-                                <th>Action</th>
+                                <th>Pilihan</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,16 +47,16 @@
                                     <td>{$products['barcode']}</td>
                                     <td>{$products['name']}</td>
                                     <td>{$products['category']}</td>
-                                    <td>{$products['unit']}</td>
-                                    <td>{$products['value']}</td>
                                     <td>{$products['brand']}</td>
                                     <td>{$products['size']}</td>
+                                    <td>{$products['unit']}</td>
+                                    <td>{$products['value']}</td>
                                     <td width="120px">
                                         Rp {$products['sell_price']|number_format:0}
                                     </td>
                                     <td>
                                         <a href="{base_url('pricing/setting/')}/{$products['id_product']}"
-                                           class="button btn btn-info " data-dismiss="modal"> Update
+                                           class="button btn btn-info " data-dismiss="modal"> Ubah
                                         </a>
 
                                     </td>

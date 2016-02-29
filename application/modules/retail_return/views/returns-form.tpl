@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-actions">
-                                            <input type="submit" class="btn btn-block btn-success" value="Submit">
+                                            <input type="submit" class="btn btn-block btn-success" value="Proses">
                                         </div>
                                     </div>
                                 </div>

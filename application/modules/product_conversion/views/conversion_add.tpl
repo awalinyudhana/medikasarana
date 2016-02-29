@@ -27,7 +27,7 @@
                                 </div>
                             {/if}
                             <div class="col-sm-12">
-                                <h6>Konversi Dar Produk:</h6>
+                                <h6>Rincian Produk:</h6>
                                 <table class="table">
                                     <tbody>
                                     <tr>
@@ -53,7 +53,7 @@
                                         <td class="text-right">{$product->stock}</td>
                                     </tr>
                                     <tr>
-                                        <th>Qty:</th>
+                                        <th>Jumlah:</th>
                                         <td class="text-right">
                                             <div class="col-sm-8 pull-right {if form_error('qty')}has-warning{/if}">
                                                 <input type="number" value="{set_value('qty')}" class="form-control"
@@ -68,7 +68,7 @@
                                 </table>
                             </div>
                             <div class="col-sm-12">
-                                <input type="submit" class="btn btn-block btn-success" value="Submit">
+                                <input type="submit" class="btn btn-block btn-success" value="Konversi">
                             </div>
                         </form>
                     </div>

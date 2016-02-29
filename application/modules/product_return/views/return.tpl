@@ -42,15 +42,16 @@
                         <tr>
                             <th>No</th>
                             <th>Barcode</th>
-                            <th>Name</th>
+                            <th>Nama Produk</th>
+                            <th>Kategori Produk</th>
                             <th>Satuan</th>
                             <th>Isi</th>
                             <th>Merek</th>
                             <th>Stok</th>
                             <th>Ukuran</th>
-                            <th>Harga</th>
-                            <th>Qty</th>
-                            <th>Action</th>
+                            {*<th>Harga</th>*}
+                            <th>Jumlah</th>
+                            <th>Pilihan</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -63,12 +64,13 @@
 
                                 <td>{$key['barcode']}</td>
                                 <td>{$key['name']}</td>
+                                <td>{$key['category']}</td>
                                 <td>{$key['unit']}</td>
                                 <td>{$key['value']}</td>
                                 <td>{$key['brand']}</td>
                                 <td>{$key['stock']}</td>
                                 <td>{$key['size']}</td>
-                                <td width="120px"> Rp {$key['sell_price']|number_format:0}</td>
+                                {*<td width="120px"> Rp {$key['sell_price']|number_format:0}</td>*}
                                 <td width="90px" class="{if $key['store_stock'] < $key['qty']}has-warning{/if}">
                                     
                                     <input type="hidden" name="id_product_store[]" value="{$key['id_product_store']}">
@@ -121,7 +123,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Daftar Product</h4>
+                    <h4 class="modal-title">Daftar Produk</h4>
                 </div>
 
                 <!-- New invoice template -->
@@ -132,15 +134,15 @@
                                 <thead>
                                 <tr>
                                     <th>Barcode</th>
-                                    <th>Name</th>
-                                    <th>Kategory</th>
+                                    <th>Nama Produk</th>
+                                    <th>Kategori Produk</th>
                                     <th>Satuan</th>
                                     <th>Isi</th>
                                     <th>Merek</th>
                                     <th>Stok</th>
                                     <th>Ukuran</th>
-                                    <th>Harga</th>
-                                    <th>Action</th>
+                                    {*<th>Harga</th>*}
+                                    <th>Pilihan</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -154,7 +156,7 @@
                                         <td>{$products['brand']}</td>
                                         <td>{$products['store_stock']}</td>
                                         <td>{$products['size']}</td>
-                                        <td>Rp {$products['sell_price']|number_format:0}</td>
+                                        {*<td>Rp {$products['sell_price']|number_format:0}</td>*}
                                         <td>
                                             <a
                                                     class="button btn btn-info  btn-icon"
@@ -194,7 +196,7 @@
 
                                 <div class="col-md-12 ">
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label">Qty: </label>
+                                        <label class="col-sm-4 control-label">Jumlah: </label>
 
                                         <div class="col-sm-6 {if form_error('qty')}has-warning{/if}">
                                             <input type="hidden" name="id_product_store" id="id-product-store" value="">
@@ -207,7 +209,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-block btn-success" value="Submit">
+                                        <input type="submit" class="btn btn-block btn-success" value="Pindah">
                                     </div>
                                 </div>
                             </form>

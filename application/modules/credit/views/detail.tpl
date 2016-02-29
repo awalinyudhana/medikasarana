@@ -21,10 +21,10 @@
                     </span>
                     </div>
 
-                    <div class="col-sm-3 pull-right">
+                    <div class="col-sm-4 pull-right">
                         <ul>
-                            <li>No Faktur # <strong class="text-danger pull-right">{$po->id_purchase_order}</strong></li>
-                            <li>Tanggal Nota Transaksi : <strong class="pull-right">{$po->date}</strong></li>
+                            <li>No Faktur Beli# <strong class="text-danger pull-right">{$po->invoice_number}</strong></li>
+                            <li>Tanggal Faktur Beli : <strong class="pull-right">{$po->date}</strong></li>
                             <li>Tanggal Jatuh Tempo: <strong class="pull-right">{$po->due_date}</strong></li>
                         </ul>
                     </div>
@@ -40,7 +40,7 @@
                         <th>Tanggal Penarikan</th>
                         <th>Staff</th>
                         <th>Jumlah Bayar</th>
-                        <th>Type Pembayaran</th>
+                        <th>Tipe Pembayaran</th>
                         <th>No Resi</th>
                         <th>Bukti Pembayaran</th>
                         <th>Status Pembayaran</th>
@@ -119,7 +119,7 @@
                         <a href="{base_url('credit')}" class="btn btn-info button">
                             <i class="icon-box-add"></i> Daftar Hutang</a>
                         <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
-                            <i class="icon-print2"></i> Print</button>
+                            <i class="icon-print2"></i> Cetak</button>
                     </div>
                 </div>  
 
@@ -167,9 +167,9 @@
                         NPWP : {$po->npwp}
                     </td>
                     <td align="left" valign="top">
-                        No Faktur : #{$po->id_purchase_order}
+                        No Faktur Beli : #{$po->invoice_number}
                         </br>
-                        Tanggal Nota Transaksi: {$po->date}
+                        Tanggal Faktur Beli: {$po->date}
                         </br>
                         Tanggal Jatuh Tempo: {$po->due_date}
                     </td>
@@ -186,7 +186,7 @@
                         <th>Tanggal Penarikan</th>
                         <!-- <th>Staff</th> -->
                         <th>Jumlah Bayar</th>
-                        <th>Type Pembayaran</th>
+                        <th>Tipe Pembayaran</th>
                         <th>No Resi</th>
                         <!-- <th>Bukti Pembayaran</th> -->
                         <th>Status Pembayaran</th>

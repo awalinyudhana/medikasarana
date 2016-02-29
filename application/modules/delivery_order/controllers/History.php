@@ -21,9 +21,9 @@ class History extends MX_Controller
 
         $crud->set_table('delivery_order')
             ->columns('id_delivery_order','id_sales_order', 'date_printed', 'date_sending', 'id_staff')
-            ->display_as('id_delivery_order', 'No Faktur')
+            ->display_as('id_delivery_order', 'No Order Kirim')
             ->display_as('id_sales_order', 'No Faktur Jual')
-            ->display_as('id_staff', 'Staff')
+            ->display_as('id_staff', 'Staff Pengiriman')
             ->display_as('date_printed', 'Tanggal Pembuatan')
             ->display_as('date_sending', 'Tanggal Pengiriman')
             ->set_relation('id_staff', 'staff', 'name')

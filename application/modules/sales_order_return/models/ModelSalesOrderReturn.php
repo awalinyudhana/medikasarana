@@ -91,7 +91,7 @@ class ModelSalesOrderReturn extends CI_Model
 
     public function getDataReturn($id_return){
         return $this->db
-            ->select('*, staff.name as staff_name, customer.name as customer_name')
+            ->select('*, staff.name as staff_name, customer.name as customer_name, sales_order_return.date as date_return')
             ->from('sales_order_return')
             ->join('sales_order','sales_order.id_sales_order = sales_order_return.id_sales_order')
             ->join('staff', 'staff.id_staff = sales_order_return.id_staff')

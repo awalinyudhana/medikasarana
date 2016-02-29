@@ -15,7 +15,7 @@
                     </h6>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3">Customer:</label>
+                    <label class="col-sm-3">Konsumen :</label>
 
                     <div class="col-sm-4  {if form_error('id_customer')}has-warning{/if}">
                         {form_dropdown('id_customer',
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3">Type:</label>
+                    <label class="col-sm-3">Jenis Proposal :</label>
 
                     <div class="col-sm-4">
                         <div class="radio">
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3">PPn:</label>
+                    <label class="col-sm-3">PPN:</label>
 
                     <div class="col-sm-4">
                         <div class="radio">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="submit" class="btn btn-block btn-success" value="Submit">
+                        <input type="submit" class="btn btn-block btn-success" value="Buat Proposal Baru">
                     </div>
                 </div>
             </div>

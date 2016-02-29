@@ -30,8 +30,8 @@
                 <div class="col-sm-4">
                     <ul class="invoice-details">
                         <li>Jenis Proposal <strong class="text-info">{$proposal_type}</strong></li>
-                        <li>PPn status # <strong class="text-info">{$status_ppn}</strong></li>
-                        <li>Plafond <strong class="text-info">Rp {$master->plafond|number_format:0}</strong></li>
+                        <li>PPN status <strong class="text-info">{$status_ppn}</strong></li>
+                        <li>Plafon <strong class="text-info">Rp {$master->plafond|number_format:0}</strong></li>
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('sales-order/delete')}" class=" button btn btn-danger">
                                 <i class="icon-eject"></i>Ganti Dengan Proposal Lain</a>
@@ -168,16 +168,16 @@
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan / isi</th>
-                        <th>Stok</th>
-                        <th width="100px">Qty</th>
-                        <th>Harga</th>
+                        <th>Satuan / Isi</th>
+                        <th>Stok Gudang</th>
+                        <th width="100px">Jumlah</th>
+                        <th>Harga Jual</th>
                         <th>Diskon</th>
                         <!-- join faktur -->
                         <th>Subtotal</th>
-                        <th>Ppn</th>
+                        <th>PPN</th>
                         <th>Total</th>
-                        <th>Action</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -210,7 +210,6 @@
                             <td style="width:100px;" class="text-right">
                                 Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
                             </td>
-                            <!-- join faktur -->
                             {if $cache['value']['status_ppn'] == 1}
                                 {assign var=ppn value=$ppn+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
                                 <td style="width:100px;" class="text-right">
@@ -253,11 +252,11 @@
                     <div class="row invoice-payment">
 
                         <div class="col-sm-4 pull-right">
-                            <h6>Summary:</h6>
+                            <h6>Ringkasan :</h6>
                             <table class="table">
                                 <tbody>
                                 <tr>
-                                    <th>Jatuh Tempo:</th>
+                                    <th>Jatuh Tempo :</th>
                                     <td class="text-right">
                                         <div class="form-group">
                                             <div class="row">
@@ -272,7 +271,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>DPP:</th>
+                                    <th>DPP :</th>
                                     <td class="text-right">Rp
                                         <span id="sum-dpp-text"><strong>{$total|number_format:0}</strong> </span>
                                     </td>
@@ -285,7 +284,7 @@
                                                 <!-- <input type="checkbox" name="status_ppn" class="styled"
                                                 onclick="ppnCheck()"> -->
                                             {/if}
-                                            PPN 10 %
+                                            PPN :
                                         </label>
                                     </th>
                                     <td class="text-right">Rp <span
@@ -294,7 +293,7 @@
 
 
                                 <tr>
-                                    <th>Total:</th>
+                                    <th>Total :</th>
                                     <td class="text-right text-danger">
                                         <h6>Rp <span
                                                     id="sum-grand_total-text">{($total+$ppn_total)|number_format:0} </span>
@@ -303,7 +302,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="text-right text-warning">
-                                      * <i>Maksimal jumlah faktur Rp {$master->plafond|number_format:0}</i>
+                                      * <i>Plafon maksimal per faktur Rp {$master->plafond|number_format:0}</i>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -311,7 +310,7 @@
                             <div class="btn-group right-box">
                                 <button type="submit" name="save" class="btn block full-width btn-success"><i
                                             class="icon-checkmark">
-                                    </i> Checkout
+                                    </i> Proses
                                 </button>
                             </div>
                         </div>

@@ -40,13 +40,13 @@
                 </div>
                 <div class="col-sm-4">
                     <ul class="invoice-details">
-                        <li>No Nota # <strong class="text-danger">{$cache['value']['invoice_number']}</strong></li>
-                        <li>PPn status # <strong class="text-info">{$status_ppn}</strong></li>
-                        <li>Tanggal Nota Transaksi: <strong>{$cache['value']['date']}</strong></li>
-                        <li>Jatuh Tempo Pembayaran: <strong>{$cache['value']['due_date']}</strong></li>
+                        <li>No Faktur Beli # <strong class="text-danger">{$cache['value']['invoice_number']}</strong></li>
+                        <li>PPN status # <strong class="text-info">{$status_ppn}</strong></li>
+                        <li>Tanggal Faktur Beli <strong>{$cache['value']['date']}</strong></li>
+                        <li>Jatuh Tempo Pembayaran <strong>{$cache['value']['due_date']}</strong></li>
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('purchase-order/delete')}" class=" button btn btn-danger">
-                                <i class="icon-eject"></i>New Purchase Order</a>
+                                <i class="icon-eject"></i>Order Beli Baru</a>
                         </li>
                     </ul>
                 </div>
@@ -68,7 +68,7 @@
                     <form action="{base_url('purchase-order/detail')}" role="form" method="post">
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Barcode: </label>
+                                <label class="col-sm-4 control-label">Barcode : </label>
 
                                 <div class="col-md-8">
                                     <input type="hidden" name="id_product" value="{set_value('id_product')}"
@@ -81,7 +81,7 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Qty: </label>
+                                <label class="col-sm-4 control-label">Jumlah : </label>
 
                                 <div class="col-md-4 {if form_error('qty')}has-warning{/if}">
                                     <input type="number" name="qty" value="{set_value('qty')}" id="input-qty"
@@ -92,7 +92,7 @@
 
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Harga Beli: </label>
+                                <label class="col-sm-4 control-label">Harga Beli : </label>
 
                                 <div class="col-md-7 {if form_error('price')}has-warning{/if}">
                                     <div class="input-group">
@@ -107,7 +107,7 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Diskon: </label>
+                                <label class="col-sm-4 control-label">Diskon : </label>
 
                                 <div class="col-md-7 {if form_error('discount_total')}has-warning{/if}">
                                     <div class="input-group">
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <input type="submit" name="add_item" class="btn btn-block btn-success" value="Submit">
+                            <input type="submit" name="add_item" class="btn btn-block btn-success" value="Tambah">
                         </div>
                     </form>
                 </div>
@@ -144,29 +144,29 @@
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Nama Produk</label>
+                            <label>Nama Produk :</label>
                             <h6 id="text-name"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Kategori:</label>
+                            <label>Kategori :</label>
                             <h6 id="text-category"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Merek</label>
+                            <label>Merek :</label>
                             <h6 id="text-brand"></h6>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <label>Satuan:</label>
+                            <label>Satuan :</label>
                             <h6 id="text-unit"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Isi Satuan:</label>
+                            <label>Isi Satuan :</label>
                             <h6 id="text-value"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Ukuran</label>
+                            <label>Ukuran :</label>
                             <h6 id="text-size"></h6>
                         </div>
                     </div>
@@ -185,12 +185,12 @@
                             <th>Nama Produk</th>
                             <th>Merek</th>
                             <th>Satuan / isi</th>
-                            <th style="width:90px;">Qty</th>
-                            <th style="width:100px;">Harga</th>
-                            <th style="width:100px;">Total</th>
+                            <th style="width:90px;">Jumlah</th>
+                            <th style="width:100px;">Harga Beli</th>
+                            <th style="width:100px;">Sub Total</th>
                             <th style="width:100px;">Diskon</th>
                             <th style="width:100px;">Total Diskon</th>
-                            <th>Action</th>
+                            <th>Pilihan</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -249,17 +249,17 @@
                       onsubmit="return confirm('Process Data');">
                     <div class="row invoice-payment">
                         <div class="col-sm-4 pull-right">
-                            <h6>Summary:</h6>
+                            <h6>Ringkasan :</h6>
                             <table class="table">
                                 <tbody>
-                                    <th>Total:</th>
+                                    <th>Total :</th>
                                     <td class="text-right">
                                         <span id="sum-total-text"><strong>Rp {$total|number_format:0}</strong> </span>
                                     </td>
                                     <input type="hidden" name="total" value="{$total}">
                                 </tr> 
                                 <tr>
-                                    <th>Diskon:</th>
+                                    <th>Diskon :</th>
 
                                     <td class="text-right">
                                         <span id="sum-discount_price-text">
@@ -276,7 +276,7 @@
 				                {if $cache['value']['status_ppn'] == 1}
                                    	{assign var=ppn value=$dpp * 0.1}
                                 	<tr>
-                                 		<th>DPP:</th>
+                                 		<th>DPP :</th>
                                     		<td class="text-right">
                                         		<span id="sum-discount_price-text">
                                             		<strong>Rp {$dpp|number_format:0}</strong> </span>
@@ -285,7 +285,7 @@
                                 	</tr>
 
                                 	<tr>
-                                   		<th>PPN:</th>
+                                   		<th>PPN :</th>
                                     		<td class="text-right">
                                         		<span id="sum-discount_price-text">
                                             <strong>Rp {$ppn|number_format:0}</strong> </span>
@@ -298,7 +298,7 @@
 				                {/if}
                                 <tr>
                                     {assign var=grand_total value=$total - $total_discount + $ppn}
-                                    <th>Grand Total:</th>
+                                    <th>Grand Total :</th>
 
                                     <td class="text-right">
                                         <span id="sum-discount_price-text">
@@ -307,11 +307,11 @@
                                     <input type="hidden" name="grand_total" value="{$grand_total}">
                                 </tr>
                                 <tr>
-                                    <th>Bukti Pembelian:</th>
+                                    <th>Bukti Pembelian :</th>
                                     <td class="text-right text-danger">
                                         <input type="file" name="file" class="styled form-control"
                                                id="report-screenshot">
-                                        <span class="help-block">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                        <span class="help-block">Format file yang diterima : gif, png, jpg. Ukuran maksimal 2Mb</span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -319,7 +319,7 @@
                             <div class="btn-group right-box">
                                 <button type="submit" name="save" value="save"
                                         class="btn block full-width btn-success"><i class="icon-checkmark">
-                                    </i> Checkout
+                                    </i> Simpan
                                 </button>
                             </div>
                         </div>
@@ -338,7 +338,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Daftar Product</h4>
+                    <h4 class="modal-title">Daftar Produk</h4>
                 </div>
 
                 <!-- New invoice template -->
@@ -351,12 +351,12 @@
                                     <th>Barcode</th>
                                     <th>Name</th>
                                     <th>Kategori</th>
-                                    <th>Satuan</th>
-                                    <th>Isi</th>
                                     <th>Merek</th>
                                     <th>Ukuran</th>
+                                    <th>Satuan</th>
+                                    <th>Isi</th>
                                     <th>Stok</th>
-                                    <th>Action</th>
+                                    <th>Pilihan</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -365,10 +365,10 @@
                                         <td>{$products['barcode']}</td>
                                         <td>{$products['name']}</td>
                                         <td>{$products['category']}</td>
-                                        <td>{$products['unit']}</td>
-                                        <td>{$products['value']}</td>
                                         <td>{$products['brand']}</td>
                                         <td>{$products['size']}</td>
+                                        <td>{$products['unit']}</td>
+                                        <td>{$products['value']}</td>
                                         <td>{$products['stock']}</td>
                                         <td>
                                             <a href="#" onclick="idParam({$products['id_product']})"

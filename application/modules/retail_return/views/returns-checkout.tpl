@@ -5,7 +5,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Retur Invoice</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -30,11 +30,11 @@
 
                 <div class="col-sm-3 pull-right">
                     <ul>
-                        <li>No Faktur Retur# <strong class="text-danger pull-right">{$master->id_retail_return}</strong>
+                        <li>No Nota Retur # <strong class="text-danger pull-right">{$master->id_retail_return}</strong>
                         </li>
-                        <li>No Faktur Retail# <strong class="text-danger pull-right">{$master->id_retail}</strong></li>
+                        <li>No Nota Retail# <strong class="text-danger pull-right">{$master->id_retail}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Tanggal Nota Retur <strong class="pull-right">{$master->date_return}</strong></li>
                     </ul>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         <th>Merek</th>
                         <th>Satuan / Isi</th>
                         <th>Jumlah</th>
-                        <th>Kembali</th>
+                        <th>Kembali Uang</th>
                         <th>Keterangan</th>
                     </tr>
                     </thead>
@@ -105,16 +105,16 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <th>Total:</th>
+                                <th>Total :</th>
                                 <td class="text-right">Rp {$total_cashback|number_format:0}</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="btn-group pull-right">
                         <a href="{base_url('retail')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Retail</a>
+                            <i class="icon-box-add"></i> Order Retail Baru</a>
                         <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
-                            <i class="icon-print2"></i> Print</button>
+                            <i class="icon-print2"></i> Cetak</button>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                     <td>
                         #{$master->id_retail_return} / #{$master->id_retail} / {$master->staff_name} /
                         </br>
-                        {$master->date}
+                        {$master->date_return}
                     </td>
                 </tr>
             </table>
@@ -158,7 +158,7 @@
                     <th>Merek</th>
                     <th>Satuan / Isi</th>
                     <th>Jumlah</th>
-                    <th>Kembali</th>
+                    <th>Kembali Uang</th>
                     <th>Keterangan</th>
                 </tr>
                 </thead>

@@ -6,7 +6,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Order Jual Cheockout</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -33,10 +33,10 @@
 
                 <div class="col-sm-3 pull-right">
                     <ul>
-                        <li>No Faktur Baru # <strong class="text-danger pull-right">{$master->id_sales_order}</strong></li>
+                        <li>No Faktur Jual Baru # <strong class="text-danger pull-right">{$master->id_sales_order}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
-                        <li>Jatuh Tempo : <strong class="pull-right">{$master->due_date}</strong></li>
+                        <li>Tanggal Faktur Jual <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Jatuh Tempo <strong class="pull-right">{$master->due_date}</strong></li>
                     </ul>
                 </div>
             </div>
@@ -51,11 +51,11 @@
                     <th>Nama Produk</th>
                     <th>Merek</th>
                     <th>Satuan / isi</th>
-                    <th>Qty</th>
-                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Harga Jual</th>
                     <th>Diskon</th>
                     <th>Subtotal</th>
-                    <th>Ppn</th>
+                    <th>PPN</th>
                     <th>Total</th>
                 </tr>
                 </thead>
@@ -112,14 +112,15 @@
                 </div>
 
                 <div class="col-sm-4">
+                    <h6>Ringkasan :</h6>
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>Total:</th>
+                            <th>DPP :</th>
                             <td class="text-right">Rp {$total|number_format:0}</td>
                         </tr>
                         <tr>
-                            <th>PPn:</th>
+                            <th>PPN :</th>
                             <td class="text-right">Rp {$ppn_total|number_format:0}</td>
                         </tr>
 
@@ -134,7 +135,7 @@
                     </table>
                     <div class="btn-group pull-right">
                         <a href="{base_url('join')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Join</a>
+                            <i class="icon-box-add"></i> Bagung Faktur Baru</a>
                         <!-- <button type="button" class="btn btn-primary"><i class="icon-print2"></i> Print</button> -->
                     </div>
                 </div>

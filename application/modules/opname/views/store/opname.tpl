@@ -29,14 +29,14 @@
                             <thead>
                             <tr>
                                 <th>Barcode</th>
-                                <th>Name</th>
-                                <th>Kategory</th>
+                                <th>Nama Produk</th>
+                                <th>Kategori Produk</th>
                                 <th>Satuan</th>
                                 <th>Isi</th>
                                 <th>Merek</th>
                                 <th>Ukuran</th>
                                 <th>Stok</th>
-                                <th>Action</th>
+                                <th>Pilihan</th>
                             </tr>
                             </thead>
                             <tbody>

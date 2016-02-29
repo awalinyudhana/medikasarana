@@ -6,7 +6,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Order Kirim Cheockout</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -33,17 +33,17 @@
 
                 <div class="col-sm-3">
                     <ul>
-                        <li>No Delivery Order <strong class="text-danger pull-right">#{$do->id_delivery_order}</strong>
+                        <li>No Order Kirim<strong class="text-danger pull-right">#{$do->id_delivery_order}</strong>
                         </li>
                         <li>Staff Pengirim <strong class="pull-right">{$do->name} </strong></li>
-                        <li>Tanggal Kirim : <strong class="pull-right">{$do->date_sending}</strong></li>
+                        <li>Tanggal Kirim <strong class="pull-right">{$do->date_sending}</strong></li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
                     <ul>
-                        <li>No Faktur <strong class="text-danger pull-right">#{$master->id_sales_order}</strong></li>
+                        <li>No Faktur Jual <strong class="text-danger pull-right">#{$master->id_sales_order}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Tanggal Faktur Jual <strong class="pull-right">{$master->date}</strong></li>
                         {*<li>Jatuh Tempo : <strong class="pull-right">{$master->due_date}</strong></li>*}
                         {*<li>PPn status <strong class="text-info pull-right">{$status_ppn}</strong></li>*}
                     </ul>
@@ -58,8 +58,8 @@
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan / isi</th>
-                        <th>Qty</th>
+                        <th>Satuan / Isi</th>
+                        <th>Jumlah</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -90,7 +90,7 @@
                 <div class="col-sm-4">
                     <div class="btn-group pull-right">
                         <a href="{base_url('delivery-order')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Delivery Order</a>
+                            <i class="icon-box-add"></i>Order Kirim Baru</a>
                         <!-- <button type="button" onclick="print_doc();"  class="btn btn-primary"><i class="icon-print2"></i> Print</button> -->
                     </div>
                 </div>

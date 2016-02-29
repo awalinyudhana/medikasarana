@@ -89,7 +89,7 @@ class Dashboard extends MX_Controller
         $dataPembelian = $this->ModDashboard->getDataPembelian();
         if ($dataPembelian) {
             foreach ($dataPembelian as $row) {
-                $date = strtotime($row['date']) * 1000;
+                $date = strtotime($row['date_created']) * 1000;
                 $total = $row['grand_total'];
                 $seriesPembelian[] = "[$date, $total]";
             }

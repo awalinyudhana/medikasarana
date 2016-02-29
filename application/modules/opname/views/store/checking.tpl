@@ -32,7 +32,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Date Expired</th>
+                                    <th>Tanggal Kadaluarsa</th>
                                     <td class="text-right">
                                         {$product->date_expired} 
                                     </td>
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-sm-4 col-lg-push-1 control-label">Expired Date: </label>
+                                        <label class="col-sm-4 col-lg-push-1 control-label">Tanggal Kadaluarsa: </label>
 
                                         <div class="col-md-4
                                         col-lg-push-3  {if form_error('expired_date')}has-warning{/if}">
@@ -117,7 +117,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-actions">
-                                            <a href="{base_url('stock-opname/store')}" class="btn btn-block btn-danger">Cancel</a>
+                                            <a href="{base_url('stock-opname/store')}" class="btn btn-block btn-danger">Batal</a>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

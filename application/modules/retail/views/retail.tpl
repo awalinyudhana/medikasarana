@@ -54,7 +54,7 @@
                         {*</div>*}
 
                         <div class="col-sm-12">
-                            <input type="submit" class="btn btn-block btn-success" value="Submit">
+                            <input type="submit" class="btn btn-block btn-success" value="Tambah">
                         </div>
                     </form>
                 </div>
@@ -66,29 +66,29 @@
                 <div class="col-md-5">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Nama Produk</label>
+                            <label>Nama Produk :</label>
                             <h6 id="text-name"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Kategori:</label>
+                            <label>Kategori :</label>
                             <h6 id="text-category"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Merek</label>
+                            <label>Merek :</label>
                             <h6 id="text-brand"></h6>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <label>Satuan:</label>
+                            <label>Satuan :</label>
                             <h6 id="text-unit"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Isi Satuan:</label>
+                            <label>Isi Satuan :</label>
                             <h6 id="text-value"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Ukuran</label>
+                            <label>Ukuran :</label>
                             <h6 id="text-size"></h6>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                     <h3 class="text-success text-semibold convert-currency" id="text-sell_price"></h3>
                     <br><br>
                     <a href="{base_url('retail/delete-record')}" class=" button btn btn-danger">
-                        <i class="icon-eject"></i>Delete</a>
+                        <i class="icon-eject"></i>Batal</a>
                 </div>
 
             </div>
@@ -117,12 +117,12 @@
                             <th>Barcode</th>
                             <th>Nama Produk</th>
                             <th>Merek</th>
-                            <th>Satuan / isi</th>
-                            <th>Qty</th>
+                            <th>Satuan / Isi</th>
+                            <th>Jumlah</th>
                             <th>Harga</th>
                             {*<th>Diskon</th>*}
                             <th>Subtotal</th>
-                            <th>Action</th>
+                            <th>Pilihan</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -177,7 +177,7 @@
                     <div class="row invoice-payment">
 
                         <div class="col-sm-4 pull-right">
-                            <h6>Total:</h6>
+                            <h6>Ringkasan :</h6>
                             <table class="table">
                                 <tbody>
 
@@ -186,25 +186,25 @@
                                 {assign var=ppn value=0}
                                 {assign var=ppn value=$total - $dpp}
                                 <tr>
-                                    <th>DPP:</th>
+                                    <th>DPP :</th>
                                     <td class="text-right"> Rp
                                         <span > {$dpp|number_format:0} </span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>PPN:</th>
+                                    <th>PPN :</th>
                                     <td class="text-right"> Rp
                                         <span > {$ppn|number_format:0} </span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Total:</th>
+                                    <th>Total :</th>
                                     <td class="text-right">Rp
                                         <span id="sum-total-text"> {$total|number_format:0} </span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Diskon:</th>
+                                    <th>Diskon :</th>
                                     <td class="text-right" style="max-width: 135px;">
                                         <div class="input-group">
                                             <span class="input-group-addon">Rp</span>
@@ -219,14 +219,14 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Grand Total:</th>
+                                    <th>Grand Total :</th>
                                     <td class="text-right text-success">
                                         <h6>Rp <span id="sum-grand_total-text">{$total|number_format:0} </span></h6>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <th>Jumlah Bayar:</th>
+                                    <th>Jumlah Bayar :</th>
                                     <td class="text-right {if form_error('bayar')}has-warning{/if}"
                                         style="max-width: 135px;">
                                         <div class="input-group">
@@ -241,7 +241,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Kembali:</th>
+                                    <th>Kembali Uang :</th>
                                     <td class="text-right text-danger">
                                         <h6>Rp <span id="sum-returns-text"> </span></h6>
                                     </td>
@@ -267,7 +267,7 @@
                             </table>
                             <div class="btn-group pull-right">
                                 <button type="submit" name="save" class="btn btn-success"><i class="icon-checkmark">
-                                    </i> Checkout
+                                    </i> Proses
                                 </button>
                             </div>
                         </div>
@@ -297,15 +297,15 @@
                                 <thead>
                                 <tr>
                                     <th>Barcode</th>
-                                    <th>Name</th>
+                                    <th>Nama Produk</th>
+                                    <th>Merek</th>
                                     {*<th>Kategori</th>*}
                                     <th>Satuan</th>
                                     <th>Isi</th>
-                                    <th>Merek</th>
                                     <th>Ukuran</th>
                                     <th>Stok</th>
-                                    <th>Harga</th>
-                                    <th>Action</th>
+                                    <th>Harga Jual</th>
+                                    <th>Pilihan</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -314,9 +314,9 @@
                                         <td>{$products['barcode']}</td>
                                         <td>{$products['name']}</td>
                                         {*<td>{$products['category']}</td>*}
+                                        <td>{$products['brand']}</td>
                                         <td>{$products['unit']}</td>
                                         <td>{$products['value']}</td>
-                                        <td>{$products['brand']}</td>
                                         <td>{$products['size']}</td>
                                         <td>{$products['stock_retail']}</td>
                                         <td>Rp {$products['sell_price']|number_format:0}</td>

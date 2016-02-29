@@ -16,7 +16,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-sm-3">Supplier / Principal:</label>
+                        <label class="col-sm-3">Supplier / Prinsipal:</label>
 
                         <div class="col-sm-4 {if form_error('id_principal')}has-warning{/if}">
                             {form_dropdown('id_principal',$principals,set_value('id_principal'),'data-placeholder="Supplier" class="select-full" tabindex="1" autofocus')}
@@ -28,7 +28,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-sm-3">No Nota Pembelian:</label>
+                        <label class="col-sm-3">No Faktur Beli:</label>
 
                         <div class="col-sm-4 {if form_error('invoice_number')}has-warning{/if}">
                             {form_input('invoice_number', set_value('invoice_number'), 'class="form-control" placeholder="Invoice Number"')}
@@ -40,7 +40,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-sm-3">Tanggal Nota Pembelian:</label>
+                        <label class="col-sm-3">Tanggal Faktur Beli:</label>
 
                         <div class="col-sm-4 {if form_error('date')}has-warning{/if}">
                             {form_input('date', set_value('date'), 'class="datepicker-trigger form-control" data-mask="9999-99-99" placeholder"YYYY-MM-dd"')}
@@ -58,7 +58,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <label class="col-sm-3">PPn:</label>
+                        <label class="col-sm-3">PPN:</label>
                         <div class="col-sm-4">
                             <div class="radio">
                                 <label>
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="form-group ">
                         <div class="col-sm-12">
-                            <input type="submit" class="btn btn-block btn-success" value="Purchase Order">
+                            <input type="submit" class="btn btn-block btn-success" value="Order Beli">
                         </div>
                     </div>
                 </div>

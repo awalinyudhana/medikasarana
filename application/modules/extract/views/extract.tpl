@@ -8,7 +8,7 @@
             <div class="row">
                 <form action="{current_url()}" role="form" method="post">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Customer :</label>
+                        <label class="col-sm-2 control-label">Nama Konsumen :</label>
 
                         <div class="col-md-4 {if form_error('id_customer')}has-warning{/if}">
                             {form_dropdown('id_customer',$customers,set_value('id_customer'),
@@ -33,10 +33,10 @@
                             <th>No.</th>
                             <th>No Faktur</th>
                             <th>No Proposal</th>
-                            <th>Status PPn</th>
-                            <th>Tanggal Transaksi</th>
+                            <th>Status PPN</th>
+                            <th>Tanggal Faktur Jual</th>
                             <th>Jumlah Tagihan</th>
-                            <th>Action</th>
+                            <th>Pilihan</th>
                         </tr>
                         </thead>
                         <tbody>

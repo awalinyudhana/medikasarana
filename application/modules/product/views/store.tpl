@@ -21,13 +21,13 @@
                     <tr>
                         <th>No</th>
                         <th>Barcode</th>
-                        <th>Nama</th>
-                        <th>Kategori</th>
+                        <th>Nama Produk</th>
+                        <th>Kategori Produk</th>
                         <th>Unit</th>
                         <th>Nilai Satuan</th>
-                        <th>Brand</th>
-                        <th>Harga Jual</th>
-                        <th>Tgl Expired</th>
+                        <th>Merek</th>
+                        <th>Harga Retail</th>
+                        <th>Tgl Kadaluarsa</th>
                         <th>Ukuran</th>
                         <th>AKL/AKD</th>
                         <th>Stok</th>

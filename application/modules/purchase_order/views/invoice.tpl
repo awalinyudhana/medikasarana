@@ -4,7 +4,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i>Invoice Order Beli</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i>Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -39,28 +39,29 @@
                 </div>
                 <div class="col-sm-4">
                     <ul class="invoice-details">
-                        <li>No Faktur <strong class="text-danger"># {$po->id_purchase_order}</strong></li>
-                        <li>PPn status # <strong class="text-info">{$status_ppn}</strong></li>
-                        <li>Staff: <strong>{$staff->name} </strong></li>
-                        <li>Tanggal Nota Transaksi: <strong>{$po->date} </strong></li>
-                        <li>Jatuh Tempo Pembayaran: <strong>{$po->due_date}</strong></li>
+                        <li>No Faktur PO <strong class="text-danger"># {$po->id_purchase_order}</strong></li>
+                        <li>No Faktur Beli <strong class="text-danger"># {$po->invoice_number}</strong></li>
+                        <li>PPN status # <strong class="text-info">{$status_ppn}</strong></li>
+                        <li>Staff <strong>{$staff->name} </strong></li>
+                        <li>Tanggal Faktur Beli <strong>{$po->date} </strong></li>
+                        <li>Jatuh Tempo Pembayaran <strong>{$po->due_date}</strong></li>
                     </ul>
                 </div>
             </div>
             <br>
 
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered" id="table-print">
+            <div class="datatable-tools">
+                <table class="table">
                     <thead>
                     <tr>
                         <th>No</th>
                         <th>Barcode</th>
-                        <th>Nama Product</th>
+                        <th>Nama Produk</th>
                         <th>Merk</th>
                         <th>Satuan</th>
-                        <th>Qty</th>
-                        <th style="width:100px;">Harga</th>
-                        <th style="width:100px;">Total</th>
+                        <th>Jumlah</th>
+                        <th style="width:100px;">Harga Beli</th>
+                        <th style="width:100px;">Sub Total</th>
                         <th style="width:100px;">Diskon</th>
                         <th style="width:100px;">Total Diskon</th>
                     </tr>
@@ -96,35 +97,36 @@
                 </div>
 
                 <div class="col-sm-4">
+                    <h6>Ringkasan :</h6>
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>Total:</th>
+                            <th>Total :</th>
                             <td class="text-right">Rp {$po->total|number_format:0}</td>
                         </tr>
                         <tr>
-                            <th>Diskon Total:</th>
+                            <th>Diskon Total :</th>
                             <td class="text-right">Rp {$po->discount_price|number_format:0}</td>
                         </tr>
                         {if $po->status_ppn == 1}
                             <tr>
-                                <th>DPP:</th>
+                                <th>DPP :</th>
                                 <td class="text-right">Rp {$po->dpp|number_format:0}</td>
                             </tr>
                             <tr>
-                                <th>PPN:</th>
+                                <th>PPN :</th>
                                 <td class="text-right">Rp {$po->ppn|number_format:0}</td>
                             </tr>
                         {/if}
                         <tr>
-                            <th>Grand Total:</th>
+                            <th>Grand Total :</th>
                             <td class="text-right">Rp {$po->grand_total|number_format:0}</td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="btn-group pull-right">
                         <a href="{base_url('purchase-order')}"
-                           class="btn btn-info button"> <i class="icon-box-add"></i> New Purchase Order
+                           class="btn btn-info button"> <i class="icon-box-add"></i> Order Beli Baru
                         </a>
                     </div>
                 </div>

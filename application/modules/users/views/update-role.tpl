@@ -5,12 +5,12 @@
     <!-- Default panel -->
     <div class="panel panel-default">
 
-        <div class="panel-heading"><h6 class="panel-title">User Group Roles</h6></div>
+        <div class="panel-heading"><h6 class="panel-title">Kebijakan Hak Akses</h6></div>
 
         <div class="panel-body">
             <div class="block-inner">
                 <h6 class="heading-hr">
-                    <i class="icon-clipboard"></i> Update User Group Role: {$name_group}
+                    <i class="icon-clipboard"></i> Kebijakan Hak Akses Pengguna: {$name_group}
                 </h6>
             </div>
 
@@ -38,7 +38,7 @@
 
                     <div class="form-actions text-left">
                         <input type="submit" value="Simpan" class="btn btn-info">
-                        <a href="{base_url('users/group')}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin membatalkan operasi?');">Cancel</a>
+                        <a href="{base_url('users/group')}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin membatalkan operasi?');">Batal</a>
                     </div>
                 </form>
             {/if}

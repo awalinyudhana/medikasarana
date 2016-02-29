@@ -52,7 +52,7 @@ $config['logout_landing_page'] = 'login';
 $config['logout_message'] = 'Anda telah berhasil keluar';
 
 // Set the flash message for logging a user out, NULL for no flashdata message
-$config['module_auth_message'] = 'silakan login untuk mengakses halaman ini.';
+$config['module_auth_message'] = 'Silakan login untuk mengakses halaman ini.';
 
 //
 $config['module_list'] = [
@@ -99,7 +99,7 @@ $config['module_router'] =
                             'module' => 'purchase_order'
                         ],
                         [
-                            'title' => 'Grafik Order Jual',
+                            'title' => 'Grafik Penjualan',
                             'url' => 'dashboard/selling',
                             'module' => 'sales_order'
                         ],

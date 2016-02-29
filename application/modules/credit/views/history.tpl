@@ -20,12 +20,12 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>No Faktur</th>
-                        <th>Nama Principal</th>
+                        <th>No Faktur Beli</th>
+                        <th>Nama Prinsipal</th>
                         <th>Tanggal Transaksi</th>
                         <th>Jatuh Tempo</th>
                         <th>Tagihan</th>
-                        <th>Detail</th>
+                        <th>Rincian</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,7 +36,7 @@
 
                         <tr>
                             <td>{$val}</td>
-                            <td>{$key->id_purchase_order}</td>
+                            <td>{$key->invoice_number}</td>
                             <td>{$key->name}</td>
                             <td>{$key->date}</td>
                             <td>{$key->due_date}</td>

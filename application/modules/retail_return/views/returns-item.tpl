@@ -25,9 +25,9 @@
                 </div>
                 <div class="col-sm-3 pull-right">
                     <ul>
-                        <li>No Faktur # <strong class="text-danger pull-right">{$master->id_retail}</strong></li>
+                        <li>No Nota Retail # <strong class="text-danger pull-right">{$master->id_retail}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Tanggal Nota Retail<strong class="pull-right">{$master->date}</strong></li>
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('retail/returns/list-item')}" class=" button btn btn-warning">
                                 <i class="icon-eject"></i>Kembali</a>
@@ -48,10 +48,10 @@
                         <th>Barcode</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan</th>
-                        <th>Qty</th>
+                        <th>Satuan / Isi</th>
+                        <th>Jumlah</th>
                         <th>Retur</th>
-                        <th>Harga</th>
+                        <th>Harga Jual</th>
                         <th>Subtotal</th>
                     </tr>
                     </thead>
@@ -93,7 +93,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Qty Retur: </label>
+                                <label class="col-sm-4 control-label">Jumlah Retur : </label>
                                 <div class="col-md-4 {if form_error('qty_return')}has-warning{/if}">
                                     <input type="number" name="qty_return" value="{set_value('qty_return')}"
                                            id="input-qty_return" class="form-control" placeholder="0" autofocus>
@@ -106,7 +106,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Barcode: </label>
+                                <label class="col-sm-4 control-label">Barcode : </label>
                                 <div class="col-md-8">
                                     <input type="text" name="barcode" value="{set_value('barcode')}" id="input-barcode"
                                            class="form-control" placeholder="Type or scan barcode"
@@ -118,7 +118,7 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Qty: </label>
+                                <label class="col-sm-4 control-label">Kembali Barang : </label>
                                 <div class="col-md-4 {if form_error('qty')}has-warning{/if}">
                                     <input type="number" name="qty" value="{set_value('qty')}" id="input-qty"
                                            class="form-control" placeholder="0">
@@ -127,7 +127,7 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Kembali Uang: </label>
+                                <label class="col-sm-4 control-label">Kembali Uang : </label>
 
                                 <div class="col-md-7 {if form_error('cashback')}has-warning{/if}">
                                     <div class="input-group">
@@ -141,7 +141,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-sm-4 control-label">Keterangan
-                                    Retur: </label>
+                                    Retur : </label>
                                 <div class="col-md-8  {if form_error('reason')}has-warning{/if}">
                                     <textarea rows="4" cols="5" name="reason" placeholder="Ket..."
                                               class="elastic form-control">{set_value('reason')}</textarea>
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <input type="submit" class="btn btn-block btn-success" value="Submit">
+                            <input type="submit" class="btn btn-block btn-success" value="Proses">
                         </div>
                     </div>
                     <div class="col-md-1">
@@ -160,29 +160,29 @@
                     <div class="col-md-5">
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Nama Produk</label>
+                                <label>Nama Produk :</label>
                                 <h6 id="text-name"></h6>
                             </div>
                             <div class="col-md-3">
-                                <label>Kategori:</label>
+                                <label>Kategori :</label>
                                 <h6 id="text-category"></h6>
                             </div>
                             <div class="col-md-3">
-                                <label>Merek</label>
+                                <label>Merek :</label>
                                 <h6 id="text-brand"></h6>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <label>Satuan:</label>
+                                <label>Satuan :</label>
                                 <h6 id="text-unit"></h6>
                             </div>
                             <div class="col-md-3">
-                                <label>Isi Satuan:</label>
+                                <label>Isi Satuan :</label>
                                 <h6 id="text-value"></h6>
                             </div>
                             <div class="col-md-3">
-                                <label>Ukuran</label>
+                                <label>Ukuran :</label>
                                 <h6 id="text-size"></h6>
                             </div>
                         </div>
@@ -213,15 +213,15 @@
                                 <thead>
                                 <tr>
                                     <th>Barcode</th>
-                                    <th>Name</th>
+                                    <th>Name Produk</th>
                                     <th>Kategori</th>
+                                    <th>Merek</th>
                                     <th>Satuan</th>
                                     <th>Isi</th>
-                                    <th>Merek</th>
                                     <th>Ukuran</th>
-                                    <th>Stok</th>
-                                    <th>Harga</th>
-                                    <th>Action</th>
+                                    <th>Stok Toko</th>
+                                    <th>Harga Jual</th>
+                                    <th>Pilihan</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -230,9 +230,9 @@
                                         <td>{$products['barcode']}</td>
                                         <td>{$products['name']}</td>
                                         <td>{$products['category']}</td>
+                                        <td>{$products['brand']}</td>
                                         <td>{$products['unit']}</td>
                                         <td>{$products['value']}</td>
-                                        <td>{$products['brand']}</td>
                                         <td>{$products['size']}</td>
                                         <td>{$products['stock_retail']}</td>
                                         <td>Rp {$products['sell_price']|number_format:0}</td>

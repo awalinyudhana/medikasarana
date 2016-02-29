@@ -27,13 +27,13 @@
                         <th>No</th>
                         <th>No Proposal</th>
                         <th>No Faktur</th>
-                        <th>Nama Customer</th>
-                        <th>Tanggal Pembuatan</th>
-                        <th>Jatuh Tempo Pengiriman</th>
-                        <th>Penanngung Jawab</th>
+                        <th>Nama Konsumen</th>
+                        <th>Tanggal Faktur Jual</th>
+                        <th>Jatuh Tempo</th>
+                        <th>Staff</th>
                         {*<th>Jenis Proposal</th>*}
                         {*<th>PPn Status</th>*}
-                        <th>Action</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,7 +54,7 @@
 
                                     <a href="{base_url('delivery-order/send')}/{$key->id_sales_order}"
                                        class="button btn btn-success ">
-                                        Detail
+                                        Rincian
                                     </a>
 
                                 </div>

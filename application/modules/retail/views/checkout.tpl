@@ -4,7 +4,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Retail Invoice</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -29,9 +29,9 @@
 
                 <div class="col-sm-3 pull-right">
                     <ul>
-                        <li>No Faktur # <strong class="text-danger pull-right">{$master->id_retail}</strong></li>
+                        <li>No Nota Retail # <strong class="text-danger pull-right">{$master->id_retail}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Tanggal Nota Retail <strong class="pull-right">{$master->date}</strong></li>
                     </ul>
                 </div>
             </div>
@@ -45,8 +45,8 @@
                         <th>Nama Produk</th>
                         <th>Merek</th>
                         <th>Satuan</th>
-                        <th>Qty</th>
-                        <th>Harga</th>
+                        <th>Jumlah</th>
+                        <th>Harga Jual</th>
                         <th>Subtotal</th>
                     </tr>
                     </thead>
@@ -76,23 +76,24 @@
                 <div class="col-sm-8">
                 </div>
                 <div class="col-sm-4">
+                    <h6>Ringkasan :</h6>
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>DPP:</th>
+                            <th>DPP :</th>
                             <td class="text-right">Rp {($master->dpp)|number_format:0}</td>
                         </tr>
                         <tr>
-                            <th>PPN:</th>
+                            <th>PPN :</th>
                             <td class="text-right">
                                 Rp  {$master->ppn|number_format:0}</td>
                         </tr>
                         <tr>
-                            <th>Total:</th>
+                            <th>Total :</th>
                             <td class="text-right">Rp {$master->total|number_format:0}</td>
                         </tr>
                         <tr>
-                            <th>Diskon:</th>
+                            <th>Diskon :</th>
                             <td class="text-right">Rp {$master->discount_price|number_format:0}</td>
                         </tr>
                         <tr>
@@ -100,20 +101,20 @@
                             <td class="text-right">Rp {$master->grand_total|number_format:0}</td>
                         </tr>
                         <tr>
-                            <th>Jumlah Bayar:</th>
+                            <th>Jumlah Bayar :</th>
                             <td class="text-right">Rp {$master->paid|number_format:0}</td>
                         </tr>
                         <tr>
-                            <th>Kembali:</th>
+                            <th>Kembali Uang :</th>
                             <td class="text-right">Rp {($master->paid-$master->grand_total)|number_format:0}</td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="btn-group pull-right">
                         <a href="{base_url('retail')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Retail</a>
+                            <i class="icon-box-add"></i> Order Retail Baru</a>
                         <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus"><i
-                                    class="icon-print2"></i> Print
+                                    class="icon-print2"></i> Cetak
                         </button>
                     </div>
                 </div>
@@ -159,7 +160,7 @@
                         <th>Merek</th>
                         <th>Satuan / Isi</th>
                         <th>Jumlah</th>
-                        <th>Harga</th>
+                        <th>Harga Jual</th>
                         <th>Subtotal</th>
                     </tr>
                 </thead>

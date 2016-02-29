@@ -22,7 +22,7 @@
 
                 <form action="{current_url()}" method="post" role="form">
                     <div class="form-group">
-                        <label>Hutang:</label>
+                        <label>Hutang :</label>
                         <div class="row">
                             <div class="col-md-4">
                                 {form_dropdown('date',$date,set_value('date'),
@@ -55,14 +55,14 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Tanggal Transaksi</th>
-                        <th>No Faktur</th>
+                        <th>No Faktur Beli</th>
+                        <th>Tanggal Faktur Beli</th>
                         <th>Nama Prinsipal</th>
                         <th>Jatuh Tempo</th>
                         <th>Tagihan</th>
                         <th>Terbayar</th>
                         <th>Sisa Tagihan</th>
-                        <th>Bayar</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -73,8 +73,8 @@
 
                         <tr>
                             <td>{$val}</td>
-                            <td>{$key->date}</td>
                             <td>{$key->id_purchase_order}</td>
+                            <td>{$key->date}</td>
                             <td>{$key->name}</td>
                             <td>{$key->due_date}</td>
                             <td>Rp {$key->grand_total|number_format:0}</td>

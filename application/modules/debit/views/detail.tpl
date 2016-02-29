@@ -19,10 +19,10 @@
                 </span>
                 </div>
 
-                <div class="col-sm-3 pull-right">
+                <div class="col-sm-4 pull-right">
                     <ul>
-                        <li>No Faktur # <strong class="text-danger pull-right">{$so->id_sales_order}</strong></li>
-                        <li>Tanggal Nota Transaksi : <strong class="pull-right">{$so->date}</strong></li>
+                        <li>No Faktur Jual# <strong class="text-danger pull-right">{$so->id_sales_order}</strong></li>
+                        <li>Tanggal Faktur Jual <strong class="pull-right">{$so->date}</strong></li>
                         <li>Tanggal Jatuh Tempo: <strong class="pull-right">{$so->due_date}</strong></li>
                     </ul>
                 </div>
@@ -38,7 +38,7 @@
                     <th>Tanggal Penarikan</th>
                     <th>Staff</th>
                     <th>Jumlah Bayar</th>
-                    <th>Type Pembayaran</th>
+                    <th>Tipe Pembayaran</th>
                     <th>No Resi</th>
                     <th>Bukti Pembayaran</th>
                     <th>Status Pembayaran</th>
@@ -118,7 +118,7 @@
                     <a href="{base_url('debit')}" class="btn btn-info button">
                         <i class="icon-box-add"></i> Daftar Piutang</a>
                     <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
-                        <i class="icon-print2"></i> Print</button>
+                        <i class="icon-print2"></i> Cetak</button>
                 </div>
             </div>  
         </div>
@@ -163,9 +163,9 @@
                         NPWP : {$so->npwp}
                     </td>
                     <td align="left" valign="top">
-                        No Faktur : #{$so->id_sales_order}
+                        No Faktur Jual: #{$so->id_sales_order}
                         </br>
-                        Tanggal Nota : {$so->date}
+                        Tanggal Faktur Jual : {$so->date}
                         </br>
                         Tanggal Jatuh Tempo: {$so->due_date}
                     </td>
@@ -180,7 +180,7 @@
                         <th>No</th>
                         <th>Tanggal</th>
                         <th>Jumlah Bayar</th>
-                        <th>Type Pembayaran</th>
+                        <th>Tipe Pembayaran</th>
                         <th>No Resi</th>
                         <th>Status Pembayaran</th>
                     </tr>

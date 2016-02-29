@@ -33,7 +33,7 @@
                                     <thead>
                                     <tr>
                                         <th>Tanggal</th>
-                                        <th>Principal</th>
+                                        <th>Prinsipal</th>
                                         <th>Harga Beli</th>
                                     </tr>
                                     </thead>
@@ -100,7 +100,7 @@
                         </table>
                         <div class="form-actions text-right ">
                             <div class="col-sm-4 pull-right">
-                                <input type="submit" value="Update" class="btn btn-success">
+                                <input type="submit" value="Simpan" class="btn btn-success">
 
                             </div>
                         </div>

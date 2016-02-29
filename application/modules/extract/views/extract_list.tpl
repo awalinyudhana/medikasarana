@@ -25,7 +25,7 @@
                     <ul class="invoice-details">
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('extract/delete')}" class=" button btn btn-danger">
-                                <i class="icon-eject"></i>Ganti Dengan No Faktur Lain</a>
+                                <i class="icon-eject"></i>Ganti No Faktur Lain</a>
                         </li>
                     </ul>
                 </div>
@@ -47,14 +47,14 @@
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan / isi</th>
-                        <th width="100px">Qty</th>
-                        <th>Harga</th>
+                        <th>Satuan / Isi</th>
+                        <th width="100px">Jumlah</th>
+                        <th>Harga Jual</th>
                         <th>Diskon</th>
                         <th>Subtotal</th>
-                        <th>Ppn</th>    
+                        <th>PPN</th>
                         <th>Total</th>
-                        <th>Action</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -113,11 +113,11 @@
             <div class="row invoice-payment">
 
                 <div class="col-sm-4 pull-right">
-                    <h6>Summary:</h6>
+                    <h6>Ringkasan :</h6>
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>DPP:</th>
+                            <th>DPP :</th>
                             <td class="text-right">Rp
                                 <span id="sum-dpp-text"><strong>{$total_first|number_format:0}</strong> </span>
                             </td>
@@ -125,14 +125,14 @@
                         <tr>
                             <th>
                                 <label class="radio">
-                                    PPN 10 %
+                                    PPN 10 :
                                 </label>
                             </th>
                             <td class="text-right">Rp <span
                                         id="sum-ppn-text">{$ppn_total_first|number_format:0}</span></td>
                         </tr>
                         <tr>
-                            <th>Total:</th>
+                            <th>Grand Total :</th>
                             <td class="text-right text-danger">
                                 <h6>Rp <span
                                             id="sum-grand_total-text">{($total_first+$ppn_total_first)|number_format:0} </span>
@@ -142,7 +142,7 @@
 
                         <tr>
                             <td colspan="2" class="text-right text-warning">
-                              * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond|number_format:0}</span></i>
+                              * <i>Plafon maksimal per faktur Rp <span class="convert-currency">{$master->plafond|number_format:0}</span></i>
                             </td>
                         </tr>
 
@@ -158,14 +158,14 @@
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan / isi</th>
-                        <th width="100px">Qty</th>
-                        <th>Harga</th>
+                        <th>Satuan / Isi</th>
+                        <th width="100px">Jumlah</th>
+                        <th>Harga Jual</th>
                         <th>Diskon</th>
                         <th>Subtotal</th>
-                        <th>Ppn</th>
+                        <th>PPN</th>
                         <th>Total</th>
-                        <th>Action</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -222,11 +222,11 @@
             </div>
             <div class="row invoice-payment">
                 <div class="col-sm-4 pull-right">
-                    <h6>Summary:</h6>
+                    <h6>Ringkasan :</h6>
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>DPP:</th>
+                            <th>DPP :</th>
                             <td class="text-right">Rp
                                 <span id="sum-dpp-text"><strong>{$total_second|number_format:0}</strong> </span>
                             </td>
@@ -234,14 +234,14 @@
                         <tr>
                             <th>
                                 <label class="radio">
-                                    PPN 10 %
+                                    PPN 10 :
                                 </label>
                             </th>
                             <td class="text-right">Rp <span
                                         id="sum-ppn-text">{$ppn_total_second|number_format:0}</span></td>
                         </tr>
                         <tr>
-                            <th>Total:</th>
+                            <th>Grand Total :</th>
                             <td class="text-right text-danger">
                                 <h6>Rp <span
                                             id="sum-grand_total-text">{($total_second+$ppn_total_second)|number_format:0} </span>
@@ -251,7 +251,7 @@
 
                         <tr>
                             <td colspan="2" class="text-right text-warning">
-                              * <i>Maksimal jumlah faktur Rp <span class="convert-currency">{$master->plafond|number_format:0}</span></i>
+                              * <i>Plafon maksimal per faktur Rp <span class="convert-currency">{$master->plafond|number_format:0}</span></i>
                             </td>
                         </tr>
                         </tbody>
@@ -261,9 +261,9 @@
             </div>
             <div class="row">
                 <div class="col-md-2 pull-right text-left">
-                    <a href="{base_url('extract/save')}" onclick="return confirm('apakah anda yakin memproses data ini');" class="btn block full-width btn-success">
+                    <a href="{base_url('extract/save')}" onclick="return confirm('Apakah anda yakin memproses data ini');" class="btn block full-width btn-success">
                         <i class="icon-checkmark">
-                        </i> Checkout
+                        </i> Proses
                     </a>
                 </div>
             </div>

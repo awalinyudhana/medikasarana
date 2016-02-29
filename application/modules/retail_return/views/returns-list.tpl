@@ -24,14 +24,14 @@
                     </span>
                 </div>
 
-                <div class="col-sm-3 pull-right">
+                <div class="col-sm-4 pull-right">
                     <ul>
-                        <li>No Faktur # <strong class="text-danger pull-right">{$master->id_retail}</strong></li>
+                        <li>No Nota Retail # <strong class="text-danger pull-right">{$master->id_retail}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Tanggal Nota Retail <strong class="pull-right">{$master->date}</strong></li>
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('retail/returns/delete')}" class=" button btn btn-danger">
-                                <i class="icon-eject"></i>Ganti No Nota</a>
+                                <i class="icon-eject"></i>Ganti No Nota Lain</a>
                         </li>
                     </ul>
                 </div>
@@ -44,12 +44,12 @@
                         <th>Barcode</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan</th>
-                        <th>Qty</th>
+                        <th>Satuan / Isi</th>
+                        <th>Jumlah</th>
                         <th>Retur</th>
-                        <th>Harga</th>
+                        <th>Harga Jual</th>
                         <th>Subtotal</th>
-                        <th>Action</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -100,9 +100,9 @@
                             <th>Barcode</th>
                             <th>Nama Produk</th>
                             <th>Merek</th>
-                            <th>Satuan</th>
-                            <th>Qty</th>
-                            <th>Cashback</th>
+                            <th>Satuan / Isi</th>
+                            <th>Jumlah</th>
+                            <th>Kembali Uang</th>
                             <th>Keterangan</th>
                         </tr>
                         </thead>
@@ -155,7 +155,7 @@
                                 <div class="form-actions text-right">
                                     <button type="submit" name="save" value="Save" class="btn btn-success"><i
                                                 class="icon-checkmark">
-                                        </i> Process
+                                        </i> Proses
                                     </button>
                                 </div>
                             </div>

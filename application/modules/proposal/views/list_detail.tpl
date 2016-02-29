@@ -15,7 +15,7 @@
     <!-- New invoice template -->
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Proposal Penawaran Cheockout</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -45,8 +45,8 @@
                         <li>Jenis Proposal <strong class="text-info pull-right">{$proposal_type}</strong></li>
                         <li>No Proposal # <strong class="text-danger pull-right">{$master->id_proposal}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date_created}</strong></li>
-                        <li>PPn status <strong class="text-info pull-right">{$status_ppn}</strong></li>
+                        <li>Tanggal Pembuatan <strong class="pull-right">{$master->date_created}</strong></li>
+                        <li>PPN status <strong class="text-info pull-right">{$status_ppn}</strong></li>
                     </ul>
                 </div>
             </div>

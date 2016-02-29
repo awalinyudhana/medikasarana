@@ -6,7 +6,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i> Order Jual Checkout</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -36,26 +36,26 @@
                         <li>No Faktur SO # <strong class="text-danger pull-right">{$master->id_sales_order}</strong></li>
                         {*<li>No Proposal # <strong class="text-danger pull-right">{$master->id_proposal}</strong></li>*}
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
-                        <li>Jatuh Tempo : <strong class="pull-right">{$master->due_date}</strong></li>
-                        <li>PPn status <strong class="text-info pull-right">{$status_ppn}</strong></li>
+                        <li>Tanggal Faktur Jual <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Jatuh Tempo <strong class="pull-right">{$master->due_date}</strong></li>
+                        <li>PPN status <strong class="text-info pull-right">{$status_ppn}</strong></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
+            <div class="datatable-tools">
+                <table class="table">
                     <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan / isi</th>
-                        <th>Qty</th>
-                        <th>Harga</th>
+                        <th>Satuan / Isi</th>
+                        <th>Jumlah</th>
+                        <th>Harga Jual</th>
                         <th>Diskon</th>
                         <th>Subtotal</th>
-                        <th>Ppn</th>        
+                        <th>PPN</th>
                         <th>Total</th>
                     </tr>
                     </thead>
@@ -104,10 +104,11 @@
                 </div>
 
                 <div class="col-sm-4">
+                    <h6>Ringkasan :</h6>
                     <table class="table">
                         <tbody>
                         <tr>
-                            <th>Dpp:</th>
+                            <th>Dpp :</th>
                             <td class="text-right">Rp {$master->dpp|number_format:0}</td>
                         </tr>
                         <!-- <tr>
@@ -115,12 +116,12 @@
                             <td class="text-right">Rp {$master->discount_price|number_format:0}</td>
                         </tr> -->
                         <tr>
-                            <th>PPn:</th>
+                            <th>PPn :</th>
                             <td class="text-right">Rp {$master->ppn|number_format:0}</td>
                         </tr>
 
                         <tr>
-                            <th>Grand Total:</th>
+                            <th>Grand Total :</th>
                             <td class="text-right text-danger">
                                 <h6>    <span id="sum-grand_total-text">
                                     Rp {$master->grand_total|number_format:0}
@@ -131,8 +132,8 @@
                     </table>
                     <div class="btn-group pull-right">
                         <a href="{base_url('sales-order/search')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Sales Order</a>
-                        <button type="button" onclick="print_doc();" class="btn btn-primary"><i class="icon-print2"></i> Print</button>
+                            <i class="icon-box-add"></i> Order Jual Baru</a>
+                        <button type="button" onclick="print_doc();" class="btn btn-primary"><i class="icon-print2"></i> Cetak</button>
                     </div>
                 </div>
             </div>

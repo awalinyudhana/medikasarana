@@ -29,12 +29,12 @@
                 </div>
                 <div class="col-sm-4">
                     <ul class="invoice-details">
-                        <li>No Faktur <strong class="text-info">#{$master->id_sales_order}</strong></li>
+                        <li>No Faktur Jual<strong class="text-info">#{$master->id_sales_order}</strong></li>
                         <li>Jatuh Tempo<strong class="text-info">{$master->due_date}</strong></li>
                         {*<li>PPn status # <strong class="text-info">{$status_ppn}</strong></li>*}
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('delivery-order/delete')}" class=" button btn btn-danger">
-                                <i class="icon-eject"></i>Ganti Dengan No Faktur Lain</a>
+                                <i class="icon-eject"></i>Ganti No Faktur Lain</a>
                         </li>
                     </ul>
                 </div>
@@ -65,12 +65,12 @@
                             <th>No</th>
                             <th>Nama Produk</th>
                             <th>Merek</th>
-                            <th>Satuan / isi</th>
+                            <th>Satuan / Isi</th>
                             <th>Stok</th>
                             <th>Jumlah Pesanan</th>
                             <th>Terkirim</th>
-                            <th width="50px">Qty</th>
-                            <th>Action</th>
+                            <th width="50px">Jumlah</th>
+                            <th>Pilihan</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -145,7 +145,7 @@
                             <div class="btn-group right-box">
                                 <button type="submit" name="save" class="btn block full-width btn-success"><i
                                             class="icon-checkmark">
-                                    </i> Checkout
+                                    </i> Proses
                                 </button>
                             </div>
                         </div>

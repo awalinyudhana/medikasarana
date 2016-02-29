@@ -21,7 +21,7 @@ class History extends MX_Controller
 
         $crud->set_table('sales_order_return')
             ->columns('id_sales_order_return', 'date', 'id_staff', 'id_sales_order')
-            ->display_as('id_sales_order', 'No Faktur')
+            ->display_as('id_sales_order', 'No Faktur Jual')
             ->display_as('id_staff', 'Staff')
             ->display_as('date', 'Tanggal Transaksi')
             ->display_as('id_sales_order_return', 'No Faktur Retur')

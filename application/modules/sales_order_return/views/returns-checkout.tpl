@@ -5,7 +5,7 @@
     <!-- New invoice template -->
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h6 class="panel-title"><i class="icon-checkmark3"></i>Invoice Retur Order Jual</h6>
+            <h6 class="panel-title"><i class="icon-checkmark3"></i>Rangkuman Transaksi</h6>
 
             <div class="dropdown pull-right">
                 <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -30,11 +30,11 @@
 
                 <div class="col-sm-3 pull-right">
                     <ul>
-                        <li>No Faktur Retur# <strong class="text-danger pull-right">{$master->id_sales_order_return}</strong>
+                        <li>No Nota Retur# <strong class="text-danger pull-right">{$master->id_sales_order_return}</strong>
                         </li>
                         <li>No Faktur Jual# <strong class="text-danger pull-right">{$master->id_sales_order}</strong></li>
                         <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                        <li>Date : <strong class="pull-right">{$master->date}</strong></li>
+                        <li>Date Nota Retur <strong class="pull-right">{$master->date_return}</strong></li>
                     </ul>
                 </div>
             </div>
@@ -48,9 +48,9 @@
                         <th>Barcode</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan</th>
-                        <th>Qty</th>
-                        <th>Cashback</th>
+                        <th>Satuan / Isi</th>
+                        <th>Kembali Barang</th>
+                        <th>Kembali Uang</th>
                         <th>Keterangan</th>
                     </tr>
                     </thead>
@@ -189,6 +189,7 @@
                 </div>
 
                 <div class="col-sm-4">
+                    <h6>Ringkasan </h6>
                     <table class="table">
                         <tbody>
                             <tr>
@@ -199,9 +200,9 @@
                     </table>
                     <div class="btn-group pull-right">
                         <a href="{base_url('sales-order/search')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Sales Order</a>
+                            <i class="icon-box-add"></i> Order Jual Baru</a>
                         <button type="button" class="btn btn-primary" onclick="print_doc();" id="button-focus">
-                            <i class="icon-print2"></i> Print</button>
+                            <i class="icon-print2"></i> Cetak</button>
                     </div>
                 </div>
             </div>
@@ -253,7 +254,7 @@
                         </br>
                         Staff : {$master->staff_name}
                         </br>
-                        Tanggal : {$master->date}
+                        Tanggal : {$master->date_return}
                     </td>
                 </tr>
             </table>

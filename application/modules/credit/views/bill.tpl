@@ -28,19 +28,19 @@
                     <table class="table table-striped ">
                         <tbody>
                         <tr>
-                            <th>No. Faktur:</th>
+                            <th>No. Faktur Beli</th>
                             <td class="text-right">{$po->id_purchase_order}</td>
-                            <th>Total Bayar:</th>
+                            <th>Tagihan</th>
                             <td class="text-right">Rp {$po->grand_total|number_format:0}</td>
-                            <th>Tanggal Transaksi:</th>
+                            <th>Tanggal Faktur Beli</th>
                             <td class="text-right text-danger">{$po->date}</td>
                         </tr>
                         <tr>
-                            <th>Supplier:</th>
+                            <th>Prinsipal</th>
                             <td class="text-right">{$po->name}</td>
-                            <th>Belum Terbayar:</th>
+                            <th>Belum Terbayar</th>
                             <td class="text-right">Rp {($po->grand_total - $po->paid)|number_format:0}</td>
-                            <th>Tanggal Jatuh Tempo:</th>
+                            <th>Tanggal Jatuh Tempo</th>
                             <td class="text-right text-danger">{$po->due_date}</td>
                         </tr>
                         </tbody>
@@ -57,7 +57,7 @@
                     </h6>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3">Jumlah Bayar:</label>
+                    <label class="col-sm-3">Jumlah Bayar :</label>
 
                     <div class="col-sm-4">
                         <div class="input-group">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3">Type:</label>
+                    <label class="col-sm-3">Tipe Pembayaran :</label>
 
                     <div class="col-sm-4">
                         <div class="radio">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3">Tanggal Penarikan:</label>
+                    <label class="col-sm-3">Tanggal Penarikan :</label>
 
                     <div class="col-sm-4 {if form_error('date_withdrawal')}has-warning{/if}">
                         {form_input('date_withdrawal', set_value('date_withdrawal'),
@@ -105,7 +105,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3">No. Referensi:</label>
+                    <label class="col-sm-3">No Referensi :</label>
 
                     <div class="col-sm-4">
                         <input type="text" name="resi_number" value="{set_value('resi_number')}"
@@ -113,16 +113,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3">Upload Bukti Pembayaran:</label>
+                    <label class="col-sm-3">Upload Bukti Pembayaran :</label>
 
                     <div class="col-sm-4">
                         <input type="file" name="file" class="styled">
-                        <span class="help-block">Accepted formats: gif, jpg, png. Max file size 2Mb</span>
+                        <span class="help-block">Format file yang diterima .gif, .png, .jpg. Maksimal ukuran file 2Mb</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="submit" class="btn btn-block btn-success" value="Submit">
+                        <input type="submit" class="btn btn-block btn-success" value="Proses">
                     </div>
                 </div>
             </div>

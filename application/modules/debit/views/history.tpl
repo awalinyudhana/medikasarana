@@ -22,12 +22,12 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>No Faktur</th>
-                        <th>Nama Prinsipal</th>
+                        <th>No Faktur Jual</th>
+                        <th>Nama Konsumen</th>
                         <th>Tanggal Transaksi</th>
                         <th>Jatuh Tempo</th>
                         <th>Tagihan</th>
-                        <th>Detail</th>
+                        <th>Rincian</th>
                     </tr>
                     </thead>
                     <tbody>

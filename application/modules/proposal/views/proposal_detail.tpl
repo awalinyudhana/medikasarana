@@ -30,7 +30,7 @@
                 <div class="col-sm-4">
                     <ul class="invoice-details">
                         <li>Jenis Proposal <strong class="text-info">{$proposal_type}</strong></li>
-                        <li>PPn status # <strong class="text-info">{$status_ppn}</strong></li>
+                        <li>PPN status <strong class="text-info">{$status_ppn}</strong></li>
                         <li class="invoice-status text-right list-unstyled">
                             <a href="{base_url('proposal/delete')}" class=" button btn btn-danger">
                                 <i class="icon-eject"></i>Buat Proposal Baru</a>
@@ -53,7 +53,7 @@
                     <form action="{base_url('proposal/detail')}" role="form" method="post">
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-4 control-label">Barcode: </label>
+                                <label class="col-sm-4 control-label">Barcode : </label>
 
                                 <div class="col-md-8">
 
@@ -68,7 +68,7 @@
                         {if $cache['value']['type'] != 0}
                             <div class="form-group">
                                 <div class="row">
-                                    <label class="col-sm-4 control-label">Qty: </label>
+                                    <label class="col-sm-4 control-label">Jumlah : </label>
 
                                     <div class="col-md-4 {if form_error('qty')}has-warning{/if}">
                                         <input type="number" name="qty" value="{set_value('qty',1)}"
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <input type="submit" class="btn btn-block btn-success" value="Submit">
+                            <input type="submit" class="btn btn-block btn-success" value="Tambah">
                         </div>
                     </form>
                 </div>
@@ -122,29 +122,29 @@
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Nama Produk</label>
+                            <label>Nama Produk :</label>
                             <h6 id="text-name"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Kategori:</label>
+                            <label>Kategori :</label>
                             <h6 id="text-category"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Merek</label>
+                            <label>Merek :</label>
                             <h6 id="text-brand"></h6>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <label>Satuan:</label>
+                            <label>Satuan :</label>
                             <h6 id="text-unit"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Isi Satuan:</label>
+                            <label>Isi Satuan :</label>
                             <h6 id="text-value"></h6>
                         </div>
                         <div class="col-md-3">
-                            <label>Ukuran</label>
+                            <label>Ukuran :</label>
                             <h6 id="text-size"></h6>
                         </div>
                     </div>
@@ -162,14 +162,16 @@
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Merek</th>
-                        <th>Satuan / isi</th>
-                        <th>Qty</th>
-                        <th>Harga</th>
+                        <th>Satuan / Isi</th>
+                        {if $cache['value']['type'] != 0}
+                            <th>Jumlah</th>
+                        {/if}
+                        <th>Harga Jual</th>
                         <th>Diskon </th>
-                        <th>Subtotal</th>
-                        <th>Ppn</th>    
+                        {*<th>Subtotal</th>*}
+                        <th>PPN</th>
                         <th>Total</th>
-                        <th>Action</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -183,18 +185,20 @@
                             <td>{$key['name']}</td>
                             <td>{$key['brand']}</td>
                             <td>{$key['unit']} / {$key['value']}</td>
-                            <td>
-                                {$key['qty']}
-                            </td>
+                            {if $cache['value']['type'] != 0}
+                                <td>
+                                    {$key['qty']}
+                                </td>
+                            {/if}
                             <td style="width:100px;" class="text-right">
                                 Rp {$key['price']|number_format:0}
                             </td>
                             <td style="width:100px;" class="text-right">
                                 Rp {$key['discount']|number_format:0}
                             </td>
-                            <td style="width:100px;" class="text-right">
-                                Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}
-                            </td>
+                            {*<td style="width:100px;" class="text-right">*}
+                                {*Rp {($key['qty'] * ($key['price'] - $key['discount']))|number_format:0}*}
+                            {*</td>*}
                             {if $cache['value']['status_ppn'] == 1}
                                 <td style="width:100px;" class="text-right">
                                     {assign var=ppn value=$ppn+($key['qty'] * ($key['price'] - $key['discount'])*0.1 )}
@@ -236,23 +240,23 @@
                     <div class="row invoice-payment">
 
                         <div class="col-sm-4 pull-right">
-                            <h6>Summary:</h6>
+                            <h6>Ringkasan :</h6>
                             <table class="table">
                                 <tbody>
                                 <tr>
-                                    <th>DPP:</th>
+                                    <th>DPP :</th>
                                     <td class="text-right">Rp
                                         <span id="sum-total-text"><strong>{$total|number_format:0}</strong> </span>
                                     </td>
                                 </tr>
                                     <tr>
-                                        <th>PPn:</th>
+                                        <th>PPN:</th>
                                         <td class="text-right">Rp
                                             <span id="sum-ppn-text"><strong> {$ppn_total|number_format:0}</strong> </span>
                                         </td>
                                     </tr>
                                 <tr>
-                                    <th>Grand Total:</th>
+                                    <th>Grand Total :</th>
                                     <td class="text-right text-danger">
                                         <h6>Rp <span id="sum-grand_total-text">{($total+$ppn_total)|number_format:0} </span>
                                         </h6>
@@ -263,7 +267,7 @@
                             <div class="btn-group right-box">
                                 <button type="submit" name="save" class="btn block full-width btn-success"><i
                                             class="icon-checkmark">
-                                    </i> Checkout
+                                    </i> Simpan
                                 </button>
                             </div>
                         </div>
@@ -282,7 +286,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Daftar Product</h4>
+                    <h4 class="modal-title">Daftar Produk</h4>
                 </div>
 
                 <!-- New invoice template -->
@@ -294,14 +298,14 @@
                                 <tr>
                                     <th>Barcode</th>
                                     <th>Name</th>
-                                    {*<th>Kategori</th>*}
-                                    <th>Satuan</th>
-                                    <th>Isi</th>
+                                    <th>Kategori</th>>
                                     <th>Merek</th>
                                     <th>Ukuran</th>
-                                    <th>Sell Price</th>
-                                    <th>Stok</th>
-                                    <th>Action</th>
+                                    <th>Satuan</th>
+                                    <th>Isi</th
+                                    <th>Harga Jual</th>
+                                    <th>Stok Gudang</th>
+                                    <th>Pilihan</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -309,11 +313,11 @@
                                     <tr>
                                         <td>{$products['barcode']}</td>
                                         <td>{$products['name']}</td>
-                                        {*<td>{$products['category']}</td>*}
-                                        <td>{$products['unit']}</td>
-                                        <td>{$products['value']}</td>
+                                        <td>{$products['category']}</td>
                                         <td>{$products['brand']}</td>
                                         <td>{$products['size']}</td>
+                                        <td>{$products['unit']}</td>
+                                        <td>{$products['value']}</td>
                                         <td>Rp {$products['sell_price']|number_format:0}</td>
                                         <td>{$products['stock']}</td>
                                         <td>
@@ -340,7 +344,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Update Data <span id="update-text-name"></span></h4>
+                    <h4 class="modal-title">Ubah Data <span id="update-text-name"></span></h4>
                 </div>
 
                 <div class="panel panel-default">
@@ -355,7 +359,7 @@
                                 {if $cache['value']['type'] == 1}
                                     <div class="form-group">
                                         <div class="row">
-                                            <label class="col-sm-4 control-label">Qty: </label>
+                                            <label class="col-sm-4 control-label">Jumlah: </label>
 
                                             <div class="col-md-7 {if form_error('qty')}has-warning{/if}">
                                                 <input type="number" value="{set_value('qty')}" class="form-control"
@@ -368,7 +372,7 @@
 
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-sm-4 control-label">Harga: </label>
+                                        <label class="col-sm-4 control-label">Harga Jual : </label>
 
                                         <div class="col-md-7 {if form_error('price')}has-warning{/if}">
                                             <div class="input-group">
@@ -382,7 +386,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-sm-4 control-label">Diskon: </label>
+                                        <label class="col-sm-4 control-label">Diskon : </label>
 
                                         <div class="col-md-7 {if form_error('discount')}has-warning{/if}">
                                             <div class="input-group">
@@ -396,7 +400,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <input type="submit" class="btn btn-block btn-success" value="Submit">
+                                <input type="submit" class="btn btn-block btn-success" value="Ubah">
                             </div>
                         </form>
                     </div>

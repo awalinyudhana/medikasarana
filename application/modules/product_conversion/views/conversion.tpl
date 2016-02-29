@@ -29,14 +29,14 @@
                             <thead>
                             <tr>
                                 <th>Barcode</th>
-                                <th>Name</th>
-                                <th>Kategory</th>
-                                <th>Satuan</th>
-                                <th>Isi</th>
+                                <th>Nama Produk</th>
+                                <th>Kategori Produk</th>
                                 <th>Merek</th>
                                 <th>Ukuran</th>
+                                <th>Satuan</th>
+                                <th>Isi</th>
                                 <th>Stok</th>
-                                <th>Action</th>
+                                <th>Pilihan</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -45,10 +45,10 @@
                                     <td>{$products['barcode']}</td>
                                     <td>{$products['name']}</td>
                                     <td>{$products['category']}</td>
-                                    <td>{$products['unit']}</td>
-                                    <td>{$products['value']}</td>
                                     <td>{$products['brand']}</td>
                                     <td>{$products['size']}</td>
+                                    <td>{$products['unit']}</td>
+                                    <td>{$products['value']}</td>
                                     <td>{$products['stock']}</td>
                                     <td>
                                         <a href="{base_url('product-conversion/add/')}/{$products['id_product']}"

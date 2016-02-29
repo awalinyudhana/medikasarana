@@ -23,7 +23,7 @@
 
             <form action="{current_url()}" method="post" role="form">
                 <div class="form-group">
-                    <label>Piutang:</label>
+                    <label>Piutang :</label>
 
                     <div class="row">
                         <div class="col-md-4">
@@ -50,14 +50,14 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Tanggal Transaksi</th>
-                        <th>No Faktur</th>
+                        <th>No Faktur Jual</th>
+                        <th>Tanggal Faktur Jual</th>
                         <th>Nama Konsumen</th>
                         <th>Jatuh Tempo</th>
                         <th>Tagihan</th>
                         <th>Terbayar</th>
                         <th>Sisa Tagihan</th>
-                        <th>Bayar</th>
+                        <th>Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -67,8 +67,8 @@
                     {foreach $so as $key }
                         <tr>
                             <td>{$val}</td>
-                            <td>{$key->date}</td>
                             <td>{$key->id_sales_order}</td>
+                            <td>{$key->date}</td>
                             <td>{$key->name}</td>
                             <td>{$key->due_date}</td>
                             <td>Rp {$key->grand_total|number_format:0}</td>

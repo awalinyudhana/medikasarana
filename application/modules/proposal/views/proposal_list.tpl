@@ -26,12 +26,12 @@
                     <tr>
                         <th>No</th>
                         <th>No Proposal</th>
-                        <th>Nama Customer</th>
+                        <th>Nama Konsumen</th>
                         <th>Tanggal Pembuatan</th>
-                        <th>Penanngung Jawab</th>
+                        <th>Staff</th>
                         <th>Jenis Proposal</th>
-                        <th>PPn Status</th>
-                        <th width="300px">Action</th>
+                        <th>PPN Status</th>
+                        <th width="300px">Pilihan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -50,7 +50,7 @@
 
                                     <a href="{base_url('proposal/checkout')}/{$key->id_proposal}"
                                        class="button btn btn-warning ">
-                                        Detail
+                                        Rincian
                                     </a>
 
                                     {if $key->status == 0}
@@ -59,17 +59,17 @@
                                            onclick="return confirm('Proposal {$key->id_proposal} telah di terima oleh {$key->customer_name}')">
                                             Ganti status
                                         </a>
+                                        {if $key->type == 0}
+                                            <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
+                                               class="button btn btn-default ">
+                                                Ubah
+                                            </a>
+                                        {/if}
                                     {else}
                                         <a href="{base_url('sales-order/')}/{$key->id_proposal}"
                                            class="button btn btn-success ">
                                             Sales Order
                                         </a>
-                                        {if $key->type == 0}
-                                            <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
-                                               class="button btn btn-default ">
-                                                Edit
-                                            </a>
-                                        {/if}
                                     {/if}
                                     <a href="{base_url('proposal/usang')}/{$key->id_proposal}"
                                        class="button btn btn-primary "
