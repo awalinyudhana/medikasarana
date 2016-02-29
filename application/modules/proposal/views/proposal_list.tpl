@@ -64,12 +64,12 @@
                                            class="button btn btn-success ">
                                             Sales Order
                                         </a>
-                                    {/if}
-                                    {if $key->type == 0}
-                                        <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
-                                           class="button btn btn-default ">
-                                            Ubah
-                                        </a>
+                                        {*{if $key->type == 0}*}
+                                            <a href="{base_url('proposal/edit')}/{$key->id_proposal}"
+                                               class="button btn btn-default ">
+                                                Ubah
+                                            </a>
+                                        {*{/if}*}
                                     {/if}
                                     <a href="{base_url('proposal/usang')}/{$key->id_proposal}"
                                        class="button btn btn-primary "
