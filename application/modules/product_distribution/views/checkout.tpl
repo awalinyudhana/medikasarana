@@ -6,7 +6,7 @@
 <!-- New invoice template -->
 <div class="panel panel-success">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-checkmark3"></i> Product Distribution Invoice</h6>
+        <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksie</h6>
 
         <div class="dropdown pull-right">
             <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -39,10 +39,10 @@
 
             <div class="col-sm-3 pull-right">
                 <ul>
-                    <li>ID Distribution # <strong
+                    <li>No Distribution # <strong
                                 class="text-danger pull-right">{$distribution->id_product_distribution}</strong></li>
                     <li>Staff <strong class="pull-right">{$distribution->staff_name} </strong></li>
-                    <li>Date: <strong class="pull-right">{$distribution->date}</strong></li>
+                    <li>Tanggal distribusi <strong class="pull-right">{$distribution->date}</strong></li>
                 </ul>
             </div>
         </div>
@@ -53,13 +53,13 @@
                 <tr>
                     <th>No</th>
                     <th>Barcode</th>
-                    <th>Name</th>
-                    <th>Satuan</th>
-                    <th>Isi</th>
+                    <th>Nama Produk</th>
                     <th>Merek</th>
                     <th>Ukuran</th>
+                    <th>Satuan</th>
+                    <th>Isi</th>
                     <th>Harga</th>
-                    <th>Qty</th>
+                    <th>Jumlah</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,10 +71,10 @@
                         </td>
                         <td>{$key->barcode}</td>
                         <td>{$key->name}</td>
-                        <td>{$key->unit}</td>
-                        <td>{$key->value}</td>
                         <td>{$key->brand}</td>
                         <td>{$key->size}</td>
+                        <td>{$key->unit}</td>
+                        <td>{$key->value}</td>
                         <td width="120px"> Rp {$key->sell_price|number_format:0}</td>
                         <td>{$key->qty}</td>
                     </tr>
@@ -90,7 +90,7 @@
                 <div class="col-sm-4">
                     <div class="btn-group pull-right">
                         <a href="{base_url('product-distribution')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Product Distribution</a>
+                            <i class="icon-box-add"></i> Distribusi barang ke Toko</a>
                     </div>
                 </div>
             </div>

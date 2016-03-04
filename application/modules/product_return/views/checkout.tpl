@@ -6,7 +6,7 @@
 <!-- New invoice template -->
 <div class="panel panel-success">
     <div class="panel-heading">
-        <h6 class="panel-title"><i class="icon-checkmark3"></i> Product Return Invoice</h6>
+        <h6 class="panel-title"><i class="icon-checkmark3"></i> Rangkuman Transaksi</h6>
 
         <div class="dropdown pull-right">
             <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
@@ -39,10 +39,10 @@
 
             <div class="col-sm-3 pull-right">
                 <ul>
-                    <li>ID Proudct Return # <strong
+                    <li>ID Distribusi # <strong
                                 class="text-danger pull-right">{$master->id_product_return}</strong></li>
                     <li>Staff <strong class="pull-right">{$master->staff_name} </strong></li>
-                    <li>Date: <strong class="pull-right">{$master->date}</strong></li>
+                    <li>Tanggal <strong class="pull-right">{$master->date}</strong></li>
                 </ul>
             </div>
         </div>
@@ -53,12 +53,12 @@
                 <tr>
                     <th>No</th>
                     <th>Barcode</th>
-                    <th>Name</th>
-                    <th>Satuan</th>
-                    <th>Isi</th>
+                    <th>Nama Produk</th>
                     <th>Merek</th>
                     <th>Ukuran</th>
-                    <th>Qty</th>
+                    <th>Satuan</th>
+                    <th>Isi</th>
+                    <th>Jumlah</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -70,10 +70,10 @@
                         </td>
                         <td>{$key->barcode}</td>
                         <td>{$key->name}</td>
-                        <td>{$key->unit}</td>
-                        <td>{$key->value}</td>
                         <td>{$key->brand}</td>
                         <td>{$key->size}</td>
+                        <td>{$key->unit}</td>
+                        <td>{$key->value}</td>
                         <td>{$key->qty}</td>
                     </tr>
                     {assign var=val value=$val+1}
@@ -88,7 +88,7 @@
                 <div class="col-sm-4">
                     <div class="btn-group pull-right">
                         <a href="{base_url('product-returns')}" class="btn btn-info button">
-                            <i class="icon-box-add"></i> New Product Return</a>
+                            <i class="icon-box-add"></i> Distribusi Barang ke Gudang</a>
                     </div>
                 </div>
             </div>
