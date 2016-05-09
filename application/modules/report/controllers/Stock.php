@@ -19,7 +19,7 @@ class Stock extends MX_Controller
 
     public function index()
     {
-        $data['items'] = $this->ModStore->get($this->id_store);
+        $data['items'] = $this->ModStock->get($this->id_store);
         $this->parser->parse("stock.tpl", $data);
     }
 }

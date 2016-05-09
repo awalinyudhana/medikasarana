@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/report/controllers/Stock.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/report/models/ModStock.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/report/views/stock.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/acl.php" afterPath="$PROJECT_DIR$/application/config/acl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
-    </list>
+    <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="" />
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -79,21 +72,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="acl.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="acl.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/acl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6357616">
+            <state vertical-scroll-proportion="-12.0">
               <caret line="608" column="45" selection-start-line="608" selection-start-column="33" selection-end-line="608" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stock.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Stock.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/report/controllers/Stock.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.46357617">
+              <caret line="14" column="38" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -133,11 +126,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="git commit -am &quot;fixing word&quot;" />
-      <command text="git push origin master" />
-      <command text="git commit -am &quot;fixing word&quot;" />
-      <command text="git push origin master" />
-      <command text="git commit -am &quot;fixing word&quot;" />
       <command text="git push origin master" />
       <command text="git status" />
       <command text="git commit -am &quot;fixing word&quot;" />
@@ -158,6 +146,11 @@
       <command text="git commit -am &quot;iinvocie distribusi&quot;" />
       <command text="git push origin master" />
       <command text="git pull origin master" />
+      <command text="git add ." />
+      <command text="git commi -am &quot;report stok&quot;" />
+      <command text="git commit -am &quot;report stok&quot;" />
+      <command text="git status" />
+      <command text="git push origin master" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -217,9 +210,9 @@
         <option value="$PROJECT_DIR$/application/modules/product_distribution/views/checkout.tpl" />
         <option value="$PROJECT_DIR$/application/modules/report/views/stock.tpl" />
         <option value="$PROJECT_DIR$/application/modules/report/models/ModStock.php" />
-        <option value="$PROJECT_DIR$/application/modules/report/controllers/Stock.php" />
         <option value="$PROJECT_DIR$/application/config/acl.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/application/modules/report/controllers/Stock.php" />
       </list>
     </option>
   </component>
@@ -1030,18 +1023,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/report/controllers/Stock.php">
+    <entry file="file://$PROJECT_DIR$/application/config/acl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state vertical-scroll-proportion="-12.0">
+          <caret line="608" column="45" selection-start-line="608" selection-start-column="33" selection-end-line="608" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/acl.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/report/controllers/Stock.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6357616">
-          <caret line="608" column="45" selection-start-line="608" selection-start-column="33" selection-end-line="608" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.46357617">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="38" />
           <folding />
         </state>
       </provider>
