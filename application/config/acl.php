@@ -78,7 +78,8 @@ $config['module_list'] = [
     "credit" => "Hutang", 
     "debit" => "Piutang", 
     "extract" => "Pisah Faktur", 
-    "join" => "Gabung Faktur"
+    "join" => "Gabung Faktur",
+    "report_stock" => "Laporan Stok"
 ];
 $config['module_router'] =
     [
@@ -602,6 +603,10 @@ $config['module_router'] =
                             'module' => 'product_opname_store'
                         ]
                     ]
+                ], [
+                    'title' => 'Stok Produk',
+                    'url' => 'report/stock',
+                    'module' => 'report_stock'
                 ]
             ]
         ]               

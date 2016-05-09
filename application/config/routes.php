@@ -262,6 +262,7 @@ $route['report/mutasi-store'] = "report/MutasiStore";
 
 $route['report/retur-penjualan-retail'] = "report/ReturPenjualanRetail";
 $route['report/retur-penjualan'] = "report/ReturPenjualan";
+$route['report/stock'] = "report/Stock";
 // $route['report/retur-penjualan-retail/detail/(:num)'] = "report/ReturPenjualanRetail/detail/$1";
 // $route['report/retur-penjualan-pengadaan'] = "report/ReturPenjualan/pengadaan";
 // $route['report/retur-penjualan-tender'] = "report/ReturPenjualan/tender";
