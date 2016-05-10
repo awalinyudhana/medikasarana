@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="" />
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -107,8 +105,8 @@
       <file leaf-file-name="ModStock.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/report/models/ModStock.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7284768">
-              <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.794702">
+              <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -134,10 +132,6 @@
       <command text="git push origin master" />
       <command text="git commit -am &quot;fixing word&quot;" />
       <command text="git push origin master" />
-      <command text="git commit -am &quot;fixing word&quot;" />
-      <command text="git push origin master" />
-      <command text="git commit -am &quot;fixing word&quot;" />
-      <command text="git push origin master" />
       <command text="git status" />
       <command text="git commit -am &quot;edit tender&quot;" />
       <command text="git push origin master" />
@@ -150,6 +144,10 @@
       <command text="git status" />
       <command text="git push origin master" />
       <command text="git commit -am &quot;report stok&quot;" />
+      <command text="git push origin master" />
+      <command text="git commit -am &quot; query report stok&quot;" />
+      <command text="git push origin master" />
+      <command text="git commit -am &quot; query report stok&quot;" />
       <command text="git push origin master" />
       <command text="git commit -am &quot; query report stok&quot;" />
       <command text="git push origin master" />
@@ -1028,8 +1026,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/report/models/ModStock.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7284768">
-          <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.794702">
+          <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
           <folding />
         </state>
       </provider>
