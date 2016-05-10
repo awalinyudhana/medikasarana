@@ -14,12 +14,11 @@ class Stock extends MX_Controller
         parent::__construct();
         $this->acl->auth('report_stock');
         $this->load->model('ModStock');
-        $this->id_store = $this->config->item('id_store');
     }
 
     public function index()
     {
-        $data['items'] = $this->ModStock->get($this->id_store);
+        $data['items'] = $this->ModStock->get();
         $this->parser->parse("stock.tpl", $data);
     }
 }

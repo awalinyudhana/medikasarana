@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="" />
+    <list default="true" id="bbc99932-0be9-4e26-b66f-381c224967f9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="medikasarana.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -105,9 +107,12 @@
       <file leaf-file-name="ModStock.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/report/models/ModStock.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8278146">
-              <caret line="25" column="35" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="35" />
-              <folding />
+            <state vertical-scroll-proportion="0.46357617">
+              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+              <folding>
+                <marker date="1462882013000" expanded="true" signature="334:661" placeholder="select *, IF... product_store" />
+                <marker date="1462882013000" expanded="true" signature="334:662" placeholder="select *, IF... product_store" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,8 +133,6 @@
     <commandsHistory>
       <command text="git commit -am &quot;fixing word&quot;" />
       <command text="git push origin master" />
-      <command text="git commit -am &quot;fixing word&quot;" />
-      <command text="git push origin master" />
       <command text="git status" />
       <command text="git commit -am &quot;edit tender&quot;" />
       <command text="git push origin master" />
@@ -142,6 +145,8 @@
       <command text="git status" />
       <command text="git push origin master" />
       <command text="git commit -am &quot;report stok&quot;" />
+      <command text="git push origin master" />
+      <command text="git commit -am &quot; query report stok&quot;" />
       <command text="git push origin master" />
       <command text="git commit -am &quot; query report stok&quot;" />
       <command text="git push origin master" />
@@ -1026,9 +1031,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/report/models/ModStock.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8278146">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.46357617">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding>
+            <marker date="1462882013000" expanded="true" signature="334:661" placeholder="select *, IF... product_store" />
+            <marker date="1462882013000" expanded="true" signature="334:662" placeholder="select *, IF... product_store" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -16,20 +16,15 @@ class ModStock extends CI_Model
     }
 
 
-    public function get($id_store)
+    public function get()
     {
-        $this->db->query("select *, IF(ps.stock is null, 0, ps.stock) as stock_retail, p.stock as stock_warehouse
-from product_store ps
-right join product p on p.id_product = ps.id_product
-left join product_unit pu on pu.id_product_unit = p.id_product_unit
-left join product_category pc on pc.id_product_category = p.id_product_category WHERE id_store = $id_store");
 
-//        $this->db->select('*, IF(ps.stock is null, 0, ps.stock) as stock_retail, p.stock as stock_warehouse', false);
-//        $this->db->from('product p');
-//        $this->db->join('product_store ps', 'p.id_product = ps.id_product', 'right');
-//        $this->db->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit','left');
-//        $this->db->join('product_category pc', 'pc.id_product_category = p.id_product_category','left');
-//        $this->db->where(['id_store'=>$id_store]);
+        $this->db->select('*, IF(ps.stock is null, 0, ps.stock) as stock_retail, p.stock as stock_warehouse', false);
+        $this->db->from('product_store ps');
+        $this->db->join('product p', 'p.id_product = ps.id_product', 'right');
+        $this->db->join('product_unit pu', 'pu.id_product_unit = p.id_product_unit','left');
+        $this->db->join('product_category pc', 'pc.id_product_category = p.id_product_category','left');
+
         return $this->db->get()->result();
     }
 }
