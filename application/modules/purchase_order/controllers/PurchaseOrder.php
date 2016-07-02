@@ -159,26 +159,39 @@ class PurchaseOrder extends MX_Controller
                         $scan = base_url() . "upload/po/" . $file['file_name'];
 
 
-                        if($id_po =$this->cart->primary_data(array(
-                            'total' => $this->input->post('total'),
-                            'discount_price' => $this->input->post('discount_price'),
-                            'dpp' => $this->input->post('dpp'),
-                            'status_ppn' => $this->cache['value']['status_ppn'],
-                            'ppn' => $this->input->post('ppn'),
-                            'grand_total' => $this->input->post('grand_total'),
-                            'file' => $scan
-
-                        ))->save()){
-                            redirect('purchase-order/invoice/' . $id_po);
-                        }
+//                        if($id_po =$this->cart->primary_data(array(
+//                            'total' => $this->input->post('total'),
+//                            'discount_price' => $this->input->post('discount_price'),
+//                            'dpp' => $this->input->post('dpp'),
+//                            'status_ppn' => $this->cache['value']['status_ppn'],
+//                            'ppn' => $this->input->post('ppn'),
+//                            'grand_total' => $this->input->post('grand_total'),
+//                            'file' => $scan
+//
+//                        ))->save()){
+//                            redirect('purchase-order/invoice/' . $id_po);
+//                        }
                     }
 
 
-                    $this->session->set_flashdata('error',
-                        $this->upload->display_errors());
+//                    $this->session->set_flashdata('error', $this->upload->display_errors());
                 }else{
-                    $this->session->set_flashdata('error', "Mohon upload bukti pembelian");
+//                    $this->session->set_flashdata('error', "Mohon upload bukti pembelian");
                 }
+
+                if($id_po =$this->cart->primary_data(array(
+                    'total' => $this->input->post('total'),
+                    'discount_price' => $this->input->post('discount_price'),
+                    'dpp' => $this->input->post('dpp'),
+                    'status_ppn' => $this->cache['value']['status_ppn'],
+                    'ppn' => $this->input->post('ppn'),
+                    'grand_total' => $this->input->post('grand_total'),
+                    'file' => $scan
+
+                ))->save()){
+                    redirect('purchase-order/invoice/' . $id_po);
+                }
+
             }
         }
         $this->insertPOD();

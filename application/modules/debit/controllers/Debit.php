@@ -79,6 +79,7 @@ class Debit extends MX_Controller
                 if($this->input->post('payment_type') == "bg" && $this->input->post('date_withdrawal') == null){
                     $data['error'] = "Masukkan tanggal penarikan:";
                 }else{
+                    $scan = "default.jpg";
                     if (isset($_FILES['file']['size']) && ($_FILES['file']['size'] > 0)) {
                         $config['upload_path'] = './upload/debit';
                         $config['allowed_types'] = 'gif|jpg|png';
@@ -96,32 +97,27 @@ class Debit extends MX_Controller
                         }
                         $file = $this->upload->data();
                         $scan = base_url() . "upload/debit/" . $file['file_name'];
-
-                        $data_insert = array(
-                            'id_staff' => $this->id_staff,
-                            'id_sales_order' => $id_sales_order,
-                                'payment_type' => $this->input->post('payment_type'),
-                                'amount' => $this->input->post('amount'),
-                                'resi_number' => $this->input->post('resi_number'),
-                                'date_withdrawal' => $this->input->post('date_withdrawal') == "" ?
-                                    null : $this->input->post('date_withdrawal'),
-                                'status' => $this->input->post('payment_type') == "bg" ? 0 : 1,
-                            'file' => $scan
-                        );
-
-                        $this->db->insert('debit', $data_insert);
-
-        //                $this->db
-        //                    ->where('id_sales_order' , $id_sales_order)
-        //                    ->set('status_extract',0)
-        //                    ->update('sales_order');
-                        $this->session->set_flashdata('success', 'Data berhasil disimpan');
-                        redirect('debit');
-
                     }
                     else{
-                        $data['error'] = "Masukkan bukti pembayaran";
+//                        $data['error'] = "Masukkan bukti pembayaran";
                     }
+
+                    $data_insert = array(
+                        'id_staff' => $this->id_staff,
+                        'id_sales_order' => $id_sales_order,
+                        'payment_type' => $this->input->post('payment_type'),
+                        'amount' => $this->input->post('amount'),
+                        'resi_number' => $this->input->post('resi_number'),
+                        'date_withdrawal' => $this->input->post('date_withdrawal') == "" ?
+                            null : $this->input->post('date_withdrawal'),
+                        'status' => $this->input->post('payment_type') == "bg" ? 0 : 1,
+                        'file' => $scan
+                    );
+
+                    $this->db->insert('debit', $data_insert);
+
+                    $this->session->set_flashdata('success', 'Data berhasil disimpan');
+                    redirect('debit');
                 }
             }
         }
